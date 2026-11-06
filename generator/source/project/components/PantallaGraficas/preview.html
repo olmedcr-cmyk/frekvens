@@ -1,0 +1,33 @@
+<!-- @dsCard group="Pantallas" height=1020 width=1240 page subtitle="Gráficas: área en semitono, donut, dispersión, radar, osciloscopio, línea y mapa de calor" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>PantallaGraficas</title>
+<style>
+  .screens { display:flex; gap:var(--space-5); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .phone { position:relative; width:390px; height:800px; box-sizing:border-box; border-radius:48px; padding:var(--space-8) var(--space-5) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .card { box-sizing:border-box; border-radius:var(--radius-xl); background:var(--surface); padding:var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); margin:0; }
+  .wide { width:1180px; box-sizing:border-box; }
+  .row { display:flex; gap:var(--space-4); flex-wrap:wrap; align-items:center; }
+  .push { margin-top:auto; }
+ .charts { width:1180px; display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+  .charts .span2 { grid-column:span 2; }
+
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function G(){return h('div',{className:'charts'},
+  h('div',{className:'card span2'},h(F.Stack,{direction:'row',justify:'space-between',align:'center'},h(F.Text,{variant:'title',sub:'kWh por día'},'Consumo'),h(F.Segmented,{label:'Periodo',defaultValue:'m',options:[{value:'s',label:'Semana'},{value:'m',label:'Mes'},{value:'a',label:'Año'}]})),
+   h(F.AreaChart,{width:720,height:220,label:'Consumo',series:[{label:'Este mes',data:[12,18,15,24,30,26,34,40,36,44,41,38],tone:'rams'},{label:'Mes pasado',data:[10,12,14,16,20,18,22,24,26,28,27,25],tone:'ink'}],labels:['1','','','','','15','','','','','','30']})),
+  h('div',{className:'card'},h(F.Text,{variant:'title'},'Gasto'),h(F.DonutChart,{label:'Gasto',value:'842',caption:'€ este mes',segments:[{label:'Casa',value:420,tone:'ink'},{label:'Comida',value:210,tone:'rams'},{label:'Ocio',value:120,tone:'sol'},{label:'Otros',value:92,tone:'klein'}]})),
+  h('div',{className:'card'},h(F.Text,{variant:'title'},'Sesiones'),h(F.Scatter,{width:340,height:240,label:'Sesiones',xLabel:'min',yLabel:'kcal',points:[{x:20,y:180},{x:30,y:260},{x:45,y:380,size:9,tone:'rams',label:'Récord'},{x:25,y:200},{x:50,y:330},{x:35,y:290},{x:60,y:470,tone:'klein',size:8},{x:40,y:300},{x:15,y:120}]})),
+  h('div',{className:'card'},h(F.Text,{variant:'title'},'Perfil'),h(F.RadarChart,{size:280,label:'Perfil',axes:['Fuerza','Cardio','Movilidad','Técnica','Constancia','Descanso'],series:[{label:'Tú',data:[0.8,0.55,0.4,0.7,0.9,0.5]},{label:'Media',data:[0.6,0.6,0.6,0.6,0.6,0.6]}]})),
+  h('div',{className:'card'},h(F.Text,{variant:'title'},'Pulso'),h(F.Scope,{width:340,height:160,caption:'ECG simulado',frequency:3,amplitude:0.7}),h(F.Stat,{label:'Media',value:'64',unit:' lpm',delta:'-2 %',inverse:true,trend:[70,68,67,66,65,64]})),
+  h('div',{className:'card span2'},h(F.Text,{variant:'title'},'Semana'),h(F.LineChart,{width:720,height:160,data:[4,6,5,8,7,9,6],labels:['L','M','X','J','V','S','D'],now:5,unit:'km',label:'Kilómetros'})),
+  h('div',{className:'card'},h(F.Text,{variant:'title'},'Horas pico'),h(F.Heatmap,{data:Array.from({length:84},function(_,i){return Math.round(Math.abs(Math.sin(i*0.7))*10);}),rows:7,cell:22,tone:'rams',label:'Uso por hora'})));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(G)));
+</script>
+</body>
+</html>

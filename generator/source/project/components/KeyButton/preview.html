@@ -1,0 +1,18 @@
+<!-- @dsCard group="Botonera" height=232 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>KeyButton — preview</title></head>
+<body>
+<div id="root" class="frk-pad frk-row-flex"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment,null,
+ h(C.KeyButton,{tone:'rams',size:'xl',label:'Tabata',icon:'play'},'Start'),
+ h(C.KeyButton,{tone:'klein',size:'l',label:'Series'},'8'),
+ h(C.KeyButton,{tone:'paper',size:'l',label:'Trabajo'},'20s'),
+ h(C.KeyButton,{tone:'ink',label:'Pausa',icon:'pause'}),
+ h(C.KeyButton,{tone:'sol',shape:'round',icon:'plus','aria-label':'Añadir'}),
+ h(C.KeyButton,{tone:'ink',shape:'pill'},'Continuar')));
+</script>
+</body>
+</html>

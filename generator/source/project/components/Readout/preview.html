@@ -1,0 +1,12 @@
+<!-- @dsCard group="Instrumentos" height=230 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Readout — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'frk-row-flex',style:{gap:'48px',alignItems:'flex-start'}},h(C.Readout,{label:'Trabajo · Serie 3/8',value:'00:20',meta:'TABATA · 20/10'}),h(C.Readout,{size:'display',label:'Total',value:'1h24',unit:'min'})));
+</script>
+</body>
+</html>

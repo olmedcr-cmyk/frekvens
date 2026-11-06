@@ -1,0 +1,12 @@
+<!-- @dsCard group="Gráficas" height=340 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>RadarChart — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.RadarChart,{label:'Perfil',axes:['Fuerza','Cardio','Movilidad','Técnica','Constancia','Descanso'],series:[{label:'Tú',data:[0.8,0.55,0.4,0.7,0.9,0.5]},{label:'Media',data:[0.6,0.6,0.6,0.6,0.6,0.6]}]}));
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Medios" height=140 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Ticker — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'8px',maxWidth:'620px'}},h(F.Ticker,{label:'Clases',items:[{label:'TABATA',value:'07:30',delta:'+3 plazas'},{label:'FUERZA',value:'18:00',delta:'-1 plaza'},{label:'MOVILIDAD',value:'19:30'},{label:'CARDIO',value:'20:15',delta:'+5'}]}),h(F.Ticker,{tone:'surface',speed:20,items:['Nueva rutina de cadera','Sala 2 cerrada el lunes','Racha media: 6 días']})));
+</script>
+</body>
+</html>

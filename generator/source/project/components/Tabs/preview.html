@@ -1,0 +1,14 @@
+<!-- @dsCard group="Formularios" height=300 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Tabs — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'32px',maxWidth:'520px'}},
+ h(F.Tabs,{label:'Vista',tabs:[{id:'d',label:'Día'},{id:'s',label:'Semana',count:5},{id:'m',label:'Mes'}],defaultValue:'s'}),
+ h(F.Tabs,{variant:'folder',label:'Archivo',defaultValue:'b',tabs:[{id:'a',label:'2024',content:'Sin sesiones.'},{id:'b',label:'2025',tone:'sol',content:'48 sesiones · 1.920 minutos'},{id:'c',label:'2026',tone:'klein-soft',content:'Año en curso.'}]})));
+</script>
+</body>
+</html>

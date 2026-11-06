@@ -1,0 +1,12 @@
+<!-- @dsCard group="Formularios" height=200 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Checkbox — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Stack,{gap:1},h(F.Checkbox,{label:'Recordarme 1 h antes',defaultChecked:true}),h(F.Checkbox,{label:'Todas las salas',indeterminate:true,hint:'2 de 3 seleccionadas'}),h(F.Checkbox,{label:'Clases online',disabled:true})));
+</script>
+</body>
+</html>

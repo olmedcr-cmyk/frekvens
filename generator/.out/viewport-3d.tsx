@@ -36,12 +36,12 @@ export function Viewport3D(p?: any): any {
       y: 0,
     },
   }
-  useEffect(function () {
+  useEffect(function (): any {
     var el: any = ref.current
     if (!el) return
-    function w(e?: any) {
+    function w(e?: any): any {
       e.preventDefault()
-      setV(function (o?: any) {
+      setV(function (o?: any): any {
         return Object.assign({}, o, {
           z: clamp(o.z * (e.deltaY > 0 ? 0.92 : 1.08), 0.5, 2),
         })
@@ -50,7 +50,7 @@ export function Viewport3D(p?: any): any {
     el.addEventListener("wheel", w, {
       passive: false,
     })
-    return function () {
+    return function (): any {
       el.removeEventListener("wheel", w)
     }
   }, [])
@@ -58,7 +58,7 @@ export function Viewport3D(p?: any): any {
     s2: any = size / 2,
     tone: any = p.tone || "rams",
     shape: any = p.shape || "cube"
-  function face(tf?: any, t?: any, k?: any) {
+  function face(tf?: any, t?: any, k?: any): any {
     return (
       <span
         key={k}
@@ -73,7 +73,7 @@ export function Viewport3D(p?: any): any {
   }
   var obj: any =
     shape === "stack"
-      ? range(3).map(function (i?: any) {
+      ? range(3).map(function (i?: any): any {
           return (
             <span
               key={i}
@@ -111,7 +111,7 @@ export function Viewport3D(p?: any): any {
         style={{
           height: p.height || 320,
         }}
-        onPointerDown={function (e?: any) {
+        onPointerDown={function (e?: any): any {
           drag.current = {
             x: e.clientX,
             y: e.clientY,
@@ -119,7 +119,7 @@ export function Viewport3D(p?: any): any {
           }
           e.currentTarget.setPointerCapture(e.pointerId)
         }}
-        onPointerMove={function (e?: any) {
+        onPointerMove={function (e?: any): any {
           if (!drag.current) return
           var d: any = drag.current
           setV({
@@ -128,10 +128,10 @@ export function Viewport3D(p?: any): any {
             z: d.v.z,
           })
         }}
-        onPointerUp={function () {
+        onPointerUp={function (): any {
           drag.current = null
         }}
-        onKeyDown={function (e?: any) {
+        onKeyDown={function (e?: any): any {
           var k: any = e.key,
             dv: any = (
               {
@@ -203,7 +203,7 @@ export function Viewport3D(p?: any): any {
             },
           ]}
           value={null}
-          onChange={function (k?: any) {
+          onChange={function (k?: any): any {
             setV(
               Object.assign({}, presets[k], {
                 z: v.z,

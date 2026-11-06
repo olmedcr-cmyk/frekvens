@@ -1,0 +1,12 @@
+<!-- @dsCard group="Base" height=110 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Avatar — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Stack,{direction:'row',gap:3,align:'center'},h(F.Avatar,{name:'Marta Ruiz',status:'online'}),h(F.Avatar,{name:'Kraft',tone:'rams',status:'live',size:56}),h(F.Avatar,{name:'Cris Olmedo',tone:'klein',size:40,status:'away'}),h(F.Avatar,{name:'Sala 2',tone:'sol',size:32})));
+</script>
+</body>
+</html>

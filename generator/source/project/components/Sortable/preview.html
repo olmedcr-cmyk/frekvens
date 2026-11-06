@@ -1,0 +1,12 @@
+<!-- @dsCard group="Arrastre" height=360 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Sortable — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Sortable,{label:'Prioridades',items:[{id:'a',title:'Llamar al proveedor',meta:'Hoy'},{id:'b',title:'Revisar el plano de la sala',meta:'Mañana',tag:'Plano'},{id:'c',title:'Pedir teclas de repuesto',meta:'Viernes'},{id:'d',title:'Grabar la demo',meta:'Sin fecha'}]}));
+</script>
+</body>
+</html>

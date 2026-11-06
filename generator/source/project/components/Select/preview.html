@@ -1,0 +1,14 @@
+<!-- @dsCard group="Formularios" height=360 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Select — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'frk-row-flex',style:{gap:'16px',alignItems:'flex-start'}},
+ h(F.Select,{label:'Modalidad',defaultOpen:true,defaultValue:'grupo',options:[{value:'grupo',label:'Grupo',meta:'12 PLAZAS'},{value:'solo',label:'Solo',meta:'1:1'},{value:'online',label:'Online',meta:'EN VIVO'},{value:'pausa',label:'Pausada',disabled:true}]}),
+ h(F.Select,{label:'Duración',placeholder:'Elige minutos',options:['20 min','30 min','45 min','60 min'],hint:'Puedes cambiarla luego.'})));
+</script>
+</body>
+</html>

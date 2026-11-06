@@ -1,0 +1,13 @@
+<!-- @dsCard group="Controles" height=252 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Dial — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'frk-row-flex',style:{gap:'40px'}},
+ h(C.Dial,{label:'PWR',defaultValue:4,size:140}),h(C.Dial,{label:'TCS',defaultValue:6,size:140}),h(C.Dial,{label:'RPE',defaultValue:7,max:10,size:140,tone:'klein'})));
+</script>
+</body>
+</html>

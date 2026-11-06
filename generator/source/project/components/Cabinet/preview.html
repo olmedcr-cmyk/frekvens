@@ -1,0 +1,16 @@
+<!-- @dsCard group="Superficies" height=380 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Cabinet — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'440px'}},h(F.Cabinet,{defaultValue:1,drawers:[
+ {label:'Sesiones',meta:'48',tone:'surface',content:'Todas tus sesiones desde enero.'},
+ {label:'Pagos',meta:'12 €',tone:'sol',content:h(F.ListRow,{index:'03',title:'Fuerza 1:1',detail:'5 nov',value:'12 €'})},
+ {label:'Bonos',meta:'2',tone:'tabaco',content:'Bono 10 sesiones · quedan 4.'},
+ {label:'Ajustes',tone:'surface',content:'Unidades, sonidos, notificaciones.'}]})));
+</script>
+</body>
+</html>

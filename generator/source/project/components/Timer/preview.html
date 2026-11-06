@@ -1,0 +1,12 @@
+<!-- @dsCard group="Tiempo" height=420 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Timer — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'frk-row-flex',style:{gap:'40px'}},h(F.Timer,{duration:45,autoStart:true,label:'Trabajo'}),h(F.Timer,{duration:4,autoStart:true,size:200,label:'Cuenta'})));
+</script>
+</body>
+</html>

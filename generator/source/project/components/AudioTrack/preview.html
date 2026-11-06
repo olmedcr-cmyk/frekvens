@@ -1,0 +1,12 @@
+<!-- @dsCard group="Medios" height=140 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>AudioTrack — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'8px',maxWidth:'460px'}},h(F.AudioTrack,{title:'Nota de Marta · técnica',duration:48,autoPlay:true}),h(F.AudioTrack,{title:'Respiración 4-7-8',tone:'sol',duration:240,seed:3})));
+</script>
+</body>
+</html>

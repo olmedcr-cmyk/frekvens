@@ -1,0 +1,35 @@
+<!-- @dsCard group="Pantallas" height=860 page subtitle="Capturar el momento: tecla de captura, espacio con IA, grabadora, cámara y notas" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>PantallaCaptura</title>
+<style>
+  .screens { display:flex; gap:var(--space-6); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .phone { position:relative; width:390px; height:800px; box-sizing:border-box; border-radius:48px; padding:var(--space-8) var(--space-5) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .tablet { position:relative; width:1180px; height:820px; box-sizing:border-box; border-radius:36px; padding:var(--space-4); display:flex; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .main { flex:1; min-width:0; display:flex; flex-direction:column; gap:var(--space-4); }
+  .row { display:flex; gap:var(--space-2); }
+  .push { margin-top:auto; }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+ .mem { display:flex; flex-direction:column; gap:var(--space-2); overflow:auto; }
+  .ph { height:150px; border-radius:var(--radius-lg); background:#0e0e0d; display:flex; align-items:center; justify-content:center; --paper:#f2f0ea; --dot-off:#2b2925; position:relative; overflow:hidden; }
+  .ph .frk-chip { position:absolute; left:12px; bottom:12px; }
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function Space(){var c=React.useState([]),caps=c[0];
+ return h('div',{className:'phone'},h(F.Text,{variant:'display-xl',sub:(3+caps.length)+' capturas'},'Hoy'),
+  h('div',{className:'mem'},
+   caps.map(function(x,i){return h(F.Banner,{key:i,tone:'ok'},x.kind==='voice'?'Nota de voz guardada · la IA la resumirá':'Captura guardada');}),
+   h('div',{className:'ph'},h(F.DotMatrix,{shape:'sun',grid:13,dot:7,pitch:11,tone:'paper',showOff:true,label:'Foto de la terraza'}),h(F.Chip,{tone:'sol'},'Foto · 09:12')),
+   h(F.Message,{role:'assistant',meta:'Resumen IA'},'Terraza al sol: idea de portada con el disco amarillo. Relacionado con «Ideas · Frekvens».'),
+   h(F.AudioTrack,{title:'Paseo · idea notch',duration:42,seed:4,tone:'surface',speed:false})),
+  h('div',{className:'push',style:{alignSelf:'center'}},h(F.CaptureKey,{onCapture:function(x){c[1]([x].concat(caps));}})));}
+function Rec(){return h('div',{className:'phone'},h(F.Text,{variant:'display-xl',sub:'Notas de voz'},'Grabadora'),h(F.Recorder,{takes:[{title:'Reunión · Vidiv',duration:312,at:'10:40'},{title:'Idea · portada',duration:34,at:'09:12'}]}),
+  h(F.Message,{role:'assistant',meta:'Transcripción'},'«…la isla crece con un rebote corto y vuelve a ser píldora cuando termina…»'));}
+function Cam(){return h('div',{className:'phone',style:{background:'#0e0e0d',padding:'48px 12px 12px'}},h(F.Viewfinder,{defaultMode:'foto',shots:3,ratio:'3 / 4.6'}));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(Space),h(Rec),h(Cam)));
+</script>
+</body>
+</html>

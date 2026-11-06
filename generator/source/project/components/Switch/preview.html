@@ -1,0 +1,14 @@
+<!-- @dsCard group="Controles" height=300 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Switch — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'16px',maxWidth:'360px'}},
+  h('div',{style:{display:'flex',gap:'16px',flexWrap:'wrap'}},h(C.Switch,{label:'Sonido',defaultChecked:true}),h(C.Switch,{label:'Vibración'}),h(C.Switch,{label:'Bloqueado',disabled:true})),
+  h(C.Switch,{label:'Modo noche',showLabel:true,defaultChecked:true}),h(C.Switch,{label:'Avisar al empezar',showLabel:true})));
+</script>
+</body>
+</html>

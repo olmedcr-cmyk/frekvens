@@ -1,0 +1,12 @@
+<!-- @dsCard group="Instrumentos" height=230 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>LineChart — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'420px'}},h(F.LineChart,{data:[12,14,13,17,22,26,24,21,18],labels:['6','8','10','12','AHORA','16','18','20','22'],now:4,unit:'°',label:'Temperatura',caption:'Temperatura · hoy'})));
+</script>
+</body>
+</html>

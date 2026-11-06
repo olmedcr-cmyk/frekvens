@@ -1,0 +1,249 @@
+{
+ "v": 3,
+ "layout": "files",
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-11-05T09:58:50Z"
+ },
+ "title": "Frekvens",
+ "namespace": "Frekvens",
+ "libraries": [
+  {
+   "name": "react",
+   "version": "18"
+  },
+  {
+   "name": "react-dom",
+   "version": "18"
+  }
+ ],
+ "sections": {},
+ "groups": [
+  "Iconos",
+  "Media"
+ ],
+ "assetGroups": {
+  "Iconos": {
+   "name": "Iconos",
+   "tile": "s",
+   "order": [
+    "play.svg",
+    "pause.svg",
+    "stop.svg",
+    "rec.svg",
+    "plus.svg",
+    "minus.svg",
+    "arrow-right.svg",
+    "arrow-left.svg",
+    "arrow-up-right.svg",
+    "chevron-down.svg",
+    "close.svg",
+    "check.svg",
+    "timer.svg",
+    "power.svg",
+    "lock.svg",
+    "dots.svg",
+    "home.svg",
+    "drop.svg",
+    "sun.svg",
+    "flag.svg",
+    "refresh.svg",
+    "mic.svg",
+    "arrow-up.svg",
+    "copy.svg",
+    "volume.svg",
+    "volume-off.svg",
+    "expand.svg"
+   ],
+   "files": {
+    "play.svg": {
+     "name": "play.svg",
+     "blob": "c105b9930105907b6052bc5eab34cc81",
+     "size": 252,
+     "type": "image/svg+xml"
+    },
+    "pause.svg": {
+     "name": "pause.svg",
+     "blob": "bbaf87560ba493096e7d30c3b53cc124",
+     "size": 336,
+     "type": "image/svg+xml"
+    },
+    "stop.svg": {
+     "name": "stop.svg",
+     "blob": "fe612db3d3cf8c2f54deec643fba97a4",
+     "size": 260,
+     "type": "image/svg+xml"
+    },
+    "rec.svg": {
+     "name": "rec.svg",
+     "blob": "df271741d77160d21d22ab54524dab45",
+     "size": 251,
+     "type": "image/svg+xml"
+    },
+    "plus.svg": {
+     "name": "plus.svg",
+     "blob": "ee9f7fc15595924559fff47cc374d5f2",
+     "size": 217,
+     "type": "image/svg+xml"
+    },
+    "minus.svg": {
+     "name": "minus.svg",
+     "blob": "791188243d2029748a7a586dde3fcf7f",
+     "size": 209,
+     "type": "image/svg+xml"
+    },
+    "arrow-right.svg": {
+     "name": "arrow-right.svg",
+     "blob": "ff1bcc75a9f1e4f6c3d7de1ff970a374",
+     "size": 222,
+     "type": "image/svg+xml"
+    },
+    "arrow-left.svg": {
+     "name": "arrow-left.svg",
+     "blob": "df56d85e88cc1c25f68b99e25eaeebcb",
+     "size": 223,
+     "type": "image/svg+xml"
+    },
+    "arrow-up-right.svg": {
+     "name": "arrow-up-right.svg",
+     "blob": "1dba28d265399fd22e96c891c8869282",
+     "size": 219,
+     "type": "image/svg+xml"
+    },
+    "chevron-down.svg": {
+     "name": "chevron-down.svg",
+     "blob": "c87147f3a5723fa0757daac33013930f",
+     "size": 213,
+     "type": "image/svg+xml"
+    },
+    "close.svg": {
+     "name": "close.svg",
+     "blob": "d11dfdf4d3ce7623e3d1103aadb0af94",
+     "size": 221,
+     "type": "image/svg+xml"
+    },
+    "check.svg": {
+     "name": "check.svg",
+     "blob": "e7c23a20dc07c723d09cf4ab75d44b97",
+     "size": 228,
+     "type": "image/svg+xml"
+    },
+    "timer.svg": {
+     "name": "timer.svg",
+     "blob": "b025500bec97b4553946dcf80b011296",
+     "size": 262,
+     "type": "image/svg+xml"
+    },
+    "power.svg": {
+     "name": "power.svg",
+     "blob": "c923eda0f779e75cb9fe2ca388842005",
+     "size": 236,
+     "type": "image/svg+xml"
+    },
+    "lock.svg": {
+     "name": "lock.svg",
+     "blob": "3ae93cd42941fe696ada64ff398a8ebc",
+     "size": 272,
+     "type": "image/svg+xml"
+    },
+    "dots.svg": {
+     "name": "dots.svg",
+     "blob": "1bb0ccefcb650ff5728c4b14bb54a9d0",
+     "size": 807,
+     "type": "image/svg+xml"
+    },
+    "home.svg": {
+     "name": "home.svg",
+     "blob": "0738f13b6a4227816daf293fd88ca364",
+     "size": 220,
+     "type": "image/svg+xml"
+    },
+    "drop.svg": {
+     "name": "drop.svg",
+     "blob": "ba9b5efeee04d2ca11d8cad94c06ce1a",
+     "size": 257,
+     "type": "image/svg+xml"
+    },
+    "sun.svg": {
+     "name": "sun.svg",
+     "blob": "43474d16afde002d2b35c253bb847cfb",
+     "size": 377,
+     "type": "image/svg+xml"
+    },
+    "flag.svg": {
+     "name": "flag.svg",
+     "blob": "13901bd51a862da07f081c1b4be003cd",
+     "size": 222,
+     "type": "image/svg+xml"
+    },
+    "refresh.svg": {
+     "name": "refresh.svg",
+     "blob": "8fd0f18e431b438dcac9a77a3190ec9c",
+     "size": 243,
+     "type": "image/svg+xml"
+    },
+    "mic.svg": {
+     "name": "mic.svg",
+     "blob": "d926fc0ab9003c772ce0cd6058db6ea2",
+     "size": 292,
+     "type": "image/svg+xml"
+    },
+    "arrow-up.svg": {
+     "name": "arrow-up.svg",
+     "blob": "bf020cbe2879b87ae18eeea5196712e8",
+     "size": 222,
+     "type": "image/svg+xml"
+    },
+    "copy.svg": {
+     "name": "copy.svg",
+     "blob": "c80110ad0de76056e540d7e958404b83",
+     "size": 263,
+     "type": "image/svg+xml"
+    },
+    "volume.svg": {
+     "name": "volume.svg",
+     "blob": "1d3c7fc5bd3386ed062038e65fa65af2",
+     "size": 316,
+     "type": "image/svg+xml"
+    },
+    "volume-off.svg": {
+     "name": "volume-off.svg",
+     "blob": "8e9acefbbf7b8e7e762e04a8f988f970",
+     "size": 288,
+     "type": "image/svg+xml"
+    },
+    "expand.svg": {
+     "name": "expand.svg",
+     "blob": "0889a0f8a6fe32bd872fcdc7c96023a9",
+     "size": 239,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Media": {
+   "name": "Media",
+   "tile": "l",
+   "order": [
+    "frekvens-demo.mp4"
+   ],
+   "files": {
+    "frekvens-demo.mp4": {
+     "name": "frekvens-demo.mp4",
+     "blob": "79d841c39ba002deb38253799d557231",
+     "size": 39790,
+     "type": "video/mp4"
+    }
+   }
+  }
+ },
+ "blobs": {},
+ "docs": {
+  "sections": []
+ },
+ "lastChange": {
+  "by": "Cris Olmedo",
+  "at": "2026-11-06T12:10:00Z",
+  "via": "Cowork",
+  "note": "Switch y Segmented con piezas que viajan (muelle con impulso), detalle fino en toda la librería (foco que se cierra, hover de un paso, ✓ que se traza, sombras cercanas), curvas ease-settle y ease-press, y paquete React @crisolmedo/frekvens; 0 infracciones en 290 páginas, 34/34 pruebas."
+ }
+}

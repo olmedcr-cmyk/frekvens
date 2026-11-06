@@ -1,0 +1,14 @@
+<!-- @dsCard group="Controles" height=100 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Segmented — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'frk-row-flex',style:{gap:'16px'}},
+ h(C.Segmented,{label:'Navegación',options:[{value:'home',label:'Home'},{value:'lock',icon:'lock',ariaLabel:'Bloquear'}]}),
+ h(C.Segmented,{label:'Día',options:['Hoy','Mañana','Semana']})));
+</script>
+</body>
+</html>

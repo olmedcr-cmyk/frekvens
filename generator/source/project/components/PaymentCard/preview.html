@@ -1,0 +1,12 @@
+<!-- @dsCard group="Superficies" height=260 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>PaymentCard — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Stack,{direction:'row',gap:4,wrap:true},h(F.PaymentCard,{last4:'2047',name:'Cris Olmedo',expiry:'09/29'}),h(F.PaymentCard,{tone:'ink',last4:'8810',name:'Cris Olmedo',expiry:'02/28',frozen:true})));
+</script>
+</body>
+</html>

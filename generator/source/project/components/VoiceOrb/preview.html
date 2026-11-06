@@ -1,0 +1,12 @@
+<!-- @dsCard group="Conversación" height=290 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>VoiceOrb — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'frk-row-flex',style:{gap:'32px'}},h(F.VoiceOrb,{state:'idle',size:150}),h(F.VoiceOrb,{state:'listening',size:150,level:.8}),h(F.VoiceOrb,{state:'thinking',size:150,tone:'klein'}),h(F.VoiceOrb,{state:'speaking',size:150,tone:'rams',level:.7})));
+</script>
+</body>
+</html>

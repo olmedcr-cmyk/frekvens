@@ -1,0 +1,12 @@
+<!-- @dsCard group="Botonera" height=200 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>HoldButton — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'frk-row-flex',style:{gap:'24px'}},h(F.HoldButton,{label:'Terminar entreno'},'Terminar'),h(F.HoldButton,{tone:'rec',icon:'close',size:96,label:'Borrar sesión'},'Borrar')));
+</script>
+</body>
+</html>

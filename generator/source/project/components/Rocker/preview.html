@@ -1,0 +1,12 @@
+<!-- @dsCard group="Botonera" height=200 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Rocker — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Rocker,{label:'Máquina',items:[{label:'Sonido',icon:'volume',on:true},{label:'Pantalla',icon:'sun',tone:'sol'},{label:'Grabar',icon:'rec',on:true}]}));
+</script>
+</body>
+</html>

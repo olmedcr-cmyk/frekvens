@@ -1,0 +1,12 @@
+<!-- @dsCard group="Puntos" height=110 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>StateMark — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'14px'}},h(C.StateMark,{state:'empty',size:32},'Colour'),h(C.StateMark,{state:'partial',size:32},'Material'),h(C.StateMark,{state:'full',size:32},'Finish')));
+</script>
+</body>
+</html>

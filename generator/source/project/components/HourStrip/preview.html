@@ -1,0 +1,13 @@
+<!-- @dsCard group="Instrumentos" height=250 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>HourStrip — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+var pr=[.09,.08,.07,.07,.07,.08,.11,.15,.19,.17,.14,.12,.10,.10,.11,.13,.16,.21,.24,.23,.19,.15,.12,.10];
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'520px'}},h(F.HourStrip,{prices:pr,now:14})));
+</script>
+</body>
+</html>

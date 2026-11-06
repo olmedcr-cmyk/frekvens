@@ -1,0 +1,33 @@
+<!-- @dsCard group="Pantallas" height=880 width=1260 page subtitle="Estadísticas: tendencias, estados, cuotas, reparto y proyección" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>PantallaStats</title>
+<style>
+  .screens { display:flex; gap:var(--space-5); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .card { width:380px; box-sizing:border-box; border-radius:var(--radius-xl); background:var(--surface); padding:var(--space-6) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); }
+  .or { display:flex; align-items:center; gap:var(--space-3); font:500 11px/14px var(--font-mono); letter-spacing:.08em; color:var(--ink-muted); }
+  .or::before, .or::after { content:''; flex:1; height:1px; background:var(--line); }
+  .small { font:400 13px/18px var(--font-sans); color:var(--ink-muted); text-align:center; margin:0; }
+  .small a { color:var(--klein-ink); font-weight:700; }
+  .frame { position:relative; width:440px; height:440px; border-radius:var(--radius-xl); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); margin-top:var(--space-2); }
+  .grid3 { display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-2); }
+  .wide { width:1180px; box-sizing:border-box; }
+
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h('div',{className:'wide',style:{display:'grid',gap:'8px'}},
+ h('div',{className:'grid3',style:{gridTemplateColumns:'repeat(4,1fr)'}},h(F.Stat,{label:'Ingresos',value:'18,4',unit:'k €',delta:'+12 %',trend:[3,4,4,6,5,7,9],previous:'16,4 k'}),h(F.Stat,{label:'Socios activos',value:'612',delta:'+4 %',trend:[5,6,5,7,7,8,8]}),h(F.Stat,{label:'Bajas',value:'14',delta:'-22 %',inverse:true,trend:[9,8,8,7,6,5,4]}),h(F.Stat,{label:'Ticket medio',value:'31',unit:' €',delta:'-1 %',trend:[6,6,5,6,5,5,5],link:{label:'Ver'}})),
+ h('div',{className:'grid3'},h(F.Stat,{label:'Norte',value:'84',unit:' %',status:'ok',delta:'+3 %',link:{label:'Ver región'}}),h(F.Stat,{label:'Centro',value:'71',unit:' %',status:'warn',tone:'sol',delta:'-2 %',link:{label:'Ver región'}}),h(F.Stat,{label:'Sur',value:'48',unit:' %',status:'risk',delta:'-9 %',link:{label:'Ver región'}})),
+ h('div',{className:'grid3'},
+  h('div',{className:'frk-stat frk-tone--surface'},h(F.Text,{variant:'headline',as:'h2',sub:'Últimos 30 días'},'Uso del plan'),h(F.UsageMeter,{label:'Reservas',used:996,limit:10000}),h(F.UsageMeter,{label:'Minutos de voz',used:7600,limit:10000}),h(F.UsageMeter,{label:'Almacenamiento',used:46,limit:50,unit:'GB',action:{label:'Ampliar'}})),
+  h('div',{className:'frk-stat frk-tone--surface'},h(F.Text,{variant:'headline',as:'h2',sub:'46 de 50 GB'},'Almacenamiento'),h(F.SplitBar,{segments:[{label:'Vídeos',value:24},{label:'Fotos',value:12},{label:'Audio',value:6},{label:'Docs',value:4},{label:'Libre',value:4,tone:'well'}],format:function(v){return v+' GB';}})),
+  h('div',{className:'frk-stat frk-tone--surface'},h(F.Text,{variant:'headline',as:'h2'},'Presupuesto por área'),h(F.Stack,{direction:'row',gap:4,justify:'space-around'},h(F.ProgressRing,{value:25,size:84,label:'Marketing'},'250 €'),h(F.ProgressRing,{value:78,size:84,tone:'klein',label:'Equipo'},'780 €'),h(F.ProgressRing,{value:96,size:84,tone:'ink',label:'Material'},'960 €')))),
+ h('div',{className:'frk-stat frk-tone--surface'},h(F.Text,{variant:'headline',as:'h2',sub:'Si sigues entrenando 3 días por semana'},'Proyección'),h('div',null,h(F.ListRow,{index:'1',title:'Tras 1 año',detail:'+156 sesiones',value:'+12 %'}),h(F.ListRow,{index:'5',title:'Tras 5 años',detail:'+780 sesiones',value:'+48 %'}),h(F.ListRow,{index:'10',title:'Tras 10 años',detail:'+1.560 sesiones',value:'+91 %'})))
+)));
+</script>
+</body>
+</html>

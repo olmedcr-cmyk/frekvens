@@ -1,0 +1,27 @@
+<!-- @dsCard group="Pantallas" height=720 width=1240 page subtitle="Arrastrar y soltar: tablero de tareas y lista de prioridades" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>PantallaKanban</title>
+<style>
+  .screens { display:flex; gap:var(--space-5); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .phone { position:relative; width:390px; height:800px; box-sizing:border-box; border-radius:48px; padding:var(--space-8) var(--space-5) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .card { box-sizing:border-box; border-radius:var(--radius-xl); background:var(--surface); padding:var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); margin:0; }
+  .wide { width:1180px; box-sizing:border-box; }
+  .row { display:flex; gap:var(--space-4); flex-wrap:wrap; align-items:center; }
+  .push { margin-top:auto; }
+ .kb { width:1180px; display:grid; grid-template-columns:1fr 340px; gap:20px; align-items:start; }
+
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+var cols=[{id:'a',title:'Por hacer',state:'empty',items:[{id:'1',title:'Selector de fuente',meta:'HiFi · 3 h',tag:'UI'},{id:'2',title:'Contraste del LCD',meta:'Calidad',tag:'A11y',tagTone:'sol'},{id:'5',title:'Sonidos de los pads',meta:'Estudio'}]},{id:'b',title:'Haciendo',state:'running',items:[{id:'3',title:'Rejilla del plano',meta:'Blueprint',avatar:'Cris Olmedo'}]},{id:'r',title:'Revisión',state:'running',items:[{id:'6',title:'Reloj de puntos',meta:'Relojes',tag:'Revisar',tagTone:'klein-soft'}]},{id:'c',title:'Hecho',state:'done',items:[{id:'4',title:'Calculadora',meta:'Keycaps',tag:'Listo',tagTone:'verde'}]}];
+function K(){var m=React.useState('Arrastra una tarjeta o usa Espacio y flechas.');return h('div',{className:'kb'},
+  h('div',null,h(F.TopBar,{title:'Frekvens 7',subtitle:m[0]}),h(F.Board,{columns:cols,onChange:function(c){m[1](c.map(function(x){return x.title+' '+x.items.length;}).join(' · '));}})),
+  h('div',{className:'card'},h(F.Text,{variant:'title',sub:'Arrastra para ordenar'},'Prioridades'),h(F.Sortable,{label:'Prioridades',items:[{id:'a',title:'Llamar al proveedor',meta:'Hoy'},{id:'b',title:'Revisar el plano',meta:'Mañana',tag:'Plano'},{id:'c',title:'Pedir keycaps',meta:'Viernes'}]})));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(K)));
+</script>
+</body>
+</html>

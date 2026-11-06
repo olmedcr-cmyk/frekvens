@@ -4,4 +4,3 @@ out
 *.tgz
 .DS_Store
 test/shots
-test/.a11y-local.mjs

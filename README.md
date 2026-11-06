@@ -86,7 +86,7 @@ npm test             # SSR de todo el registry + integridad de /public/r
 npm run test:a11y    # axe en claro y oscuro (npx playwright install chromium)
 ```
 
-El código fuente de verdad es el sistema de diseño de Frekvens (un artefacto de Claude). Este repositorio se genera desde él con `reg/build.mjs`; los cambios a mano en `registry/` se pierden en la siguiente generación. Si quieres cambiar algo, cámbialo en el sistema y regenera.
+El código fuente de verdad es el sistema de diseño de Frekvens (un artefacto de Claude). Este repositorio se genera desde él con `generator/build.mjs` (`cd generator && npm install && npm run build`); los cambios a mano en `registry/` se pierden en la siguiente generación. Si quieres cambiar algo, cámbialo en el sistema y regenera.
 
 ## Licencia
 

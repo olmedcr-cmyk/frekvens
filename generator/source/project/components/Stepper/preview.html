@@ -1,0 +1,12 @@
+<!-- @dsCard group="Controles" height=130 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Stepper — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'frk-row-flex',style:{gap:'40px'}},h(F.Stepper,{label:'series',defaultValue:8,min:1,max:12}),h(F.Stepper,{label:'minutos',defaultValue:45,step:5,unit:'min'})));
+</script>
+</body>
+</html>

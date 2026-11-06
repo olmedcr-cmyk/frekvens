@@ -1,0 +1,12 @@
+<!-- @dsCard group="Generativo" height=200 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Grid — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'420px'}},h(F.Grid,{columns:2},h(F.Tile,{tone:'rams',title:'Hoy',value:'42′',height:150}),h(F.Tile,{title:'Series',value:'18',height:150}))));
+</script>
+</body>
+</html>

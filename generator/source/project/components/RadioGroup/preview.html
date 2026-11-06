@@ -1,0 +1,12 @@
+<!-- @dsCard group="Formularios" height=230 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>RadioGroup — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.RadioGroup,{label:'Modalidad',defaultValue:'grupo',options:[{value:'grupo',label:'Grupo',hint:'Hasta 12 personas'},{value:'solo',label:'Solo',hint:'Con entrenador'},{value:'online',label:'Online',hint:'En directo',disabled:true}]}));
+</script>
+</body>
+</html>

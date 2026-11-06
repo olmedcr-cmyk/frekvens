@@ -1,0 +1,12 @@
+<!-- @dsCard group="Conversación" height=380 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>PromptBox — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.PromptBox,{title:'¿Qué entrenamos hoy?',models:['Kraft 2','Kraft 2 mini'],efforts:['Esfuerzo: auto','Esfuerzo: alto'],attachments:['plan-semana.pdf'],suggestions:['Plan de 4 semanas','Analiza mi semana','Rutina sin material'],note:'La IA puede equivocarse. Revisa las cargas con tu entrenador.'}));
+</script>
+</body>
+</html>

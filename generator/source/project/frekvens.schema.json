@@ -1,0 +1,4129 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "frekvens.schema.json",
+ "title": "Frekvens — UI generativa",
+ "description": "Catálogo de componentes Frekvens para que un modelo componga interfaces como JSON y Frekvens.Render las pinte. Un nodo es {type, props, children}. Props con valor 'action:<nombre>' llaman a la acción <nombre> del host.",
+ "$defs": {
+  "node": {
+   "type": "object",
+   "required": [
+    "type"
+   ],
+   "properties": {
+    "type": {
+     "enum": [
+      "KeyButton",
+      "Keypad",
+      "HoldButton",
+      "SlideToStart",
+      "Rocker",
+      "Icon",
+      "Dial",
+      "Gauge",
+      "Slider",
+      "Switch",
+      "Segmented",
+      "Stepper",
+      "Wheel",
+      "VolumeWheel",
+      "Checkbox",
+      "RadioGroup",
+      "Select",
+      "Menu",
+      "Tabs",
+      "TextField",
+      "Calendar",
+      "Sheet",
+      "Toast",
+      "Banner",
+      "Tooltip",
+      "Timer",
+      "Stopwatch",
+      "Hourglass",
+      "Pendulum",
+      "MediaPlayer",
+      "AudioTrack",
+      "Ticker",
+      "SplitFlap",
+      "DotMatrix",
+      "DotGrid",
+      "StateMark",
+      "Steps",
+      "Grille",
+      "LED",
+      "LevelBars",
+      "BarMeter",
+      "LineChart",
+      "ProgressRing",
+      "Readout",
+      "Tile",
+      "Strip",
+      "CardStack",
+      "Cabinet",
+      "Pager",
+      "Deck",
+      "ListRow",
+      "Chip",
+      "Badge",
+      "Avatar",
+      "TopBar",
+      "TabBar",
+      "EmptyState",
+      "Skeleton",
+      "Message",
+      "Composer",
+      "Suggestions",
+      "VoiceOrb",
+      "DotLoader",
+      "AgentWidget",
+      "Render",
+      "Reveal",
+      "Stack",
+      "Grid",
+      "Text",
+      "ClickWheel",
+      "DiscCarousel",
+      "NumPad",
+      "Viewfinder",
+      "CaptureKey",
+      "Recorder",
+      "NoteEditor",
+      "Sidebar",
+      "DataTable",
+      "CommandBar",
+      "Notch",
+      "Viewport3D",
+      "Heatmap",
+      "SplitBar",
+      "Sparkline",
+      "HourStrip",
+      "PaymentCard",
+      "Dialog",
+      "FileDrop",
+      "ChoiceCards",
+      "Stat",
+      "UsageMeter",
+      "Timeline",
+      "Checklist",
+      "PromptBox",
+      "Clock",
+      "VUMeter",
+      "RotarySelector",
+      "Fader",
+      "Keycap",
+      "Calculator",
+      "PadGrid",
+      "TapeDeck",
+      "Board",
+      "Sortable",
+      "Blueprint",
+      "AreaChart",
+      "Scatter",
+      "RadarChart",
+      "DonutChart",
+      "Scope",
+      "VoicePosition",
+      "Beam",
+      "Aura",
+      "FlapBoard"
+     ]
+    },
+    "props": {
+     "type": "object"
+    },
+    "children": {
+     "$ref": "#/$defs/children"
+    }
+   },
+   "additionalProperties": false
+  },
+  "children": {
+   "anyOf": [
+    {
+     "$ref": "#/$defs/node"
+    },
+    {
+     "type": "string"
+    },
+    {
+     "type": "number"
+    },
+    {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/children"
+     }
+    }
+   ]
+  }
+ },
+ "$ref": "#/$defs/children",
+ "x-frekvens": {
+  "version": 4,
+  "tones": [
+   "paper",
+   "surface",
+   "well",
+   "ink",
+   "klein",
+   "klein-soft",
+   "sol",
+   "rams",
+   "tabaco",
+   "verde",
+   "rec",
+   "salvia",
+   "lavanda",
+   "malva"
+  ],
+  "icons": [
+   "play",
+   "pause",
+   "stop",
+   "rec",
+   "plus",
+   "minus",
+   "arrow-right",
+   "arrow-left",
+   "arrow-up-right",
+   "chevron-down",
+   "close",
+   "check",
+   "timer",
+   "power",
+   "lock",
+   "dots",
+   "home",
+   "drop",
+   "sun",
+   "flag",
+   "refresh",
+   "mic",
+   "arrow-up",
+   "copy",
+   "volume",
+   "volume-off",
+   "expand"
+  ],
+  "textVariants": [
+   "display-xl",
+   "title",
+   "headline",
+   "numeral-xl",
+   "dot-hero",
+   "dot-display",
+   "body",
+   "body-strong",
+   "caption",
+   "label",
+   "readout"
+  ],
+  "spaceSteps": [
+   "space-1",
+   "space-2",
+   "space-3",
+   "space-4",
+   "space-5",
+   "space-6",
+   "space-7",
+   "space-8",
+   "space-9"
+  ],
+  "rules": [
+   "Una sola acción klein por vista.",
+   "Máximo dos tonos de bloque por vista además de paper/surface e ink.",
+   "Un único número héroe (dot-hero o numeral-xl) por vista.",
+   "Título de pantalla con Text variant display-xl o title y la segunda línea en sub.",
+   "Nada pulsable por debajo de 44px; la acción principal, 56px o más: usa KeyButton, no texto clicable.",
+   "Usa Grid/Stack para componer; nunca estilos en línea salvo style ya previsto.",
+   "Toda acción irreversible pasa por HoldButton o SlideToStart.",
+   "Todo lo que se mueve más de 5 s (Ticker, MediaPlayer) se puede pausar.",
+   "Estados por forma, no solo por color: StateMark, LED con etiqueta, ▲▼ en deltas.",
+   "Texto en español, frases cortas, verbo primero, sin emoji."
+  ],
+  "components": {
+   "KeyButton": {
+    "group": "Botonera",
+    "summary": "Tecla grande, plana y táctil: la unidad básica de toda la casa.",
+    "props": {
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "size": {
+      "type": "'s' | 'm' | 'l' | 'xl'",
+      "required": false
+     },
+     "shape": {
+      "type": "'square' | 'pill' | 'round'",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "icon": {
+      "type": "IconName",
+      "required": false
+     },
+     "active": {
+      "type": "boolean",
+      "required": false
+     },
+     "toggle": {
+      "type": "boolean",
+      "required": false
+     },
+     "block": {
+      "type": "boolean",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Keypad": {
+    "group": "Botonera",
+    "summary": "Fila de teclas pegadas con junta de 1 px, a lo Teenage Engineering: la barra de modos o de transporte al pie de la pantalla.",
+    "props": {
+     "keys": {
+      "type": "KeypadKey[]",
+      "required": true
+     },
+     "columns": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number | string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "HoldButton": {
+    "group": "Botonera",
+    "summary": "Mantén pulsado para confirmar: un anillo `rams` se llena alrededor del botón en `duration` ms; si sueltas antes, se vacía.",
+    "props": {
+     "onComplete": {
+      "type": "() => void",
+      "required": false
+     },
+     "duration": {
+      "type": "number",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "icon": {
+      "type": "IconName",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "doneLabel": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "disabled": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "SlideToStart": {
+    "group": "Botonera",
+    "summary": "Arranque deliberado: arrastra el disco hasta el final para empezar.",
+    "props": {
+     "onComplete": {
+      "type": "() => void",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "doneLabel": {
+      "type": "string",
+      "required": false
+     },
+     "icon": {
+      "type": "IconName",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "resetAfter": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Rocker": {
+    "group": "Botonera",
+    "summary": "Interruptores basculantes de máquina sobre una placa `verde`: la tecla bascula al encenderse y el piloto `LED` de debajo se enciende.",
+    "props": {
+     "items": {
+      "type": "RockerItem[]",
+      "required": true
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Icon": {
+    "group": "Base",
+    "summary": "Iconos geométricos propios en rejilla de 24, trazo 2 px, terminaciones rectas, rellenos sólidos para transporte.",
+    "props": {
+     "name": {
+      "type": "IconName",
+      "required": true
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "title": {
+      "type": "string",
+      "required": false
+     },
+     "strokeWidth": {
+      "type": "number",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Dial": {
+    "group": "Controles",
+    "summary": "Mando circular: disco `ink`, punto indicador en `paper`, aguja `sol` y marcas de paso alrededor.",
+    "props": {
+     "value": {
+      "type": "number",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "number",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: number) => void",
+      "required": false
+     },
+     "min": {
+      "type": "number",
+      "required": false
+     },
+     "max": {
+      "type": "number",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "'ink' | 'klein' | 'tabaco'",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Gauge": {
+    "group": "Instrumentos",
+    "summary": "Arco de instrumento: pista `tabaco`, tramo recorrido en `ink` y un punto de lectura.",
+    "props": {
+     "value": {
+      "type": "number",
+      "required": true
+     },
+     "width": {
+      "type": "number",
+      "required": false
+     },
+     "thickness": {
+      "type": "number",
+      "required": false
+     },
+     "caption": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Slider": {
+    "group": "Controles",
+    "summary": "Pista en píldora de 56 px de alto con dos puntos `ink` en los extremos y el cursor en `rams`.",
+    "props": {
+     "value": {
+      "type": "number",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "number",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: number) => void",
+      "required": false
+     },
+     "min": {
+      "type": "number",
+      "required": false
+     },
+     "max": {
+      "type": "number",
+      "required": false
+     },
+     "step": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "stops": {
+      "type": "string[]",
+      "required": false
+     },
+     "format": {
+      "type": "(v: number) => string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Switch": {
+    "group": "Controles",
+    "summary": "Interruptor en píldora de 120 × 56.",
+    "props": {
+     "showLabel": {
+      "type": "boolean",
+      "required": false
+     },
+     "checked": {
+      "type": "boolean",
+      "required": false
+     },
+     "defaultChecked": {
+      "type": "boolean",
+      "required": false
+     },
+     "onChange": {
+      "type": "(on: boolean) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "onText": {
+      "type": "string",
+      "required": false
+     },
+     "offText": {
+      "type": "string",
+      "required": false
+     },
+     "disabled": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Segmented": {
+    "group": "Controles",
+    "summary": "Selector en píldora `ink`: la opción elegida es una pieza `paper` que viaja de una opción a otra con `ease-spring` (380 ms) y se encoge un 3 % mientras pulsas.",
+    "props": {
+     "options": {
+      "type": "(string | SegmentedOption)[]",
+      "required": true
+     },
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: string) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Stepper": {
+    "group": "Controles",
+    "summary": "Menos · número · más.",
+    "props": {
+     "value": {
+      "type": "number",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "number",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: number) => void",
+      "required": false
+     },
+     "min": {
+      "type": "number",
+      "required": false
+     },
+     "max": {
+      "type": "number",
+      "required": false
+     },
+     "step": {
+      "type": "number",
+      "required": false
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Wheel": {
+    "group": "Controles",
+    "summary": "Rueda selectora vertical con scroll-snap: los valores se atenúan y encogen según se alejan del centro; el elegido queda en una ventana `surface`.",
+    "props": {
+     "items": {
+      "type": "(string | { value: string; label: React.ReactNode })[]",
+      "required": false
+     },
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: string) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "visible": {
+      "type": "number",
+      "required": false
+     },
+     "rowHeight": {
+      "type": "number",
+      "required": false
+     },
+     "width": {
+      "type": "number",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "VolumeWheel": {
+    "group": "Controles",
+    "summary": "Rueda lateral estriada, como la rueda de scroll de un dispositivo de bolsillo: se gira con la rueda del ratón, arrastrando arriba/abajo o con las flechas, y sus estrías se desplazan al girar.",
+    "props": {
+     "value": {
+      "type": "number",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "number",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: number) => void",
+      "required": false
+     },
+     "step": {
+      "type": "number",
+      "required": false
+     },
+     "segments": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "'rams' | 'klein' | 'ink'",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "unitLabel": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Checkbox": {
+    "group": "Formularios",
+    "summary": "Casilla cuadrada de 32 px con ✓ que se rellena de `ink`.",
+    "props": {
+     "label": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "ariaLabel": {
+      "type": "string",
+      "required": false
+     },
+     "hint": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "checked": {
+      "type": "boolean",
+      "required": false
+     },
+     "defaultChecked": {
+      "type": "boolean",
+      "required": false
+     },
+     "onChange": {
+      "type": "(on: boolean) => void",
+      "required": false
+     },
+     "indeterminate": {
+      "type": "boolean",
+      "required": false
+     },
+     "disabled": {
+      "type": "boolean",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "RadioGroup": {
+    "group": "Formularios",
+    "summary": "Elección única con el lenguaje de estados: el aro vacío se llena hasta ser disco al elegirlo.",
+    "props": {
+     "options": {
+      "type": "(string | RadioOption)[]",
+      "required": true
+     },
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: string) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "direction": {
+      "type": "'column' | 'row'",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Select": {
+    "group": "Formularios",
+    "summary": "Desplegable de selección única (patrón listbox de ARIA).",
+    "props": {
+     "options": {
+      "type": "(string | SelectOption)[]",
+      "required": true
+     },
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: string) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "placeholder": {
+      "type": "string",
+      "required": false
+     },
+     "hint": {
+      "type": "string",
+      "required": false
+     },
+     "disabled": {
+      "type": "boolean",
+      "required": false
+     },
+     "block": {
+      "type": "boolean",
+      "required": false
+     },
+     "defaultOpen": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Menu": {
+    "group": "Formularios",
+    "summary": "Menú de acciones en un botón redondo de `dots`: editar, duplicar, borrar.",
+    "props": {
+     "items": {
+      "type": "MenuItem[]",
+      "required": true
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "icon": {
+      "type": "IconName",
+      "required": false
+     },
+     "align": {
+      "type": "'start' | 'end'",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "defaultOpen": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Tabs": {
+    "group": "Formularios",
+    "summary": "Pestañas con dos acabados: `pill`, una píldora `ink` que viaja de una pestaña a otra con `ease-travel`; y `folder`, pestañas de carpeta de archivo que suben al seleccionarse y se funden con su panel.",
+    "props": {
+     "tabs": {
+      "type": "TabItem[]",
+      "required": true
+     },
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(id: string) => void",
+      "required": false
+     },
+     "variant": {
+      "type": "'pill' | 'folder'",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "TextField": {
+    "group": "Formularios",
+    "summary": "Campo de texto en píldora de 56 px sobre `well`; al enfocarse sube a `surface` con borde `focus`.",
+    "props": {
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "hint": {
+      "type": "string",
+      "required": false
+     },
+     "error": {
+      "type": "string",
+      "required": false
+     },
+     "onSubmit": {
+      "type": "(value: string) => void",
+      "required": false
+     },
+     "submitLabel": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Calendar": {
+    "group": "Formularios",
+    "summary": "Calendario de discos: vista semana (una tira de 7 días, la de las referencias) o mes.",
+    "props": {
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(iso: string) => void",
+      "required": false
+     },
+     "view": {
+      "type": "'week' | 'month'",
+      "required": false
+     },
+     "switchable": {
+      "type": "boolean",
+      "required": false
+     },
+     "marks": {
+      "type": "string[]",
+      "required": false
+     },
+     "today": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Sheet": {
+    "group": "Formularios",
+    "summary": "Hoja inferior modal: el sitio para formularios cortos, detalles y confirmaciones.",
+    "props": {
+     "open": {
+      "type": "boolean",
+      "required": true
+     },
+     "onClose": {
+      "type": "() => void",
+      "required": false
+     },
+     "title": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "inline": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Toast": {
+    "group": "Formularios",
+    "summary": "Aviso breve en píldora: confirma algo que ya pasó y, si acaso, ofrece deshacer.",
+    "props": {
+     "open": {
+      "type": "boolean",
+      "required": true
+     },
+     "onClose": {
+      "type": "() => void",
+      "required": false
+     },
+     "duration": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "icon": {
+      "type": "IconName",
+      "required": false
+     },
+     "action": {
+      "type": "{ label: string; onClick: () => void }",
+      "required": false
+     },
+     "fixed": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Banner": {
+    "group": "Feedback",
+    "summary": "Aviso dentro de la página, a todo el ancho: un bloque de color con icono, título opcional, una frase y, si hace falta, una acción.",
+    "props": {
+     "tone": {
+      "type": "'info' | 'ok' | 'warn' | 'error'",
+      "required": false
+     },
+     "title": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "icon": {
+      "type": "IconName",
+      "required": false
+     },
+     "action": {
+      "type": "{ label: string; onClick?: () => void }",
+      "required": false
+     },
+     "dismissible": {
+      "type": "boolean",
+      "required": false
+     },
+     "onDismiss": {
+      "type": "() => void",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Tooltip": {
+    "group": "Feedback",
+    "summary": "Etiqueta flotante `ink` que explica un control sin texto.",
+    "props": {
+     "content": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "side": {
+      "type": "'top' | 'bottom'",
+      "required": false
+     },
+     "delay": {
+      "type": "number",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Timer": {
+    "group": "Tiempo",
+    "summary": "Cuenta atrás en un anillo de 60 puntos: los encendidos (`rams`) son el tiempo que queda; cada quinto punto es más grande, como las marcas de un reloj.",
+    "props": {
+     "duration": {
+      "type": "number",
+      "required": true
+     },
+     "autoStart": {
+      "type": "boolean",
+      "required": false
+     },
+     "onComplete": {
+      "type": "() => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "doneText": {
+      "type": "string",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "dots": {
+      "type": "number",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Stopwatch": {
+    "group": "Tiempo",
+    "summary": "Cronómetro con centésimas, vueltas y la mejor vuelta marcada en `klein-ink`.",
+    "props": {
+     "autoStart": {
+      "type": "boolean",
+      "required": false
+     },
+     "onLap": {
+      "type": "(ms: number) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "size": {
+      "type": "'display' | 'hero'",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Hourglass": {
+    "group": "Tiempo",
+    "summary": "Reloj de arena de puntos `tabaco`: el triángulo de arriba se vacía desde arriba y el de abajo se llena desde abajo; un grano cae por el cuello mientras corre.",
+    "props": {
+     "duration": {
+      "type": "number",
+      "required": true
+     },
+     "autoStart": {
+      "type": "boolean",
+      "required": false
+     },
+     "onComplete": {
+      "type": "() => void",
+      "required": false
+     },
+     "pitch": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Pendulum": {
+    "group": "Tiempo",
+    "summary": "Metrónomo: brazo `ink` con contrapeso `rams` que oscila a los BPM indicados, y los tiempos del compás en puntos (el primero marcado con aro).",
+    "props": {
+     "bpm": {
+      "type": "number",
+      "required": false
+     },
+     "defaultBpm": {
+      "type": "number",
+      "required": false
+     },
+     "onBpmChange": {
+      "type": "(bpm: number) => void",
+      "required": false
+     },
+     "beats": {
+      "type": "number",
+      "required": false
+     },
+     "step": {
+      "type": "number",
+      "required": false
+     },
+     "running": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "MediaPlayer": {
+    "group": "Medios",
+    "summary": "Reproductor de vídeo.",
+    "props": {
+     "src": {
+      "type": "string",
+      "required": false
+     },
+     "poster": {
+      "type": "string",
+      "required": false
+     },
+     "title": {
+      "type": "string",
+      "required": false
+     },
+     "badge": {
+      "type": "string",
+      "required": false
+     },
+     "chapters": {
+      "type": "number[]",
+      "required": false
+     },
+     "captions": {
+      "type": "string",
+      "required": false
+     },
+     "captionsLang": {
+      "type": "string",
+      "required": false
+     },
+     "captionsOn": {
+      "type": "boolean",
+      "required": false
+     },
+     "ratio": {
+      "type": "string",
+      "required": false
+     },
+     "autoPlay": {
+      "type": "boolean",
+      "required": false
+     },
+     "loop": {
+      "type": "boolean",
+      "required": false
+     },
+     "muted": {
+      "type": "boolean",
+      "required": false
+     },
+     "duration": {
+      "type": "number",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "AudioTrack": {
+    "group": "Medios",
+    "summary": "Pista de audio con la onda como barra de posición: barras redondeadas, las reproducidas en el color del texto.",
+    "props": {
+     "src": {
+      "type": "string",
+      "required": false
+     },
+     "title": {
+      "type": "string",
+      "required": false
+     },
+     "peaks": {
+      "type": "number[]",
+      "required": false
+     },
+     "bars": {
+      "type": "number",
+      "required": false
+     },
+     "seed": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "rate": {
+      "type": "string",
+      "required": false
+     },
+     "speed": {
+      "type": "boolean",
+      "required": false
+     },
+     "duration": {
+      "type": "number",
+      "required": false
+     },
+     "autoPlay": {
+      "type": "boolean",
+      "required": false
+     },
+     "loop": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Ticker": {
+    "group": "Medios",
+    "summary": "Cinta que corre en horizontal: noticias, marcadores, horarios, valores.",
+    "props": {
+     "items": {
+      "type": "(string | TickerItem)[]",
+      "required": true
+     },
+     "speed": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "SplitFlap": {
+    "group": "Medios",
+    "summary": "Panel de paletas de aeropuerto: cada carácter gira por el abecedario hasta su letra, en cascada de izquierda a derecha.",
+    "props": {
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "length": {
+      "type": "number",
+      "required": false
+     },
+     "size": {
+      "type": "'s' | 'm' | 'l'",
+      "required": false
+     },
+     "tone": {
+      "type": "'sol' | 'rams' | 'verde' | 'rec'",
+      "required": false
+     },
+     "cycle": {
+      "type": "string[]",
+      "required": false
+     },
+     "interval": {
+      "type": "number",
+      "required": false
+     },
+     "speed": {
+      "type": "number",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "DotMatrix": {
+    "group": "Puntos",
+    "summary": "Dibuja números y formas con puntos sobre una retícula: la firma visual del sistema.",
+    "props": {
+     "shape": {
+      "type": "'sun' | 'cloud' | 'drop' | 'ring' | 'disc' | 'heart'",
+      "required": false
+     },
+     "grid": {
+      "type": "number",
+      "required": false
+     },
+     "reactive": {
+      "type": "boolean",
+      "required": false
+     },
+     "text": {
+      "type": "string | number",
+      "required": false
+     },
+     "rows": {
+      "type": "string[]",
+      "required": false
+     },
+     "dot": {
+      "type": "number",
+      "required": false
+     },
+     "pitch": {
+      "type": "number",
+      "required": false
+     },
+     "showOff": {
+      "type": "boolean",
+      "required": false
+     },
+     "tone": {
+      "type": "'ink' | 'klein' | 'rams' | 'tabaco' | 'paper'",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "DotGrid": {
+    "group": "Puntos",
+    "summary": "Discos en rejilla.",
+    "props": {
+     "total": {
+      "type": "number",
+      "required": false
+     },
+     "filled": {
+      "type": "number",
+      "required": false
+     },
+     "columns": {
+      "type": "number",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "gap": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "'rams' | 'ink' | 'klein' | 'sol' | 'verde'",
+      "required": false
+     },
+     "select": {
+      "type": "'one' | 'many'",
+      "required": false
+     },
+     "value": {
+      "type": "number | number[] | null",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "number | number[] | null",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: number | number[] | null) => void",
+      "required": false
+     },
+     "disabled": {
+      "type": "number[]",
+      "required": false
+     },
+     "labels": {
+      "type": "(string | number)[]",
+      "required": false
+     },
+     "showLabels": {
+      "type": "boolean",
+      "required": false
+     },
+     "max": {
+      "type": "number",
+      "required": false
+     },
+     "deselect": {
+      "type": "boolean",
+      "required": false
+     },
+     "caption": {
+      "type": "string | false",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "StateMark": {
+    "group": "Puntos",
+    "summary": "El lenguaje de estados de la casa: aro = pendiente, puntos = en curso, disco = hecho.",
+    "props": {
+     "state": {
+      "type": "'empty' | 'partial' | 'full'",
+      "required": true
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "title": {
+      "type": "string",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Steps": {
+    "group": "Navegación",
+    "summary": "Progreso por pasos con el lenguaje de estados: disco = hecho, puntos = paso actual, aro = pendiente, unidos por un filete que se rellena.",
+    "props": {
+     "steps": {
+      "type": "string[]",
+      "required": true
+     },
+     "current": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Grille": {
+    "group": "Puntos",
+    "summary": "Rejilla de altavoz o lámpara en un disco o una cúpula: ranuras horizontales o agujeros de puntos recortados en un círculo de color.",
+    "props": {
+     "variant": {
+      "type": "'slots' | 'dots'",
+      "required": false
+     },
+     "shape": {
+      "type": "'disc' | 'dome'",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "pitch": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "'verde' | 'ink' | 'sol' | 'rams' | 'tabaco' | 'surface'",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "LED": {
+    "group": "Puntos",
+    "summary": "Piloto de máquina: un rectángulo de luz de 10×6 px con halo.",
+    "props": {
+     "tone": {
+      "type": "'rec' | 'verde' | 'sol' | 'klein'",
+      "required": false
+     },
+     "on": {
+      "type": "boolean",
+      "required": false
+     },
+     "blink": {
+      "type": "boolean",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "LevelBars": {
+    "group": "Instrumentos",
+    "summary": "Nivel como reglas verticales redondeadas: encendidas en `ink`, apagadas en `ink-faint`.",
+    "props": {
+     "value": {
+      "type": "number",
+      "required": true
+     },
+     "count": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "BarMeter": {
+    "group": "Instrumentos",
+    "summary": "Barras en píldora por categoría o día; una activa en `ink`, el resto en `well`, previsión o pendiente rayada.",
+    "props": {
+     "data": {
+      "type": "BarMeterDatum[]",
+      "required": true
+     },
+     "active": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "barWidth": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "LineChart": {
+    "group": "Instrumentos",
+    "summary": "Línea suave con marcador de ahora: lo pasado en trazo lleno, lo previsto fino y atenuado, y un aro con línea vertical en el punto actual (la curva del clima de las referencias).",
+    "props": {
+     "data": {
+      "type": "number[]",
+      "required": true
+     },
+     "labels": {
+      "type": "string[]",
+      "required": false
+     },
+     "now": {
+      "type": "number",
+      "required": false
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "tone": {
+      "type": "'ink' | 'rams' | 'klein'",
+      "required": false
+     },
+     "width": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "caption": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "ProgressRing": {
+    "group": "Instrumentos",
+    "summary": "Anillo de progreso con el porcentaje en el centro.",
+    "props": {
+     "value": {
+      "type": "number",
+      "required": true
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "thickness": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "'rams' | 'klein' | 'ink' | 'verde'",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Readout": {
+    "group": "Instrumentos",
+    "summary": "El número que manda: cifra en `Doto` (puntos) con etiqueta mono encima y unidad pequeña.",
+    "props": {
+     "value": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "meta": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "size": {
+      "type": "'hero' | 'display' | 'label'",
+      "required": false
+     },
+     "live": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Tile": {
+    "group": "Superficies",
+    "summary": "Tarjeta-widget: título arriba a la izquierda, pictograma de puntos en el centro y el valor enorme abajo a la izquierda.",
+    "props": {
+     "title": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "subtitle": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "meta": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "value": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "onClick": {
+      "type": "() => void",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Strip": {
+    "group": "Superficies",
+    "summary": "Fila de instrumento horizontal: título y valor grande a la izquierda, instrumento a la derecha.",
+    "props": {
+     "title": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "value": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "CardStack": {
+    "group": "Superficies",
+    "summary": "Cartas de color apiladas que se solapan un radio: al tocar una, crece con frenada larga (`dur-grow`, `ease-arrive`) y muestra su título y su número.",
+    "props": {
+     "items": {
+      "type": "CardStackItem[]",
+      "required": true
+     },
+     "value": {
+      "type": "number",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "number",
+      "required": false
+     },
+     "onChange": {
+      "type": "(i: number) => void",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Cabinet": {
+    "group": "Superficies",
+    "summary": "Archivero: cajones apilados con tirador en píldora.",
+    "props": {
+     "drawers": {
+      "type": "CabinetDrawer[]",
+      "required": true
+     },
+     "value": {
+      "type": "number",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "number",
+      "required": false
+     },
+     "onChange": {
+      "type": "(i: number) => void",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Pager": {
+    "group": "Superficies",
+    "summary": "Carrusel horizontal con scroll-snap, botones redondos de anterior/siguiente y puntos de posición (el activo se alarga en píldora).",
+    "props": {
+     "children": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "itemWidth": {
+      "type": "string",
+      "required": false
+     },
+     "gap": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Deck": {
+    "group": "Superficies",
+    "summary": "Carrusel de cartas apiladas: la de arriba se arrastra y, si pasa de 90 px, sale lanzada (`ease-throw`) y se va al fondo del mazo.",
+    "props": {
+     "children": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "onChange": {
+      "type": "(i: number) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "ListRow": {
+    "group": "Superficies",
+    "summary": "Fila con filete superior y número o icono grande a la izquierda: pasos, historial, ajustes.",
+    "props": {
+     "index": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "icon": {
+      "type": "IconName",
+      "required": false
+     },
+     "title": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "detail": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "value": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "onClick": {
+      "type": "() => void",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Chip": {
+    "group": "Base",
+    "summary": "Etiqueta mono en píldora: estados, filtros, metadatos (`REC`, `MONO`, `70% SOLAR`).",
+    "props": {
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "dot": {
+      "type": "boolean",
+      "required": false
+     },
+     "square": {
+      "type": "boolean",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Badge": {
+    "group": "Base",
+    "summary": "Contador o punto de aviso sobre otro elemento (un icono, una tecla, un avatar).",
+    "props": {
+     "count": {
+      "type": "number",
+      "required": false
+     },
+     "max": {
+      "type": "number",
+      "required": false
+     },
+     "dot": {
+      "type": "boolean",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Avatar": {
+    "group": "Base",
+    "summary": "Disco con foto o iniciales en Archivo 800.",
+    "props": {
+     "name": {
+      "type": "string",
+      "required": true
+     },
+     "src": {
+      "type": "string",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "status": {
+      "type": "'online' | 'live' | 'away' | 'busy' | 'offline'",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "TopBar": {
+    "group": "Navegación",
+    "summary": "Cabecera de pantalla: tecla redonda de atrás, título centrado y acciones a la derecha.",
+    "props": {
+     "title": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "subtitle": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "onBack": {
+      "type": "() => void",
+      "required": false
+     },
+     "backLabel": {
+      "type": "string",
+      "required": false
+     },
+     "actions": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "large": {
+      "type": "boolean",
+      "required": false
+     },
+     "as": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "TabBar": {
+    "group": "Navegación",
+    "summary": "Barra de navegación inferior en píldora `ink`: iconos solos y, el activo, en píldora `paper` que se abre para mostrar su nombre.",
+    "props": {
+     "items": {
+      "type": "TabBarItem[]",
+      "required": true
+     },
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(id: string) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "EmptyState": {
+    "group": "Feedback",
+    "summary": "Estado vacío: un aro de puntos, un título que dice qué falta, una frase que dice qué hacer y, si se puede, la acción.",
+    "props": {
+     "title": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "text": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "action": {
+      "type": "{ label: string; onClick?: () => void }",
+      "required": false
+     },
+     "shape": {
+      "type": "'ring' | 'disc' | 'sun' | 'cloud' | 'drop' | 'heart'",
+      "required": false
+     },
+     "compact": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Skeleton": {
+    "group": "Feedback",
+    "summary": "Carga en puntos: el hueco del contenido que viene se dibuja como una trama de puntos `dot-off` con un brillo que la recorre.",
+    "props": {
+     "shape": {
+      "type": "'text' | 'tile' | 'circle'",
+      "required": false
+     },
+     "lines": {
+      "type": "number",
+      "required": false
+     },
+     "width": {
+      "type": "number | string",
+      "required": false
+     },
+     "height": {
+      "type": "number | string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Message": {
+    "group": "Conversación",
+    "summary": "Un turno de conversación.",
+    "props": {
+     "role": {
+      "type": "'user' | 'assistant' | 'system'",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "streaming": {
+      "type": "boolean",
+      "required": false
+     },
+     "thinking": {
+      "type": "boolean",
+      "required": false
+     },
+     "ui": {
+      "type": "RenderSpec",
+      "required": false
+     },
+     "actions": {
+      "type": "Record<string, (x?: unknown) => void>",
+      "required": false
+     },
+     "name": {
+      "type": "string",
+      "required": false
+     },
+     "meta": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "onCopy": {
+      "type": "() => void",
+      "required": false
+     },
+     "onRetry": {
+      "type": "() => void",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Composer": {
+    "group": "Conversación",
+    "summary": "Barra para escribir o hablar: textarea en píldora que crece hasta 160 px, tecla de micrófono y tecla de enviar `klein`.",
+    "props": {
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: string) => void",
+      "required": false
+     },
+     "onSend": {
+      "type": "(text: string) => void",
+      "required": false
+     },
+     "placeholder": {
+      "type": "string",
+      "required": false
+     },
+     "suggestions": {
+      "type": "SuggestionsProps['items']",
+      "required": false
+     },
+     "voice": {
+      "type": "boolean",
+      "required": false
+     },
+     "listening": {
+      "type": "boolean",
+      "required": false
+     },
+     "onListen": {
+      "type": "(on: boolean) => void",
+      "required": false
+     },
+     "level": {
+      "type": "number",
+      "required": false
+     },
+     "listeningText": {
+      "type": "string",
+      "required": false
+     },
+     "busy": {
+      "type": "boolean",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Suggestions": {
+    "group": "Conversación",
+    "summary": "Respuestas sugeridas en chips de contorno en el color del texto (funcionan sobre claro y oscuro): entran escalonadas y se tiñen al pasar.",
+    "props": {
+     "items": {
+      "type": "(string | { label: string; value?: string; icon?: IconName })[]",
+      "required": true
+     },
+     "onPick": {
+      "type": "(value: string) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "VoiceOrb": {
+    "group": "Conversación",
+    "summary": "Orbe de puntos para la voz: el estado de un agente de voz se lee en cómo se mueven los puntos.",
+    "props": {
+     "state": {
+      "type": "'idle' | 'listening' | 'thinking' | 'speaking'",
+      "required": false
+     },
+     "level": {
+      "type": "number",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "grid": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "'ink' | 'klein' | 'rams' | 'paper'",
+      "required": false
+     },
+     "caption": {
+      "type": "string | false",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "DotLoader": {
+    "group": "Conversación",
+    "summary": "Puntos que laten mientras algo piensa o carga: fila de tres (`row`) o rejilla 3×3 en onda diagonal (`grid`).",
+    "props": {
+     "variant": {
+      "type": "'row' | 'grid'",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "AgentWidget": {
+    "group": "Conversación",
+    "summary": "Agente embebible: un lanzador redondo (con un orbe de puntos que respira) que abre un panel con dos modos.",
+    "props": {
+     "name": {
+      "type": "string",
+      "required": false
+     },
+     "state": {
+      "type": "'idle' | 'listening' | 'thinking' | 'speaking'",
+      "required": false
+     },
+     "defaultState": {
+      "type": "'idle' | 'listening' | 'thinking' | 'speaking'",
+      "required": false
+     },
+     "demo": {
+      "type": "boolean",
+      "required": false
+     },
+     "mode": {
+      "type": "'voice' | 'chat'",
+      "required": false
+     },
+     "messages": {
+      "type": "(MessageProps & { text?: string })[]",
+      "required": false
+     },
+     "transcript": {
+      "type": "string",
+      "required": false
+     },
+     "level": {
+      "type": "number",
+      "required": false
+     },
+     "suggestions": {
+      "type": "string[]",
+      "required": false
+     },
+     "tone": {
+      "type": "'ink' | 'klein' | 'rams' | 'paper'",
+      "required": false
+     },
+     "onStart": {
+      "type": "() => void",
+      "required": false
+     },
+     "onEnd": {
+      "type": "() => void",
+      "required": false
+     },
+     "onSend": {
+      "type": "(text: string) => void",
+      "required": false
+     },
+     "defaultOpen": {
+      "type": "boolean",
+      "required": false
+     },
+     "inline": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Render": {
+    "group": "Generativo",
+    "summary": "El motor de UI generativa: pinta una interfaz Frekvens a partir de un spec JSON que puede escribir un modelo.",
+    "props": {
+     "spec": {
+      "type": "RenderSpec | string",
+      "required": false
+     },
+     "lang": {
+      "type": "string",
+      "required": false
+     },
+     "actions": {
+      "type": "Record<string, (x?: unknown) => void>",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Reveal": {
+    "group": "Movimiento",
+    "summary": "Transición de entrada al aparecer en pantalla: los hijos entran escalonados (`stagger`, 50 ms) con una de cuatro formas — `rise` (sube 16 px), `scale` (de .94), `wipe` (se descubre de izquierda a derecha con el radio de la casa) o `focus` (de desenfoque a nítido).",
+    "props": {
+     "variant": {
+      "type": "'rise' | 'scale' | 'wipe' | 'focus'",
+      "required": false
+     },
+     "stagger": {
+      "type": "number",
+      "required": false
+     },
+     "delay": {
+      "type": "number",
+      "required": false
+     },
+     "once": {
+      "type": "boolean",
+      "required": false
+     },
+     "threshold": {
+      "type": "number",
+      "required": false
+     },
+     "as": {
+      "type": "string",
+      "required": false
+     },
+     "style": {
+      "type": "React.CSSProperties",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Stack": {
+    "group": "Generativo",
+    "summary": "Primitiva de composición: apila hijos en columna o fila con un hueco de la escala de espacio.",
+    "props": {
+     "direction": {
+      "type": "'column' | 'row'",
+      "required": false
+     },
+     "gap": {
+      "type": "number",
+      "required": false
+     },
+     "align": {
+      "type": "string",
+      "required": false
+     },
+     "justify": {
+      "type": "string",
+      "required": false
+     },
+     "wrap": {
+      "type": "boolean",
+      "required": false
+     },
+     "padding": {
+      "type": "number",
+      "required": false
+     },
+     "style": {
+      "type": "React.CSSProperties",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Grid": {
+    "group": "Generativo",
+    "summary": "Primitiva de composición: rejilla de columnas iguales con la junta de la botonera.",
+    "props": {
+     "columns": {
+      "type": "number",
+      "required": false
+     },
+     "gap": {
+      "type": "number",
+      "required": false
+     },
+     "style": {
+      "type": "React.CSSProperties",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Text": {
+    "group": "Generativo",
+    "summary": "Primitiva de texto: aplica un estilo tipográfico del sistema por nombre, con la etiqueta HTML correcta.",
+    "props": {
+     "variant": {
+      "type": "'display-xl' | 'title' | 'headline' | 'numeral-xl' | 'dot-hero' | 'dot-display' | 'body' | 'body-strong' | 'caption' | 'label' | 'readout'",
+      "required": false
+     },
+     "sub": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "muted": {
+      "type": "boolean",
+      "required": false
+     },
+     "as": {
+      "type": "string",
+      "required": false
+     },
+     "style": {
+      "type": "React.CSSProperties",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "ClickWheel": {
+    "group": "Controles",
+    "summary": "Rueda táctil circular, como la de los reproductores de bolsillo: deslizar el dedo en círculo avanza o retrocede paso a paso (con un pulso háptico donde exista), con cuatro botones en los ejes y un botón central.",
+    "props": {
+     "onStep": {
+      "type": "(d: 1 | -1) => void",
+      "required": false
+     },
+     "onSelect": {
+      "type": "() => void",
+      "required": false
+     },
+     "onMenu": {
+      "type": "() => void",
+      "required": false
+     },
+     "onPlay": {
+      "type": "() => void",
+      "required": false
+     },
+     "playing": {
+      "type": "boolean",
+      "required": false
+     },
+     "detent": {
+      "type": "number",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "labels": {
+      "type": "{ top?: string }",
+      "required": false
+     },
+     "centerLabel": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "valueText": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "DiscCarousel": {
+    "group": "Medios",
+    "summary": "Elegir entre discos: el elegido en el centro, los vecinos más pequeños a los lados; al reproducir, el disco gira.",
+    "props": {
+     "items": {
+      "type": "DiscItem[]",
+      "required": true
+     },
+     "value": {
+      "type": "number",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "number",
+      "required": false
+     },
+     "onChange": {
+      "type": "(i: number) => void",
+      "required": false
+     },
+     "playing": {
+      "type": "boolean",
+      "required": false
+     },
+     "onPlay": {
+      "type": "(i: number) => void",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "NumPad": {
+    "group": "Formularios",
+    "summary": "Teclado numérico para importes: cifra enorme con la moneda pequeña, teclas planas pegadas como una calculadora, coma decimal (máx.",
+    "props": {
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: string) => void",
+      "required": false
+     },
+     "currency": {
+      "type": "string",
+      "required": false
+     },
+     "maxLength": {
+      "type": "number",
+      "required": false
+     },
+     "hint": {
+      "type": "string",
+      "required": false
+     },
+     "onSubmit": {
+      "type": "(n: number) => void",
+      "required": false
+     },
+     "submitLabel": {
+      "type": "string",
+      "required": false
+     },
+     "keyboard": {
+      "type": "boolean",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Viewfinder": {
+    "group": "Captura",
+    "summary": "Visor de cámara y escáner: rejilla de tercios, HUD arriba, obturador grande, miniatura con el número de capturas y modos Foto / Vídeo / Escanear (con esquinas de enfoque `sol`).",
+    "props": {
+     "live": {
+      "type": "boolean",
+      "required": false
+     },
+     "mode": {
+      "type": "string",
+      "required": false
+     },
+     "defaultMode": {
+      "type": "'foto' | 'vídeo' | 'escanear'",
+      "required": false
+     },
+     "onModeChange": {
+      "type": "(m: string) => void",
+      "required": false
+     },
+     "onShoot": {
+      "type": "(m: string) => void",
+      "required": false
+     },
+     "shots": {
+      "type": "number",
+      "required": false
+     },
+     "ratio": {
+      "type": "string",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "CaptureKey": {
+    "group": "Captura",
+    "summary": "Tecla de captura, como una tecla física dedicada: un toque captura (pantalla, foto, enlace), mantener graba voz mientras dura la pulsación.",
+    "props": {
+     "onCapture": {
+      "type": "(c: { kind: 'photo' | 'voice'; ms?: number }) => void",
+      "required": false
+     },
+     "onVoiceStart": {
+      "type": "() => void",
+      "required": false
+     },
+     "hint": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Recorder": {
+    "group": "Captura",
+    "summary": "Grabadora de bolsillo: carrete de puntos que gira mientras graba, piloto REC, tiempo en `dot`, nivel de entrada y una botonera de tres teclas (grabar/parar, marca, modo).",
+    "props": {
+     "real": {
+      "type": "boolean",
+      "required": false
+     },
+     "takes": {
+      "type": "RecorderTake[]",
+      "required": false
+     },
+     "onSave": {
+      "type": "(t: RecorderTake) => void",
+      "required": false
+     },
+     "onMark": {
+      "type": "(ms: number) => void",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "NoteEditor": {
+    "group": "Captura",
+    "summary": "Cuaderno por bloques: escribir es lo primero.",
+    "props": {
+     "defaultBlocks": {
+      "type": "NoteBlock[]",
+      "required": false
+     },
+     "onChange": {
+      "type": "(b: NoteBlock[]) => void",
+      "required": false
+     },
+     "title": {
+      "type": "string",
+      "required": false
+     },
+     "meta": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "placeholder": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Sidebar": {
+    "group": "Navegación",
+    "summary": "Barra lateral para iPad y escritorio: secciones con etiqueta mono, elementos con icono y contador (en `rec` si es una alerta), el activo en `ink`.",
+    "props": {
+     "sections": {
+      "type": "{ label?: string; items: SidebarItem[] }[]",
+      "required": true
+     },
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(id: string) => void",
+      "required": false
+     },
+     "collapsed": {
+      "type": "boolean",
+      "required": false
+     },
+     "defaultCollapsed": {
+      "type": "boolean",
+      "required": false
+     },
+     "onCollapse": {
+      "type": "(c: boolean) => void",
+      "required": false
+     },
+     "header": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "footer": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "DataTable": {
+    "group": "Formularios",
+    "summary": "Tabla de datos para SaaS: cabecera fija en mono, ordenación por columna (con `aria-sort`), selección de filas con `Checkbox`, y tipos de celda: `status` (Chip con punto), `spark` (Sparkline), `bar` (barra de 0–100), `avatar`, `mono`.",
+    "props": {
+     "columns": {
+      "type": "DataColumn[]",
+      "required": true
+     },
+     "rows": {
+      "type": "Record<string, unknown>[]",
+      "required": true
+     },
+     "selectable": {
+      "type": "boolean",
+      "required": false
+     },
+     "dense": {
+      "type": "boolean",
+      "required": false
+     },
+     "defaultSort": {
+      "type": "{ key: string; dir: 'asc' | 'desc' }",
+      "required": false
+     },
+     "pageSize": {
+      "type": "number",
+      "required": false
+     },
+     "groupBy": {
+      "type": "string",
+      "required": false
+     },
+     "onRowClick": {
+      "type": "(row: Record<string, unknown>) => void",
+      "required": false
+     },
+     "caption": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "emptyTitle": {
+      "type": "string",
+      "required": false
+     },
+     "emptyText": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "CommandBar": {
+    "group": "Formularios",
+    "summary": "Paleta de comandos (⌘K / Ctrl+K): buscar y ejecutar cualquier acción sin tocar el ratón.",
+    "props": {
+     "commands": {
+      "type": "Command[]",
+      "required": true
+     },
+     "open": {
+      "type": "boolean",
+      "required": false
+     },
+     "defaultOpen": {
+      "type": "boolean",
+      "required": false
+     },
+     "onClose": {
+      "type": "() => void",
+      "required": false
+     },
+     "onRun": {
+      "type": "(id: string) => void",
+      "required": false
+     },
+     "hotkey": {
+      "type": "boolean",
+      "required": false
+     },
+     "placeholder": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Notch": {
+    "group": "Conversación",
+    "summary": "Isla de IA en la parte superior (el notch del portátil o la isla del móvil): en reposo es una píldora negra con un orbe y un piloto; al pasar el puntero o al tocarla, crece con un rebote corto y muestra el estado, lo que está diciendo o haciendo, el progreso y 1–3 acciones.",
+    "props": {
+     "state": {
+      "type": "'idle' | 'listening' | 'thinking' | 'speaking' | 'done'",
+      "required": false
+     },
+     "name": {
+      "type": "string",
+      "required": false
+     },
+     "peek": {
+      "type": "string",
+      "required": false
+     },
+     "text": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "progress": {
+      "type": "number",
+      "required": false
+     },
+     "actions": {
+      "type": "{ label: string; icon?: IconName; onClick?: () => void }[]",
+      "required": false
+     },
+     "expanded": {
+      "type": "boolean",
+      "required": false
+     },
+     "defaultExpanded": {
+      "type": "boolean",
+      "required": false
+     },
+     "tone": {
+      "type": "'rams' | 'klein' | 'paper'",
+      "required": false
+     },
+     "inline": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Viewport3D": {
+    "group": "Superficies",
+    "summary": "Visor 3D sin dependencias (CSS 3D): un objeto sobre un suelo de puntos que se gira arrastrando, se acerca con la rueda y tiene vistas rápidas (Iso, Frente, Arriba), un gizmo de ejes y la lectura de ángulos en mono.",
+    "props": {
+     "shape": {
+      "type": "'cube' | 'stack'",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "pitch": {
+      "type": "number",
+      "required": false
+     },
+     "yaw": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Heatmap": {
+    "group": "Instrumentos",
+    "summary": "Actividad en semitono: una rejilla de puntos (semanas × días) donde el tamaño del punto es la cantidad.",
+    "props": {
+     "data": {
+      "type": "number[]",
+      "required": true
+     },
+     "rows": {
+      "type": "number",
+      "required": false
+     },
+     "cell": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "'ink' | 'rams' | 'klein' | 'verde'",
+      "required": false
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "caption": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "SplitBar": {
+    "group": "Instrumentos",
+    "summary": "Reparto de un total: una barra de píldoras con leyenda (`bar`) o columnas altas con relleno redondeado (`columns`, el 70/30 de las referencias).",
+    "props": {
+     "segments": {
+      "type": "SplitSegment[]",
+      "required": true
+     },
+     "variant": {
+      "type": "'bar' | 'columns'",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "format": {
+      "type": "(v: number) => string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Sparkline": {
+    "group": "Instrumentos",
+    "summary": "Tendencia mínima: una línea y un punto final, para meter dentro de una fila, una tabla o un Tile.",
+    "props": {
+     "data": {
+      "type": "number[]",
+      "required": true
+     },
+     "width": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "'ink' | 'rams' | 'klein'",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "HourStrip": {
+    "group": "Instrumentos",
+    "summary": "Precio (o consumo) por horas del día: 24 barras en píldora coloreadas por tramo (barato `verde`, medio `sol`, caro `rams`), la hora actual marcada con aro y las pasadas atenuadas.",
+    "props": {
+     "prices": {
+      "type": "number[]",
+      "required": true
+     },
+     "now": {
+      "type": "number",
+      "required": false
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "PaymentCard": {
+    "group": "Superficies",
+    "summary": "Tarjeta de pago: bloque de color en proporción de tarjeta real, chip de puntos, últimos 4 dígitos en mono.",
+    "props": {
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "brand": {
+      "type": "string",
+      "required": false
+     },
+     "last4": {
+      "type": "string",
+      "required": false
+     },
+     "name": {
+      "type": "string",
+      "required": false
+     },
+     "expiry": {
+      "type": "string",
+      "required": false
+     },
+     "frozen": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Dialog": {
+    "group": "Feedback",
+    "summary": "Ventana modal centrada para decidir algo ahora: confirmar, avisar de algo destructivo, pedir un dato, compartir, un asistente por pasos.",
+    "props": {
+     "open": {
+      "type": "boolean",
+      "required": true
+     },
+     "onClose": {
+      "type": "() => void",
+      "required": false
+     },
+     "title": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "text": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "tone": {
+      "type": "'default' | 'danger'",
+      "required": false
+     },
+     "icon": {
+      "type": "IconName",
+      "required": false
+     },
+     "primary": {
+      "type": "string",
+      "required": false
+     },
+     "onPrimary": {
+      "type": "() => void",
+      "required": false
+     },
+     "primaryDisabled": {
+      "type": "boolean",
+      "required": false
+     },
+     "secondary": {
+      "type": "string | false",
+      "required": false
+     },
+     "onSecondary": {
+      "type": "() => void",
+      "required": false
+     },
+     "steps": {
+      "type": "string[]",
+      "required": false
+     },
+     "step": {
+      "type": "number",
+      "required": false
+     },
+     "size": {
+      "type": "'l'",
+      "required": false
+     },
+     "dismissible": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "FileDrop": {
+    "group": "Formularios",
+    "summary": "Subida de archivos: zona de arrastre con trama de puntos que se tiñe al pasar un archivo, y la lista dividida en Subiendo (con barra `rams` y %) y Listos (icono `verde`), cada uno con su botón de quitar.",
+    "props": {
+     "files": {
+      "type": "UploadFile[]",
+      "required": false
+     },
+     "onFiles": {
+      "type": "(f: FileList) => void",
+      "required": false
+     },
+     "accept": {
+      "type": "string",
+      "required": false
+     },
+     "multiple": {
+      "type": "boolean",
+      "required": false
+     },
+     "title": {
+      "type": "string",
+      "required": false
+     },
+     "hint": {
+      "type": "string",
+      "required": false
+     },
+     "simulate": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "ChoiceCards": {
+    "group": "Formularios",
+    "summary": "Opciones grandes en tarjeta para decidir con información: planes, paquetes, tipos de cuenta.",
+    "props": {
+     "options": {
+      "type": "ChoiceOption[]",
+      "required": true
+     },
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: string) => void",
+      "required": false
+     },
+     "columns": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Stat": {
+    "group": "Instrumentos",
+    "summary": "KPI de panel: etiqueta mono, valor grande fino, tendencia (`Sparkline`), variación con ▲▼ y, si hace falta, estado (`En objetivo` · `Atención` · `En riesgo`), valor anterior y enlace.",
+    "props": {
+     "label": {
+      "type": "string",
+      "required": true
+     },
+     "value": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "delta": {
+      "type": "string",
+      "required": false
+     },
+     "inverse": {
+      "type": "boolean",
+      "required": false
+     },
+     "trend": {
+      "type": "number[]",
+      "required": false
+     },
+     "previous": {
+      "type": "string",
+      "required": false
+     },
+     "status": {
+      "type": "'ok' | 'warn' | 'risk'",
+      "required": false
+     },
+     "statusLabel": {
+      "type": "string",
+      "required": false
+     },
+     "link": {
+      "type": "{ label: string; onClick?: () => void }",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "UsageMeter": {
+    "group": "Instrumentos",
+    "summary": "Cuota usada frente a un límite (\"996 de 10.000\"): barra `ink` que pasa a `sol` al 70 % y a `rams` al 90 %, con acción (ampliar) cuando está cerca del tope.",
+    "props": {
+     "label": {
+      "type": "string",
+      "required": true
+     },
+     "used": {
+      "type": "number",
+      "required": true
+     },
+     "limit": {
+      "type": "number",
+      "required": true
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "format": {
+      "type": "(n: number) => string",
+      "required": false
+     },
+     "segments": {
+      "type": "SplitSegment[]",
+      "required": false
+     },
+     "action": {
+      "type": "{ label: string; onClick?: () => void }",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Timeline": {
+    "group": "Superficies",
+    "summary": "Línea de tiempo vertical con el lenguaje de estados: hecho (disco), en curso (puntos), pendiente (aro), error.",
+    "props": {
+     "items": {
+      "type": "TimelineItem[]",
+      "required": true
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Checklist": {
+    "group": "Superficies",
+    "summary": "Lista de puesta en marcha: contador `n / total` con puntos, y cada paso desplegable con su explicación y su acción.",
+    "props": {
+     "title": {
+      "type": "string",
+      "required": false
+     },
+     "items": {
+      "type": "ChecklistItem[]",
+      "required": true
+     },
+     "defaultOpen": {
+      "type": "number",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "PromptBox": {
+    "group": "Conversación",
+    "summary": "Caja de prompt para empezar una conversación con IA: textarea amplio, adjuntos (también arrastrando), selector de modelo y de esfuerzo, dictado y enviar.",
+    "props": {
+     "title": {
+      "type": "string",
+      "required": false
+     },
+     "placeholder": {
+      "type": "string",
+      "required": false
+     },
+     "models": {
+      "type": "string[]",
+      "required": false
+     },
+     "model": {
+      "type": "string",
+      "required": false
+     },
+     "onModel": {
+      "type": "(m: string) => void",
+      "required": false
+     },
+     "efforts": {
+      "type": "string[]",
+      "required": false
+     },
+     "effort": {
+      "type": "string",
+      "required": false
+     },
+     "attachments": {
+      "type": "string[]",
+      "required": false
+     },
+     "suggestions": {
+      "type": "string[]",
+      "required": false
+     },
+     "note": {
+      "type": "string",
+      "required": false
+     },
+     "onSend": {
+      "type": "(x: { text: string; model?: string; attachments: string[] }) => void",
+      "required": false
+     },
+     "onVoice": {
+      "type": "() => void",
+      "required": false
+     },
+     "voice": {
+      "type": "boolean",
+      "required": false
+     },
+     "busy": {
+      "type": "boolean",
+      "required": false
+     },
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: string) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Clock": {
+    "group": "Tiempo",
+    "summary": "Reloj analógico de pared o de tarjeta: disco `ink` con agujas `paper` y segundero `rams` (variante `disc`), esfera de 60 puntos (`ticks`) o la hora en matriz de puntos (`dot`).",
+    "props": {
+     "time": {
+      "type": "string",
+      "required": false
+     },
+     "variant": {
+      "type": "'disc' | 'ticks' | 'dot'",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "seconds": {
+      "type": "boolean",
+      "required": false
+     },
+     "tone": {
+      "type": "string",
+      "required": false
+     },
+     "caption": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "VUMeter": {
+    "group": "Instrumentos",
+    "summary": "Vúmetro de aguja de amplificador: escala de 50 a 3 con los dos últimos números en rojo, aguja negra con su pivote abajo y piloto de pico que se enciende por encima del 88 %.",
+    "props": {
+     "value": {
+      "type": "number",
+      "required": false
+     },
+     "level": {
+      "type": "number",
+      "required": false
+     },
+     "live": {
+      "type": "boolean",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "scale": {
+      "type": "string[]",
+      "required": false
+     },
+     "caption": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "RotarySelector": {
+    "group": "Controles",
+    "summary": "Selector de fuente de amplificador: pomo `ink` con una barra que apunta a la posición elegida y las opciones escritas alrededor en mono, giradas siguiendo el arco.",
+    "props": {
+     "options": {
+      "type": "(string | { value: string; label?: string })[]",
+      "required": true
+     },
+     "value": {
+      "type": "string",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "string",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: string) => void",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "span": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Fader": {
+    "group": "Controles",
+    "summary": "Fader de mesa de mezclas: ranura `ink`, regla con 11 marcas y un capuchón de color que se arrastra en vertical.",
+    "props": {
+     "value": {
+      "type": "number",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "number",
+      "required": false
+     },
+     "onChange": {
+      "type": "(v: number) => void",
+      "required": false
+     },
+     "min": {
+      "type": "number",
+      "required": false
+     },
+     "max": {
+      "type": "number",
+      "required": false
+     },
+     "step": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "format": {
+      "type": "(v: number) => string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Keycap": {
+    "group": "Botonera",
+    "summary": "Tecla mecánica esculpida, como las de un macropad: falda más oscura, superficie clara con brillo arriba y hundimiento de 2 px al pulsar.",
+    "props": {
+     "tone": {
+      "type": "'paper' | 'ink' | 'rams' | 'sol' | 'klein'",
+      "required": false
+     },
+     "w": {
+      "type": "number",
+      "required": false
+     },
+     "h": {
+      "type": "number",
+      "required": false
+     },
+     "sub": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Calculator": {
+    "group": "Botonera",
+    "summary": "Calculadora completa con teclas esculpidas (`Keycap`) y pantalla LCD verde con la operación en curso arriba.",
+    "props": {
+     "variant": {
+      "type": "'keys' | 'round'",
+      "required": false
+     },
+     "keyboard": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "PadGrid": {
+    "group": "Botonera",
+    "summary": "Rejilla de pads de percusión tipo controlador MIDI: fondo `ink`, pads grises que se encienden en `sol` (o `rams`, `klein`) al golpearlos y suenan con WebAudio.",
+    "props": {
+     "columns": {
+      "type": "number",
+      "required": false
+     },
+     "rows": {
+      "type": "number",
+      "required": false
+     },
+     "labels": {
+      "type": "string[]",
+      "required": false
+     },
+     "tone": {
+      "type": "'sol' | 'rams' | 'klein'",
+      "required": false
+     },
+     "sound": {
+      "type": "boolean",
+      "required": false
+     },
+     "keyboard": {
+      "type": "boolean",
+      "required": false
+     },
+     "onPad": {
+      "type": "(i: number) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "TapeDeck": {
+    "group": "Medios",
+    "summary": "Grabadora de cinta: dos carretes que giran (el de la izquierda se vacía, el de la derecha se llena), la cinta pasando por el cabezal, contador en puntos y transporte en `Keypad` (rebobinar, reproducir, parar, grabar).",
+    "props": {
+     "title": {
+      "type": "string",
+      "required": false
+     },
+     "duration": {
+      "type": "number",
+      "required": false
+     },
+     "playing": {
+      "type": "boolean",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Board": {
+    "group": "Arrastre",
+    "summary": "Tablero kanban con arrastrar y soltar real: la tarjeta deja un hueco translúcido, una copia flota inclinada 2° bajo el dedo y una línea `klein` con dos puntos marca dónde caerá.",
+    "props": {
+     "columns": {
+      "type": "BoardColumn[]",
+      "required": true
+     },
+     "onChange": {
+      "type": "(columns: BoardColumn[]) => void",
+      "required": false
+     },
+     "variant": {
+      "type": "'board' | 'list'",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Sortable": {
+    "group": "Arrastre",
+    "summary": "Lista ordenable: la misma mecánica que `Board` en una sola columna.",
+    "props": {
+     "items": {
+      "type": "BoardItem[]",
+      "required": true
+     },
+     "onChange": {
+      "type": "(items: BoardItem[]) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Blueprint": {
+    "group": "Arrastre",
+    "summary": "Lienzo de plano: la hoja de puntos de una pizarra, pero ingenieril.",
+    "props": {
+     "nodes": {
+      "type": "BlueprintNode[]",
+      "required": false
+     },
+     "edges": {
+      "type": "{ from: string; to: string; label?: string }[]",
+      "required": false
+     },
+     "grid": {
+      "type": "number",
+      "required": false
+     },
+     "majorEvery": {
+      "type": "number",
+      "required": false
+     },
+     "snap": {
+      "type": "boolean",
+      "required": false
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "unitPerGrid": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "wheelZoom": {
+      "type": "boolean",
+      "required": false
+     },
+     "onChange": {
+      "type": "(nodes: BlueprintNode[]) => void",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "AreaChart": {
+    "group": "Gráficas",
+    "summary": "Área en semitono: la superficie bajo la curva se rellena con una trama de puntos del color de la serie (no con un degradado) y la línea va encima, suave.",
+    "props": {
+     "series": {
+      "type": "{ label: string; data: number[]; tone?: ChartTone }[]",
+      "required": true
+     },
+     "labels": {
+      "type": "string[]",
+      "required": false
+     },
+     "width": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "zero": {
+      "type": "boolean",
+      "required": false
+     },
+     "legend": {
+      "type": "boolean",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Scatter": {
+    "group": "Gráficas",
+    "summary": "Dispersión sobre una rejilla de puntos: cada observación es un disco con aro del color del fondo, y su tamaño puede ser un tercer dato.",
+    "props": {
+     "points": {
+      "type": "{ x: number; y: number; size?: number; tone?: ChartTone; label?: string }[]",
+      "required": true
+     },
+     "xLabel": {
+      "type": "string",
+      "required": false
+     },
+     "yLabel": {
+      "type": "string",
+      "required": false
+     },
+     "width": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "RadarChart": {
+    "group": "Gráficas",
+    "summary": "Radar de puntos: anillos de puntos al 25/50/75/100 %, ejes finos y la forma de cada serie con relleno al 18 %.",
+    "props": {
+     "axes": {
+      "type": "string[]",
+      "required": true
+     },
+     "series": {
+      "type": "{ label: string; data: number[]; tone?: ChartTone }[]",
+      "required": true
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "DonutChart": {
+    "group": "Gráficas",
+    "summary": "Donut de segmentos redondeados y separados, con el total (o un dato) en puntos en el centro y la leyenda con porcentajes debajo.",
+    "props": {
+     "segments": {
+      "type": "{ label: string; value: number; tone?: ChartTone }[]",
+      "required": true
+     },
+     "value": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "caption": {
+      "type": "string",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "thickness": {
+      "type": "number",
+      "required": false
+     },
+     "gap": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Scope": {
+    "group": "Gráficas",
+    "summary": "Osciloscopio: pantalla oscura con retícula de puntos (ejes centrales marcados) y una traza verde fósforo que corre en vivo.",
+    "props": {
+     "frequency": {
+      "type": "number",
+      "required": false
+     },
+     "amplitude": {
+      "type": "number",
+      "required": false
+     },
+     "noise": {
+      "type": "number",
+      "required": false
+     },
+     "live": {
+      "type": "boolean",
+      "required": false
+     },
+     "width": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "caption": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "VoicePosition": {
+    "group": "Conversación",
+    "summary": "De dónde viene la voz: un anillo de puntos que se inclina y viaja hacia el lado del que habla (izquierda, delante, derecha), se encoge si la voz está lejos y respira con el nivel.",
+    "props": {
+     "pan": {
+      "type": "number | null",
+      "required": false
+     },
+     "side": {
+      "type": "'left' | 'ahead' | 'right' | null",
+      "required": false
+     },
+     "distance": {
+      "type": "'near' | 'far'",
+      "required": false
+     },
+     "state": {
+      "type": "'idle' | 'listening' | 'speaking' | 'processing'",
+      "required": false
+     },
+     "level": {
+      "type": "number",
+      "required": false
+     },
+     "probabilities": {
+      "type": "[number, number, number]",
+      "required": false
+     },
+     "demo": {
+      "type": "boolean",
+      "required": false
+     },
+     "animate": {
+      "type": "boolean",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "rings": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "'klein' | 'rams' | 'sol' | 'verde'",
+      "required": false
+     },
+     "caption": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Beam": {
+    "group": "Conversación",
+    "summary": "Haz de puntos que recorre el borde de una caja mientras algo trabaja: un tren de siete puntos `klein` (y su eco a media opacidad) da la vuelta sobre una pista punteada tenue.",
+    "props": {
+     "active": {
+      "type": "boolean",
+      "required": false
+     },
+     "tone": {
+      "type": "'klein' | 'rams' | 'sol' | 'ink'",
+      "required": false
+     },
+     "radius": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "style": {
+      "type": "React.CSSProperties",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Aura": {
+    "group": "Puntos",
+    "summary": "Disponible no es un puntito en la esquina: es un halo que respira alrededor de quien está.",
+    "props": {
+     "status": {
+      "type": "'online' | 'available' | 'live' | 'away' | 'busy' | 'ai' | 'offline'",
+      "required": false
+     },
+     "tone": {
+      "type": "'verde' | 'rec' | 'sol' | 'rams' | 'klein'",
+      "required": false
+     },
+     "active": {
+      "type": "boolean",
+      "required": false
+     },
+     "shape": {
+      "type": "'round' | 'rect'",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "style": {
+      "type": "React.CSSProperties",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "FlapBoard": {
+    "group": "Medios",
+    "summary": "Panel de salidas: varias filas de `SplitFlap` alineadas en columnas (hora, qué, estado), con el estado teñido.",
+    "props": {
+     "rows": {
+      "type": "{ id?: string | number; time?: string; text?: string; status?: string; tone?: 'sol' | 'rams' | 'verde' | 'rec'; [k: string]: unknown }[]",
+      "required": true
+     },
+     "columns": {
+      "type": "{ key: string; label: string; length: number }[]",
+      "required": false
+     },
+     "title": {
+      "type": "string",
+      "required": false
+     },
+     "meta": {
+      "type": "string",
+      "required": false
+     },
+     "size": {
+      "type": "'s' | 'm' | 'l'",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   }
+  }
+ }
+}

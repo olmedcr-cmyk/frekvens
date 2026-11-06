@@ -1,0 +1,12 @@
+<!-- @dsCard group="Botonera" height=380 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>PadGrid — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'320px'}},h(F.PadGrid,{keyboard:true,labels:['kick','snare','hat','clap','tom','rim','perc','ride','crash']})));
+</script>
+</body>
+</html>

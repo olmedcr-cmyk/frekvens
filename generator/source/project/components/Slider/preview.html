@@ -1,0 +1,12 @@
+<!-- @dsCard group="Controles" height=150 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Slider — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'420px'}},h(C.Slider,{label:'Throttle response',defaultValue:50,stops:['Soft','Normal','Hard']})));
+</script>
+</body>
+</html>

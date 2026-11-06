@@ -1,0 +1,12 @@
+<!-- @dsCard group="Instrumentos" height=240 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>UsageMeter — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'20px',maxWidth:'440px'}},h(F.UsageMeter,{label:'Reservas del mes',used:996,limit:10000}),h(F.UsageMeter,{label:'Minutos de agente de voz',used:7600,limit:10000,unit:'min'}),h(F.UsageMeter,{label:'Almacenamiento',used:46,limit:50,unit:'GB',action:{label:'Ampliar'}})));
+</script>
+</body>
+</html>

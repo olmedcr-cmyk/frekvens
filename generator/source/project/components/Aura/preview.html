@@ -1,0 +1,13 @@
+<!-- @dsCard group="Puntos" height=300 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Aura — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function D(){return h(F.Stack,{direction:'row',gap:7,wrap:true,align:'center'},h(F.Avatar,{name:'Marta Ruiz',size:72,status:'online',tone:'rams'}),h(F.Avatar,{name:'Agente',size:72,status:'live',tone:'klein'}),h(F.Avatar,{name:'Leo Paz',size:72,status:'away'}),h(F.Avatar,{name:'Ana Gil',size:72,status:'offline',tone:'tabaco'}),h(F.Aura,{status:'available',label:'Sala libre'},h(F.KeyButton,{tone:'verde',shape:'pill'},'Sala 2 libre')));}
+ReactDOM.createRoot(document.getElementById('root')).render(h(D));
+</script>
+</body>
+</html>

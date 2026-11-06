@@ -1,0 +1,12 @@
+<!-- @dsCard group="Gráficas" height=340 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Scatter — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Scatter,{label:'Sesiones',xLabel:'minutos',yLabel:'kcal',points:[{x:20,y:180},{x:30,y:260},{x:45,y:380,size:9,tone:'rams',label:'Récord'},{x:25,y:200},{x:50,y:330},{x:35,y:290},{x:60,y:470,tone:'klein',size:8},{x:40,y:300},{x:15,y:120}]}));
+</script>
+</body>
+</html>

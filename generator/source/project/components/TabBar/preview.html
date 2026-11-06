@@ -1,0 +1,12 @@
+<!-- @dsCard group="Navegación" height=110 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>TabBar — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.TabBar,{items:[{id:'h',label:'Hoy',icon:'home'},{id:'t',label:'Timer',icon:'timer'},{id:'c',label:'Chat',icon:'mic',badge:2},{id:'a',label:'Ajustes',icon:'dots'}]}));
+</script>
+</body>
+</html>
