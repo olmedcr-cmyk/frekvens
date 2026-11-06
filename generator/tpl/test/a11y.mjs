@@ -1,4 +1,5 @@
 // axe-core sobre todas las vistas previas, en claro y oscuro. Necesita `npx playwright install chromium`.
+// Las vistas previas tienen fondo transparente: en la web van dentro de .preview, que pinta var(--paper). Aquí se pinta igual.
 import pw from 'playwright';
 const { chromium } = pw;
 import fs from 'node:fs';
@@ -12,7 +13,7 @@ const b = await chromium.launch(); let total = 0, pages = 0;
 for (const f of fs.readdirSync(path.join(root, 'preview')).filter((f) => f.endsWith('.html'))) for (const theme of ['light', 'dark']) {
   const p = await b.newPage({ viewport: { width: 960, height: 900 } });
   await p.route(/fonts\.googleapis|fonts\.gstatic/, (r) => r.abort());
-  await p.goto(`http://localhost:${port}/preview/${f}`); await p.evaluate((t) => document.documentElement.setAttribute('data-theme', t), theme); await p.waitForTimeout(350);
+  await p.goto(`http://localhost:${port}/preview/${f}`); await p.evaluate((t) => { document.documentElement.setAttribute('data-theme', t); document.documentElement.style.background = 'var(--paper)'; }, theme); await p.waitForTimeout(350);
   await p.addScriptTag({ content: axe });
   const v = await p.evaluate(async () => (await axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa', 'best-practice'] }, rules: { region: { enabled: false }, 'landmark-one-main': { enabled: false }, 'page-has-heading-one': { enabled: false } } })).violations.filter((x) => x.impact !== 'minor').map((x) => x.id + ': ' + x.nodes[0].target[0]));
   if (v.length) { console.log(`## ${f} (${theme})`); v.forEach((x) => console.log('  ', x)); total += v.length; }
