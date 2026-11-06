@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "text-field",
+ "type": "registry:ui",
+ "title": "TextField",
+ "description": "Campo de texto en píldora de 56 px sobre well; al enfocarse sube a surface con borde focus. Opcionalmente lleva al lado una tecla redonda klein con flecha para enviar (el campo de correo de una sola a",
+ "categories": [
+  "Formularios"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/text-field.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/text-field.tsx",
+   "content": "\"use client\"\n/* Frekvens · TextField — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx, omit } from \"./lib\"\n\nimport type { TextFieldProps } from \"./types\"\nexport type { TextFieldProps }\n\nconst { useId }: any = React\n\n/* ---------- TextField: pill input, optional submit key ---------- */\nexport function TextField(props: TextFieldProps): React.ReactElement\nexport function TextField(p?: any): any {\n  var id: any = useId(),\n    err: any = p.error,\n    rest: any = omit(p, [\"label\", \"hint\", \"error\", \"onSubmit\", \"submitLabel\", \"className\", \"mono\", \"block\"])\n  function submit(e?: any): any {\n    e.preventDefault()\n    p.onSubmit && p.onSubmit(e.currentTarget.elements[0].value)\n  }\n  var input: any = (\n    <input\n      {...Object.assign(\n        {\n          id: id,\n          className: cx(\"frk-input\", p.mono && \"frk-input--mono\"),\n          \"aria-invalid\": err ? true : undefined,\n          \"aria-describedby\": err || p.hint ? id + \"-d\" : undefined,\n        },\n        rest,\n      )}\n    />\n  )\n  var body: any = p.onSubmit ? (\n    <form className=\"frk-field__row\" onSubmit={submit}>\n      {input}\n      <button\n        type=\"submit\"\n        className=\"frk-key frk-tone--klein frk-key--round frk-field__go\"\n        aria-label={p.submitLabel || \"Enviar\"}\n      >\n        <span className=\"frk-key__main\">\n          <Icon name=\"arrow-right\" size={28} />\n        </span>\n      </button>\n    </form>\n  ) : (\n    input\n  )\n  return (\n    <div className={cx(\"frk-field\", err && \"is-error\", p.className)}>\n      {p.label ? (\n        <label htmlFor={id} className=\"frk-field__label\">\n          {p.label}\n        </label>\n      ) : null}\n      {body}\n      {err ? (\n        <span id={id + \"-d\"} className=\"frk-field__error\">\n          <Icon name=\"close\" size={14} />\n          {err}\n        </span>\n      ) : p.hint ? (\n        <span id={id + \"-d\"} className=\"frk-field__hint\">\n          {p.hint}\n        </span>\n      ) : null}\n    </div>\n  )\n}\n\n/* ---------- Stepper: − value + ---------- */\n"
+  }
+ ],
+ "docs": "# TextField\n\nCampo de texto en píldora de 56 px sobre `well`; al enfocarse sube a `surface` con borde `focus`. Opcionalmente lleva al lado una tecla redonda `klein` con flecha para enviar (el campo de correo de una sola acción).\n\n- **Props**: `label`, `hint`, `error` (texto; marca `aria-invalid` y borde `rec`), `onSubmit(value)` (añade la tecla de envío y envuelve en `<form>`), `submitLabel`, `mono` (para códigos, correos), y cualquier atributo de `<input>`.\n- El error dice qué hacer, no qué falló: \"Escribe un correo con @\". La etiqueta siempre visible: el placeholder es un ejemplo, no la etiqueta.\n"
+}

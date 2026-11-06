@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "tile",
+ "type": "registry:ui",
+ "title": "Tile",
+ "description": "Tarjeta-widget: título arriba a la izquierda, pictograma de puntos en el centro y el valor enorme abajo a la izquierda. La pieza de los dashboards de dos columnas.",
+ "categories": [
+  "Superficies"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/tile.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/tile.tsx",
+   "content": "\"use client\"\n/* Frekvens · Tile — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { TileProps } from \"./types\"\nexport type { TileProps }\n\n/* ---------- Tile: widget card ---------- */\nexport function Tile(props: TileProps): React.ReactElement\nexport function Tile(p?: any): any {\n  var Tag: any = p.onClick ? \"button\" : \"div\"\n  return (\n    <Tag\n      type={p.onClick ? \"button\" : undefined}\n      onClick={p.onClick}\n      className={cx(\"frk-tile\", \"frk-tone--\" + (p.tone || \"surface\"), p.className)}\n      style={{\n        minHeight: p.height,\n      }}\n    >\n      <div className=\"frk-tile__head\">\n        <div className=\"frk-tile__title\">\n          {p.title}\n          {p.subtitle ? <span className=\"frk-tile__sub\">{p.subtitle}</span> : null}\n        </div>\n        {p.meta ? <span className=\"frk-tile__meta\">{p.meta}</span> : null}\n      </div>\n      {p.children ? <div className=\"frk-tile__art\">{p.children}</div> : <div className=\"frk-tile__art\" />}\n      {p.value != null ? <div className=\"frk-tile__value\">{p.value}</div> : null}\n    </Tag>\n  )\n}\n\n/* ---------- Strip: horizontal instrument row ---------- */\n"
+  }
+ ],
+ "docs": "# Tile\n\nTarjeta-widget: título arriba a la izquierda, pictograma de puntos en el centro y el valor enorme abajo a la izquierda. La pieza de los dashboards de dos columnas.\n\n- **Props**: `title`, `subtitle` (segunda línea atenuada), `meta` (mono arriba a la derecha), `value`, `tone` (`surface` · `sol` · `klein` · `rams` · `tabaco` · `ink` · `klein-soft` · `salvia` · `lavanda` · `malva`), `height`, `children` (el arte: `DotMatrix`, `DotGrid`, `Icon`), `onClick` (la convierte en botón).\n- Dos por fila con `space-2` de junta. Una sola Tile de color por fila; la otra en `surface`.\n"
+}

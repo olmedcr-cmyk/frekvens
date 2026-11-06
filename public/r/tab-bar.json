@@ -1,0 +1,25 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "tab-bar",
+ "type": "registry:ui",
+ "title": "TabBar",
+ "description": "Barra de navegación inferior en píldora ink: iconos solos y, el activo, en píldora paper que se abre para mostrar su nombre. Flota centrada a space-5 del borde inferior.",
+ "categories": [
+  "Navegación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/badge.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/tab-bar.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/tab-bar.tsx",
+   "content": "\"use client\"\n/* Frekvens · TabBar — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Badge } from \"./badge\"\nimport { Icon } from \"./icon\"\nimport { cx, useValue } from \"./lib\"\n\nimport type { TabBarProps } from \"./types\"\nexport type { TabBarProps }\n\n/* ---------- TabBar: navegación inferior ---------- */\nexport function TabBar(props: TabBarProps): React.ReactElement\nexport function TabBar(p?: any): any {\n  var items: any = p.items || [],\n    st: any = useValue(p, items[0] && items[0].id),\n    v: any = st[0]\n  return (\n    <nav className={cx(\"frk-tabbar\", p.className)} aria-label={p.label || \"Principal\"}>\n      {items.map(function (it?: any): any {\n        var on: any = it.id === v\n        return (\n          <button\n            key={it.id}\n            type=\"button\"\n            className={cx(\"frk-tabbar__item\", on && \"is-on\")}\n            aria-current={on ? \"page\" : undefined}\n            aria-label={it.label}\n            onClick={function (): any {\n              st[1](it.id)\n            }}\n          >\n            <Badge count={it.badge} dot={it.dot}>\n              <Icon name={it.icon || \"home\"} size={22} />\n            </Badge>\n            <span className=\"frk-tabbar__label\" aria-hidden={true}>\n              {it.label}\n            </span>\n          </button>\n        )\n      })}\n    </nav>\n  )\n}\n\n/* ---------- TopBar ---------- */\n"
+  }
+ ],
+ "docs": "# TabBar\n\nBarra de navegación inferior en píldora `ink`: iconos solos y, el activo, en píldora `paper` que se abre para mostrar su nombre. Flota centrada a `space-5` del borde inferior.\n\n- **Props**: `items` (`[{id, label, icon, badge, dot}]`), `value`/`defaultValue`, `onChange(id)`, `label`.\n- 3–5 destinos. El activo lleva `aria-current=\"page\"`; cada icono tiene su nombre accesible aunque no se vea.\n"
+}

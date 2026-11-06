@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "chip",
+ "type": "registry:ui",
+ "title": "Chip",
+ "description": "Etiqueta mono en píldora: estados, filtros, metadatos (REC, MONO, 70% SOLAR).",
+ "categories": [
+  "Base"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/chip.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/chip.tsx",
+   "content": "\"use client\"\n/* Frekvens · Chip — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { ChipProps } from \"./types\"\nexport type { ChipProps }\n\n/* ---------- Chip: mono pill ---------- */\nexport function Chip(props: ChipProps): React.ReactElement\nexport function Chip(p?: any): any {\n  return (\n    <span\n      className={cx(\"frk-chip\", \"frk-tone--\" + (p.tone || \"well\"), p.square && \"frk-chip--sq\", p.className)}\n    >\n      {p.dot ? <span className=\"frk-chip__dot\" /> : null}\n      {p.children}\n    </span>\n  )\n}\n\n/* ================= overlays, inputs, motion ================= */\n"
+  }
+ ],
+ "docs": "# Chip\n\nEtiqueta mono en píldora: estados, filtros, metadatos (`REC`, `MONO`, `70% SOLAR`).\n\n- **Props**: `tone` (`well` por defecto, o cualquier tono), `dot` (punto de estado delante; en `well` es `rec`), `square` (esquinas `radius-sm`, aspecto LCD), `children`.\n- 1–3 palabras en MAYÚSCULAS. No es un botón: si se pulsa, es una `KeyButton` `s` en `pill`.\n"
+}

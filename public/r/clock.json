@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "clock",
+ "type": "registry:ui",
+ "title": "Clock",
+ "description": "Reloj analógico de pared o de tarjeta: disco ink con agujas paper y segundero rams (variante disc), esfera de 60 puntos (ticks) o la hora en matriz de puntos (dot). Sin time, va en vivo.",
+ "categories": [
+  "Tiempo"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/dot-matrix.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/clock.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/clock.tsx",
+   "content": "\"use client\"\n/* Frekvens · Clock — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { DotMatrix } from \"./dot-matrix\"\nimport { cx, pad, polar, range, useNow } from \"./lib\"\n\nimport type { ClockProps } from \"./types\"\nexport type { ClockProps }\n\n/* ---------- Clock ---------- */\nexport function Clock(props: ClockProps): React.ReactElement\nexport function Clock(p?: any): any {\n  var now: any = useNow(p.time == null, 1000),\n    d: any\n  if (p.time != null) {\n    var m: any = String(p.time).split(\":\")\n    d = new Date()\n    d.setHours(+m[0], +m[1], +(m[2] || 0))\n  } else d = new Date(now)\n  var H: any = d.getHours(),\n    M: any = d.getMinutes(),\n    S: any = d.getSeconds(),\n    size: any = p.size || 200,\n    v: any = p.variant || \"disc\",\n    c: any = size / 2\n  var label: any = \"Son las \" + H + \":\" + pad(M)\n  if (v === \"dot\")\n    return (\n      <div className={cx(\"frk-clock\", \"frk-clock--dot\", p.className)} role=\"img\" aria-label={label}>\n        <DotMatrix\n          text={pad(H) + \":\" + pad(M)}\n          dot={size / 42}\n          pitch={size / 30}\n          tone={p.tone || \"ink\"}\n          showOff={true}\n          label={label}\n        />\n      </div>\n    )\n  var ha: any = ((H % 12) + M / 60) * 30,\n    ma: any = (M + S / 60) * 6,\n    sa: any = S * 6\n  function hand(a?: any, len?: any, w?: any, cls?: any): any {\n    var e: any = polar(c, c, len, a),\n      b: any = polar(c, c, -len * 0.14, a)\n    return <line x1={b[0]} y1={b[1]} x2={e[0]} y2={e[1]} strokeWidth={w} className={cls} />\n  }\n  var ticks: any =\n    v === \"ticks\"\n      ? range(60).map(function (i?: any): any {\n          var q: any = polar(c, c, c - 10, i * 6)\n          return <circle key={i} cx={q[0]} cy={q[1]} r={i % 5 ? 1.4 : 3} className=\"frk-clock__tick\" />\n        })\n      : null\n  return (\n    <div className={cx(\"frk-clock\", \"frk-clock--\" + v, p.className)}>\n      <svg width={size} height={size} viewBox={\"0 0 \" + size + \" \" + size} role=\"img\" aria-label={label}>\n        <circle cx={c} cy={c} r={c - 1} className=\"frk-clock__face\" />\n        {ticks}\n        {hand(ha, c * 0.5, size / 40, \"frk-clock__hand\")}\n        {hand(ma, c * 0.78, size / 60, \"frk-clock__hand\")}\n        {p.seconds !== false ? hand(sa, c * 0.84, size / 160 + 0.6, \"frk-clock__sec\") : null}\n        <circle cx={c} cy={c} r={size / 50 + 2} className=\"frk-clock__pin\" />\n      </svg>\n      {p.caption ? <span className=\"frk-clock__cap\">{p.caption}</span> : null}\n    </div>\n  )\n}\n\n/* ---------- VUMeter: aguja analógica ---------- */\n"
+  }
+ ],
+ "docs": "# Clock\n\nReloj analógico de pared o de tarjeta: disco `ink` con agujas `paper` y segundero `rams` (variante `disc`), esfera de 60 puntos (`ticks`) o la hora en matriz de puntos (`dot`). Sin `time`, va en vivo.\n\n- **Props**: `time` (`'10:09'` fija la hora), `variant` (`disc` · `ticks` · `dot`), `size` (200), `seconds` (true), `caption`.\n- El lector de pantalla oye \"Son las 10:09\"; no anuncia cada segundo.\n"
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>PantallaSuministros</title>
+<style>
+  .screens { display:flex; gap:var(--space-6); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .phone { position:relative; width:390px; height:800px; box-sizing:border-box; border-radius:48px; padding:var(--space-8) var(--space-5) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .tablet { position:relative; width:1180px; height:820px; box-sizing:border-box; border-radius:36px; padding:var(--space-4); display:flex; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .main { flex:1; min-width:0; display:flex; flex-direction:column; gap:var(--space-4); }
+  .row { display:flex; gap:var(--space-2); }
+  .push { margin-top:auto; }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+var pr=[.09,.08,.07,.07,.07,.08,.11,.15,.19,.17,.14,.12,.10,.10,.11,.13,.16,.21,.24,.23,.19,.15,.12,.10];
+var heat=[];for(var i=0;i<5*7;i++){heat.push(Math.round(6+5*Math.sin(i*.9)+(i%7>4?4:0)));}
+function Luz(){return h('div',{className:'phone'},h(F.Text,{variant:'display-xl',sub:'Por horas'},'Luz'),
+  h(F.HourStrip,{prices:pr,now:14}),
+  h(F.Banner,{tone:'ok',title:'Pon la lavadora a las 03:00'},'Ahorras 0,42 € frente a ahora.'),
+  h(F.Grid,{columns:2},h(F.Tile,{tone:'surface',title:'Este mes',subtitle:'de 260 kWh',value:'184',height:150},h(F.Gauge,{value:71,width:120,thickness:10})),h(F.Tile,{tone:'tabaco',title:'Factura',subtitle:'estimada',value:'41 €',height:150})),
+  h('div',{className:'push'},h(F.TabBar,{items:[{id:'l',label:'Luz',icon:'sun'},{id:'a',label:'Agua',icon:'drop'},{id:'g',label:'Gas',icon:'power'}]})));}
+function Agua(){return h('div',{className:'phone frk-tone--lavanda',style:{background:'var(--lavanda)'}},h(F.Text,{variant:'display-xl',sub:'5 semanas'},'Agua'),
+  h('div',null,h(F.Text,{variant:'numeral-xl'},'142'),h(F.Text,{variant:'label'},'litros hoy · media 128')),
+  h(F.Heatmap,{data:heat,cell:28,tone:'klein',unit:' m³',caption:'Consumo diario'}),
+  h(F.Strip,{tone:'surface',title:'Lectura',value:'0482,3'},h(F.SplitFlap,{value:'M3',size:'s',length:2})),
+  h('div',{className:'push'},h(F.Banner,{tone:'warn',title:'Posible fuga',action:{label:'Ver'}},'Consumo nocturno constante desde el martes.')));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(Luz),h(Agua)));
+</script>
+</body>
+</html>

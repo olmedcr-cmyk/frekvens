@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "steps",
+ "type": "registry:ui",
+ "title": "Steps",
+ "description": "Progreso por pasos con el lenguaje de estados: disco = hecho, puntos = paso actual, aro = pendiente, unidos por un filete que se rellena. Para onboarding y procesos de 3–6 pasos.",
+ "categories": [
+  "Navegación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/state-mark.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/steps.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/steps.tsx",
+   "content": "\"use client\"\n/* Frekvens · Steps — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { StateMark } from \"./state-mark\"\nimport { cx } from \"./lib\"\n\nimport type { StepsProps } from \"./types\"\nexport type { StepsProps }\n\n/* ---------- Steps: progreso por pasos ---------- */\nexport function Steps(props: StepsProps): React.ReactElement\nexport function Steps(p?: any): any {\n  var steps: any = p.steps || [],\n    cur: any = p.current || 0\n  return (\n    <ol className={cx(\"frk-steps\", p.className)} aria-label={p.label || \"Progreso\"}>\n      {steps.map(function (s?: any, i?: any): any {\n        var state: any = i < cur ? \"full\" : i === cur ? \"partial\" : \"empty\"\n        return (\n          <li\n            key={i}\n            className={cx(\"frk-steps__item\", \"is-\" + state)}\n            aria-current={i === cur ? \"step\" : undefined}\n          >\n            <StateMark state={state} size={22} label=\"\" />\n            <span className=\"frk-steps__label\">{s}</span>\n            <span className=\"frk-sr\">\n              {state === \"full\" ? \" (hecho)\" : state === \"partial\" ? \" (actual)\" : \" (pendiente)\"}\n            </span>\n          </li>\n        )\n      })}\n    </ol>\n  )\n}\n\n/* ---------- Tooltip ---------- */\n"
+  }
+ ],
+ "docs": "# Steps\n\nProgreso por pasos con el lenguaje de estados: disco = hecho, puntos = paso actual, aro = pendiente, unidos por un filete que se rellena. Para onboarding y procesos de 3–6 pasos.\n\n- **Props**: `steps` (etiquetas), `current` (índice), `label`.\n- Etiquetas de una o dos palabras. El paso actual lleva `aria-current=\"step\"`.\n"
+}

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>KeyButton — preview</title></head>
+<body>
+<div id="root" class="frk-pad frk-row-flex"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment,null,
+ h(C.KeyButton,{tone:'rams',size:'xl',label:'Tabata',icon:'play'},'Start'),
+ h(C.KeyButton,{tone:'klein',size:'l',label:'Series'},'8'),
+ h(C.KeyButton,{tone:'paper',size:'l',label:'Trabajo'},'20s'),
+ h(C.KeyButton,{tone:'ink',label:'Pausa',icon:'pause'}),
+ h(C.KeyButton,{tone:'sol',shape:'round',icon:'plus','aria-label':'Añadir'}),
+ h(C.KeyButton,{tone:'ink',shape:'pill'},'Continuar')));
+</script>
+</body>
+</html>

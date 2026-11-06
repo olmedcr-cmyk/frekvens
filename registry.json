@@ -1,0 +1,2826 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "frekvens",
+  "homepage": "https://frekvens.vercel.app",
+  "items": [
+    {
+      "name": "frekvens-styles",
+      "type": "registry:style",
+      "title": "Estilos de Frekvens",
+      "description": "Tokens (claro/oscuro), componentes en @layer y tema para Tailwind v4.",
+      "files": [
+        {
+          "path": "registry/frekvens/ui/frekvens.css",
+          "type": "registry:file",
+          "target": "~/styles/frekvens/frekvens.css"
+        },
+        {
+          "path": "registry/frekvens/ui/tokens.css",
+          "type": "registry:file",
+          "target": "~/styles/frekvens/tokens.css"
+        },
+        {
+          "path": "registry/frekvens/ui/components.css",
+          "type": "registry:file",
+          "target": "~/styles/frekvens/components.css"
+        },
+        {
+          "path": "registry/frekvens/ui/tailwind.css",
+          "type": "registry:file",
+          "target": "~/styles/frekvens/tailwind.css"
+        },
+        {
+          "path": "registry/frekvens/ui/fonts.css",
+          "type": "registry:file",
+          "target": "~/styles/frekvens/fonts.css"
+        }
+      ],
+      "docs": "Importa styles/frekvens/frekvens.css (o tailwind.css si usas Tailwind v4) en tu CSS global y pon data-theme en <html>."
+    },
+    {
+      "name": "frekvens-lib",
+      "type": "registry:lib",
+      "title": "Frekvens · utilidades",
+      "description": "cx, useValue, useFollow (muelle con impulso), iconos, parseLang y lo que comparten los componentes.",
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/lib.tsx",
+          "type": "registry:lib",
+          "target": "~/components/frekvens/lib.tsx"
+        },
+        {
+          "path": "registry/frekvens/ui/types.ts",
+          "type": "registry:lib",
+          "target": "~/components/frekvens/types.ts"
+        },
+        {
+          "path": "registry/frekvens/lib/theme.ts",
+          "type": "registry:lib",
+          "target": "~/components/frekvens/theme.ts"
+        }
+      ]
+    },
+    {
+      "name": "key-button",
+      "type": "registry:ui",
+      "title": "KeyButton",
+      "description": "Tecla grande, plana y táctil: la unidad básica de toda la casa. Úsala para cualquier acción; el tamaño dice la importancia, no el color.",
+      "categories": [
+        "Botonera"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/key-button.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/key-button.tsx"
+        }
+      ],
+      "docs": "# KeyButton\n\nTecla grande, plana y táctil: la unidad básica de toda la casa. Úsala para cualquier acción; el tamaño dice la importancia, no el color.\n\n- **Props**: `tone` (`paper` · `ink` · `klein` · `sol` · `rams` · `tabaco` · `rec` · `well`), `size` (`s` 56 · `m` 88 · `l` 120 · `xl` 168 px), `shape` (`square` · `pill` · `round`), `label` (etiqueta mono arriba a la izquierda), `icon` (nombre de `Icon`), `active`, `toggle` (expone `aria-pressed`), `block` (ancho completo), `children` (la palabra o número grande), más cualquier atributo de `<button>`.\n- Una sola tecla `klein` por pantalla: la acción para la que existe la pantalla. `rams` = arrancar/empezar algo físico (START del temporizador). `rec` solo para grabar o destruir, con palabra.\n- La tecla de palma (`xl`) va en el tercio inferior, al alcance del pulgar. Nada pulsable por debajo de `hit-min`.\n- Texto: una o dos palabras, verbo o número. Etiqueta mono en MAYÚSCULAS para el *qué* (`SERIES`), texto grande para el *valor* (`8`).\n- Pulsada: se comprime a 0.965 en `dur-press` con `shadow-press`, como un botón físico; en `paper` activa se invierte a `ink`. Con un popover abierto (`data-open`) se queda hundida.\n"
+    },
+    {
+      "name": "keypad",
+      "type": "registry:ui",
+      "title": "Keypad",
+      "description": "Fila de teclas pegadas con junta de 1 px, a lo Teenage Engineering: la barra de modos o de transporte al pie de la pantalla.",
+      "categories": [
+        "Botonera"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/keypad.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/keypad.tsx"
+        }
+      ],
+      "docs": "# Keypad\n\nFila de teclas pegadas con junta de 1 px, a lo Teenage Engineering: la barra de modos o de transporte al pie de la pantalla.\n\n- **Props**: `keys` (array de `{label, icon, tone, active, onClick, ariaLabel}`), `columns` (por defecto, una por tecla), `height`, `label` (nombre accesible del grupo).\n- 3 o 4 teclas. Etiquetas de 3 letras en mono (`LOG` `SET` `PRO`) o un icono de transporte (rec · play · stop). La tecla activa se invierte a `ink`.\n- Siempre a sangre del ancho útil, pegado al borde inferior seguro. No mezclar texto e icono en la misma fila salvo que todas las teclas lleven ambos.\n"
+    },
+    {
+      "name": "hold-button",
+      "type": "registry:ui",
+      "title": "HoldButton",
+      "description": "Mantén pulsado para confirmar: un anillo rams se llena alrededor del botón en duration ms; si sueltas antes, se vacía. Al completarse se vuelve verde con ✓.",
+      "categories": [
+        "Botonera"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/hold-button.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/hold-button.tsx"
+        }
+      ],
+      "docs": "# HoldButton\n\nMantén pulsado para confirmar: un anillo `rams` se llena alrededor del botón en `duration` ms; si sueltas antes, se vacía. Al completarse se vuelve `verde` con ✓.\n\n- **Props**: `onComplete()`, `duration` (1200 ms), `size` (120), `tone` (`ink`), `icon` (`stop`), `children` (texto, `Mantén`), `doneLabel`, `label`, `disabled`.\n- Accesible: mantener Espacio o Enter funciona igual.\n- Para terminar un entreno, borrar algo o parar una grabación: acciones que no quieres hacer por accidente pero sí rápido.\n"
+    },
+    {
+      "name": "slide-to-start",
+      "type": "registry:ui",
+      "title": "SlideToStart",
+      "description": "Arranque deliberado: arrastra el disco hasta el final para empezar. Evita empezar un entreno o un pago por un toque accidental. Si sueltas antes del 82 %, el disco vuelve con ease-throw; al completar ",
+      "categories": [
+        "Botonera"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/slide-to-start.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/slide-to-start.tsx"
+        }
+      ],
+      "docs": "# SlideToStart\n\nArranque deliberado: arrastra el disco hasta el final para empezar. Evita empezar un entreno o un pago por un toque accidental. Si sueltas antes del 82 %, el disco vuelve con `ease-throw`; al completar se vuelve `verde` con ✓.\n\n- **Props**: `onComplete()`, `children` (texto, \"Desliza para empezar\"), `doneLabel`, `icon` (`play`), `tone` (`surface`), `label`, `resetAfter` (vuelve al inicio tras 1.2 s; `false` para dejarlo hecho).\n- Accesible sin arrastrar: el disco es un botón; Enter o Espacio completan.\n- Una por pantalla, en la zona del pulgar. Para acciones reversibles, una `KeyButton` normal.\n"
+    },
+    {
+      "name": "rocker",
+      "type": "registry:ui",
+      "title": "Rocker",
+      "description": "Interruptores basculantes de máquina sobre una placa verde: la tecla bascula al encenderse y el piloto LED de debajo se enciende. Para 2–4 funciones físicas paralelas (sonido, vibración, pantalla siem",
+      "categories": [
+        "Botonera"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/led.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/rocker.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/rocker.tsx"
+        }
+      ],
+      "docs": "# Rocker\n\nInterruptores basculantes de máquina sobre una placa `verde`: la tecla bascula al encenderse y el piloto `LED` de debajo se enciende. Para 2–4 funciones físicas paralelas (sonido, vibración, pantalla siempre encendida).\n\n- **Props**: `items` (`[{label, icon, on, checked, tone, onChange}]`), `label` (del grupo).\n- Cada tecla es un `role=\"switch\"`; el piloto repite el estado en texto para lectores.\n"
+    },
+    {
+      "name": "icon",
+      "type": "registry:ui",
+      "title": "Icon",
+      "description": "Iconos geométricos propios en rejilla de 24, trazo 2 px, terminaciones rectas, rellenos sólidos para transporte. Heredan currentColor.",
+      "categories": [
+        "Base"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/icon.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/icon.tsx"
+        }
+      ],
+      "docs": "# Icon\n\nIconos geométricos propios en rejilla de 24, trazo 2 px, terminaciones rectas, rellenos sólidos para transporte. Heredan `currentColor`.\n\n- **Props**: `name` (ver `Frekvens.Icon.names`), `size` (24 por defecto; 28 en Keypad, 32–48 en teclas grandes), `title` (si el icono va solo y significa algo), `strokeWidth`.\n- Iconos de transporte (`play` `pause` `stop` `rec`) siempre rellenos; el resto, trazo. Nunca emoji.\n- Junto a un número o una palabra, el icono va delante y alineado al centro óptico.\n"
+    },
+    {
+      "name": "dial",
+      "type": "registry:ui",
+      "title": "Dial",
+      "description": "Mando circular: disco ink, punto indicador en paper, aguja sol y marcas de paso alrededor. Se arrastra girando o con flechas del teclado.",
+      "categories": [
+        "Controles"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/dial.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/dial.tsx"
+        }
+      ],
+      "docs": "# Dial\n\nMando circular: disco `ink`, punto indicador en `paper`, aguja `sol` y marcas de paso alrededor. Se arrastra girando o con flechas del teclado.\n\n- **Props**: `value`/`defaultValue`, `onChange(n)`, `min` (0), `max` (8), `size` (160 px), `tone` (`ink` · `klein` · `tabaco`), `label` (mono, se muestra como `PWR:4`).\n- Para valores discretos y pocos (≤ 12 pasos): intensidad, modo, nivel. Para rangos continuos usa `Slider`.\n- En rejilla de 2×2 con `space-6` de separación como panel de mandos. La etiqueta siempre debajo, nunca dentro del disco.\n"
+    },
+    {
+      "name": "gauge",
+      "type": "registry:ui",
+      "title": "Gauge",
+      "description": "Arco de instrumento: pista tabaco, tramo recorrido en ink y un punto de lectura. Para un porcentaje de 0 a 100.",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/gauge.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/gauge.tsx"
+        }
+      ],
+      "docs": "# Gauge\n\nArco de instrumento: pista `tabaco`, tramo recorrido en `ink` y un punto de lectura. Para un porcentaje de 0 a 100.\n\n- **Props**: `value` (0–100), `width` (240 px), `thickness` (14), `caption` (texto bajo el arco, p. ej. `int. 80%`), `label` (nombre accesible).\n- Solo lectura (`role=\"meter\"`). Si el usuario debe ajustarlo, usa `Slider` o `Dial`.\n- Va a la derecha de un `Strip`, con el valor en grande a la izquierda (`ON`, `78%`).\n"
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Pista en píldora de 56 px de alto con dos puntos ink en los extremos y el cursor en rams. Usa un <input type=\"range\"> nativo encima: teclado y lector de pantalla funcionan solos.",
+      "categories": [
+        "Controles"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/slider.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/slider.tsx"
+        }
+      ],
+      "docs": "# Slider\n\nPista en píldora de 56 px de alto con dos puntos `ink` en los extremos y el cursor en `rams`. Usa un `<input type=\"range\">` nativo encima: teclado y lector de pantalla funcionan solos.\n\n- **Props**: `value`/`defaultValue`, `onChange(n)`, `min`, `max`, `step`, `label` (mono arriba), `stops` (etiquetas bajo la pista: `['Soft','Normal','Hard']`), `format(v)` para `aria-valuetext`.\n- Un slider por grupo; si hay tres, conviértelos en `Dial`s.\n"
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Interruptor en píldora de 120 × 56. El disco **viaja** de un extremo al otro y aterriza con un rebote corto (ease-spring); al pulsar se estira, como un pulgar que empuja. Encendido: pista ink, disco s",
+      "categories": [
+        "Controles"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/switch.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/switch.tsx"
+        }
+      ],
+      "docs": "# Switch\n\nInterruptor en píldora de 120 × 56. El disco **viaja** de un extremo al otro y aterriza con un rebote corto (`ease-spring`); al pulsar se estira, como un pulgar que empuja. Encendido: pista `ink`, disco `sol` con un halo pequeño. `ON`/`OFF` se cruzan con el disco, así que nunca depende solo del color.\n\n- **Props**: `checked`/`defaultChecked`, `onChange(bool)`, `label` (nombre accesible), `showLabel` (pinta la etiqueta a la izquierda y la fila entera es pulsable), `onText`, `offText`, `disabled`.\n- Efecto inmediato (luz, sonido, modo). Si el cambio requiere confirmar, usa `KeyButton`.\n- Vibra 6 ms donde hay vibración. Con movimiento reducido el disco cambia de lado sin viajar.\n"
+    },
+    {
+      "name": "segmented",
+      "type": "registry:ui",
+      "title": "Segmented",
+      "description": "Selector en píldora ink: la opción elegida es una **pieza paper que viaja** de una opción a otra con ease-spring (380 ms) y se encoge un 3 % mientras pulsas. El Home | 🔒 de Nothing. 2–4 opciones.",
+      "categories": [
+        "Controles"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/segmented.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/segmented.tsx"
+        }
+      ],
+      "docs": "# Segmented\n\nSelector en píldora `ink`: la opción elegida es una **pieza `paper` que viaja** de una opción a otra con `ease-spring` (380 ms) y se encoge un 3 % mientras pulsas. El `Home | 🔒` de Nothing. 2–4 opciones.\n\n- **Props**: `options` (strings o `{value,label,icon,ariaLabel}`), `value`/`defaultValue`, `onChange(v)`, `label`.\n- Teclado: flechas para cambiar (patrón radiogroup, un solo punto de tabulación).\n- Navegación principal flotante al pie (centrada, `space-5` sobre el borde) o filtro de vista. Opciones solo-icono necesitan `ariaLabel`.\n"
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "Menos · número · más. Para cantidades pequeñas y enteras (series, plazas, minutos). El número entra rodando desde abajo al cambiar.",
+      "categories": [
+        "Controles"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/stepper.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/stepper.tsx"
+        }
+      ],
+      "docs": "# Stepper\n\nMenos · número · más. Para cantidades pequeñas y enteras (series, plazas, minutos). El número entra rodando desde abajo al cambiar.\n\n- **Props**: `value`/`defaultValue`, `onChange(n)`, `min` (0), `max` (99), `step` (1), `unit`, `label` (nombre del grupo; se usa en los botones: \"Más series\").\n- En los límites el botón correspondiente se deshabilita. Para rangos grandes, `Slider` o `Dial`.\n"
+    },
+    {
+      "name": "wheel",
+      "type": "registry:ui",
+      "title": "Wheel",
+      "description": "Rueda selectora vertical con scroll-snap: los valores se atenúan y encogen según se alejan del centro; el elegido queda en una ventana surface. Para horas, minutos, repeticiones.",
+      "categories": [
+        "Controles"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/wheel.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/wheel.tsx"
+        }
+      ],
+      "docs": "# Wheel\n\nRueda selectora vertical con scroll-snap: los valores se atenúan y encogen según se alejan del centro; el elegido queda en una ventana `surface`. Para horas, minutos, repeticiones.\n\n- **Props**: `items` (strings o `{value,label}`; por defecto 00–59), `value`/`defaultValue`, `onChange(v)`, `label`, `unit`, `visible` (5 filas), `rowHeight` (48), `width`.\n- **Teclado**: ↑ ↓ de uno en uno, RePág/AvPág de cinco. `role=\"spinbutton\"`.\n- Pon dos o tres en fila con `space-2` para una hora completa.\n"
+    },
+    {
+      "name": "volume-wheel",
+      "type": "registry:ui",
+      "title": "VolumeWheel",
+      "description": "Rueda lateral estriada, como la rueda de scroll de un dispositivo de bolsillo: se gira con la rueda del ratón, arrastrando arriba/abajo o con las flechas, y sus estrías se desplazan al girar. Al lado,",
+      "categories": [
+        "Controles"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/volume-wheel.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/volume-wheel.tsx"
+        }
+      ],
+      "docs": "# VolumeWheel\n\nRueda lateral estriada, como la rueda de scroll de un dispositivo de bolsillo: se gira con la rueda del ratón, arrastrando arriba/abajo o con las flechas, y sus estrías se desplazan al girar. Al lado, una columna de segmentos y el valor en puntos.\n\n- **Props**: `value`/`defaultValue` (0–100), `onChange(n)`, `step` (5), `segments` (16), `height` (240), `tone` (`rams` · `klein` · `ink`), `label`, `unitLabel` (`VOL`).\n- Úsala para volumen, intensidad o cualquier nivel que se ajusta \"sin mirar\". `role=\"slider\"` vertical.\n"
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Casilla cuadrada de 32 px con ✓ que se rellena de ink. Admite estado mixto (−). Toda la fila (casilla + texto) es pulsable: 44 px de alto como mínimo.",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/checkbox.tsx"
+        }
+      ],
+      "docs": "# Checkbox\n\nCasilla cuadrada de 32 px con ✓ que se rellena de `ink`. Admite estado mixto (−). Toda la fila (casilla + texto) es pulsable: 44 px de alto como mínimo.\n\n- **Props**: `label` (o `children`), `hint`, `checked`/`defaultChecked`, `onChange(bool)`, `indeterminate`, `disabled`.\n- Para opciones independientes y para aceptar condiciones. Si el cambio surte efecto al instante, usa `Switch`.\n"
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "RadioGroup",
+      "description": "Elección única con el lenguaje de estados: el aro vacío se llena hasta ser disco al elegirlo. Flechas para moverse dentro del grupo (patrón ARIA radiogroup).",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/radio-group.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/radio-group.tsx"
+        }
+      ],
+      "docs": "# RadioGroup\n\nElección única con el lenguaje de estados: el aro vacío se llena hasta ser disco al elegirlo. Flechas para moverse dentro del grupo (patrón ARIA radiogroup).\n\n- **Props**: `options` (strings o `{value, label, hint, disabled}`), `value`/`defaultValue`, `onChange(v)`, `label`, `direction` (`column` · `row`).\n- 2–5 opciones con explicación. Sin explicación y con pocas opciones, `Segmented`.\n"
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Desplegable de selección única (patrón listbox de ARIA). El disparador es una píldora de 56 px; la lista se abre en un panel ink anclado al borde del que sale, con las opciones entrando escalonadas.",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/select.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/select.tsx"
+        }
+      ],
+      "docs": "# Select\n\nDesplegable de selección única (patrón listbox de ARIA). El disparador es una píldora de 56 px; la lista se abre en un panel `ink` anclado al borde del que sale, con las opciones entrando escalonadas.\n\n- **Props**: `options` (strings o `{value, label, meta, disabled}`), `value`/`defaultValue`, `onChange(v)`, `label` (mono encima), `placeholder`, `hint`, `disabled`, `block` (ancho completo), `defaultOpen` (solo para documentar).\n- **Teclado**: ↓ ↑ Enter o Espacio abren; ↓ ↑ Inicio Fin mueven; Enter o Espacio eligen; Esc cierra; Tab cierra y sigue; escribir salta a la opción que empieza así. El foco no sale del disparador (`aria-activedescendant`).\n- **Movimiento**: entra en `dur-base` con `ease-ui` (escala .96 → 1, sube 6 px); sale en `dur-fast` con `ease-exit`. Opciones con 25 ms de desfase. El chevron gira 180°.\n- Hasta ~8 opciones. Con más, una `Sheet` con lista. Con 2–4 opciones visibles a la vez, mejor `Segmented`.\n"
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "title": "Menu",
+      "description": "Menú de acciones en un botón redondo de dots: editar, duplicar, borrar. Panel ink anclado al disparador; la acción destructiva va en rams y al final, tras un separador.",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/menu.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/menu.tsx"
+        }
+      ],
+      "docs": "# Menu\n\nMenú de acciones en un botón redondo de `dots`: editar, duplicar, borrar. Panel `ink` anclado al disparador; la acción destructiva va en `rams` y al final, tras un separador.\n\n- **Props**: `items` (`[{label, icon, onSelect, shortcut, danger, disabled} | {separator:true}]`), `label` (nombre accesible del botón), `icon` (`dots` por defecto), `align` (`start` · `end`, de qué borde cuelga), `tone`, `defaultOpen`.\n- **Teclado**: ↓ en el disparador abre; ↓ ↑ Inicio Fin recorren; Enter elige; Esc cierra y devuelve el foco al botón.\n- Mientras está abierto, el disparador se queda hundido (`data-open`). Para elegir un valor, no uses Menu: usa `Select`.\n"
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Pestañas con dos acabados: **pill**, una píldora ink que viaja de una pestaña a otra con ease-travel; y **folder**, pestañas de carpeta de archivo que suben al seleccionarse y se funden con su panel.",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/tabs.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/tabs.tsx"
+        }
+      ],
+      "docs": "# Tabs\n\nPestañas con dos acabados: **`pill`**, una píldora `ink` que viaja de una pestaña a otra con `ease-travel`; y **`folder`**, pestañas de carpeta de archivo que suben al seleccionarse y se funden con su panel.\n\n- **Props**: `tabs` (`[{id, label, icon, count, tone, content}]`), `value`/`defaultValue`, `onChange(id)`, `variant` (`pill` · `folder`), `label`.\n- **Teclado**: ← → recorren y activan, Inicio/Fin; Tab entra al panel. Patrón ARIA tabs.\n- 2–5 pestañas. Con `folder`, cada pestaña puede llevar su `tone` y el panel lo hereda.\n"
+    },
+    {
+      "name": "text-field",
+      "type": "registry:ui",
+      "title": "TextField",
+      "description": "Campo de texto en píldora de 56 px sobre well; al enfocarse sube a surface con borde focus. Opcionalmente lleva al lado una tecla redonda klein con flecha para enviar (el campo de correo de una sola a",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/text-field.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/text-field.tsx"
+        }
+      ],
+      "docs": "# TextField\n\nCampo de texto en píldora de 56 px sobre `well`; al enfocarse sube a `surface` con borde `focus`. Opcionalmente lleva al lado una tecla redonda `klein` con flecha para enviar (el campo de correo de una sola acción).\n\n- **Props**: `label`, `hint`, `error` (texto; marca `aria-invalid` y borde `rec`), `onSubmit(value)` (añade la tecla de envío y envuelve en `<form>`), `submitLabel`, `mono` (para códigos, correos), y cualquier atributo de `<input>`.\n- El error dice qué hacer, no qué falló: \"Escribe un correo con @\". La etiqueta siempre visible: el placeholder es un ejemplo, no la etiqueta.\n"
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Calendario de discos: vista **semana** (una tira de 7 días, la de las referencias) o **mes**. Hoy lleva aro; el día elegido, disco ink; los días con sesión, un punto rams debajo.",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/calendar.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/calendar.tsx"
+        }
+      ],
+      "docs": "# Calendar\n\nCalendario de discos: vista **semana** (una tira de 7 días, la de las referencias) o **mes**. Hoy lleva aro; el día elegido, disco `ink`; los días con sesión, un punto `rams` debajo.\n\n- **Props**: `value`/`defaultValue` (`'AAAA-MM-DD'`), `onChange(iso)`, `view` (`week` · `month`), `switchable` (tecla para cambiar de vista), `marks` (fechas con punto), `today`.\n- **Teclado**: ← → un día, ↑ ↓ una semana; solo el día elegido entra en el orden de tabulación.\n"
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Hoja inferior modal: el sitio para formularios cortos, detalles y confirmaciones. Sube desde abajo con dur-sheet y ease-ui; se descarta arrastrando el asa más de 96 px, tocando el fondo, con Esc o con",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/sheet.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/sheet.tsx"
+        }
+      ],
+      "docs": "# Sheet\n\nHoja inferior modal: el sitio para formularios cortos, detalles y confirmaciones. Sube desde abajo con `dur-sheet` y `ease-ui`; se descarta arrastrando el asa más de 96 px, tocando el fondo, con Esc o con la ×.\n\n- **Props**: `open`, `onClose()`, `title`, `label` (si no hay título), `tone` (`surface`), `inline` (se posiciona dentro del contenedor en vez de en la ventana; para maquetas), `children`.\n- Atrapa el foco mientras está abierta y lo devuelve al disparador al cerrar. `role=\"dialog\"` + `aria-modal`.\n- Una acción principal al pie (`KeyButton` `pill` o `block`). Nunca una Sheet encima de otra.\n"
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Aviso breve en píldora: confirma algo que ya pasó y, si acaso, ofrece deshacer. Sube 12 px y aparece; sale más rápido de lo que entra.",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/toast.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/toast.tsx"
+        }
+      ],
+      "docs": "# Toast\n\nAviso breve en píldora: confirma algo que ya pasó y, si acaso, ofrece deshacer. Sube 12 px y aparece; sale más rápido de lo que entra.\n\n- **Props**: `open`, `onClose()`, `duration` (ms, auto-cierre; 4000 típico, nunca con `action` de menos de 6000), `tone` (`ink` · `verde` · `rec` · …), `icon`, `action` (`{label, onClick}`), `fixed` (centrado abajo en la ventana), `children`.\n- `role=\"status\"`; con `tone:'rec'` pasa a `alert`. Un solo toast a la vez. Una frase, sin punto final si es corta.\n"
+    },
+    {
+      "name": "banner",
+      "type": "registry:ui",
+      "title": "Banner",
+      "description": "Aviso dentro de la página, a todo el ancho: un bloque de color con icono, título opcional, una frase y, si hace falta, una acción. Para lo que el usuario debe saber mientras sigue en la pantalla.",
+      "categories": [
+        "Feedback"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/banner.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/banner.tsx"
+        }
+      ],
+      "docs": "# Banner\n\nAviso dentro de la página, a todo el ancho: un bloque de color con icono, título opcional, una frase y, si hace falta, una acción. Para lo que el usuario debe saber mientras sigue en la pantalla.\n\n- **Props**: `tone` (`info` klein-soft · `ok` verde · `warn` sol · `error` rec), `title`, `children`, `icon`, `action` (`{label, onClick}`), `dismissible`, `onDismiss()`.\n- `error` se anuncia como alerta. Lo pasajero va en `Toast`; lo que bloquea, en `Sheet`.\n"
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Etiqueta flotante ink que explica un control sin texto. Aparece a los 400 ms al pasar el puntero o al enfocar, se cierra con Esc y nunca contiene acciones.",
+      "categories": [
+        "Feedback"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/tooltip.tsx"
+        }
+      ],
+      "docs": "# Tooltip\n\nEtiqueta flotante `ink` que explica un control sin texto. Aparece a los 400 ms al pasar el puntero o al enfocar, se cierra con Esc y nunca contiene acciones.\n\n- **Props**: `content`, `side` (`top` · `bottom`), `delay` (400), `children` (un único elemento enfocable).\n- En móvil no hay hover: lo esencial nunca vive solo en un tooltip.\n"
+    },
+    {
+      "name": "timer",
+      "type": "registry:ui",
+      "title": "Timer",
+      "description": "Cuenta atrás en un anillo de 60 puntos: los encendidos (rams) son el tiempo que queda; cada quinto punto es más grande, como las marcas de un reloj. En los tres últimos segundos el número cambia a una",
+      "categories": [
+        "Tiempo"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/stopwatch.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/timer.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/timer.tsx"
+        }
+      ],
+      "docs": "# Timer\n\nCuenta atrás en un anillo de 60 puntos: los encendidos (`rams`) son el tiempo que queda; cada quinto punto es más grande, como las marcas de un reloj. En los tres últimos segundos el número cambia a una cuenta 3·2·1 gigante y, al terminar, el anillo se vuelve `verde`.\n\n- **Props**: `duration` (segundos), `autoStart`, `onComplete()`, `label`, `doneText`, `size` (260), `dots` (60).\n- Anuncia a lectores de pantalla solo la cuenta final y el final (`role=\"timer\"`), no cada segundo.\n- Para series encadenadas (Tabata), encadena Timers desde fuera con `onComplete`.\n"
+    },
+    {
+      "name": "stopwatch",
+      "type": "registry:ui",
+      "title": "Stopwatch",
+      "description": "Cronómetro con centésimas, vueltas y la mejor vuelta marcada en klein-ink. Dos teclas redondas que cambian de papel según el estado (Empezar/Parar en rams, Vuelta/Reiniciar al lado), siempre en el mis",
+      "categories": [
+        "Tiempo"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/readout.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/stopwatch.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/stopwatch.tsx"
+        }
+      ],
+      "docs": "# Stopwatch\n\nCronómetro con centésimas, vueltas y la mejor vuelta marcada en `klein-ink`. Dos teclas redondas que cambian de papel según el estado (Empezar/Parar en `rams`, Vuelta/Reiniciar al lado), siempre en el mismo sitio.\n\n- **Props**: `autoStart`, `onLap(ms)`, `label`, `size` (`display` · `hero`, el tamaño del `Readout`).\n- Las cifras son tabulares: no bailan. El estado de las teclas comparte hueco (Vuelta ↔ Reiniciar, Parar ↔ Empezar) para que el pulgar no tenga que buscar.\n"
+    },
+    {
+      "name": "hourglass",
+      "type": "registry:ui",
+      "title": "Hourglass",
+      "description": "Reloj de arena de puntos tabaco: el triángulo de arriba se vacía desde arriba y el de abajo se llena desde abajo; un grano cae por el cuello mientras corre. Se gira al tocarlo (180°, dur-grow) y empie",
+      "categories": [
+        "Tiempo"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/hourglass.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/hourglass.tsx"
+        }
+      ],
+      "docs": "# Hourglass\n\nReloj de arena de puntos `tabaco`: el triángulo de arriba se vacía desde arriba y el de abajo se llena desde abajo; un grano cae por el cuello mientras corre. Se gira al tocarlo (180°, `dur-grow`) y empieza de nuevo.\n\n- **Props**: `duration` (segundos), `autoStart`, `onComplete()`, `pitch` (12), `label`.\n- Para tiempos de descanso o espera donde el número exacto importa menos que la sensación. Lleva siempre la lectura en segundos debajo.\n"
+    },
+    {
+      "name": "pendulum",
+      "type": "registry:ui",
+      "title": "Pendulum",
+      "description": "Metrónomo: brazo ink con contrapeso rams que oscila a los BPM indicados, y los tiempos del compás en puntos (el primero marcado con aro). Ajuste de BPM con Stepper.",
+      "categories": [
+        "Tiempo"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/stepper.json",
+        "https://frekvens.vercel.app/r/stopwatch.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/pendulum.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/pendulum.tsx"
+        }
+      ],
+      "docs": "# Pendulum\n\nMetrónomo: brazo `ink` con contrapeso `rams` que oscila a los BPM indicados, y los tiempos del compás en puntos (el primero marcado con aro). Ajuste de BPM con `Stepper`.\n\n- **Props**: `bpm`/`defaultBpm` (90), `onBpmChange(n)`, `beats` (4), `step` (5), `running` (si se controla desde fuera, desaparece la tecla de parar).\n- La oscilación es seno (ease-in-out): frena en los extremos, como un péndulo real. Con movimiento reducido, el brazo se queda quieto y solo laten los puntos.\n"
+    },
+    {
+      "name": "media-player",
+      "type": "registry:ui",
+      "title": "MediaPlayer",
+      "description": "Reproductor de vídeo. Tecla de play rams grande en el centro mientras está en pausa; barra de control flotante en píldora oscura con play, posición (con marcas de capítulo en sol), tiempo, sonido, sub",
+      "categories": [
+        "Medios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/dot-matrix.json",
+        "https://frekvens.vercel.app/r/chip.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/media-player.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/media-player.tsx"
+        }
+      ],
+      "docs": "# MediaPlayer\n\nReproductor de vídeo. Tecla de play `rams` grande en el centro mientras está en pausa; barra de control flotante en píldora oscura con play, posición (con marcas de capítulo en `sol`), tiempo, sonido, subtítulos y pantalla completa. Al reproducir, la barra se esconde y vuelve al pasar el puntero o al enfocar.\n\n- **Props**: `src`, `poster`, `title`, `badge` (chip `sol` arriba a la derecha), `chapters` (segundos), `captions` (URL .vtt) + `captionsLang` + `captionsOn`, `ratio` (`'16 / 9'`), `autoPlay`, `loop`, `muted`, `duration` (solo para el modo demo), `children` (póster de demo sin `src`).\n- **Teclado** con el reproductor enfocado: Espacio/K play, ← → 5 s, M sonido, C subtítulos, F pantalla completa. La posición es un `slider` accesible.\n- Sin `src` simula el tiempo: sirve para maquetas y para UI generada antes de tener el vídeo.\n- Autoplay solo silenciado y en bucle (fondos); nunca con sonido.\n"
+    },
+    {
+      "name": "audio-track",
+      "type": "registry:ui",
+      "title": "AudioTrack",
+      "description": "Pista de audio con la onda como barra de posición: barras redondeadas, las reproducidas en el color del texto. Tecla redonda de play, título, tiempo y chip de velocidad.",
+      "categories": [
+        "Medios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/chip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/audio-track.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/audio-track.tsx"
+        }
+      ],
+      "docs": "# AudioTrack\n\nPista de audio con la onda como barra de posición: barras redondeadas, las reproducidas en el color del texto. Tecla redonda de play, título, tiempo y chip de velocidad.\n\n- **Props**: `src`, `title`, `peaks` (array 0–1; si no, se genera una onda estable con `seed`), `bars` (56), `tone` (`surface`), `rate`, `speed` (false oculta el chip), `duration` (modo demo).\n- La onda es un `slider`: ← → 5 s, Espacio play. Para notas de voz, podcasts, mensajes del entrenador.\n"
+    },
+    {
+      "name": "ticker",
+      "type": "registry:ui",
+      "title": "Ticker",
+      "description": "Cinta que corre en horizontal: noticias, marcadores, horarios, valores. Se pausa sola al pasar el puntero o al enfocarla, y lleva siempre su propia tecla de pausa (todo lo que se mueve más de 5 s debe",
+      "categories": [
+        "Medios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/ticker.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/ticker.tsx"
+        }
+      ],
+      "docs": "# Ticker\n\nCinta que corre en horizontal: noticias, marcadores, horarios, valores. Se pausa sola al pasar el puntero o al enfocarla, y lleva siempre su propia tecla de pausa (todo lo que se mueve más de 5 s debe poder pararse).\n\n- **Props**: `items` (strings o `{label, value, delta}`; `delta` negativo pinta ▼, positivo ▲ en negrita: la flecha lleva el significado, no el color), `speed` (segundos por vuelta, 30), `tone` (`ink`), `label`.\n- Con movimiento reducido no corre: se convierte en una fila desplazable. Una cinta por pantalla, nunca información crítica solo ahí.\n"
+    },
+    {
+      "name": "split-flap",
+      "type": "registry:ui",
+      "title": "SplitFlap",
+      "description": "Panel de paletas de aeropuerto: cada carácter gira por el abecedario hasta su letra, en cascada de izquierda a derecha. Para el dato que cambia y quieres que se note: próxima clase, puerta, marcador, ",
+      "categories": [
+        "Medios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/split-flap.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/split-flap.tsx"
+        }
+      ],
+      "docs": "# SplitFlap\n\nPanel de paletas de aeropuerto: cada carácter gira por el abecedario hasta su letra, en cascada de izquierda a derecha. Para el dato que cambia y quieres que se note: próxima clase, puerta, marcador, turno, cuenta atrás.\n\n- **Props**: `value` (texto; se pasa a mayúsculas), `length` (celdas fijas), `size` (`s` · `m` · `l`), `tone` (`sol` · `rams` · `verde` · `rec`: el estado, no la decoración), `cycle` (lista de valores que rota sola) + `interval` (4000 ms), `speed` (ms por paso, 45).\n- Con `cycle`, se para mientras el puntero o el foco están encima. Se anuncia solo el valor final. Con movimiento reducido cambia sin girar y no rota.\n- Para varias filas, `FlapBoard`. Un dato por panel: si todo gira, nada destaca.\n"
+    },
+    {
+      "name": "dot-matrix",
+      "type": "registry:ui",
+      "title": "DotMatrix",
+      "description": "Dibuja números y formas con puntos sobre una retícula: la firma visual del sistema. Sol, nube, gota, aro, disco, corazón, o cualquier texto numérico en una fuente de 5×7.",
+      "categories": [
+        "Puntos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/dot-matrix.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/dot-matrix.tsx"
+        }
+      ],
+      "docs": "# DotMatrix\n\nDibuja números y formas con puntos sobre una retícula: la firma visual del sistema. Sol, nube, gota, aro, disco, corazón, o cualquier texto numérico en una fuente de 5×7.\n\n- **Props**: `shape` (`sun` · `cloud` · `drop` · `ring` · `disc` · `heart`), `grid` (lado en puntos, 15), `text` (dígitos, `:` `.` `°` `%` `-`), `rows` (array de strings `'0101'` para un dibujo propio), `dot` (diámetro, 6), `pitch` (paso, 10), `showOff` (dibuja también los puntos apagados en `dot-off`), `tone` (`ink` · `klein` · `rams` · `tabaco` · `paper`), `label`, `reactive` (los puntos cercanos al puntero crecen hasta un 60 %: el dibujo responde al dedo; se mantiene con movimiento reducido porque es respuesta directa).\n- Es la ilustración del sistema: no uses fotos ni ilustración plana. Un pictograma de puntos por Tile o por pantalla.\n- `pitch` ≥ `dot` × 1.5 para que respire; en héroe, `dot` 8–10.\n"
+    },
+    {
+      "name": "dot-grid",
+      "type": "registry:ui",
+      "title": "DotGrid",
+      "description": "Discos en rejilla. Dos usos:",
+      "categories": [
+        "Puntos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/dot-grid.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/dot-grid.tsx"
+        }
+      ],
+      "docs": "# DotGrid\n\nDiscos en rejilla. Dos usos:\n\n1. **Contar** (sin `select`): n de m llenos, como un ábaco (`3 de 20`, series hechas).\n2. **Elegir** (`select: 'one' | 'many'`): cada disco es un botón de 56 px. Al pasar el puntero el disco crece y sus vecinos se asoman (efecto lente), al pulsarlo se hunde y se rellena con un pequeño salto. Los ocupados quedan hundidos y tachados. Para plazas de una clase, asientos, días de un calendario, franjas horarias.\n\n- **Props comunes**: `total`, `columns` (4), `size` (48 contar · 56 elegir), `gap`, `tone` (`klein` · `rams` · `ink` · `sol` · `verde`), `label`.\n- **Contar**: `filled`.\n- **Elegir**: `select`, `value`/`defaultValue` (índice o lista), `onChange`, `disabled` (índices ocupados), `labels` (nombre de cada disco: `'A3'`, `'18:00'`, `12`), `showLabels`, `max` (en `many`), `deselect` (true), `caption` (o `false`).\n- Teclado: flechas por la rejilla, Inicio/Fin, Espacio/Enter elige. Vibra 8 ms al elegir. Nunca solo color: ocupado = tachado, elegido = relleno + `aria-pressed`.\n"
+    },
+    {
+      "name": "state-mark",
+      "type": "registry:ui",
+      "title": "StateMark",
+      "description": "El lenguaje de estados de la casa: **aro** = pendiente, **puntos** = en curso, **disco** = hecho. Tres formas, un mismo diámetro, sin color.",
+      "categories": [
+        "Puntos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/state-mark.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/state-mark.tsx"
+        }
+      ],
+      "docs": "# StateMark\n\nEl lenguaje de estados de la casa: **aro** = pendiente, **puntos** = en curso, **disco** = hecho. Tres formas, un mismo diámetro, sin color.\n\n- **Props**: `state` (`empty` · `partial` · `full`), `size` (24), `label` (por defecto: Pendiente / En curso / Hecho), `children` (texto al lado).\n- Úsalo en listas de tareas, calendario de entrenos, pasos de onboarding y reservas. El color puede acompañar, nunca sustituir a la forma.\n"
+    },
+    {
+      "name": "steps",
+      "type": "registry:ui",
+      "title": "Steps",
+      "description": "Progreso por pasos con el lenguaje de estados: disco = hecho, puntos = paso actual, aro = pendiente, unidos por un filete que se rellena. Para onboarding y procesos de 3–6 pasos.",
+      "categories": [
+        "Navegación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/state-mark.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/steps.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/steps.tsx"
+        }
+      ],
+      "docs": "# Steps\n\nProgreso por pasos con el lenguaje de estados: disco = hecho, puntos = paso actual, aro = pendiente, unidos por un filete que se rellena. Para onboarding y procesos de 3–6 pasos.\n\n- **Props**: `steps` (etiquetas), `current` (índice), `label`.\n- Etiquetas de una o dos palabras. El paso actual lleva `aria-current=\"step\"`.\n"
+    },
+    {
+      "name": "grille",
+      "type": "registry:ui",
+      "title": "Grille",
+      "description": "Rejilla de altavoz o lámpara en un disco o una cúpula: ranuras horizontales o agujeros de puntos recortados en un círculo de color. Es el retrato de un aparato: úsalo como arte de un Tile, una carta o",
+      "categories": [
+        "Puntos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/grille.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/grille.tsx"
+        }
+      ],
+      "docs": "# Grille\n\nRejilla de altavoz o lámpara en un disco o una cúpula: ranuras horizontales o agujeros de puntos recortados en un círculo de color. Es el retrato de un aparato: úsalo como arte de un Tile, una carta o una pantalla de audio.\n\n- **Props**: `variant` (`slots` · `dots`), `shape` (`disc` · `dome`, la media esfera de una lámpara), `size` (160), `pitch` (paso de los puntos), `tone` (`verde` · `ink` · `sol` · `rams` · `tabaco` · `surface`), `label` (si comunica algo; si no, es decorativo).\n- Una por vista. Con `dome`, apila una `Grille` o un disco debajo para la silueta completa de lámpara.\n"
+    },
+    {
+      "name": "led",
+      "type": "registry:ui",
+      "title": "LED",
+      "description": "Piloto de máquina: un rectángulo de luz de 10×6 px con halo. Estado de un aparato (calentando, listo, grabando) junto a una etiqueta mono.",
+      "categories": [
+        "Puntos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/led.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/led.tsx"
+        }
+      ],
+      "docs": "# LED\n\nPiloto de máquina: un rectángulo de luz de 10×6 px con halo. Estado de un aparato (calentando, listo, grabando) junto a una etiqueta mono.\n\n- **Props**: `tone` (`rec` · `verde` · `sol` · `klein`), `on` (true), `blink` (parpadeo de 1.2 s en dos pasos, sin fundido), `children` (etiqueta).\n- Siempre con etiqueta: el color solo no dice nada. Se anuncia \"(encendido)/(apagado)\" a lectores de pantalla.\n- En fila sobre teclas (como los pilotos de una cafetera) o al lado de un `Chip`.\n"
+    },
+    {
+      "name": "level-bars",
+      "type": "registry:ui",
+      "title": "LevelBars",
+      "description": "Nivel como reglas verticales redondeadas: encendidas en ink, apagadas en ink-faint. Batería, carga, volumen.",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/level-bars.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/level-bars.tsx"
+        }
+      ],
+      "docs": "# LevelBars\n\nNivel como reglas verticales redondeadas: encendidas en `ink`, apagadas en `ink-faint`. Batería, carga, volumen.\n\n- **Props**: `value` (0–100), `count` (20), `height` (64), `label`.\n- Siempre junto a la cifra (`78%`). Solo lectura.\n"
+    },
+    {
+      "name": "bar-meter",
+      "type": "registry:ui",
+      "title": "BarMeter",
+      "description": "Barras en píldora por categoría o día; una activa en ink, el resto en well, previsión o pendiente rayada.",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/bar-meter.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/bar-meter.tsx"
+        }
+      ],
+      "docs": "# BarMeter\n\nBarras en píldora por categoría o día; una activa en `ink`, el resto en `well`, previsión o pendiente rayada.\n\n- **Props**: `data` (`[{label, value, hatched}]`), `active` (índice resaltado), `height` (160), `barWidth` (40), `label`.\n- 3–7 barras. El día actual o la categoría elegida es la `active`; su etiqueta va en negrita. Datos futuros: `hatched`.\n"
+    },
+    {
+      "name": "line-chart",
+      "type": "registry:ui",
+      "title": "LineChart",
+      "description": "Línea suave con marcador de **ahora**: lo pasado en trazo lleno, lo previsto fino y atenuado, y un aro con línea vertical en el punto actual (la curva del clima de las referencias).",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/line-chart.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/line-chart.tsx"
+        }
+      ],
+      "docs": "# LineChart\n\nLínea suave con marcador de **ahora**: lo pasado en trazo lleno, lo previsto fino y atenuado, y un aro con línea vertical en el punto actual (la curva del clima de las referencias).\n\n- **Props**: `data` (números), `labels` (eje x), `now` (índice), `unit`, `tone` (`ink` · `rams` · `klein`), `width` (360), `height` (140), `caption`, `label`.\n- El nombre accesible resume mínimo, máximo y valor actual. Una línea por gráfico; para comparar categorías, `BarMeter`.\n"
+    },
+    {
+      "name": "progress-ring",
+      "type": "registry:ui",
+      "title": "ProgressRing",
+      "description": "Anillo de progreso con el porcentaje en el centro. Avanza con dur-grow y ease-arrive.",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/progress-ring.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/progress-ring.tsx"
+        }
+      ],
+      "docs": "# ProgressRing\n\nAnillo de progreso con el porcentaje en el centro. Avanza con `dur-grow` y `ease-arrive`.\n\n- **Props**: `value` (0–100), `size` (96), `thickness` (8), `tone` (`rams` · `klein` · `ink` · `verde`), `label`, `children` (sustituye al porcentaje).\n- Para progreso continuo de una sola cosa (sesión, día). Para \"n de m\" contables, `DotGrid` o `StateMark`.\n"
+    },
+    {
+      "name": "readout",
+      "type": "registry:ui",
+      "title": "Readout",
+      "description": "El número que manda: cifra en Doto (puntos) con etiqueta mono encima y unidad pequeña. Temporizador, cuenta atrás, contador.",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/readout.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/readout.tsx"
+        }
+      ],
+      "docs": "# Readout\n\nEl número que manda: cifra en `Doto` (puntos) con etiqueta mono encima y unidad pequeña. Temporizador, cuenta atrás, contador.\n\n- **Props**: `value`, `unit`, `label`, `meta` (línea técnica debajo), `size` (`hero` 120 · `display` 64 · `label` 24), `live` (anuncia cambios a lectores de pantalla; solo para hitos, no cada segundo).\n- Un `hero` por pantalla, arriba a la izquierda o centrado como cuenta atrás 3·2·1. Cifras tabulares: no bailan al cambiar.\n"
+    },
+    {
+      "name": "tile",
+      "type": "registry:ui",
+      "title": "Tile",
+      "description": "Tarjeta-widget: título arriba a la izquierda, pictograma de puntos en el centro y el valor enorme abajo a la izquierda. La pieza de los dashboards de dos columnas.",
+      "categories": [
+        "Superficies"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/tile.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/tile.tsx"
+        }
+      ],
+      "docs": "# Tile\n\nTarjeta-widget: título arriba a la izquierda, pictograma de puntos en el centro y el valor enorme abajo a la izquierda. La pieza de los dashboards de dos columnas.\n\n- **Props**: `title`, `subtitle` (segunda línea atenuada), `meta` (mono arriba a la derecha), `value`, `tone` (`surface` · `sol` · `klein` · `rams` · `tabaco` · `ink` · `klein-soft` · `salvia` · `lavanda` · `malva`), `height`, `children` (el arte: `DotMatrix`, `DotGrid`, `Icon`), `onClick` (la convierte en botón).\n- Dos por fila con `space-2` de junta. Una sola Tile de color por fila; la otra en `surface`.\n"
+    },
+    {
+      "name": "strip",
+      "type": "registry:ui",
+      "title": "Strip",
+      "description": "Fila de instrumento horizontal: título y valor grande a la izquierda, instrumento a la derecha. Se apilan con space-2 como un panel de control.",
+      "categories": [
+        "Superficies"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/strip.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/strip.tsx"
+        }
+      ],
+      "docs": "# Strip\n\nFila de instrumento horizontal: título y valor grande a la izquierda, instrumento a la derecha. Se apilan con `space-2` como un panel de control.\n\n- **Props**: `title`, `value`, `tone` (`surface` por defecto), `children` (el instrumento: `Gauge`, `LevelBars`, `DotMatrix`, texto secundario).\n- Para pantallas de estado: temperatura, batería, luz, hora. El valor siempre legible sin el instrumento.\n"
+    },
+    {
+      "name": "card-stack",
+      "type": "registry:ui",
+      "title": "CardStack",
+      "description": "Cartas de color apiladas que se solapan un radio: al tocar una, crece con frenada larga (dur-grow, ease-arrive) y muestra su título y su número. Listas cortas con personalidad: rutinas, playlists, cat",
+      "categories": [
+        "Superficies"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/card-stack.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/card-stack.tsx"
+        }
+      ],
+      "docs": "# CardStack\n\nCartas de color apiladas que se solapan un radio: al tocar una, crece con frenada larga (`dur-grow`, `ease-arrive`) y muestra su título y su número. Listas cortas con personalidad: rutinas, playlists, categorías.\n\n- **Props**: `items` (`[{badge, icon, title, subtitle, value, tone}]`), `value`/`defaultValue` (índice abierto), `onChange(i)`.\n- 3–5 cartas, cada una de un tono distinto (`klein-soft`, `sol`, `rams`, `verde`, `lavanda`…). La última no se solapa con nada.\n- La insignia es redonda con borde discontinuo: letra, número o icono.\n"
+    },
+    {
+      "name": "cabinet",
+      "type": "registry:ui",
+      "title": "Cabinet",
+      "description": "Archivero: cajones apilados con tirador en píldora. Al abrir uno, el cajón sale 10 px hacia fuera, el tirador se alarga y el contenido se despliega con frenada larga. Funciona como un acordeón de una ",
+      "categories": [
+        "Superficies"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/cabinet.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/cabinet.tsx"
+        }
+      ],
+      "docs": "# Cabinet\n\nArchivero: cajones apilados con tirador en píldora. Al abrir uno, el cajón sale 10 px hacia fuera, el tirador se alarga y el contenido se despliega con frenada larga. Funciona como un acordeón de una sola apertura.\n\n- **Props**: `drawers` (`[{label, index, meta, tone, content}]`), `value`/`defaultValue` (índice abierto, `-1` ninguno), `onChange(i)`.\n- Para archivo, historial o ajustes agrupados. Cada cajón de un tono si representan categorías; todos `surface` si son iguales.\n- El contenido cerrado no se lee ni se enfoca (`visibility: hidden` tras la animación).\n"
+    },
+    {
+      "name": "pager",
+      "type": "registry:ui",
+      "title": "Pager",
+      "description": "Carrusel horizontal con scroll-snap, botones redondos de anterior/siguiente y puntos de posición (el activo se alarga en píldora). Funciona con el dedo, con los botones y con ← →.",
+      "categories": [
+        "Superficies"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/pager.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/pager.tsx"
+        }
+      ],
+      "docs": "# Pager\n\nCarrusel horizontal con scroll-snap, botones redondos de anterior/siguiente y puntos de posición (el activo se alarga en píldora). Funciona con el dedo, con los botones y con ← →.\n\n- **Props**: `children` (una diapositiva cada uno), `itemWidth` (`'85%'`, deja asomar la siguiente), `gap` (8), `label`.\n- Para onboarding, tarjetas de rutina o galerías. Nunca autoavance.\n"
+    },
+    {
+      "name": "deck",
+      "type": "registry:ui",
+      "title": "Deck",
+      "description": "Carrusel de cartas apiladas: la de arriba se arrastra y, si pasa de 90 px, sale lanzada (ease-throw) y se va al fondo del mazo. También con botones y ← →. Para elegir entre opciones de una en una (rut",
+      "categories": [
+        "Superficies"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/deck.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/deck.tsx"
+        }
+      ],
+      "docs": "# Deck\n\nCarrusel de cartas apiladas: la de arriba se arrastra y, si pasa de 90 px, sale lanzada (`ease-throw`) y se va al fondo del mazo. También con botones y ← →. Para elegir entre opciones de una en una (rutinas, recomendaciones, onboarding).\n\n- **Props**: `children` (una carta cada uno; normalmente `Tile`), `height` (280), `onChange(i)`, `label`.\n- Se ven tres cartas como mucho; el contador `01 / 05` dice dónde estás. No lo uses para contenido que hay que comparar: para eso, `Pager` o `Grid`.\n"
+    },
+    {
+      "name": "list-row",
+      "type": "registry:ui",
+      "title": "ListRow",
+      "description": "Fila con filete superior y número o icono grande a la izquierda: pasos, historial, ajustes. Sin tarjetas, sin sombras.",
+      "categories": [
+        "Superficies"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/list-row.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/list-row.tsx"
+        }
+      ],
+      "docs": "# ListRow\n\nFila con filete superior y número o icono grande a la izquierda: pasos, historial, ajustes. Sin tarjetas, sin sombras.\n\n- **Props**: `index` (número grande), `icon` (alternativa al número), `title`, `detail`, `value` (mono, a la derecha), `onClick` (la convierte en botón).\n- Pasos de un proceso: `index` 1…n. Ajustes: `icon` + `value`. Nunca chevron decorativo: si navega, el `value` es `→`.\n"
+    },
+    {
+      "name": "chip",
+      "type": "registry:ui",
+      "title": "Chip",
+      "description": "Etiqueta mono en píldora: estados, filtros, metadatos (REC, MONO, 70% SOLAR).",
+      "categories": [
+        "Base"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/chip.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/chip.tsx"
+        }
+      ],
+      "docs": "# Chip\n\nEtiqueta mono en píldora: estados, filtros, metadatos (`REC`, `MONO`, `70% SOLAR`).\n\n- **Props**: `tone` (`well` por defecto, o cualquier tono), `dot` (punto de estado delante; en `well` es `rec`), `square` (esquinas `radius-sm`, aspecto LCD), `children`.\n- 1–3 palabras en MAYÚSCULAS. No es un botón: si se pulsa, es una `KeyButton` `s` en `pill`.\n"
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Contador o punto de aviso sobre otro elemento (un icono, una tecla, un avatar). Aparece escalando desde cero.",
+      "categories": [
+        "Base"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/badge.tsx"
+        }
+      ],
+      "docs": "# Badge\n\nContador o punto de aviso sobre otro elemento (un icono, una tecla, un avatar). Aparece escalando desde cero.\n\n- **Props**: `count`, `max` (99, luego \"99+\"), `dot` (solo punto), `tone` (`rams`), `label` (qué cuenta, para lectores: \"3 nuevos\"), `children`.\n- 0 no se muestra. Para estados de texto, `Chip`.\n"
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Disco con foto o iniciales en Archivo 800. El estado se ve como un **aura** que respira alrededor del disco (ver Aura): disponible verde, en directo rec (más rápido), ausente sol, ocupado rams; descon",
+      "categories": [
+        "Base"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/avatar.tsx"
+        }
+      ],
+      "docs": "# Avatar\n\nDisco con foto o iniciales en Archivo 800. El estado se ve como un **aura** que respira alrededor del disco (ver `Aura`): disponible `verde`, en directo `rec` (más rápido), ausente `sol`, ocupado `rams`; desconectado sin halo y en gris.\n\n- **Props**: `name` (obligatorio: da las iniciales y el nombre accesible), `src`, `size` (48), `tone` (`ink`), `status` (`online` · `live` · `away` · `busy` · `offline`).\n- El estado va también en el nombre accesible (\"Marta Ruiz · disponible\").\n"
+    },
+    {
+      "name": "top-bar",
+      "type": "registry:ui",
+      "title": "TopBar",
+      "description": "Cabecera de pantalla: tecla redonda de atrás, título centrado y acciones a la derecha. En variante large, el título va abajo en display-xl con la segunda línea de estado (el título de dos líneas de la",
+      "categories": [
+        "Navegación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/text.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/top-bar.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/top-bar.tsx"
+        }
+      ],
+      "docs": "# TopBar\n\nCabecera de pantalla: tecla redonda de atrás, título centrado y acciones a la derecha. En variante `large`, el título va abajo en `display-xl` con la segunda línea de estado (el título de dos líneas de la casa).\n\n- **Props**: `title`, `subtitle` (solo `large`), `onBack()`, `backLabel`, `actions` (nodos; normalmente `Menu` o teclas redondas), `large`, `as` (`'header'` si es la cabecera única de la página).\n- Una por pantalla. Nada de logos ni hamburguesas: navegación en `TabBar`.\n"
+    },
+    {
+      "name": "tab-bar",
+      "type": "registry:ui",
+      "title": "TabBar",
+      "description": "Barra de navegación inferior en píldora ink: iconos solos y, el activo, en píldora paper que se abre para mostrar su nombre. Flota centrada a space-5 del borde inferior.",
+      "categories": [
+        "Navegación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/badge.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/tab-bar.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/tab-bar.tsx"
+        }
+      ],
+      "docs": "# TabBar\n\nBarra de navegación inferior en píldora `ink`: iconos solos y, el activo, en píldora `paper` que se abre para mostrar su nombre. Flota centrada a `space-5` del borde inferior.\n\n- **Props**: `items` (`[{id, label, icon, badge, dot}]`), `value`/`defaultValue`, `onChange(id)`, `label`.\n- 3–5 destinos. El activo lleva `aria-current=\"page\"`; cada icono tiene su nombre accesible aunque no se vea.\n"
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "EmptyState",
+      "description": "Estado vacío: un aro de puntos, un título que dice qué falta, una frase que dice qué hacer y, si se puede, la acción.",
+      "categories": [
+        "Feedback"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/dot-matrix.json",
+        "https://frekvens.vercel.app/r/key-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/empty-state.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/empty-state.tsx"
+        }
+      ],
+      "docs": "# EmptyState\n\nEstado vacío: un aro de puntos, un título que dice qué falta, una frase que dice qué hacer y, si se puede, la acción.\n\n- **Props**: `title`, `text`, `action` (`{label, onClick}`), `shape` (forma de `DotMatrix`, `ring`), `compact`.\n- Nunca \"No hay datos\": \"Aún no has entrenado esta semana\" + \"Reservar\".\n"
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Carga en puntos: el hueco del contenido que viene se dibuja como una trama de puntos dot-off con un brillo que la recorre. Nada de rectángulos grises.",
+      "categories": [
+        "Feedback"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/skeleton.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/skeleton.tsx"
+        }
+      ],
+      "docs": "# Skeleton\n\nCarga en puntos: el hueco del contenido que viene se dibuja como una trama de puntos `dot-off` con un brillo que la recorre. Nada de rectángulos grises.\n\n- **Props**: `shape` (`text` · `tile` · `circle`), `lines` (3), `width`, `height`, `label`.\n- Solo si la carga pasa de ~300 ms; si pasa de 3 s, añade un `DotLoader` con texto.\n"
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "title": "Message",
+      "description": "Un turno de conversación. **Usuario**: bocadillo ink a la derecha. **Asistente**: sin bocadillo, texto a la izquierda con un avatar redondo que usa el lenguaje de estados (puntos mientras escribe, dis",
+      "categories": [
+        "Conversación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/state-mark.json",
+        "https://frekvens.vercel.app/r/dot-loader.json",
+        "https://frekvens.vercel.app/r/render.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/message.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/message.tsx"
+        }
+      ],
+      "docs": "# Message\n\nUn turno de conversación. **Usuario**: bocadillo `ink` a la derecha. **Asistente**: sin bocadillo, texto a la izquierda con un avatar redondo que usa el lenguaje de estados (puntos mientras escribe, disco al terminar). **Sistema**: línea mono centrada.\n\n- **Props**: `role` (`user` · `assistant` · `system`), `children` (texto), `streaming` (punto `rams` parpadeando al final), `thinking` (muestra `DotLoader` en vez de texto), `ui` (spec JSON: incrusta UI generada con `Render`), `actions` (para esa UI), `name`, `meta` (hora, modelo), `onCopy`, `onRetry`.\n- El texto del asistente es `body` a 17/25: se lee, no se escanea. La UI incrustada va debajo del texto, nunca en lugar de la respuesta.\n"
+    },
+    {
+      "name": "composer",
+      "type": "registry:ui",
+      "title": "Composer",
+      "description": "Barra para escribir o hablar: textarea en píldora que crece hasta 160 px, tecla de micrófono y tecla de enviar klein. Al hablar, la barra se enmarca en rec, aparece un VoiceOrb pequeño y la tecla pasa",
+      "categories": [
+        "Conversación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/suggestions.json",
+        "https://frekvens.vercel.app/r/voice-orb.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/dot-loader.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/composer.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/composer.tsx"
+        }
+      ],
+      "docs": "# Composer\n\nBarra para escribir o hablar: textarea en píldora que crece hasta 160 px, tecla de micrófono y tecla de enviar `klein`. Al hablar, la barra se enmarca en `rec`, aparece un `VoiceOrb` pequeño y la tecla pasa a ■.\n\n- **Props**: `value`/`onChange`, `onSend(text)`, `placeholder`, `suggestions` (pinta `Suggestions` encima), `voice` (true), `listening` + `onListen(bool)` (para controlar el micro desde fuera), `level` (nivel de audio), `listeningText`, `busy` (deshabilita enviar y muestra `DotLoader`), `label`.\n- Enter envía; Mayús+Enter es salto de línea. Enviar está deshabilitado con el campo vacío.\n"
+    },
+    {
+      "name": "suggestions",
+      "type": "registry:ui",
+      "title": "Suggestions",
+      "description": "Respuestas sugeridas en chips de contorno en el color del texto (funcionan sobre claro y oscuro): entran escalonadas y se tiñen al pasar. Un toque envía.",
+      "categories": [
+        "Conversación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/suggestions.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/suggestions.tsx"
+        }
+      ],
+      "docs": "# Suggestions\n\nRespuestas sugeridas en chips de contorno en el color del texto (funcionan sobre claro y oscuro): entran escalonadas y se tiñen al pasar. Un toque envía.\n\n- **Props**: `items` (strings o `{label, value, icon}`), `onPick(value)`, `label`.\n- 2–4 sugerencias, frases de 1–4 palabras, en la voz del usuario (\"Mañana\", \"Solo 30 min\"), no del sistema.\n"
+    },
+    {
+      "name": "voice-orb",
+      "type": "registry:ui",
+      "title": "VoiceOrb",
+      "description": "Orbe de puntos para la voz: el estado de un agente de voz se lee en cómo se mueven los puntos. **En espera**: quietos y apagados. **Escuchando**: laten desde el centro según el nivel del micrófono. **",
+      "categories": [
+        "Conversación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/voice-orb.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/voice-orb.tsx"
+        }
+      ],
+      "docs": "# VoiceOrb\n\nOrbe de puntos para la voz: el estado de un agente de voz se lee en cómo se mueven los puntos. **En espera**: quietos y apagados. **Escuchando**: laten desde el centro según el nivel del micrófono. **Pensando**: un barrido gira como un radar. **Hablando**: ondas que salen hacia fuera.\n\n- **Props**: `state` (`idle` · `listening` · `thinking` · `speaking`), `level` (0–1, nivel de audio real si lo tienes), `size` (200), `grid` (15), `tone` (`ink` · `klein` · `rams` · `paper`), `caption` (texto bajo el orbe; `false` lo oculta), `label`.\n- El texto de estado se anuncia (`aria-live`). Con movimiento reducido, el orbe queda quieto y el estado se dice en texto.\n"
+    },
+    {
+      "name": "dot-loader",
+      "type": "registry:ui",
+      "title": "DotLoader",
+      "description": "Puntos que laten mientras algo piensa o carga: fila de tres (row) o rejilla 3×3 en onda diagonal (grid). Hereda el color del texto.",
+      "categories": [
+        "Conversación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/dot-loader.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/dot-loader.tsx"
+        }
+      ],
+      "docs": "# DotLoader\n\nPuntos que laten mientras algo piensa o carga: fila de tres (`row`) o rejilla 3×3 en onda diagonal (`grid`). Hereda el color del texto.\n\n- **Props**: `variant` (`row` · `grid`), `label` (texto para lectores, \"Pensando\").\n- Si la espera pasa de ~3 s, añade al lado qué está pasando (\"Buscando huecos…\").\n"
+    },
+    {
+      "name": "agent-widget",
+      "type": "registry:ui",
+      "title": "AgentWidget",
+      "description": "Agente embebible: un lanzador redondo (con un orbe de puntos que respira) que abre un panel con dos modos. **Voz**: orbe grande, transcripción y una tecla grande para hablar/colgar. **Texto**: convers",
+      "categories": [
+        "Conversación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/avatar.json",
+        "https://frekvens.vercel.app/r/led.json",
+        "https://frekvens.vercel.app/r/segmented.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/voice-orb.json",
+        "https://frekvens.vercel.app/r/message.json",
+        "https://frekvens.vercel.app/r/empty-state.json",
+        "https://frekvens.vercel.app/r/composer.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/agent-widget.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/agent-widget.tsx"
+        }
+      ],
+      "docs": "# AgentWidget\n\nAgente embebible: un lanzador redondo (con un orbe de puntos que respira) que abre un panel con dos modos. **Voz**: orbe grande, transcripción y una tecla grande para hablar/colgar. **Texto**: conversación con `Message` y `Composer`. El estado (disponible, escuchando, pensando, hablando) se ve en el piloto, en el orbe y en el color del lanzador.\n\n- **Props**: `name`, `state` (controlado), `defaultState`, o `demo` (recorre escuchando → pensando → hablando solo), `mode` (`voice` · `chat`), `messages` (`[{role, text, ui…}]`), `transcript`, `level`, `suggestions`, `tone` (`rams`), `onStart()`, `onEnd()`, `onSend(text)`, `defaultOpen`, `inline` (para maquetas; si no, fijo abajo a la derecha).\n- Esc cierra y devuelve el foco al lanzador. Colgar está siempre en la misma tecla que hablar.\n- Pensado para enchufar un agente de voz real: pasa su estado y su nivel de audio y el widget hace el resto.\n"
+    },
+    {
+      "name": "render",
+      "type": "registry:ui",
+      "title": "Render",
+      "description": "El motor de UI generativa: pinta una interfaz Frekvens a partir de un **spec JSON** que puede escribir un modelo. Cada nodo es {type, props, children}; type es el nombre de cualquier componente del si",
+      "categories": [
+        "Generativo"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/key-button.json",
+        "https://frekvens.vercel.app/r/keypad.json",
+        "https://frekvens.vercel.app/r/hold-button.json",
+        "https://frekvens.vercel.app/r/slide-to-start.json",
+        "https://frekvens.vercel.app/r/rocker.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/dial.json",
+        "https://frekvens.vercel.app/r/gauge.json",
+        "https://frekvens.vercel.app/r/slider.json",
+        "https://frekvens.vercel.app/r/switch.json",
+        "https://frekvens.vercel.app/r/segmented.json",
+        "https://frekvens.vercel.app/r/stepper.json",
+        "https://frekvens.vercel.app/r/wheel.json",
+        "https://frekvens.vercel.app/r/volume-wheel.json",
+        "https://frekvens.vercel.app/r/checkbox.json",
+        "https://frekvens.vercel.app/r/radio-group.json",
+        "https://frekvens.vercel.app/r/select.json",
+        "https://frekvens.vercel.app/r/menu.json",
+        "https://frekvens.vercel.app/r/tabs.json",
+        "https://frekvens.vercel.app/r/text-field.json",
+        "https://frekvens.vercel.app/r/calendar.json",
+        "https://frekvens.vercel.app/r/sheet.json",
+        "https://frekvens.vercel.app/r/toast.json",
+        "https://frekvens.vercel.app/r/banner.json",
+        "https://frekvens.vercel.app/r/tooltip.json",
+        "https://frekvens.vercel.app/r/timer.json",
+        "https://frekvens.vercel.app/r/stopwatch.json",
+        "https://frekvens.vercel.app/r/hourglass.json",
+        "https://frekvens.vercel.app/r/pendulum.json",
+        "https://frekvens.vercel.app/r/media-player.json",
+        "https://frekvens.vercel.app/r/audio-track.json",
+        "https://frekvens.vercel.app/r/ticker.json",
+        "https://frekvens.vercel.app/r/split-flap.json",
+        "https://frekvens.vercel.app/r/dot-matrix.json",
+        "https://frekvens.vercel.app/r/dot-grid.json",
+        "https://frekvens.vercel.app/r/state-mark.json",
+        "https://frekvens.vercel.app/r/steps.json",
+        "https://frekvens.vercel.app/r/grille.json",
+        "https://frekvens.vercel.app/r/led.json",
+        "https://frekvens.vercel.app/r/level-bars.json",
+        "https://frekvens.vercel.app/r/bar-meter.json",
+        "https://frekvens.vercel.app/r/line-chart.json",
+        "https://frekvens.vercel.app/r/progress-ring.json",
+        "https://frekvens.vercel.app/r/readout.json",
+        "https://frekvens.vercel.app/r/tile.json",
+        "https://frekvens.vercel.app/r/strip.json",
+        "https://frekvens.vercel.app/r/card-stack.json",
+        "https://frekvens.vercel.app/r/cabinet.json",
+        "https://frekvens.vercel.app/r/pager.json",
+        "https://frekvens.vercel.app/r/deck.json",
+        "https://frekvens.vercel.app/r/list-row.json",
+        "https://frekvens.vercel.app/r/chip.json",
+        "https://frekvens.vercel.app/r/badge.json",
+        "https://frekvens.vercel.app/r/avatar.json",
+        "https://frekvens.vercel.app/r/top-bar.json",
+        "https://frekvens.vercel.app/r/tab-bar.json",
+        "https://frekvens.vercel.app/r/empty-state.json",
+        "https://frekvens.vercel.app/r/skeleton.json",
+        "https://frekvens.vercel.app/r/message.json",
+        "https://frekvens.vercel.app/r/composer.json",
+        "https://frekvens.vercel.app/r/suggestions.json",
+        "https://frekvens.vercel.app/r/voice-orb.json",
+        "https://frekvens.vercel.app/r/dot-loader.json",
+        "https://frekvens.vercel.app/r/agent-widget.json",
+        "https://frekvens.vercel.app/r/reveal.json",
+        "https://frekvens.vercel.app/r/stack.json",
+        "https://frekvens.vercel.app/r/grid.json",
+        "https://frekvens.vercel.app/r/text.json",
+        "https://frekvens.vercel.app/r/click-wheel.json",
+        "https://frekvens.vercel.app/r/disc-carousel.json",
+        "https://frekvens.vercel.app/r/num-pad.json",
+        "https://frekvens.vercel.app/r/viewfinder.json",
+        "https://frekvens.vercel.app/r/capture-key.json",
+        "https://frekvens.vercel.app/r/recorder.json",
+        "https://frekvens.vercel.app/r/note-editor.json",
+        "https://frekvens.vercel.app/r/sidebar.json",
+        "https://frekvens.vercel.app/r/data-table.json",
+        "https://frekvens.vercel.app/r/command-bar.json",
+        "https://frekvens.vercel.app/r/notch.json",
+        "https://frekvens.vercel.app/r/viewport-3d.json",
+        "https://frekvens.vercel.app/r/heatmap.json",
+        "https://frekvens.vercel.app/r/split-bar.json",
+        "https://frekvens.vercel.app/r/sparkline.json",
+        "https://frekvens.vercel.app/r/hour-strip.json",
+        "https://frekvens.vercel.app/r/payment-card.json",
+        "https://frekvens.vercel.app/r/dialog.json",
+        "https://frekvens.vercel.app/r/file-drop.json",
+        "https://frekvens.vercel.app/r/choice-cards.json",
+        "https://frekvens.vercel.app/r/stat.json",
+        "https://frekvens.vercel.app/r/usage-meter.json",
+        "https://frekvens.vercel.app/r/timeline.json",
+        "https://frekvens.vercel.app/r/checklist.json",
+        "https://frekvens.vercel.app/r/prompt-box.json",
+        "https://frekvens.vercel.app/r/clock.json",
+        "https://frekvens.vercel.app/r/vu-meter.json",
+        "https://frekvens.vercel.app/r/rotary-selector.json",
+        "https://frekvens.vercel.app/r/fader.json",
+        "https://frekvens.vercel.app/r/keycap.json",
+        "https://frekvens.vercel.app/r/calculator.json",
+        "https://frekvens.vercel.app/r/pad-grid.json",
+        "https://frekvens.vercel.app/r/tape-deck.json",
+        "https://frekvens.vercel.app/r/board.json",
+        "https://frekvens.vercel.app/r/sortable.json",
+        "https://frekvens.vercel.app/r/blueprint.json",
+        "https://frekvens.vercel.app/r/area-chart.json",
+        "https://frekvens.vercel.app/r/scatter.json",
+        "https://frekvens.vercel.app/r/radar-chart.json",
+        "https://frekvens.vercel.app/r/donut-chart.json",
+        "https://frekvens.vercel.app/r/scope.json",
+        "https://frekvens.vercel.app/r/voice-position.json",
+        "https://frekvens.vercel.app/r/beam.json",
+        "https://frekvens.vercel.app/r/aura.json",
+        "https://frekvens.vercel.app/r/flap-board.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/render.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/render.tsx"
+        },
+        {
+          "path": "registry/frekvens/ui/catalog.ts",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/catalog.ts"
+        }
+      ],
+      "docs": "# Render\n\nEl motor de UI generativa: pinta una interfaz Frekvens a partir de un **spec JSON** que puede escribir un modelo. Cada nodo es `{type, props, children}`; `type` es el nombre de cualquier componente del sistema; los hijos son nodos o texto.\n\n- **Props**: `spec` (objeto, array o string JSON), `actions` (mapa nombre → función).\n- **Acciones**: cualquier prop con valor `\"action:nombre\"` se convierte en una llamada a `actions.nombre` (p. ej. `\"onClick\": \"action:reservar\"`). Una acción sin definir avisa en consola y no rompe.\n- Props que son nodos (`value`, `content` de `tabs`/`drawers`) también se pueden escribir como spec.\n- Un `type` desconocido se pinta como un recuadro discontinuo con su nombre: nunca rompe la pantalla.\n- El catálogo completo con props está en `frekvens.schema.json`; las reglas para modelos, en la sección *UI generativa y conversación*.\n"
+    },
+    {
+      "name": "reveal",
+      "type": "registry:ui",
+      "title": "Reveal",
+      "description": "Transición de entrada al aparecer en pantalla: los hijos entran escalonados (stagger, 50 ms) con una de cuatro formas — rise (sube 16 px), scale (de .94), wipe (se descubre de izquierda a derecha con ",
+      "categories": [
+        "Movimiento"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/reveal.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/reveal.tsx"
+        }
+      ],
+      "docs": "# Reveal\n\nTransición de entrada al aparecer en pantalla: los hijos entran escalonados (`stagger`, 50 ms) con una de cuatro formas — `rise` (sube 16 px), `scale` (de .94), `wipe` (se descubre de izquierda a derecha con el radio de la casa) o `focus` (de desenfoque a nítido).\n\n- **Props**: `variant` (`rise` · `scale` · `wipe` · `focus`), `stagger` (ms), `delay` (ms), `once` (true; `false` repite al salir y entrar), `threshold`, `as`.\n- Con movimiento reducido todo aparece ya colocado.\n- Para portadas, listas largas y la entrada de una pantalla. No lo uses en controles: un botón que tarda en aparecer molesta.\n"
+    },
+    {
+      "name": "stack",
+      "type": "registry:ui",
+      "title": "Stack",
+      "description": "Primitiva de composición: apila hijos en columna o fila con un hueco de la escala de espacio. Existe para que una UI generada por un modelo no tenga que escribir CSS.",
+      "categories": [
+        "Generativo"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/stack.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/stack.tsx"
+        }
+      ],
+      "docs": "# Stack\n\nPrimitiva de composición: apila hijos en columna o fila con un hueco de la escala de espacio. Existe para que una UI generada por un modelo no tenga que escribir CSS.\n\n- **Props**: `direction` (`column` · `row`), `gap` (paso de espacio 1–9, por defecto 3), `align`, `justify`, `wrap`, `padding` (paso de espacio), `children`.\n"
+    },
+    {
+      "name": "grid",
+      "type": "registry:ui",
+      "title": "Grid",
+      "description": "Primitiva de composición: rejilla de columnas iguales con la junta de la botonera. El bento de Tiles sale de aquí.",
+      "categories": [
+        "Generativo"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/grid.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/grid.tsx"
+        }
+      ],
+      "docs": "# Grid\n\nPrimitiva de composición: rejilla de columnas iguales con la junta de la botonera. El bento de Tiles sale de aquí.\n\n- **Props**: `columns` (2), `gap` (paso de espacio, por defecto 2), `children`.\n"
+    },
+    {
+      "name": "text",
+      "type": "registry:ui",
+      "title": "Text",
+      "description": "Primitiva de texto: aplica un estilo tipográfico del sistema por nombre, con la etiqueta HTML correcta. Una UI generada elige variant, nunca tamaños.",
+      "categories": [
+        "Generativo"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/text.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/text.tsx"
+        }
+      ],
+      "docs": "# Text\n\nPrimitiva de texto: aplica un estilo tipográfico del sistema por nombre, con la etiqueta HTML correcta. Una UI generada elige `variant`, nunca tamaños.\n\n- **Props**: `variant` (`display-xl` · `title` · `headline` · `numeral-xl` · `dot-hero` · `dot-display` · `body` · `body-strong` · `caption` · `label` · `readout`), `sub` (segunda línea atenuada), `muted`, `as`, `children`.\n"
+    },
+    {
+      "name": "click-wheel",
+      "type": "registry:ui",
+      "title": "ClickWheel",
+      "description": "Rueda táctil circular, como la de los reproductores de bolsillo: deslizar el dedo en círculo avanza o retrocede paso a paso (con un pulso háptico donde exista), con cuatro botones en los ejes y un bot",
+      "categories": [
+        "Controles"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/click-wheel.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/click-wheel.tsx"
+        }
+      ],
+      "docs": "# ClickWheel\n\nRueda táctil circular, como la de los reproductores de bolsillo: deslizar el dedo en círculo avanza o retrocede paso a paso (con un pulso háptico donde exista), con cuatro botones en los ejes y un botón central.\n\n- **Props**: `onStep(±1)`, `onSelect()` (centro), `onMenu()`, `onPlay()`, `playing`, `detent` (grados por paso, 24), `size` (220), `tone` (`surface`), `labels` (`{top}`), `label`, `valueText`.\n- **Teclado**: flechas = paso, Enter = centro, Espacio = reproducir, M = menú. Combínala con `DiscCarousel` o una lista.\n"
+    },
+    {
+      "name": "disc-carousel",
+      "type": "registry:ui",
+      "title": "DiscCarousel",
+      "description": "Elegir entre discos: el elegido en el centro, los vecinos más pequeños a los lados; al reproducir, el disco gira. La etiqueta del centro es el color o la imagen (src) del álbum, rutina o lista.",
+      "categories": [
+        "Medios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/disc-carousel.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/disc-carousel.tsx"
+        }
+      ],
+      "docs": "# DiscCarousel\n\nElegir entre discos: el elegido en el centro, los vecinos más pequeños a los lados; al reproducir, el disco gira. La etiqueta del centro es el color o la imagen (`src`) del álbum, rutina o lista.\n\n- **Props**: `items` (`[{title, subtitle, tone, src, badge}]`), `value`/`defaultValue`, `onChange(i)`, `playing`, `onPlay(i)`, `size` (220), `label`.\n- **Teclado**: ← → para cambiar, Enter para reproducir. Funciona solo o con `ClickWheel`.\n"
+    },
+    {
+      "name": "num-pad",
+      "type": "registry:ui",
+      "title": "NumPad",
+      "description": "Teclado numérico para importes: cifra enorme con la moneda pequeña, teclas planas pegadas como una calculadora, coma decimal (máx. 2 decimales) y borrar. También acepta el teclado físico.",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/key-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/num-pad.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/num-pad.tsx"
+        }
+      ],
+      "docs": "# NumPad\n\nTeclado numérico para importes: cifra enorme con la moneda pequeña, teclas planas pegadas como una calculadora, coma decimal (máx. 2 decimales) y borrar. También acepta el teclado físico.\n\n- **Props**: `value`/`defaultValue` (string), `onChange(s)`, `currency` (`€`), `maxLength` (7), `hint`, `onSubmit(number)`, `submitLabel`, `keyboard` (escucha teclas), `label`.\n"
+    },
+    {
+      "name": "viewfinder",
+      "type": "registry:ui",
+      "title": "Viewfinder",
+      "description": "Visor de cámara y escáner: rejilla de tercios, HUD arriba, obturador grande, miniatura con el número de capturas y modos Foto / Vídeo / Escanear (con esquinas de enfoque sol).",
+      "categories": [
+        "Captura"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/dot-matrix.json",
+        "https://frekvens.vercel.app/r/led.json",
+        "https://frekvens.vercel.app/r/chip.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/segmented.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/viewfinder.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/viewfinder.tsx"
+        }
+      ],
+      "docs": "# Viewfinder\n\nVisor de cámara y escáner: rejilla de tercios, HUD arriba, obturador grande, miniatura con el número de capturas y modos Foto / Vídeo / Escanear (con esquinas de enfoque `sol`).\n\n- **Props**: `live` (usa la cámara real con permiso), `mode`/`defaultMode`, `onModeChange`, `onShoot(mode)`, `shots`, `ratio` (`'3 / 4'`), `children` (vista simulada).\n- Siempre negro, en cualquier tema. Sin `live`, enseña una vista de puntos: sirve para maquetas y para UI generada.\n"
+    },
+    {
+      "name": "capture-key",
+      "type": "registry:ui",
+      "title": "CaptureKey",
+      "description": "Tecla de captura, como una tecla física dedicada: un toque captura (pantalla, foto, enlace), mantener graba voz mientras dura la pulsación. Todo va a un único espacio que la IA ordena después.",
+      "categories": [
+        "Captura"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/voice-orb.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/capture-key.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/capture-key.tsx"
+        }
+      ],
+      "docs": "# CaptureKey\n\nTecla de captura, como una tecla física dedicada: un toque captura (pantalla, foto, enlace), mantener graba voz mientras dura la pulsación. Todo va a un único espacio que la IA ordena después.\n\n- **Props**: `onCapture({kind, ms})`, `onVoiceStart()`, `hint`, `label`.\n- Estados visibles: reposo (punto), destello, escuchando (orbe sobre `rec`), guardado (`verde`). Funciona con Espacio/Enter igual que con el dedo.\n"
+    },
+    {
+      "name": "recorder",
+      "type": "registry:ui",
+      "title": "Recorder",
+      "description": "Grabadora de bolsillo: carrete de puntos que gira mientras graba, piloto REC, tiempo en dot, nivel de entrada y una botonera de tres teclas (grabar/parar, marca, modo). Cada toma queda debajo como Aud",
+      "categories": [
+        "Captura"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/led.json",
+        "https://frekvens.vercel.app/r/level-bars.json",
+        "https://frekvens.vercel.app/r/keypad.json",
+        "https://frekvens.vercel.app/r/audio-track.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/recorder.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/recorder.tsx"
+        }
+      ],
+      "docs": "# Recorder\n\nGrabadora de bolsillo: carrete de puntos que gira mientras graba, piloto REC, tiempo en `dot`, nivel de entrada y una botonera de tres teclas (grabar/parar, marca, modo). Cada toma queda debajo como `AudioTrack`.\n\n- **Props**: `real` (graba de verdad con el micrófono vía MediaRecorder; si se deniega, sigue en modo demo), `takes`, `onSave(take)`, `onMark(ms)`.\n- Para notas de voz, entrevistas, ideas sueltas. La transcripción y el resumen los pone el host.\n"
+    },
+    {
+      "name": "note-editor",
+      "type": "registry:ui",
+      "title": "NoteEditor",
+      "description": "Cuaderno por bloques: escribir es lo primero. Enter crea un bloque, borrar en uno vacío lo une al anterior y / abre el menú para cambiar el tipo: texto, título, tarea (con el lenguaje aro → disco), ci",
+      "categories": [
+        "Captura"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/state-mark.json",
+        "https://frekvens.vercel.app/r/audio-track.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/note-editor.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/note-editor.tsx"
+        }
+      ],
+      "docs": "# NoteEditor\n\nCuaderno por bloques: escribir es lo primero. Enter crea un bloque, borrar en uno vacío lo une al anterior y `/` abre el menú para cambiar el tipo: texto, título, tarea (con el lenguaje aro → disco), cita o nota de voz.\n\n- **Props**: `defaultBlocks` (`[{type:'p'|'h'|'todo'|'quote'|'voice', text, done, duration}]`), `onChange(blocks)`, `title` (muestra el campo de título), `meta`, `placeholder`.\n- **Teclado**: ↑ ↓ entre bloques; en el menú `/`, ↑ ↓ Enter Esc.\n"
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "Barra lateral para iPad y escritorio: secciones con etiqueta mono, elementos con icono y contador (en rec si es una alerta), el activo en ink. Se contrae a una tira de iconos de 76 px.",
+      "categories": [
+        "Navegación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/sidebar.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/sidebar.tsx"
+        }
+      ],
+      "docs": "# Sidebar\n\nBarra lateral para iPad y escritorio: secciones con etiqueta mono, elementos con icono y contador (en `rec` si es una alerta), el activo en `ink`. Se contrae a una tira de iconos de 76 px.\n\n- **Props**: `sections` (`[{label, items:[{id, label, icon, count, alert}]}]`), `value`/`defaultValue`, `onChange(id)`, `collapsed`/`defaultCollapsed`, `onCollapse(bool)`, `header`, `footer`, `tone` (`surface`), `label`.\n- Contraída, cada icono conserva su nombre accesible y su título; los contadores pasan a punto.\n"
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "DataTable",
+      "description": "Tabla de datos para SaaS: cabecera fija en mono, ordenación por columna (con aria-sort), selección de filas con Checkbox, y tipos de celda: status (Chip con punto), spark (Sparkline), bar (barra de 0–",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/chip.json",
+        "https://frekvens.vercel.app/r/sparkline.json",
+        "https://frekvens.vercel.app/r/avatar.json",
+        "https://frekvens.vercel.app/r/empty-state.json",
+        "https://frekvens.vercel.app/r/checkbox.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/data-table.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/data-table.tsx"
+        }
+      ],
+      "docs": "# DataTable\n\nTabla de datos para SaaS: cabecera fija en mono, ordenación por columna (con `aria-sort`), selección de filas con `Checkbox`, y tipos de celda: `status` (Chip con punto), `spark` (Sparkline), `bar` (barra de 0–100), `avatar`, `mono`.\n\n- **Props**: `columns` (`[{key, label, sortable, align:'end', mono, type, tones}]`), `rows` (con `id`), `selectable`, `dense`, `defaultSort` (`{key, dir}`), `onRowClick(row)`, `caption`, `label`, `emptyTitle`, `emptyText`.\n- Sin filas pinta un `EmptyState`. En móvil, se desplaza en horizontal dentro de su caja: para listas en móvil, mejor `ListRow`.\n"
+    },
+    {
+      "name": "command-bar",
+      "type": "registry:ui",
+      "title": "CommandBar",
+      "description": "Paleta de comandos (⌘K / Ctrl+K): buscar y ejecutar cualquier acción sin tocar el ratón. Panel ink con buscador, resultados agrupados y atajos.",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/command-bar.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/command-bar.tsx"
+        }
+      ],
+      "docs": "# CommandBar\n\nPaleta de comandos (⌘K / Ctrl+K): buscar y ejecutar cualquier acción sin tocar el ratón. Panel `ink` con buscador, resultados agrupados y atajos.\n\n- **Props**: `commands` (`[{id, label, group, icon, shortcut, keywords, onRun}]`), `open`/`defaultOpen`, `onClose()`, `onRun(id)`, `hotkey` (escucha ⌘K), `placeholder`, `label`, `inline` (maquetas).\n- **Teclado**: escribir filtra, ↑ ↓ mueven, Enter ejecuta, Esc cierra y devuelve el foco.\n"
+    },
+    {
+      "name": "notch",
+      "type": "registry:ui",
+      "title": "Notch",
+      "description": "Isla de IA en la parte superior (el notch del portátil o la isla del móvil): en reposo es una píldora negra con un orbe y un piloto; al pasar el puntero o al tocarla, crece con un rebote corto y muest",
+      "categories": [
+        "Conversación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/voice-orb.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/notch.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/notch.tsx"
+        }
+      ],
+      "docs": "# Notch\n\nIsla de IA en la parte superior (el notch del portátil o la isla del móvil): en reposo es una píldora negra con un orbe y un piloto; al pasar el puntero o al tocarla, crece con un rebote corto y muestra el estado, lo que está diciendo o haciendo, el progreso y 1–3 acciones.\n\n- **Props**: `state` (`idle` · `listening` · `thinking` · `speaking` · `done`), `name`, `peek` (texto de la píldora), `text`, `progress` (0–100), `actions` (`[{label, icon, onClick}]`, la primera es la principal), `expanded` (controlado) o `defaultExpanded`, `tone`, `inline` (maquetas; si no, fija arriba al centro).\n- Siempre negra, en cualquier tema: es hardware. El estado se dice en texto además de en el piloto.\n"
+    },
+    {
+      "name": "viewport-3d",
+      "type": "registry:ui",
+      "title": "Viewport3D",
+      "description": "Visor 3D sin dependencias (CSS 3D): un objeto sobre un suelo de puntos que se gira arrastrando, se acerca con la rueda y tiene vistas rápidas (Iso, Frente, Arriba), un gizmo de ejes y la lectura de án",
+      "categories": [
+        "Superficies"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/segmented.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/viewport-3d.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/viewport-3d.tsx"
+        }
+      ],
+      "docs": "# Viewport3D\n\nVisor 3D sin dependencias (CSS 3D): un objeto sobre un suelo de puntos que se gira arrastrando, se acerca con la rueda y tiene vistas rápidas (Iso, Frente, Arriba), un gizmo de ejes y la lectura de ángulos en mono.\n\n- **Props**: `shape` (`cube` · `stack`), `tone` (`rams`), `size` (120), `pitch`, `yaw`, `height` (320), `label`.\n- **Teclado**: flechas giran, + y − acercan. Para modelos reales, usa este marco y su barra con un render WebGL dentro.\n"
+    },
+    {
+      "name": "heatmap",
+      "type": "registry:ui",
+      "title": "Heatmap",
+      "description": "Actividad en semitono: una rejilla de puntos (semanas × días) donde el tamaño del punto es la cantidad. Sin escala de colores: el dato se lee por tamaño, como un periódico impreso.",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/heatmap.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/heatmap.tsx"
+        }
+      ],
+      "docs": "# Heatmap\n\nActividad en semitono: una rejilla de puntos (semanas × días) donde el tamaño del punto es la cantidad. Sin escala de colores: el dato se lee por tamaño, como un periódico impreso.\n\n- **Props**: `data` (valores por día, en orden), `rows` (7), `cell` (14 px), `tone` (`ink` · `rams` · `klein` · `verde`), `unit`, `caption`, `label`.\n- El nombre accesible resume días activos y total; cada punto tiene su valor como título.\n"
+    },
+    {
+      "name": "split-bar",
+      "type": "registry:ui",
+      "title": "SplitBar",
+      "description": "Reparto de un total: una barra de píldoras con leyenda (bar) o columnas altas con relleno redondeado (columns, el 70/30 de las referencias).",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/split-bar.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/split-bar.tsx"
+        }
+      ],
+      "docs": "# SplitBar\n\nReparto de un total: una barra de píldoras con leyenda (`bar`) o columnas altas con relleno redondeado (`columns`, el 70/30 de las referencias).\n\n- **Props**: `segments` (`[{label, value, tone}]`), `variant` (`bar` · `columns`), `height` (220, columnas), `format(v)` (para la leyenda; por defecto %).\n- 2–5 segmentos. El primero, el que importa.\n"
+    },
+    {
+      "name": "sparkline",
+      "type": "registry:ui",
+      "title": "Sparkline",
+      "description": "Tendencia mínima: una línea y un punto final, para meter dentro de una fila, una tabla o un Tile.",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/sparkline.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/sparkline.tsx"
+        }
+      ],
+      "docs": "# Sparkline\n\nTendencia mínima: una línea y un punto final, para meter dentro de una fila, una tabla o un Tile.\n\n- **Props**: `data`, `width` (96), `height` (28), `tone` (`ink` · `rams` · `klein`), `label`.\n"
+    },
+    {
+      "name": "hour-strip",
+      "type": "registry:ui",
+      "title": "HourStrip",
+      "description": "Precio (o consumo) por horas del día: 24 barras en píldora coloreadas por tramo (barato verde, medio sol, caro rams), la hora actual marcada con aro y las pasadas atenuadas. Para luz, agua, gas o cual",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/hour-strip.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/hour-strip.tsx"
+        }
+      ],
+      "docs": "# HourStrip\n\nPrecio (o consumo) por horas del día: 24 barras en píldora coloreadas por tramo (barato `verde`, medio `sol`, caro `rams`), la hora actual marcada con aro y las pasadas atenuadas. Para luz, agua, gas o cualquier tarifa por horas.\n\n- **Props**: `prices` (24 valores), `now` (hora actual), `unit` (`€/kWh`), `label`.\n- El nombre accesible dice las tres horas más baratas y la más cara: el usuario quiere saber cuándo poner la lavadora.\n"
+    },
+    {
+      "name": "payment-card",
+      "type": "registry:ui",
+      "title": "PaymentCard",
+      "description": "Tarjeta de pago: bloque de color en proporción de tarjeta real, chip de puntos, últimos 4 dígitos en mono. Congelada, se cubre de escarcha con un piloto.",
+      "categories": [
+        "Superficies"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/led.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/payment-card.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/payment-card.tsx"
+        }
+      ],
+      "docs": "# PaymentCard\n\nTarjeta de pago: bloque de color en proporción de tarjeta real, chip de puntos, últimos 4 dígitos en mono. Congelada, se cubre de escarcha con un piloto.\n\n- **Props**: `tone` (`klein`), `brand`, `last4`, `name`, `expiry`, `frozen`.\n- Nunca muestra el número completo; el nombre accesible dice marca, últimos dígitos y estado.\n"
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Ventana modal centrada para decidir algo ahora: confirmar, avisar de algo destructivo, pedir un dato, compartir, un asistente por pasos. Escala desde .96 al entrar; atrapa el foco (en danger empieza e",
+      "categories": [
+        "Feedback"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/steps.json",
+        "https://frekvens.vercel.app/r/key-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/dialog.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/dialog.tsx"
+        }
+      ],
+      "docs": "# Dialog\n\nVentana modal centrada para decidir algo ahora: confirmar, avisar de algo destructivo, pedir un dato, compartir, un asistente por pasos. Escala desde .96 al entrar; atrapa el foco (en `danger` empieza en Cancelar, la opción segura); Esc o el fondo la cierran.\n\n- **Props**: `open`, `onClose()`, `title`, `text`, `children` (campos), `tone` (`default` · `danger`: icono y acción en `rec`, `role=\"alertdialog\"`), `icon`, `primary` / `onPrimary` / `primaryDisabled`, `secondary` (texto o `false`) / `onSecondary`, `steps` + `step` (asistente), `size` (`l`), `dismissible` (false = solo con botones), `inline`.\n- En móvil, para formularios largos, `Sheet`. El título dice la acción (\"¿Borrar la sesión?\"), y el botón repite el verbo (\"Borrar\"), nunca \"Aceptar\".\n"
+    },
+    {
+      "name": "file-drop",
+      "type": "registry:ui",
+      "title": "FileDrop",
+      "description": "Subida de archivos: zona de arrastre con trama de puntos que se tiñe al pasar un archivo, y la lista dividida en **Subiendo** (con barra rams y %) y **Listos** (icono verde), cada uno con su botón de ",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/dot-matrix.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/file-drop.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/file-drop.tsx"
+        }
+      ],
+      "docs": "# FileDrop\n\nSubida de archivos: zona de arrastre con trama de puntos que se tiñe al pasar un archivo, y la lista dividida en **Subiendo** (con barra `rams` y %) y **Listos** (icono `verde`), cada uno con su botón de quitar.\n\n- **Props**: `files` (`[{name, size, progress, error}]`), `onFiles(FileList)`, `accept`, `multiple` (true), `title`, `hint`, `simulate` (true: anima el progreso en maquetas; `false` cuando lo controla el host).\n- La zona es un `label` del input: funciona con teclado y lectores de pantalla.\n"
+    },
+    {
+      "name": "choice-cards",
+      "type": "registry:ui",
+      "title": "ChoiceCards",
+      "description": "Opciones grandes en tarjeta para decidir con información: planes, paquetes, tipos de cuenta. Cada tarjeta lleva el aro que se llena (lenguaje de estados), título, precio, explicación y ventajas; la el",
+      "categories": [
+        "Formularios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/chip.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/choice-cards.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/choice-cards.tsx"
+        }
+      ],
+      "docs": "# ChoiceCards\n\nOpciones grandes en tarjeta para decidir con información: planes, paquetes, tipos de cuenta. Cada tarjeta lleva el aro que se llena (lenguaje de estados), título, precio, explicación y ventajas; la elegida se marca con un borde `ink`.\n\n- **Props**: `options` (`[{value, label, price, period, hint, features, badge, tone}]`), `value`/`defaultValue`, `onChange(v)`, `columns`, `label`.\n- Patrón ARIA radiogroup: flechas para moverse. 2–4 opciones; la recomendada lleva `badge`.\n"
+    },
+    {
+      "name": "stat",
+      "type": "registry:ui",
+      "title": "Stat",
+      "description": "KPI de panel: etiqueta mono, valor grande fino, tendencia (Sparkline), variación con ▲▼ y, si hace falta, estado (En objetivo · Atención · En riesgo), valor anterior y enlace.",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/chip.json",
+        "https://frekvens.vercel.app/r/sparkline.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/stat.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/stat.tsx"
+        }
+      ],
+      "docs": "# Stat\n\nKPI de panel: etiqueta mono, valor grande fino, tendencia (`Sparkline`), variación con ▲▼ y, si hace falta, estado (`En objetivo` · `Atención` · `En riesgo`), valor anterior y enlace.\n\n- **Props**: `label`, `value`, `unit`, `delta` (`'+12 %'`, `'-3 %'`), `inverse` (bajar es bueno: cancelaciones, gasto), `trend` (array), `previous`, `status` (`ok` · `warn` · `risk`) + `statusLabel`, `link` (`{label, onClick}`), `tone` (`surface`).\n- El sentido malo se marca con subrayado `rams`, además de la flecha: nunca solo con color.\n"
+    },
+    {
+      "name": "usage-meter",
+      "type": "registry:ui",
+      "title": "UsageMeter",
+      "description": "Cuota usada frente a un límite (\"996 de 10.000\"): barra ink que pasa a sol al 70 % y a rams al 90 %, con acción (ampliar) cuando está cerca del tope. Con segments, se convierte en un reparto por categ",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/split-bar.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/usage-meter.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/usage-meter.tsx"
+        }
+      ],
+      "docs": "# UsageMeter\n\nCuota usada frente a un límite (\"996 de 10.000\"): barra `ink` que pasa a `sol` al 70 % y a `rams` al 90 %, con acción (ampliar) cuando está cerca del tope. Con `segments`, se convierte en un reparto por categorías.\n\n- **Props**: `label`, `used`, `limit`, `unit`, `format(n)`, `segments` (`SplitBar`), `action` (`{label, onClick}`, se muestra al 90 %).\n"
+    },
+    {
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "Línea de tiempo vertical con el lenguaje de estados: hecho (disco), en curso (puntos), pendiente (aro), error. Sirve para despliegues, pedidos, historial de actividad (con avatar) y pasos de un proces",
+      "categories": [
+        "Superficies"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/avatar.json",
+        "https://frekvens.vercel.app/r/state-mark.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/timeline.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/timeline.tsx"
+        }
+      ],
+      "docs": "# Timeline\n\nLínea de tiempo vertical con el lenguaje de estados: hecho (disco), en curso (puntos), pendiente (aro), error. Sirve para despliegues, pedidos, historial de actividad (con `avatar`) y pasos de un proceso.\n\n- **Props**: `items` (`[{title, text, time, state:'done'|'running'|'upcoming'|'error', avatar}]`), `label`.\n"
+    },
+    {
+      "name": "checklist",
+      "type": "registry:ui",
+      "title": "Checklist",
+      "description": "Lista de puesta en marcha: contador n / total con puntos, y cada paso desplegable con su explicación y su acción. Al marcar uno, se abre el siguiente pendiente.",
+      "categories": [
+        "Superficies"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/dot-grid.json",
+        "https://frekvens.vercel.app/r/state-mark.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/key-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/checklist.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/checklist.tsx"
+        }
+      ],
+      "docs": "# Checklist\n\nLista de puesta en marcha: contador `n / total` con puntos, y cada paso desplegable con su explicación y su acción. Al marcar uno, se abre el siguiente pendiente.\n\n- **Props**: `title`, `items` (`[{title, text, action, done, onAction}]`), `defaultOpen` (índice).\n- Para onboarding de producto. 3–7 pasos; el primero, el más fácil.\n"
+    },
+    {
+      "name": "prompt-box",
+      "type": "registry:ui",
+      "title": "PromptBox",
+      "description": "Caja de prompt para empezar una conversación con IA: textarea amplio, adjuntos (también arrastrando), selector de modelo y de esfuerzo, dictado y enviar. Debajo, sugerencias y una nota (\"La IA puede e",
+      "categories": [
+        "Conversación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/dot-loader.json",
+        "https://frekvens.vercel.app/r/suggestions.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/prompt-box.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/prompt-box.tsx"
+        }
+      ],
+      "docs": "# PromptBox\n\nCaja de prompt para empezar una conversación con IA: textarea amplio, adjuntos (también arrastrando), selector de modelo y de esfuerzo, dictado y enviar. Debajo, sugerencias y una nota (\"La IA puede equivocarse\").\n\n- **Props**: `title`, `placeholder`, `models`, `model`, `onModel(m)`, `efforts`, `effort`, `attachments`, `suggestions`, `note`, `onSend({text, model, attachments})`, `onVoice()`, `voice`, `busy`, `value`/`onChange`, `label`.\n- Para la pantalla vacía de un asistente. Dentro de una conversación ya empezada, `Composer`.\n"
+    },
+    {
+      "name": "clock",
+      "type": "registry:ui",
+      "title": "Clock",
+      "description": "Reloj analógico de pared o de tarjeta: disco ink con agujas paper y segundero rams (variante disc), esfera de 60 puntos (ticks) o la hora en matriz de puntos (dot). Sin time, va en vivo.",
+      "categories": [
+        "Tiempo"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/dot-matrix.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/clock.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/clock.tsx"
+        }
+      ],
+      "docs": "# Clock\n\nReloj analógico de pared o de tarjeta: disco `ink` con agujas `paper` y segundero `rams` (variante `disc`), esfera de 60 puntos (`ticks`) o la hora en matriz de puntos (`dot`). Sin `time`, va en vivo.\n\n- **Props**: `time` (`'10:09'` fija la hora), `variant` (`disc` · `ticks` · `dot`), `size` (200), `seconds` (true), `caption`.\n- El lector de pantalla oye \"Son las 10:09\"; no anuncia cada segundo.\n"
+    },
+    {
+      "name": "vu-meter",
+      "type": "registry:ui",
+      "title": "VUMeter",
+      "description": "Vúmetro de aguja de amplificador: escala de 50 a 3 con los dos últimos números en rojo, aguja negra con su pivote abajo y piloto de pico que se enciende por encima del 88 %. La esfera es siempre crema",
+      "categories": [
+        "Instrumentos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/vu-meter.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/vu-meter.tsx"
+        }
+      ],
+      "docs": "# VUMeter\n\nVúmetro de aguja de amplificador: escala de 50 a 3 con los dos últimos números en rojo, aguja negra con su pivote abajo y piloto de pico que se enciende por encima del 88 %. La esfera es siempre crema (es un objeto físico), también en tema oscuro.\n\n- **Props**: `value` o `level` (0–100), `live` (simula señal), `size` (180), `scale`, `caption` (\"peak power level\"), `label`.\n- `role=\"meter\"` con su valor. Para medir de verdad, pásale el nivel del micrófono cada fotograma.\n"
+    },
+    {
+      "name": "rotary-selector",
+      "type": "registry:ui",
+      "title": "RotarySelector",
+      "description": "Selector de fuente de amplificador: pomo ink con una barra que apunta a la posición elegida y las opciones escritas alrededor en mono, giradas siguiendo el arco. Se gira arrastrando, con las flechas o",
+      "categories": [
+        "Controles"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/rotary-selector.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/rotary-selector.tsx"
+        }
+      ],
+      "docs": "# RotarySelector\n\nSelector de fuente de amplificador: pomo `ink` con una barra que apunta a la posición elegida y las opciones escritas alrededor en mono, giradas siguiendo el arco. Se gira arrastrando, con las flechas o pulsando una etiqueta.\n\n- **Props**: `options` (`['tuner','phono','aux','cd','tape','usb']` o `[{value,label}]`), `value`/`defaultValue`, `onChange(v)`, `size` (200), `span` (300°), `label`.\n- Patrón ARIA slider con `aria-valuetext` = la opción. Vibra 6 ms en cada paso donde hay vibración. Para 2–4 opciones, mejor `Segmented`.\n"
+    },
+    {
+      "name": "fader",
+      "type": "registry:ui",
+      "title": "Fader",
+      "description": "Fader de mesa de mezclas: ranura ink, regla con 11 marcas y un capuchón de color que se arrastra en vertical. Lectura mono debajo. Para niveles de canal, macros de un teclado, luces.",
+      "categories": [
+        "Controles"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/fader.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/fader.tsx"
+        }
+      ],
+      "docs": "# Fader\n\nFader de mesa de mezclas: ranura `ink`, regla con 11 marcas y un capuchón de color que se arrastra en vertical. Lectura mono debajo. Para niveles de canal, macros de un teclado, luces.\n\n- **Props**: `value`/`defaultValue`, `onChange(v)`, `min`, `max`, `step`, `height` (200), `tone` del capuchón, `format(v)`, `label`.\n- Slider vertical (`aria-orientation`): ↑↓ paso a paso, RePág/AvPág de 10 en 10.\n"
+    },
+    {
+      "name": "keycap",
+      "type": "registry:ui",
+      "title": "Keycap",
+      "description": "Tecla mecánica esculpida, como las de un macropad: falda más oscura, superficie clara con brillo arriba y hundimiento de 2 px al pulsar. Ocupa varias celdas de rejilla con w/h (la tecla + de dos altur",
+      "categories": [
+        "Botonera"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/keycap.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/keycap.tsx"
+        }
+      ],
+      "docs": "# Keycap\n\nTecla mecánica esculpida, como las de un macropad: falda más oscura, superficie clara con brillo arriba y hundimiento de 2 px al pulsar. Ocupa varias celdas de rejilla con `w`/`h` (la tecla `+` de dos alturas, el `0` doble).\n\n- **Props**: todas las de `button` + `tone` (`paper` · `ink` · `rams` · `sol` · `klein`), `w`, `h`, `sub` (segunda leyenda).\n- Mínimo 56 × 56. Para acciones de interfaz, `KeyButton`: Keycap es para teclados y calculadoras.\n"
+    },
+    {
+      "name": "calculator",
+      "type": "registry:ui",
+      "title": "Calculator",
+      "description": "Calculadora completa con teclas esculpidas (Keycap) y pantalla LCD verde con la operación en curso arriba. + e = de dos alturas, 0 doble, = en rams. La variante round usa teclas circulares en línea, c",
+      "categories": [
+        "Botonera"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/keycap.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/calculator.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/calculator.tsx"
+        }
+      ],
+      "docs": "# Calculator\n\nCalculadora completa con teclas esculpidas (`Keycap`) y pantalla LCD verde con la operación en curso arriba. `+` e `=` de dos alturas, `0` doble, `=` en `rams`. La variante `round` usa teclas circulares en línea, como un teclado numérico redondo.\n\n- **Props**: `variant` (`keys` · `round`), `keyboard` (escucha el teclado físico: dígitos, + − * /, Enter, Esc, Retroceso).\n- Coma decimal española; resultado redondeado a 10 decimales; dividir entre 0 muestra \"Error\". La pantalla es `aria-live`.\n"
+    },
+    {
+      "name": "pad-grid",
+      "type": "registry:ui",
+      "title": "PadGrid",
+      "description": "Rejilla de pads de percusión tipo controlador MIDI: fondo ink, pads grises que se encienden en sol (o rams, klein) al golpearlos y suenan con WebAudio. Con keyboard, Q W E / A S D / Z X C los tocan.",
+      "categories": [
+        "Botonera"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/pad-grid.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/pad-grid.tsx"
+        }
+      ],
+      "docs": "# PadGrid\n\nRejilla de pads de percusión tipo controlador MIDI: fondo `ink`, pads grises que se encienden en `sol` (o `rams`, `klein`) al golpearlos y suenan con WebAudio. Con `keyboard`, Q W E / A S D / Z X C los tocan.\n\n- **Props**: `columns` (3), `rows` (3), `labels`, `tone`, `sound` (true), `keyboard`, `onPad(i)`, `label`.\n- Responde en `pointerdown` (sin esperar al soltar) y a Espacio/Enter con el foco.\n"
+    },
+    {
+      "name": "tape-deck",
+      "type": "registry:ui",
+      "title": "TapeDeck",
+      "description": "Grabadora de cinta: dos carretes que giran (el de la izquierda se vacía, el de la derecha se llena), la cinta pasando por el cabezal, contador en puntos y transporte en Keypad (rebobinar, reproducir, ",
+      "categories": [
+        "Medios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/keypad.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/tape-deck.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/tape-deck.tsx"
+        }
+      ],
+      "docs": "# TapeDeck\n\nGrabadora de cinta: dos carretes que giran (el de la izquierda se vacía, el de la derecha se llena), la cinta pasando por el cabezal, contador en puntos y transporte en `Keypad` (rebobinar, reproducir, parar, grabar).\n\n- **Props**: `title`, `duration` (s), `playing`.\n- Con movimiento reducido los carretes no giran: se ve el progreso en la barra y el contador. Junto a `Recorder` para notas de voz con estética de cinta.\n"
+    },
+    {
+      "name": "board",
+      "type": "registry:ui",
+      "title": "Board",
+      "description": "Tablero kanban con arrastrar y soltar real: la tarjeta deja un hueco translúcido, una copia flota inclinada 2° bajo el dedo y una línea klein con dos puntos marca dónde caerá. La columna de destino se",
+      "categories": [
+        "Arrastre"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/chip.json",
+        "https://frekvens.vercel.app/r/avatar.json",
+        "https://frekvens.vercel.app/r/state-mark.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/board.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/board.tsx"
+        }
+      ],
+      "docs": "# Board\n\nTablero kanban con arrastrar y soltar real: la tarjeta deja un hueco translúcido, una copia flota inclinada 2° bajo el dedo y una línea `klein` con dos puntos marca dónde caerá. La columna de destino se marca con un borde.\n\n- **Props**: `columns` (`[{id, title, state, items:[{id, title, meta, tag, tagTone, avatar, tone}]}]`), `onChange(columns)`, `variant` (`list` → `Sortable`).\n- **Teclado**: Espacio coge la tarjeta, las flechas la mueven (←→ entre columnas, ↑↓ dentro), Espacio la suelta, Esc cancela. Cada movimiento se anuncia. El arrastre empieza a los 5 px: un toque no mueve nada.\n"
+    },
+    {
+      "name": "sortable",
+      "type": "registry:ui",
+      "title": "Sortable",
+      "description": "Lista ordenable: la misma mecánica que Board en una sola columna. Para prioridades, el orden de un menú, una cola de reproducción.",
+      "categories": [
+        "Arrastre"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/board.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/sortable.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/sortable.tsx"
+        }
+      ],
+      "docs": "# Sortable\n\nLista ordenable: la misma mecánica que `Board` en una sola columna. Para prioridades, el orden de un menú, una cola de reproducción.\n\n- **Props**: `items` (`[{id, title, meta, tag}]`), `onChange(items)`, `label`.\n- Teclado: Espacio coge, ↑↓ mueven, Espacio suelta, Esc cancela.\n"
+    },
+    {
+      "name": "blueprint",
+      "type": "registry:ui",
+      "title": "Blueprint",
+      "description": "Lienzo de plano: la hoja de puntos de una pizarra, pero ingenieril. Rejilla de puntos cada 10 unidades y líneas klein cada 50, reglas en X e Y con la medida real, ajuste a la rejilla, cotas de la piez",
+      "categories": [
+        "Arrastre"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/segmented.json",
+        "https://frekvens.vercel.app/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/blueprint.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/blueprint.tsx"
+        }
+      ],
+      "docs": "# Blueprint\n\nLienzo de plano: la hoja de puntos de una pizarra, pero ingenieril. Rejilla de puntos cada 10 unidades y líneas `klein` cada 50, reglas en X e Y con la medida real, ajuste a la rejilla, cotas de la pieza elegida (ancho y alto en `rams`), conectores ortogonales con flecha y etiqueta, y una lectura de coordenadas del cursor.\n\n- **Props**: `nodes` (`[{id, x, y, w, h, title, text, tone, kind:'circle'}]`), `edges` (`[{from, to, label}]`), `grid` (10), `majorEvery` (5), `snap` (true), `unit` (`mm`), `unitPerGrid` (1), `height`, `wheelZoom` (true), `onChange(nodes)`, `label`.\n- **Moverse**: arrastra el fondo; rueda o pellizco para acercar (30–300 %), Mayús + rueda para desplazar, botones − 100 % +. **Editar**: arrastra las piezas (se ajustan a la rejilla), flechas para moverlas un paso (Mayús = 5), Supr para quitar, herramienta \"+ Nota\" para pegar una nota `sol` donde pulses.\n"
+    },
+    {
+      "name": "area-chart",
+      "type": "registry:ui",
+      "title": "AreaChart",
+      "description": "Área en semitono: la superficie bajo la curva se rellena con una trama de puntos del color de la serie (no con un degradado) y la línea va encima, suave. Admite varias series superpuestas con leyenda.",
+      "categories": [
+        "Gráficas"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/area-chart.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/area-chart.tsx"
+        }
+      ],
+      "docs": "# AreaChart\n\nÁrea en semitono: la superficie bajo la curva se rellena con una trama de puntos del color de la serie (no con un degradado) y la línea va encima, suave. Admite varias series superpuestas con leyenda.\n\n- **Props**: `series` (`[{label, data, tone}]`), `labels`, `width`, `height`, `zero` (eje desde 0), `legend`, `label`.\n- El texto alternativo dice de dónde a dónde va cada serie. Máximo 3 series: más se lee peor.\n"
+    },
+    {
+      "name": "scatter",
+      "type": "registry:ui",
+      "title": "Scatter",
+      "description": "Dispersión sobre una rejilla de puntos: cada observación es un disco con aro del color del fondo, y su tamaño puede ser un tercer dato. Ejes de un trazo.",
+      "categories": [
+        "Gráficas"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/scatter.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/scatter.tsx"
+        }
+      ],
+      "docs": "# Scatter\n\nDispersión sobre una rejilla de puntos: cada observación es un disco con aro del color del fondo, y su tamaño puede ser un tercer dato. Ejes de un trazo.\n\n- **Props**: `points` (`[{x, y, size, tone, label}]`), `xLabel`, `yLabel`, `width`, `height`, `label`.\n- Al pasar el ratón cada punto dice su etiqueta y valores (`title`).\n"
+    },
+    {
+      "name": "radar-chart",
+      "type": "registry:ui",
+      "title": "RadarChart",
+      "description": "Radar de puntos: anillos de puntos al 25/50/75/100 %, ejes finos y la forma de cada serie con relleno al 18 %. Para comparar perfiles (equipos, productos, habilidades) en 4–8 ejes.",
+      "categories": [
+        "Gráficas"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/radar-chart.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/radar-chart.tsx"
+        }
+      ],
+      "docs": "# RadarChart\n\nRadar de puntos: anillos de puntos al 25/50/75/100 %, ejes finos y la forma de cada serie con relleno al 18 %. Para comparar perfiles (equipos, productos, habilidades) en 4–8 ejes.\n\n- **Props**: `axes` (nombres), `series` (`[{label, data: 0–1, tone}]`), `size` (260), `label`.\n"
+    },
+    {
+      "name": "donut-chart",
+      "type": "registry:ui",
+      "title": "DonutChart",
+      "description": "Donut de segmentos redondeados y separados, con el total (o un dato) en puntos en el centro y la leyenda con porcentajes debajo.",
+      "categories": [
+        "Gráficas"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/donut-chart.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/donut-chart.tsx"
+        }
+      ],
+      "docs": "# DonutChart\n\nDonut de segmentos redondeados y separados, con el total (o un dato) en puntos en el centro y la leyenda con porcentajes debajo.\n\n- **Props**: `segments` (`[{label, value, tone}]`), `value` (centro), `caption`, `size` (200), `thickness` (22), `gap` (6°), `label`.\n- 2–5 segmentos. Para una sola proporción, `ProgressRing`; para comparar, `SplitBar`.\n"
+    },
+    {
+      "name": "scope",
+      "type": "registry:ui",
+      "title": "Scope",
+      "description": "Osciloscopio: pantalla oscura con retícula de puntos (ejes centrales marcados) y una traza verde fósforo que corre en vivo. Para señales, audio, latidos, estado de un sensor.",
+      "categories": [
+        "Gráficas"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/scope.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/scope.tsx"
+        }
+      ],
+      "docs": "# Scope\n\nOsciloscopio: pantalla oscura con retícula de puntos (ejes centrales marcados) y una traza verde fósforo que corre en vivo. Para señales, audio, latidos, estado de un sensor.\n\n- **Props**: `frequency` (ciclos en pantalla), `amplitude` (0–1), `noise`, `live` (true), `width`, `height`, `caption`, `label`.\n- Con movimiento reducido la traza queda quieta.\n"
+    },
+    {
+      "name": "voice-position",
+      "type": "registry:ui",
+      "title": "VoicePosition",
+      "description": "De dónde viene la voz: un anillo de puntos que se inclina y viaja hacia el lado del que habla (izquierda, delante, derecha), se encoge si la voz está lejos y respira con el nivel. Debajo, las tres pro",
+      "categories": [
+        "Conversación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/led.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/voice-position.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/voice-position.tsx"
+        }
+      ],
+      "docs": "# VoicePosition\n\nDe dónde viene la voz: un anillo de puntos que se inclina y viaja hacia el lado del que habla (izquierda, delante, derecha), se encoge si la voz está lejos y respira con el nivel. Debajo, las tres probabilidades con barras de puntos, la distancia y el estado (en espera · escuchando · hablando · pensando).\n\nInspirado en *Voice position* de libraries.dev: un modelo en el dispositivo que lee la diferencia entre los dos micrófonos del móvil. Frekvens pone la cara; el dato lo da la app.\n\n- **Props**: `pan` (−1…1), `side` (`left` · `ahead` · `right`), `distance` (`near` · `far`), `state`, `level` (0–1), `probabilities` ([izq, delante, der]), `demo` (recorre los casos), `size`, `rings` (3), `tone`, `caption`.\n- **Reglas de movimiento**: nunca salta: el cambio de lado pasa por el centro con `ease-travel` (640 ms), un sonido corto no lo mueve, y en silencio vuelve al centro. Se anuncia solo el lado ya decidido (\"Voz a la izquierda, cerca\").\n- En el navegador el micrófono es mono: el lado debe venir de la app nativa o de un micrófono estéreo.\n"
+    },
+    {
+      "name": "beam",
+      "type": "registry:ui",
+      "title": "Beam",
+      "description": "Haz de puntos que recorre el borde de una caja mientras algo trabaja: un tren de siete puntos klein (y su eco a media opacidad) da la vuelta sobre una pista punteada tenue. Para el campo de prompt mie",
+      "categories": [
+        "Conversación"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/beam.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/beam.tsx"
+        }
+      ],
+      "docs": "# Beam\n\nHaz de puntos que recorre el borde de una caja mientras algo trabaja: un tren de siete puntos `klein` (y su eco a media opacidad) da la vuelta sobre una pista punteada tenue. Para el campo de prompt mientras genera, una tarjeta que se está rellenando, un agente ocupado.\n\nAprendido de *Border beam* (libraries.dev), en el idioma de Frekvens: puntos en vez de luz.\n\n- **Props**: `active` (true), `tone` (`klein` · `rams` · `sol` · `ink`), `radius` (24, igual que la caja que envuelve), `label` (se anuncia como estado: \"Generando\"), `children`.\n- Envuelve cualquier caja: `h(F.Beam, {active: busy, label: 'Generando'}, h(F.PromptBox, …))`. Pone `aria-busy`. Con movimiento reducido, el tren se queda quieto y la pista sigue indicando que trabaja.\n- Solo uno por pantalla, y solo mientras hay trabajo de verdad: si se queda encendido, deja de significar algo.\n"
+    },
+    {
+      "name": "aura",
+      "type": "registry:ui",
+      "title": "Aura",
+      "description": "Disponible no es un puntito en la esquina: es un halo que respira alrededor de quien está. verde disponible, rec en directo (respira más rápido), sol ausente, klein la IA trabajando, rams ocupado. Des",
+      "categories": [
+        "Puntos"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/aura.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/aura.tsx"
+        }
+      ],
+      "docs": "# Aura\n\nDisponible no es un puntito en la esquina: es un halo que respira alrededor de quien está. `verde` disponible, `rec` en directo (respira más rápido), `sol` ausente, `klein` la IA trabajando, `rams` ocupado. Desconectado: sin halo y en gris.\n\n- **Props**: `status` (`online` · `available` · `live` · `away` · `busy` · `ai` · `offline`) o `tone`, `active`, `shape` (`round` · `rect`), `label` (texto para lectores), `children`.\n- `Avatar` lo usa solo con `status`. Úsalo también en una tecla o una tarjeta que está lista para usarse (una sala libre, un agente conectado).\n- Un halo por zona. Con movimiento reducido el halo queda fijo: el estado se sigue viendo.\n"
+    },
+    {
+      "name": "flap-board",
+      "type": "registry:ui",
+      "title": "FlapBoard",
+      "description": "Panel de salidas: varias filas de SplitFlap alineadas en columnas (hora, qué, estado), con el estado teñido. Para horarios de clases, turnos, pedidos listos, llegadas.",
+      "categories": [
+        "Medios"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/frekvens-lib.json",
+        "https://frekvens.vercel.app/r/split-flap.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/flap-board.tsx",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/flap-board.tsx"
+        }
+      ],
+      "docs": "# FlapBoard\n\nPanel de salidas: varias filas de `SplitFlap` alineadas en columnas (hora, qué, estado), con el estado teñido. Para horarios de clases, turnos, pedidos listos, llegadas.\n\n- **Props**: `rows` (`[{id, time, text, status, tone}]`), `columns` (`[{key, label, length}]`, por defecto hora 5 · destino 12 · estado 9), `title`, `meta`, `size` (`s`), `label`.\n- Es una tabla de verdad (`role=\"table\"`): se lee fila a fila. 3–8 filas; más, usa `DataTable`.\n"
+    },
+    {
+      "name": "frekvens",
+      "type": "registry:ui",
+      "title": "Frekvens completo",
+      "description": "Los 114 componentes, los estilos y las utilidades de una vez.",
+      "registryDependencies": [
+        "https://frekvens.vercel.app/r/key-button.json",
+        "https://frekvens.vercel.app/r/keypad.json",
+        "https://frekvens.vercel.app/r/hold-button.json",
+        "https://frekvens.vercel.app/r/slide-to-start.json",
+        "https://frekvens.vercel.app/r/rocker.json",
+        "https://frekvens.vercel.app/r/icon.json",
+        "https://frekvens.vercel.app/r/dial.json",
+        "https://frekvens.vercel.app/r/gauge.json",
+        "https://frekvens.vercel.app/r/slider.json",
+        "https://frekvens.vercel.app/r/switch.json",
+        "https://frekvens.vercel.app/r/segmented.json",
+        "https://frekvens.vercel.app/r/stepper.json",
+        "https://frekvens.vercel.app/r/wheel.json",
+        "https://frekvens.vercel.app/r/volume-wheel.json",
+        "https://frekvens.vercel.app/r/checkbox.json",
+        "https://frekvens.vercel.app/r/radio-group.json",
+        "https://frekvens.vercel.app/r/select.json",
+        "https://frekvens.vercel.app/r/menu.json",
+        "https://frekvens.vercel.app/r/tabs.json",
+        "https://frekvens.vercel.app/r/text-field.json",
+        "https://frekvens.vercel.app/r/calendar.json",
+        "https://frekvens.vercel.app/r/sheet.json",
+        "https://frekvens.vercel.app/r/toast.json",
+        "https://frekvens.vercel.app/r/banner.json",
+        "https://frekvens.vercel.app/r/tooltip.json",
+        "https://frekvens.vercel.app/r/timer.json",
+        "https://frekvens.vercel.app/r/stopwatch.json",
+        "https://frekvens.vercel.app/r/hourglass.json",
+        "https://frekvens.vercel.app/r/pendulum.json",
+        "https://frekvens.vercel.app/r/media-player.json",
+        "https://frekvens.vercel.app/r/audio-track.json",
+        "https://frekvens.vercel.app/r/ticker.json",
+        "https://frekvens.vercel.app/r/split-flap.json",
+        "https://frekvens.vercel.app/r/dot-matrix.json",
+        "https://frekvens.vercel.app/r/dot-grid.json",
+        "https://frekvens.vercel.app/r/state-mark.json",
+        "https://frekvens.vercel.app/r/steps.json",
+        "https://frekvens.vercel.app/r/grille.json",
+        "https://frekvens.vercel.app/r/led.json",
+        "https://frekvens.vercel.app/r/level-bars.json",
+        "https://frekvens.vercel.app/r/bar-meter.json",
+        "https://frekvens.vercel.app/r/line-chart.json",
+        "https://frekvens.vercel.app/r/progress-ring.json",
+        "https://frekvens.vercel.app/r/readout.json",
+        "https://frekvens.vercel.app/r/tile.json",
+        "https://frekvens.vercel.app/r/strip.json",
+        "https://frekvens.vercel.app/r/card-stack.json",
+        "https://frekvens.vercel.app/r/cabinet.json",
+        "https://frekvens.vercel.app/r/pager.json",
+        "https://frekvens.vercel.app/r/deck.json",
+        "https://frekvens.vercel.app/r/list-row.json",
+        "https://frekvens.vercel.app/r/chip.json",
+        "https://frekvens.vercel.app/r/badge.json",
+        "https://frekvens.vercel.app/r/avatar.json",
+        "https://frekvens.vercel.app/r/top-bar.json",
+        "https://frekvens.vercel.app/r/tab-bar.json",
+        "https://frekvens.vercel.app/r/empty-state.json",
+        "https://frekvens.vercel.app/r/skeleton.json",
+        "https://frekvens.vercel.app/r/message.json",
+        "https://frekvens.vercel.app/r/composer.json",
+        "https://frekvens.vercel.app/r/suggestions.json",
+        "https://frekvens.vercel.app/r/voice-orb.json",
+        "https://frekvens.vercel.app/r/dot-loader.json",
+        "https://frekvens.vercel.app/r/agent-widget.json",
+        "https://frekvens.vercel.app/r/render.json",
+        "https://frekvens.vercel.app/r/reveal.json",
+        "https://frekvens.vercel.app/r/stack.json",
+        "https://frekvens.vercel.app/r/grid.json",
+        "https://frekvens.vercel.app/r/text.json",
+        "https://frekvens.vercel.app/r/click-wheel.json",
+        "https://frekvens.vercel.app/r/disc-carousel.json",
+        "https://frekvens.vercel.app/r/num-pad.json",
+        "https://frekvens.vercel.app/r/viewfinder.json",
+        "https://frekvens.vercel.app/r/capture-key.json",
+        "https://frekvens.vercel.app/r/recorder.json",
+        "https://frekvens.vercel.app/r/note-editor.json",
+        "https://frekvens.vercel.app/r/sidebar.json",
+        "https://frekvens.vercel.app/r/data-table.json",
+        "https://frekvens.vercel.app/r/command-bar.json",
+        "https://frekvens.vercel.app/r/notch.json",
+        "https://frekvens.vercel.app/r/viewport-3d.json",
+        "https://frekvens.vercel.app/r/heatmap.json",
+        "https://frekvens.vercel.app/r/split-bar.json",
+        "https://frekvens.vercel.app/r/sparkline.json",
+        "https://frekvens.vercel.app/r/hour-strip.json",
+        "https://frekvens.vercel.app/r/payment-card.json",
+        "https://frekvens.vercel.app/r/dialog.json",
+        "https://frekvens.vercel.app/r/file-drop.json",
+        "https://frekvens.vercel.app/r/choice-cards.json",
+        "https://frekvens.vercel.app/r/stat.json",
+        "https://frekvens.vercel.app/r/usage-meter.json",
+        "https://frekvens.vercel.app/r/timeline.json",
+        "https://frekvens.vercel.app/r/checklist.json",
+        "https://frekvens.vercel.app/r/prompt-box.json",
+        "https://frekvens.vercel.app/r/clock.json",
+        "https://frekvens.vercel.app/r/vu-meter.json",
+        "https://frekvens.vercel.app/r/rotary-selector.json",
+        "https://frekvens.vercel.app/r/fader.json",
+        "https://frekvens.vercel.app/r/keycap.json",
+        "https://frekvens.vercel.app/r/calculator.json",
+        "https://frekvens.vercel.app/r/pad-grid.json",
+        "https://frekvens.vercel.app/r/tape-deck.json",
+        "https://frekvens.vercel.app/r/board.json",
+        "https://frekvens.vercel.app/r/sortable.json",
+        "https://frekvens.vercel.app/r/blueprint.json",
+        "https://frekvens.vercel.app/r/area-chart.json",
+        "https://frekvens.vercel.app/r/scatter.json",
+        "https://frekvens.vercel.app/r/radar-chart.json",
+        "https://frekvens.vercel.app/r/donut-chart.json",
+        "https://frekvens.vercel.app/r/scope.json",
+        "https://frekvens.vercel.app/r/voice-position.json",
+        "https://frekvens.vercel.app/r/beam.json",
+        "https://frekvens.vercel.app/r/aura.json",
+        "https://frekvens.vercel.app/r/flap-board.json"
+      ],
+      "files": [
+        {
+          "path": "registry/frekvens/ui/index.ts",
+          "type": "registry:ui",
+          "target": "~/components/frekvens/index.ts"
+        }
+      ]
+    }
+  ]
+}

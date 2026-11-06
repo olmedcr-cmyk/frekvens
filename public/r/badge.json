@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "badge",
+ "type": "registry:ui",
+ "title": "Badge",
+ "description": "Contador o punto de aviso sobre otro elemento (un icono, una tecla, un avatar). Aparece escalando desde cero.",
+ "categories": [
+  "Base"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/badge.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/badge.tsx",
+   "content": "\"use client\"\n/* Frekvens · Badge — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { BadgeProps } from \"./types\"\nexport type { BadgeProps }\n\n/* ---------- Badge: contador sobre otro elemento ---------- */\nexport function Badge(props: BadgeProps): React.ReactElement\nexport function Badge(p?: any): any {\n  var c: any = p.count,\n    show: any = p.dot || (c != null && c > 0),\n    txt: any = c > (p.max || 99) ? (p.max || 99) + \"+\" : c\n  return (\n    <span className={cx(\"frk-badge-wrap\", p.className)}>\n      {p.children}\n      {show ? (\n        <span\n          className={cx(\"frk-badge\", \"frk-tone--\" + (p.tone || \"rams\"), p.dot && \"is-dot\")}\n          aria-hidden={true}\n        >\n          {p.dot ? null : txt}\n        </span>\n      ) : null}\n      {show && !p.dot ? <span className=\"frk-sr\">{\" (\" + c + \" \" + (p.label || \"nuevos\") + \")\"}</span> : null}\n    </span>\n  )\n}\n\n/* ---------- TabBar: navegación inferior ---------- */\n"
+  }
+ ],
+ "docs": "# Badge\n\nContador o punto de aviso sobre otro elemento (un icono, una tecla, un avatar). Aparece escalando desde cero.\n\n- **Props**: `count`, `max` (99, luego \"99+\"), `dot` (solo punto), `tone` (`rams`), `label` (qué cuenta, para lectores: \"3 nuevos\"), `children`.\n- 0 no se muestra. Para estados de texto, `Chip`.\n"
+}

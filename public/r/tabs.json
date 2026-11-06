@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "tabs",
+ "type": "registry:ui",
+ "title": "Tabs",
+ "description": "Pestañas con dos acabados: **pill**, una píldora ink que viaja de una pestaña a otra con ease-travel; y **folder**, pestañas de carpeta de archivo que suben al seleccionarse y se funden con su panel.",
+ "categories": [
+  "Formularios"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/tabs.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/tabs.tsx",
+   "content": "\"use client\"\n/* Frekvens · Tabs — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx, useFollow, useValue } from \"./lib\"\n\nimport type { TabsProps } from \"./types\"\nexport type { TabsProps }\n\nconst { useId, useRef, useState, useEffect }: any = React\n\n/* ---------- Tabs: pestañas con indicador que viaja ---------- */\nexport function Tabs(props: TabsProps): React.ReactElement\nexport function Tabs(p?: any): any {\n  var tabs: any = p.tabs || [],\n    id: any = useId(),\n    variant: any = p.variant || \"pill\"\n  var st: any = useValue(p, tabs[0] && tabs[0].id),\n    v: any = st[0]\n  var list: any = useRef(null),\n    ind: any = useState(null),\n    box: any = ind[0],\n    setBox: any = ind[1]\n  var tref: any = useFollow(\n    box\n      ? {\n          x: box.x,\n          y: 0,\n          w: box.w,\n          h: 0,\n        }\n      : null,\n  )\n  useEffect(\n    function (): any {\n      var el: any = list.current && list.current.querySelector('[aria-selected=\"true\"]')\n      if (!el) return\n      setBox({\n        x: el.offsetLeft,\n        w: el.offsetWidth,\n      })\n    },\n    [v, tabs.length],\n  )\n  function key(e?: any): any {\n    var i: any = -1\n    tabs.forEach(function (t?: any, j?: any): any {\n      if (t.id === v) i = j\n    })\n    var n: any =\n      e.key === \"ArrowRight\"\n        ? i + 1\n        : e.key === \"ArrowLeft\"\n          ? i - 1\n          : e.key === \"Home\"\n            ? 0\n            : e.key === \"End\"\n              ? tabs.length - 1\n              : null\n    if (n == null) return\n    e.preventDefault()\n    n = (n + tabs.length) % tabs.length\n    st[1](tabs[n].id)\n    setTimeout(function (): any {\n      var el: any = document.getElementById(id + \"t\" + tabs[n].id)\n      el && el.focus()\n    }, 0)\n  }\n  var cur: any = tabs.filter(function (t?: any): any {\n    return t.id === v\n  })[0]\n  return (\n    <div className={cx(\"frk-tabs\", \"frk-tabs--\" + variant, p.className)}>\n      <div ref={list} role=\"tablist\" aria-label={p.label} className=\"frk-tabs__list\" onKeyDown={key}>\n        {variant === \"pill\" && box ? <span ref={tref} className=\"frk-tabs__ind\" aria-hidden={true} /> : null}\n        {tabs.map(function (t?: any): any {\n          var sel: any = t.id === v\n          return (\n            <button\n              key={t.id}\n              id={id + \"t\" + t.id}\n              type=\"button\"\n              role=\"tab\"\n              aria-selected={sel}\n              aria-controls={cur && cur.content != null ? id + \"p\" : undefined}\n              tabIndex={sel ? 0 : -1}\n              className={cx(\"frk-tabs__tab\", sel && \"is-on\", t.tone && \"frk-tone--\" + t.tone)}\n              onClick={function (): any {\n                st[1](t.id)\n              }}\n            >\n              {t.icon ? <Icon name={t.icon} size={18} /> : null}\n              <span>{t.label}</span>\n              {t.count != null ? <span className=\"frk-tabs__count\">{t.count}</span> : null}\n            </button>\n          )\n        })}\n      </div>\n      {cur && cur.content != null ? (\n        <div\n          id={id + \"p\"}\n          role=\"tabpanel\"\n          aria-labelledby={id + \"t\" + v}\n          tabIndex={0}\n          key={v}\n          className={cx(\"frk-tabs__panel\", cur.tone && \"frk-tone--\" + cur.tone)}\n        >\n          {cur.content}\n        </div>\n      ) : null}\n    </div>\n  )\n}\n\n/* ---------- Pager: carrusel con botones de scroll y puntos ---------- */\n"
+  }
+ ],
+ "docs": "# Tabs\n\nPestañas con dos acabados: **`pill`**, una píldora `ink` que viaja de una pestaña a otra con `ease-travel`; y **`folder`**, pestañas de carpeta de archivo que suben al seleccionarse y se funden con su panel.\n\n- **Props**: `tabs` (`[{id, label, icon, count, tone, content}]`), `value`/`defaultValue`, `onChange(id)`, `variant` (`pill` · `folder`), `label`.\n- **Teclado**: ← → recorren y activan, Inicio/Fin; Tab entra al panel. Patrón ARIA tabs.\n- 2–5 pestañas. Con `folder`, cada pestaña puede llevar su `tone` y el panel lo hereda.\n"
+}

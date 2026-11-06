@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "scatter",
+ "type": "registry:ui",
+ "title": "Scatter",
+ "description": "Dispersión sobre una rejilla de puntos: cada observación es un disco con aro del color del fondo, y su tamaño puede ser un tercer dato. Ejes de un trazo.",
+ "categories": [
+  "Gráficas"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/scatter.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/scatter.tsx",
+   "content": "\"use client\"\n/* Frekvens · Scatter — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx, range } from \"./lib\"\n\nimport type { ScatterProps } from \"./types\"\nexport type { ScatterProps }\n\n/* ---------- Scatter ---------- */\nexport function Scatter(props: ScatterProps): React.ReactElement\nexport function Scatter(p?: any): any {\n  var pts: any = p.points || [],\n    W: any = p.width || 420,\n    H: any = p.height || 260,\n    pd: any = 28,\n    xs: any = pts.map(function (q?: any): any {\n      return q.x\n    }),\n    ys: any = pts.map(function (q?: any): any {\n      return q.y\n    })\n  var x0: any = Math.min.apply(null, xs),\n    x1: any = Math.max.apply(null, xs),\n    y0: any = Math.min.apply(null, ys),\n    y1: any = Math.max.apply(null, ys),\n    mx: any = (x1 - x0) * 0.08 || 1,\n    my: any = (y1 - y0) * 0.08 || 1\n  x0 -= mx\n  x1 += mx\n  y0 -= my\n  y1 += my\n  function X(v?: any): any {\n    return pd + ((v - x0) / (x1 - x0 || 1)) * (W - pd * 2)\n  }\n  function Y(v?: any): any {\n    return H - pd - ((v - y0) / (y1 - y0 || 1)) * (H - pd * 2)\n  }\n  return (\n    <figure\n      className={cx(\"frk-scatter\", p.className)}\n      style={{\n        maxWidth: W,\n      }}\n    >\n      <svg\n        viewBox={\"0 0 \" + W + \" \" + H}\n        width=\"100%\"\n        role=\"img\"\n        aria-label={(p.label || \"Dispersión\") + \": \" + pts.length + \" puntos\"}\n      >\n        {range(6).map(function (i?: any): any {\n          return range(5).map(function (j?: any): any {\n            return (\n              <circle\n                key={i + \"-\" + j}\n                cx={pd + (i * (W - pd * 2)) / 5}\n                cy={pd + (j * (H - pd * 2)) / 4}\n                r={1.3}\n                className=\"frk-scatter__grid\"\n              />\n            )\n          })\n        })}\n        <line x1={pd} y1={H - pd} x2={W - pd} y2={H - pd} className=\"frk-scatter__axis\" />\n        <line x1={pd} y1={pd} x2={pd} y2={H - pd} className=\"frk-scatter__axis\" />\n        {pts.map(function (q?: any, i?: any): any {\n          return (\n            <circle\n              key={i}\n              cx={X(q.x)}\n              cy={Y(q.y)}\n              r={q.size || 6}\n              className={\"frk-scatter__pt frk-area--\" + (q.tone || \"ink\")}\n            >\n              <title>{(q.label ? q.label + \": \" : \"\") + q.x + \", \" + q.y}</title>\n            </circle>\n          )\n        })}\n        <text x={W - pd} y={H - 8} textAnchor=\"end\" className=\"frk-line__lbl\">\n          {p.xLabel || \"x\"}\n        </text>\n        <text x={4} y={pd - 10} className=\"frk-line__lbl\">\n          {p.yLabel || \"y\"}\n        </text>\n      </svg>\n    </figure>\n  )\n}\n\n/* ---------- RadarChart ---------- */\n"
+  }
+ ],
+ "docs": "# Scatter\n\nDispersión sobre una rejilla de puntos: cada observación es un disco con aro del color del fondo, y su tamaño puede ser un tercer dato. Ejes de un trazo.\n\n- **Props**: `points` (`[{x, y, size, tone, label}]`), `xLabel`, `yLabel`, `width`, `height`, `label`.\n- Al pasar el ratón cada punto dice su etiqueta y valores (`title`).\n"
+}

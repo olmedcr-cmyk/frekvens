@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "toast",
+ "type": "registry:ui",
+ "title": "Toast",
+ "description": "Aviso breve en píldora: confirma algo que ya pasó y, si acaso, ofrece deshacer. Sube 12 px y aparece; sale más rápido de lo que entra.",
+ "categories": [
+  "Formularios"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/toast.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/toast.tsx",
+   "content": "\"use client\"\n/* Frekvens · Toast — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx, usePresence } from \"./lib\"\n\nimport type { ToastProps } from \"./types\"\nexport type { ToastProps }\n\nconst { useEffect }: any = React\n\n/* ---------- Toast ---------- */\nexport function Toast(props: ToastProps): React.ReactElement\nexport function Toast(p?: any): any {\n  var pres: any = usePresence(!!p.open, 150)\n  useEffect(\n    function (): any {\n      if (!p.open || !p.duration) return\n      var t: any = setTimeout(function (): any {\n        p.onClose && p.onClose()\n      }, p.duration)\n      return function (): any {\n        clearTimeout(t)\n      }\n    },\n    [p.open, p.duration],\n  )\n  if (!pres[0]) return null\n  return (\n    <div\n      role={p.tone === \"rec\" ? \"alert\" : \"status\"}\n      className={cx(\n        \"frk-toast\",\n        \"frk-tone--\" + (p.tone || \"ink\"),\n        pres[1] && p.open && \"is-in\",\n        p.fixed && \"frk-toast--fixed\",\n      )}\n    >\n      {p.icon ? <Icon name={p.icon} size={20} /> : null}\n      <span className=\"frk-toast__text\">{p.children}</span>\n      {p.action ? (\n        <button type=\"button\" className=\"frk-toast__action\" onClick={p.action.onClick}>\n          {p.action.label}\n        </button>\n      ) : null}\n      {p.onClose ? (\n        <button type=\"button\" className=\"frk-toast__close\" aria-label=\"Cerrar\" onClick={p.onClose}>\n          <Icon name=\"close\" size={18} />\n        </button>\n      ) : null}\n    </div>\n  )\n}\n\n/* ---------- TextField: pill input, optional submit key ---------- */\n"
+  }
+ ],
+ "docs": "# Toast\n\nAviso breve en píldora: confirma algo que ya pasó y, si acaso, ofrece deshacer. Sube 12 px y aparece; sale más rápido de lo que entra.\n\n- **Props**: `open`, `onClose()`, `duration` (ms, auto-cierre; 4000 típico, nunca con `action` de menos de 6000), `tone` (`ink` · `verde` · `rec` · …), `icon`, `action` (`{label, onClick}`), `fixed` (centrado abajo en la ventana), `children`.\n- `role=\"status\"`; con `tone:'rec'` pasa a `alert`. Un solo toast a la vez. Una frase, sin punto final si es corta.\n"
+}

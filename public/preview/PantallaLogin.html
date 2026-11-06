@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>PantallaLogin</title>
+<style>
+  .screens { display:flex; gap:var(--space-5); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .card { width:380px; box-sizing:border-box; border-radius:var(--radius-xl); background:var(--surface); padding:var(--space-6) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); }
+  .or { display:flex; align-items:center; gap:var(--space-3); font:500 11px/14px var(--font-mono); letter-spacing:.08em; color:var(--ink-muted); }
+  .or::before, .or::after { content:''; flex:1; height:1px; background:var(--line); }
+  .small { font:400 13px/18px var(--font-sans); color:var(--ink-muted); text-align:center; margin:0; }
+  .small a { color:var(--klein-ink); font-weight:700; }
+  .frame { position:relative; width:440px; height:440px; border-radius:var(--radius-xl); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); margin-top:var(--space-2); }
+  .grid3 { display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-2); }
+  .wide { width:1180px; box-sizing:border-box; }
+
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function A(){return h('div',{className:'card'},h(F.Text,{variant:'title',sub:'Entra en tu estudio'},'Hola de nuevo'),
+ h(F.KeyButton,{tone:'ink',shape:'pill',block:true},'Continuar con Google'),h(F.KeyButton,{tone:'well',shape:'pill',block:true},'Continuar con Apple'),h('div',{className:'or'},'O CON EMAIL'),
+ h(F.TextField,{label:'Email',type:'email',mono:true,placeholder:'tu@correo.com',autoComplete:'email'}),h(F.TextField,{label:'Contraseña',type:'password',autoComplete:'current-password',hint:'¿La olvidaste? Te enviamos un enlace.'}),
+ h(F.Checkbox,{label:'Recordarme 30 días',defaultChecked:true}),h(F.KeyButton,{tone:'klein',shape:'pill',block:true},'Entrar'),h('p',{className:'small'},'¿Nuevo? ',h('a',{href:'#'},'Crea una cuenta')));}
+function B(){var s=React.useState(false);return h('div',{className:'card'},h(F.Text,{variant:'title',sub:'Sin contraseña'},'Entra con un enlace'),
+ s[0]?h(F.Banner,{tone:'ok',title:'Revisa tu correo'},'Te enviamos un enlace a cris@estudio.com. Caduca en 10 min.'):h(F.TextField,{label:'Email de trabajo',type:'email',mono:true,placeholder:'tu@empresa.com',onSubmit:function(){s[1](true);},submitLabel:'Enviar enlace'}),
+ h('div',{className:'or'},'O'),h(F.KeyButton,{tone:'well',shape:'pill',block:true,icon:'lock'},'Entrar con SSO de empresa'),h('p',{className:'small'},'Al continuar aceptas los ',h('a',{href:'#'},'términos'),'.'));}
+function C(){return h('div',{className:'card'},h(F.Steps,{steps:['Cuenta','Rol','Plan'],current:1}),h(F.Text,{variant:'title',sub:'Un minuto'},'Crea tu cuenta'),
+ h(F.Grid,{columns:2},h(F.TextField,{label:'Nombre',placeholder:'Cris'}),h(F.TextField,{label:'Usuario',mono:true,placeholder:'@cris'})),
+ h(F.Select,{label:'Tu rol',block:true,defaultValue:'coach',options:[{value:'coach',label:'Entrenador'},{value:'owner',label:'Dueño de estudio'},{value:'member',label:'Socio'}]}),
+ h(F.Checkbox,{label:'Acepto los términos y la privacidad'}),h(F.KeyButton,{tone:'klein',shape:'pill',block:true},'Crear cuenta'));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(A),h(B),h(C)));
+</script>
+</body>
+</html>

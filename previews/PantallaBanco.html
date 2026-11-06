@@ -1,0 +1,32 @@
+<!-- @dsCard group="Pantallas" height=860 page subtitle="Neobanco: saldo, tarjeta, gasto, movimientos y envío con teclado numérico" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>PantallaBanco</title>
+<style>
+  .screens { display:flex; gap:var(--space-6); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .phone { position:relative; width:390px; height:800px; box-sizing:border-box; border-radius:48px; padding:var(--space-8) var(--space-5) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .tablet { position:relative; width:1180px; height:820px; box-sizing:border-box; border-radius:36px; padding:var(--space-4); display:flex; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .main { flex:1; min-width:0; display:flex; flex-direction:column; gap:var(--space-4); }
+  .row { display:flex; gap:var(--space-2); }
+  .push { margin-top:auto; }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+ .bal { font:400 64px/1 var(--font-sans); letter-spacing:-.04em; font-variant-numeric:tabular-nums; }
+  .bal small { font-size:28px; color:var(--ink-muted); }
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function Home(){var f=React.useState(false);return h('div',{className:'phone'},
+  h(F.Stack,{direction:'row',justify:'space-between',align:'center'},h(F.Avatar,{name:'Cris Olmedo',size:40,tone:'klein'}),h(F.Badge,{dot:true},h(F.KeyButton,{tone:'well',shape:'round',size:'s',icon:'dots','aria-label':'Avisos'}))),
+  h('div',null,h(F.Text,{variant:'label'},'Saldo disponible'),h('div',{className:'bal'},'1.894',h('small',null,',00 €'))),
+  h(F.PaymentCard,{last4:'2047',name:'Cris Olmedo',expiry:'09/29',frozen:f[0]}),
+  h(F.Stack,{direction:'row',gap:2},h(F.KeyButton,{tone:'ink',shape:'pill',icon:'arrow-up-right'},'Enviar'),h(F.KeyButton,{tone:'well',shape:'pill',icon:'plus'},'Añadir'),h(F.KeyButton,{tone:'well',shape:'pill',icon:'lock',toggle:true,active:f[0],onClick:function(){f[1](!f[0]);}},f[0]?'Activar':'Congelar')),
+  h(F.SplitBar,{segments:[{label:'Casa',value:820},{label:'Comida',value:340},{label:'Transporte',value:120},{label:'Ocio',value:180}],format:function(v){return v+' €';}}),
+  h('div',null,h(F.ListRow,{icon:'timer',title:'Kraft · Fuerza 1:1',detail:'Hoy · 18:00',value:'−12 €'}),h(F.ListRow,{icon:'arrow-up',title:'Nómina',detail:'1 nov',value:'+840 €'})));}
+function Send(){return h('div',{className:'phone'},h(F.TopBar,{title:'Enviar',onBack:function(){}}),h(F.Stack,{direction:'row',gap:3,align:'center',justify:'center'},h(F.Avatar,{name:'Marta Ruiz',size:44,tone:'rams',status:'online'}),h(F.Text,{variant:'headline',as:'h2',sub:'ES21 •••• 4471'},'Marta Ruiz')),
+  h(F.NumPad,{defaultValue:'24',hint:'Llega al instante · sin comisión'}),h('div',{className:'push'},h(F.SlideToStart,{tone:'klein',icon:'arrow-right',label:'Enviar 24 €'},'Desliza para enviar 24 €')));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(Home),h(Send)));
+</script>
+</body>
+</html>

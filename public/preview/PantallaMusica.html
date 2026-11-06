@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>PantallaMusica</title>
+<style>
+  .screens { display:flex; gap:var(--space-6); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .phone { position:relative; width:390px; height:800px; box-sizing:border-box; border-radius:48px; padding:var(--space-8) var(--space-5) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .tablet { position:relative; width:1180px; height:820px; box-sizing:border-box; border-radius:36px; padding:var(--space-4); display:flex; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .main { flex:1; min-width:0; display:flex; flex-direction:column; gap:var(--space-4); }
+  .row { display:flex; gap:var(--space-2); }
+  .push { margin-top:auto; }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+ .pod { width:360px; height:780px; border-radius:44px; background:var(--surface); outline:var(--hairline) solid var(--line); padding:var(--space-5); box-sizing:border-box; display:flex; flex-direction:column; align-items:center; gap:var(--space-4); }
+  .lcd { width:100%; border-radius:var(--radius-lg); background:#0e0e0d; color:#f2f0ea; --paper:#f2f0ea; --ink:#f2f0ea; padding:var(--space-4); box-sizing:border-box; --ink-muted:#bdb8af; --dot-off:#2b2925; }
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function Pod(){var s=React.useState(1),i=s[0],p=React.useState(true),pl=p[0],items=[{title:'Tabata',subtitle:'Rutina · 4 min',tone:'rams'},{title:'Fuerza',subtitle:'45 min',tone:'klein'},{title:'Respira',subtitle:'Pausa 4-7-8',tone:'verde'},{title:'Sol',subtitle:'Playlist cardio',tone:'sol'},{title:'Movilidad',subtitle:'Cadera',tone:'lavanda'}];
+ return h('div',{className:'pod'},
+  h('div',{className:'lcd'},h(F.Stack,{direction:'row',justify:'space-between',align:'center'},h(F.Text,{variant:'label'},'Rutinas · '+(i+1)+'/'+items.length),h(F.LED,{tone:pl?'rams':'klein'},pl?'Sonando':'Pausa')),
+   h('div',{style:{marginTop:'12px'}},h(F.DiscCarousel,{items:items,value:i,onChange:s[1],playing:pl,onPlay:function(){p[1](!pl);},size:170}))),
+  h(F.AudioTrack,{title:items[i].title+' · '+items[i].subtitle,duration:240,seed:i+1,autoPlay:pl,tone:'well',speed:false}),
+  h('div',{className:'push'},h(F.ClickWheel,{size:240,label:'Elegir disco',valueText:items[i].title,playing:pl,onStep:function(d){s[1](function(x){return (x+d+items.length)%items.length;});},onPlay:function(){p[1](!pl);},onSelect:function(){p[1](!pl);}})));}
+function List(){return h('div',{className:'phone'},h(F.Text,{variant:'display-xl',sub:'5 rutinas'},'Biblioteca'),h(F.CardStack,{defaultValue:0,items:[{badge:'T',icon:'play',title:'Tabata',subtitle:'4 min · alta',value:'4′',tone:'rams'},{badge:'F',icon:'arrow-right',title:'Fuerza',subtitle:'45 min',value:'45′',tone:'klein-soft'},{badge:'R',icon:'arrow-right',title:'Respira',subtitle:'Pausa',value:'6′',tone:'verde'},{badge:'S',icon:'arrow-right',title:'Sol',subtitle:'Cardio',value:'32′',tone:'sol'}]}),h('div',{className:'push'},h(F.TabBar,{items:[{id:'b',label:'Biblioteca',icon:'home'},{id:'r',label:'Radio',icon:'volume'},{id:'s',label:'Buscar',icon:'dots'}]})));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(Pod),h(List)));
+</script>
+</body>
+</html>

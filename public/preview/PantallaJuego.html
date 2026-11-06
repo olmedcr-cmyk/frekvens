@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>PantallaJuego</title>
+<style>
+  .screens { display:flex; gap:var(--space-6); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .phone { position:relative; width:390px; height:800px; box-sizing:border-box; border-radius:48px; padding:var(--space-8) var(--space-5) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .tablet { position:relative; width:1180px; height:820px; box-sizing:border-box; border-radius:36px; padding:var(--space-4); display:flex; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .main { flex:1; min-width:0; display:flex; flex-direction:column; gap:var(--space-4); }
+  .row { display:flex; gap:var(--space-2); }
+  .push { margin-top:auto; }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+ .pads { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-3); }
+  .pad { aspect-ratio:1; border:0; border-radius:var(--radius-full); cursor:pointer; transition:transform 90ms, filter 90ms; box-shadow:inset 0 -10px 0 rgba(0,0,0,.18); }
+  .pad:active, .pad.is-lit { transform:scale(.94); filter:brightness(1.25) saturate(1.2); box-shadow:inset 0 6px 0 rgba(0,0,0,.18); }
+  .pad:focus-visible { outline:3px solid var(--ink); outline-offset:4px; }
+  .msg { font:800 28px/1.05 var(--font-sans); letter-spacing:-.02em; min-height:60px; }
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+var COL=['rams','klein','sol','verde'],NOTE=[330,262,392,196];var ctx;
+function beep(i){try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();var o=ctx.createOscillator(),g=ctx.createGain();o.type='square';o.frequency.value=NOTE[i];g.gain.setValueAtTime(.08,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.3);o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+.3);}catch(e){}}
+function Simon(){var sq=React.useState([0,2,1]),seq=sq[0],l=React.useState(-1),lit=l[0],st=React.useState('Mira y repite'),msg=st[0],u=React.useState(0),pos=u[0],sc=React.useState(2),stars=sc[0];
+ function play(s){s.forEach(function(k,i){setTimeout(function(){l[1](k);beep(k);setTimeout(function(){l[1](-1);},300);},i*500+300);});}
+ function tap(k){beep(k);l[1](k);setTimeout(function(){l[1](-1);},160);if(k!==seq[pos]){st[1]('¡Casi! Otra vez');u[1](0);play(seq);return;}if(pos+1===seq.length){var n=seq.concat([Math.floor(Math.random()*4)]);st[1]('¡Muy bien! +1 estrella');sc[1](Math.min(10,stars+1));u[1](0);sq[1](n);setTimeout(function(){play(n);},700);}else u[1](pos+1);}
+ return h('div',{className:'phone',style:{background:'var(--paper)'}},
+  h(F.Stack,{direction:'row',justify:'space-between',align:'center'},h(F.Text,{variant:'label'},'Nivel '+seq.length),h(F.DotGrid,{total:10,filled:stars,columns:10,size:14,gap:4,tone:'sol',label:stars+' estrellas'})),
+  h('div',{className:'msg','aria-live':'polite'},msg),
+  h('div',{className:'pads'},COL.map(function(c,i){return h('button',{key:c,className:'pad frk-tone--'+c+(lit===i?' is-lit':''),'aria-label':['Naranja','Azul','Amarillo','Verde'][i],onClick:function(){tap(i);}});})),
+  h('div',{className:'push'},h(F.KeyButton,{tone:'ink',shape:'pill',block:true,icon:'play',onClick:function(){st[1]('Mira y repite');u[1](0);play(seq);}},'Escuchar otra vez')));}
+function Win(){return h('div',{className:'phone frk-tone--sol',style:{background:'var(--sol)',alignItems:'center',justifyContent:'center',textAlign:'center'}},h(F.DotMatrix,{shape:'heart',tone:'rams',dot:12,pitch:16,reactive:true,label:'Corazón'}),h(F.Text,{variant:'display-xl'},'¡10 estrellas!'),h(F.Text,{variant:'body'},'Has desbloqueado el modo noche.'),h('div',{className:'push',style:{width:'100%'}},h(F.HoldButton,{tone:'ink',label:'Seguir jugando',icon:'play',size:110},'Mantén')));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(Simon),h(Win)));
+</script>
+</body>
+</html>

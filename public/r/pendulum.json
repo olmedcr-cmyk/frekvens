@@ -1,0 +1,25 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "pendulum",
+ "type": "registry:ui",
+ "title": "Pendulum",
+ "description": "Metrónomo: brazo ink con contrapeso rams que oscila a los BPM indicados, y los tiempos del compás en puntos (el primero marcado con aro). Ajuste de BPM con Stepper.",
+ "categories": [
+  "Tiempo"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/stepper.json",
+  "https://frekvens.vercel.app/r/stopwatch.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/pendulum.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/pendulum.tsx",
+   "content": "\"use client\"\n/* Frekvens · Pendulum — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Stepper } from \"./stepper\"\nimport { roundKey } from \"./stopwatch\"\nimport { cx, range, useValue } from \"./lib\"\n\nimport type { PendulumProps } from \"./types\"\nexport type { PendulumProps }\n\nconst { useState, useEffect }: any = React\n\n/* ---------- Pendulum: metrónomo ---------- */\nexport function Pendulum(props: PendulumProps): React.ReactElement\nexport function Pendulum(p?: any): any {\n  var st: any = useValue(\n      {\n        value: p.bpm,\n        defaultValue: p.defaultBpm || 90,\n        onChange: p.onBpmChange,\n      },\n      90,\n    ),\n    bpm: any = st[0]\n  var r: any = useState(p.running != null ? p.running : true),\n    run: any = p.running != null ? p.running : r[0]\n  var b: any = useState(0),\n    beat: any = b[0],\n    setBeat: any = b[1],\n    beats: any = p.beats || 4\n  useEffect(\n    function (): any {\n      if (!run) return\n      var i: any = 0\n      setBeat(0)\n      var t: any = setInterval(function (): any {\n        i = (i + 1) % beats\n        setBeat(i)\n      }, 60000 / bpm)\n      return function (): any {\n        clearInterval(t)\n      }\n    },\n    [run, bpm, beats],\n  )\n  var period: any = 120 / bpm\n  return (\n    <div className={cx(\"frk-pendulum\", p.className)}>\n      <div className=\"frk-pendulum__stage\" aria-hidden={true}>\n        <div\n          className={cx(\"frk-pendulum__arm\", run && \"is-run\")}\n          style={{\n            animationDuration: period + \"s\",\n          }}\n        >\n          <span className=\"frk-pendulum__bob\" />\n        </div>\n        <span className=\"frk-pendulum__pivot\" />\n      </div>\n      <div className=\"frk-pendulum__beats\" role=\"img\" aria-label={\"Compás \" + beats + \" tiempos\"}>\n        {range(beats).map(function (i?: any): any {\n          return <span key={i} className={cx(i === beat && run && \"is-on\", i === 0 && \"is-first\")} />\n        })}\n      </div>\n      <div className=\"frk-pendulum__ctrl\">\n        <Stepper\n          label=\"BPM\"\n          value={bpm}\n          min={30}\n          max={220}\n          step={p.step || 5}\n          unit=\"bpm\"\n          onChange={function (v?: any): any {\n            st[1](v)\n          }}\n        />\n        {p.running == null\n          ? roundKey(\n              run ? \"ink\" : \"rams\",\n              run ? \"pause\" : \"play\",\n              run ? \"Parar\" : \"Empezar\",\n              function (): any {\n                r[1](!run)\n              },\n            )\n          : null}\n      </div>\n    </div>\n  )\n}\n\n/* ---------- Cabinet: archivero, cajones que se abren ---------- */\n"
+  }
+ ],
+ "docs": "# Pendulum\n\nMetrónomo: brazo `ink` con contrapeso `rams` que oscila a los BPM indicados, y los tiempos del compás en puntos (el primero marcado con aro). Ajuste de BPM con `Stepper`.\n\n- **Props**: `bpm`/`defaultBpm` (90), `onBpmChange(n)`, `beats` (4), `step` (5), `running` (si se controla desde fuera, desaparece la tecla de parar).\n- La oscilación es seno (ease-in-out): frena en los extremos, como un péndulo real. Con movimiento reducido, el brazo se queda quieto y solo laten los puntos.\n"
+}

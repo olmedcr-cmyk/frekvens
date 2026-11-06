@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "donut-chart",
+ "type": "registry:ui",
+ "title": "DonutChart",
+ "description": "Donut de segmentos redondeados y separados, con el total (o un dato) en puntos en el centro y la leyenda con porcentajes debajo.",
+ "categories": [
+  "Gráficas"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/donut-chart.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/donut-chart.tsx",
+   "content": "\"use client\"\n/* Frekvens · DonutChart — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx, polar } from \"./lib\"\n\nimport type { DonutChartProps } from \"./types\"\nexport type { DonutChartProps }\n\n/* ---------- DonutChart ---------- */\nexport function DonutChart(props: DonutChartProps): React.ReactElement\nexport function DonutChart(p?: any): any {\n  var seg: any = p.segments || [],\n    size: any = p.size || 200,\n    c: any = size / 2,\n    w: any = p.thickness || 22,\n    r: any = c - w / 2 - 2,\n    tot: any =\n      seg.reduce(function (a?: any, s?: any): any {\n        return a + s.value\n      }, 0) || 1,\n    gap: any = p.gap == null ? 6 : p.gap,\n    a: any = 0,\n    tones: any = [\"ink\", \"rams\", \"sol\", \"klein\", \"verde\"]\n  function arc(a0?: any, a1?: any): any {\n    var s: any = polar(c, c, r, a0),\n      e: any = polar(c, c, r, a1)\n    return (\n      \"M\" +\n      s[0] +\n      \" \" +\n      s[1] +\n      \" A\" +\n      r +\n      \" \" +\n      r +\n      \" 0 \" +\n      (a1 - a0 > 180 ? 1 : 0) +\n      \" 1 \" +\n      e[0] +\n      \" \" +\n      e[1]\n    )\n  }\n  return (\n    <figure className={cx(\"frk-donut\", p.className)}>\n      <div\n        className=\"frk-donut__wrap\"\n        style={{\n          width: size,\n          height: size,\n        }}\n      >\n        <svg\n          viewBox={\"0 0 \" + size + \" \" + size}\n          width={size}\n          height={size}\n          role=\"img\"\n          aria-label={\n            (p.label || \"Reparto\") +\n            \": \" +\n            seg\n              .map(function (s?: any): any {\n                return s.label + \" \" + Math.round((s.value / tot) * 100) + \"%\"\n              })\n              .join(\", \")\n          }\n        >\n          {seg.map(function (s?: any, i?: any): any {\n            var sw: any = (s.value / tot) * 360,\n              a0: any = a + gap / 2,\n              a1: any = a + sw - gap / 2\n            a += sw\n            return a1 > a0 ? (\n              <path\n                key={i}\n                d={arc(a0, a1)}\n                strokeWidth={w}\n                className={\"frk-donut__seg frk-area--\" + (s.tone || tones[i % 5])}\n              />\n            ) : null\n          })}\n        </svg>\n        <div className=\"frk-donut__center\">\n          <span className=\"frk-donut__value\">{p.value != null ? p.value : tot}</span>\n          {p.caption ? <span className=\"frk-donut__cap\">{p.caption}</span> : null}\n        </div>\n      </div>\n      <figcaption className=\"frk-split__legend\">\n        {seg.map(function (s?: any, i?: any): any {\n          return (\n            <span\n              key={i}\n              style={{\n                display: \"inline-flex\",\n                alignItems: \"center\",\n                gap: \"6px\",\n              }}\n            >\n              <span className={\"frk-split__sw frk-tone--\" + (s.tone || tones[i % 5])} />\n              {s.label}\n              <b>{Math.round((s.value / tot) * 100) + \"%\"}</b>\n            </span>\n          )\n        })}\n      </figcaption>\n    </figure>\n  )\n}\n\n/* ---------- Scope: osciloscopio ---------- */\n"
+  }
+ ],
+ "docs": "# DonutChart\n\nDonut de segmentos redondeados y separados, con el total (o un dato) en puntos en el centro y la leyenda con porcentajes debajo.\n\n- **Props**: `segments` (`[{label, value, tone}]`), `value` (centro), `caption`, `size` (200), `thickness` (22), `gap` (6°), `label`.\n- 2–5 segmentos. Para una sola proporción, `ProgressRing`; para comparar, `SplitBar`.\n"
+}

@@ -1,0 +1,27 @@
+<!-- @dsCard group="Pantallas" height=860 page subtitle="Primera vez, cargando, vacío, sin conexión y error" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Pantalla · Estados</title>
+<style>
+  .screens { display:flex; gap:var(--space-5); padding:var(--space-5); flex-wrap:wrap; }
+  .phone { position:relative; width:300px; height:620px; box-sizing:border-box; border-radius:40px; padding:var(--space-7) var(--space-4) var(--space-4); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .grow { flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); text-align:center; margin-top:var(--space-2); }
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function P(cap,kids){return h('div',null,h('div',{className:'phone'},kids),h('div',{className:'cap'},cap));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},
+  P('Primera vez',[h(F.Steps,{key:1,steps:['Cuenta','Objetivo','Horario'],current:1}),h(F.Text,{key:2,variant:'title',sub:'Elige uno'},'¿Qué buscas?'),
+    h(F.RadioGroup,{key:3,label:'Objetivo',defaultValue:'f',options:[{value:'f',label:'Fuerza',hint:'Ganar músculo'},{value:'c',label:'Cardio',hint:'Resistencia'},{value:'m',label:'Movilidad',hint:'Moverte mejor'}]}),
+    h('div',{key:4,style:{marginTop:'auto'}},h(F.KeyButton,{tone:'klein',shape:'pill',block:true},'Continuar'))]),
+  P('Cargando',[h(F.Text,{key:1,variant:'title',sub:'Un momento'},'Tu semana'),h(F.Skeleton,{key:2,shape:'tile'}),h(F.Grid,{key:3,columns:2},h(F.Skeleton,{shape:'tile',height:110}),h(F.Skeleton,{shape:'tile',height:110})),h(F.Skeleton,{key:4,lines:2}),h('div',{key:5,style:{marginTop:'auto',display:'flex',gap:'8px',alignItems:'center',justifyContent:'center'}},h(F.DotLoader,null),h(F.Text,{variant:'caption',muted:true},'Buscando huecos…'))]),
+  P('Vacío',[h(F.Text,{key:1,variant:'title',sub:'0 sesiones'},'Historial'),h('div',{key:2,className:'grow'},h(F.EmptyState,{title:'Aún no has entrenado',text:'Tu primera sesión aparecerá aquí con su resumen.',action:{label:'Reservar'}}))]),
+  P('Sin conexión',[h(F.Banner,{key:1,tone:'warn',title:'Sin conexión'},'Sigues pudiendo entrenar: guardamos tus series.'),h('div',{key:2,className:'grow',style:{alignItems:'center'}},h(F.Timer,{duration:30,size:200,label:'Descanso'}))]),
+  P('Error',[h(F.Banner,{key:1,tone:'error',title:'No se pudo pagar',action:{label:'Reintentar'}},'La tarjeta fue rechazada. No te hemos cobrado.'),h(F.ListRow,{key:2,index:'01',title:'Fuerza 1:1',detail:'Mañana · 18:00',value:'12 €'}),h('div',{key:3,style:{marginTop:'auto'}},h(F.SlideToStart,{tone:'well',label:'Pagar 12 €',icon:'arrow-right'},'Desliza para pagar'))])
+));
+</script>
+</body>
+</html>

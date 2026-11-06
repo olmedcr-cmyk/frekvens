@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "tape-deck",
+ "type": "registry:ui",
+ "title": "TapeDeck",
+ "description": "Grabadora de cinta: dos carretes que giran (el de la izquierda se vacía, el de la derecha se llena), la cinta pasando por el cabezal, contador en puntos y transporte en Keypad (rebobinar, reproducir, ",
+ "categories": [
+  "Medios"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/keypad.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/tape-deck.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/tape-deck.tsx",
+   "content": "\"use client\"\n/* Frekvens · TapeDeck — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Keypad } from \"./keypad\"\nimport { clamp, cx, fmt, polar, range, useClock } from \"./lib\"\n\nimport type { TapeDeckProps } from \"./types\"\nexport type { TapeDeckProps }\n\nconst { useState }: any = React\n\n/* ---------- TapeDeck: dos carretes ---------- */\nexport function TapeDeck(props: TapeDeckProps): React.ReactElement\nexport function TapeDeck(p?: any): any {\n  var ps: any = useState(!!p.playing),\n    playing: any = ps[0],\n    c: any = useClock(playing),\n    dur: any = (p.duration || 180) * 1000,\n    pr: any = clamp(c[0] / dur, 0, 1)\n  var W: any = 320,\n    Hh: any = 150,\n    r1: any = 46 - pr * 18,\n    r2: any = 28 + pr * 18\n  function reel(x?: any, r?: any, k?: any): any {\n    return (\n      <g\n        key={k}\n        className={cx(\"frk-tape__reel\", playing && \"is-spin\")}\n        style={{\n          transformOrigin: x + \"px 70px\",\n          animationDuration: 0.6 + r / 40 + \"s\",\n        }}\n      >\n        <circle cx={x} cy={70} r={50} className=\"frk-tape__ring\" />\n        <circle cx={x} cy={70} r={r} className=\"frk-tape__wound\" />\n        <circle cx={x} cy={70} r={9} className=\"frk-tape__hub\" />\n        {range(3).map(function (i?: any): any {\n          var q: any = polar(x, 70, 16, i * 120)\n          return <circle key={i} cx={q[0]} cy={q[1]} r={3} className=\"frk-tape__spoke\" />\n        })}\n      </g>\n    )\n  }\n  return (\n    <div className={cx(\"frk-tape\", p.className)}>\n      <div className=\"frk-tape__head\">\n        <span className=\"frk-tape__title\">{p.title || \"tape preview\"}</span>\n        <span className=\"frk-tape__count\">{fmt(c[0])}</span>\n      </div>\n      <svg\n        viewBox={\"0 0 \" + W + \" \" + Hh}\n        width=\"100%\"\n        role=\"img\"\n        aria-label={\n          (p.title || \"Cinta\") +\n          (playing ? \", reproduciendo\" : \", en pausa\") +\n          \", \" +\n          Math.round(pr * 100) +\n          \" %\"\n        }\n      >\n        <path\n          d={\"M\" + (90 - r1) + \" 70 L\" + (90 - r1) + \" 132 L\" + (230 + r2) + \" 132 L\" + (230 + r2) + \" 70\"}\n          className=\"frk-tape__belt\"\n        />\n        {reel(90, r1, \"a\")}\n        {reel(230, r2, \"b\")}\n        <rect x={150} y={124} width={20} height={14} rx={3} className=\"frk-tape__headblock\" />\n      </svg>\n      <div className=\"frk-tape__prog\">\n        <span\n          style={{\n            width: pr * 100 + \"%\",\n          }}\n        />\n      </div>\n      <Keypad\n        label=\"Transporte\"\n        height={64}\n        keys={[\n          {\n            icon: \"arrow-left\",\n            ariaLabel: \"Rebobinar\",\n            onClick: function (): any {\n              c[1]()\n            },\n          },\n          {\n            icon: playing ? \"pause\" : \"play\",\n            ariaLabel: playing ? \"Pausa\" : \"Reproducir\",\n            tone: \"sol\",\n            onClick: function (): any {\n              ps[1](!playing)\n            },\n          },\n          {\n            icon: \"stop\",\n            ariaLabel: \"Parar\",\n            onClick: function (): any {\n              ps[1](false)\n              c[1]()\n            },\n          },\n          {\n            icon: \"rec\",\n            ariaLabel: \"Grabar\",\n            tone: \"rec\",\n          },\n        ]}\n      />\n    </div>\n  )\n}\n\n/* ---------- Board / Sortable: arrastrar y soltar (puntero + teclado) ---------- */\n"
+  }
+ ],
+ "docs": "# TapeDeck\n\nGrabadora de cinta: dos carretes que giran (el de la izquierda se vacía, el de la derecha se llena), la cinta pasando por el cabezal, contador en puntos y transporte en `Keypad` (rebobinar, reproducir, parar, grabar).\n\n- **Props**: `title`, `duration` (s), `playing`.\n- Con movimiento reducido los carretes no giran: se ve el progreso en la barra y el contador. Junto a `Recorder` para notas de voz con estética de cinta.\n"
+}

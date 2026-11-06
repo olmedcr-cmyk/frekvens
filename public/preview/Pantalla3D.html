@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>Pantalla3D</title>
+<style>
+  .screens { display:flex; gap:var(--space-6); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .phone { position:relative; width:390px; height:800px; box-sizing:border-box; border-radius:48px; padding:var(--space-8) var(--space-5) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .tablet { position:relative; width:1180px; height:820px; box-sizing:border-box; border-radius:36px; padding:var(--space-4); display:flex; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .main { flex:1; min-width:0; display:flex; flex-direction:column; gap:var(--space-4); }
+  .row { display:flex; gap:var(--space-2); }
+  .push { margin-top:auto; }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+ .insp { width:300px; display:flex; flex-direction:column; gap:var(--space-4); padding:var(--space-4); border-radius:var(--radius-lg); background:var(--surface); box-sizing:border-box; overflow:auto; }
+  .stage { flex:1; display:flex; flex-direction:column; gap:var(--space-3); min-width:0; }
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function Studio(){var t=React.useState('rams'),tone=t[0],sh=React.useState('cube'),shape=sh[0];
+ return h('div',{className:'tablet'},
+  h(F.Sidebar,{header:'Escena',defaultValue:'c',sections:[{label:'Capas',items:[{id:'c',label:'Cubo',icon:'dots'},{id:'s',label:'Pila',icon:'copy'},{id:'l',label:'Luz',icon:'sun'},{id:'k',label:'Cámara',icon:'expand'}]}],onChange:function(v){if(v==='s')sh[1]('stack');if(v==='c')sh[1]('cube');}}),
+  h('div',{className:'stage'},h(F.Stack,{direction:'row',justify:'space-between',align:'center'},h(F.Text,{variant:'title',sub:'Sin guardar'},'Lámpara 01'),h(F.Stack,{direction:'row',gap:2},h(F.KeyButton,{tone:'surface',shape:'pill'},'Exportar'),h(F.KeyButton,{tone:'klein',shape:'pill'},'Renderizar'))),
+   h(F.Viewport3D,{key:shape+tone,shape:shape,tone:tone,height:600,size:150,label:'Escena'})),
+  h('div',{className:'insp'},h(F.Text,{variant:'headline',as:'h2'},'Inspector'),
+   h(F.Tabs,{label:'Inspector',tabs:[{id:'t',label:'Forma'},{id:'m',label:'Material'}]}),
+   h(F.Text,{variant:'label'},'Posición'),h(F.Grid,{columns:3,gap:1},h(F.Stepper,{label:'X',defaultValue:0}),h('span'),h('span')),
+   h(F.Slider,{label:'Escala',defaultValue:60,stops:['0.5×','1×','2×']}),
+   h(F.Dial,{label:'ROT',defaultValue:3,max:8,size:110}),
+   h(F.Text,{variant:'label'},'Color'),h(F.Segmented,{label:'Color',value:tone,onChange:t[1],options:[{value:'rams',label:'Rams'},{value:'klein',label:'Klein'},{value:'sol',label:'Sol'}]}),
+   h(F.Checkbox,{label:'Sombras suaves',defaultChecked:true})));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(Studio)));
+</script>
+</body>
+</html>

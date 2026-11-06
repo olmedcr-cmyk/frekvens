@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "hold-button",
+ "type": "registry:ui",
+ "title": "HoldButton",
+ "description": "Mantén pulsado para confirmar: un anillo rams se llena alrededor del botón en duration ms; si sueltas antes, se vacía. Al completarse se vuelve verde con ✓.",
+ "categories": [
+  "Botonera"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/hold-button.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/hold-button.tsx",
+   "content": "\"use client\"\n/* Frekvens · HoldButton — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { clamp, cx } from \"./lib\"\n\nimport type { HoldButtonProps } from \"./types\"\nexport type { HoldButtonProps }\n\nconst { useState, useRef }: any = React\n\n/* ---------- HoldButton: mantener para confirmar ---------- */\nexport function HoldButton(props: HoldButtonProps): React.ReactElement\nexport function HoldButton(p?: any): any {\n  var ms: any = p.duration || 1200,\n    s: any = useState(0),\n    prog: any = s[0],\n    setProg: any = s[1],\n    raf: any = useRef(null),\n    t0: any = useRef(0),\n    done: any = useRef(false)\n  function start(): any {\n    if (p.disabled) return\n    done.current = false\n    t0.current = performance.now()\n    cancelAnimationFrame(raf.current)\n    ;(function tick(): any {\n      var k: any = clamp((performance.now() - t0.current) / ms, 0, 1)\n      setProg(k)\n      if (k >= 1) {\n        done.current = true\n        p.onComplete && p.onComplete()\n        setTimeout(function (): any {\n          setProg(0)\n        }, 600)\n        return\n      }\n      raf.current = requestAnimationFrame(tick)\n    })()\n  }\n  function stop(): any {\n    cancelAnimationFrame(raf.current)\n    if (!done.current) setProg(0)\n  }\n  var size: any = p.size || 120,\n    w: any = 6,\n    r: any = (size - w) / 2,\n    C: any = 2 * Math.PI * r\n  return (\n    <button\n      type=\"button\"\n      className={cx(\n        \"frk-hold\",\n        \"frk-tone--\" + (p.tone || \"ink\"),\n        prog > 0 && \"is-holding\",\n        prog >= 1 && \"is-done\",\n        p.className,\n      )}\n      style={{\n        width: size,\n        height: size,\n      }}\n      disabled={p.disabled}\n      aria-label={p.label || \"Mantén para confirmar\"}\n      onPointerDown={start}\n      onPointerUp={stop}\n      onPointerLeave={stop}\n      onPointerCancel={stop}\n      onKeyDown={function (e?: any): any {\n        if ((e.key === \" \" || e.key === \"Enter\") && !e.repeat) {\n          e.preventDefault()\n          start()\n        }\n      }}\n      onKeyUp={function (e?: any): any {\n        if (e.key === \" \" || e.key === \"Enter\") stop()\n      }}\n    >\n      <svg width={size} height={size} aria-hidden={true}>\n        <circle cx={size / 2} cy={size / 2} r={r} className=\"frk-hold__track\" strokeWidth={w} />\n        <circle\n          cx={size / 2}\n          cy={size / 2}\n          r={r}\n          className=\"frk-hold__fill\"\n          strokeWidth={w}\n          strokeDasharray={C}\n          strokeDashoffset={C * (1 - prog)}\n          transform={\"rotate(-90 \" + size / 2 + \" \" + size / 2 + \")\"}\n        />\n      </svg>\n      <span className=\"frk-hold__main\">\n        <Icon name={prog >= 1 ? \"check\" : p.icon || \"stop\"} size={32} />\n        <span className=\"frk-hold__text\">{prog >= 1 ? p.doneLabel || \"Hecho\" : p.children || \"Mantén\"}</span>\n      </span>\n    </button>\n  )\n}\n\n/* ---------- Rocker: interruptores basculantes con piloto ---------- */\n"
+  }
+ ],
+ "docs": "# HoldButton\n\nMantén pulsado para confirmar: un anillo `rams` se llena alrededor del botón en `duration` ms; si sueltas antes, se vacía. Al completarse se vuelve `verde` con ✓.\n\n- **Props**: `onComplete()`, `duration` (1200 ms), `size` (120), `tone` (`ink`), `icon` (`stop`), `children` (texto, `Mantén`), `doneLabel`, `label`, `disabled`.\n- Accesible: mantener Espacio o Enter funciona igual.\n- Para terminar un entreno, borrar algo o parar una grabación: acciones que no quieres hacer por accidente pero sí rápido.\n"
+}

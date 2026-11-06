@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "radar-chart",
+ "type": "registry:ui",
+ "title": "RadarChart",
+ "description": "Radar de puntos: anillos de puntos al 25/50/75/100 %, ejes finos y la forma de cada serie con relleno al 18 %. Para comparar perfiles (equipos, productos, habilidades) en 4–8 ejes.",
+ "categories": [
+  "Gráficas"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/radar-chart.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/radar-chart.tsx",
+   "content": "\"use client\"\n/* Frekvens · RadarChart — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { clamp, cx, polar, range } from \"./lib\"\n\nimport type { RadarChartProps } from \"./types\"\nexport type { RadarChartProps }\n\n/* ---------- RadarChart ---------- */\nexport function RadarChart(props: RadarChartProps): React.ReactElement\nexport function RadarChart(p?: any): any {\n  var axes: any = p.axes || [],\n    series: any = p.series || [],\n    size: any = p.size || 260,\n    c: any = size / 2,\n    R: any = c - 34,\n    n: any = axes.length,\n    tones: any = [\"rams\", \"klein\"]\n  function pt(i?: any, v?: any): any {\n    return polar(c, c, R * v, (i * 360) / n)\n  }\n  return (\n    <figure className={cx(\"frk-radar\", p.className)}>\n      <svg\n        viewBox={\"0 0 \" + size + \" \" + size}\n        width={size}\n        height={size}\n        role=\"img\"\n        aria-label={\n          (p.label || \"Radar\") +\n          \": \" +\n          series\n            .map(function (s?: any): any {\n              return (\n                s.label +\n                \" — \" +\n                axes\n                  .map(function (a?: any, i?: any): any {\n                    return a + \" \" + Math.round(s.data[i] * 100) + \"%\"\n                  })\n                  .join(\", \")\n              )\n            })\n            .join(\"; \")\n        }\n      >\n        {[0.25, 0.5, 0.75, 1].map(function (r?: any): any {\n          return range(n * 6).map(function (i?: any): any {\n            var q: any = polar(c, c, R * r, (i * 360) / (n * 6))\n            return <circle key={r + \"-\" + i} cx={q[0]} cy={q[1]} r={1} className=\"frk-scatter__grid\" />\n          })\n        })}\n        {axes.map(function (a?: any, i?: any): any {\n          var e: any = pt(i, 1),\n            l: any = pt(i, 1.16)\n          return (\n            <g key={a}>\n              <line x1={c} y1={c} x2={e[0]} y2={e[1]} className=\"frk-radar__axis\" />\n              <text x={l[0]} y={l[1]} textAnchor=\"middle\" dominantBaseline=\"middle\" className=\"frk-line__lbl\">\n                {a}\n              </text>\n            </g>\n          )\n        })}\n        {series.map(function (s?: any, k?: any): any {\n          var q: any = s.data.map(function (v?: any, i?: any): any {\n            return pt(i, clamp(v, 0, 1))\n          })\n          var t: any = s.tone || tones[k % 2]\n          return (\n            <g key={k}>\n              <polygon\n                points={q\n                  .map(function (x?: any): any {\n                    return x.join(\",\")\n                  })\n                  .join(\" \")}\n                className={\"frk-radar__shape frk-area--\" + t}\n              />\n              {q.map(function (x?: any, i?: any): any {\n                return (\n                  <circle key={i} cx={x[0]} cy={x[1]} r={4} className={\"frk-scatter__pt frk-area--\" + t} />\n                )\n              })}\n            </g>\n          )\n        })}\n      </svg>\n      {series.length > 1 ? (\n        <figcaption className=\"frk-split__legend\">\n          {series.map(function (s?: any, k?: any): any {\n            return (\n              <span\n                key={k}\n                style={{\n                  display: \"inline-flex\",\n                  alignItems: \"center\",\n                  gap: \"6px\",\n                }}\n              >\n                <span className={\"frk-split__sw frk-tone--\" + (s.tone || tones[k % 2])} />\n                {s.label}\n              </span>\n            )\n          })}\n        </figcaption>\n      ) : null}\n    </figure>\n  )\n}\n\n/* ---------- DonutChart ---------- */\n"
+  }
+ ],
+ "docs": "# RadarChart\n\nRadar de puntos: anillos de puntos al 25/50/75/100 %, ejes finos y la forma de cada serie con relleno al 18 %. Para comparar perfiles (equipos, productos, habilidades) en 4–8 ejes.\n\n- **Props**: `axes` (nombres), `series` (`[{label, data: 0–1, tone}]`), `size` (260), `label`.\n"
+}

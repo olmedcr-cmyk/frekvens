@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "disc-carousel",
+ "type": "registry:ui",
+ "title": "DiscCarousel",
+ "description": "Elegir entre discos: el elegido en el centro, los vecinos más pequeños a los lados; al reproducir, el disco gira. La etiqueta del centro es el color o la imagen (src) del álbum, rutina o lista.",
+ "categories": [
+  "Medios"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/disc-carousel.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/disc-carousel.tsx",
+   "content": "\"use client\"\n/* Frekvens · DiscCarousel — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx, useValue } from \"./lib\"\n\nimport type { DiscCarouselProps } from \"./types\"\nexport type { DiscCarouselProps }\n\n/* ---------- DiscCarousel: discos para elegir ---------- */\nexport function DiscCarousel(props: DiscCarouselProps): React.ReactElement\nexport function DiscCarousel(p?: any): any {\n  var items: any = p.items || [],\n    st: any = useValue(p, 0),\n    v: any = st[0],\n    n: any = items.length,\n    size: any = p.size || 220\n  function go(i?: any): any {\n    st[1]((i + n) % n)\n  }\n  return (\n    <div className={cx(\"frk-discs-wrap\", p.className)}>\n      <div\n        className=\"frk-discs\"\n        role=\"listbox\"\n        aria-label={p.label || \"Discos\"}\n        tabIndex={0}\n        aria-activedescendant={\"frk-disc-\" + v}\n        style={{\n          height: size + 20,\n        }}\n        onKeyDown={function (e?: any): any {\n          if (e.key === \"ArrowRight\") {\n            e.preventDefault()\n            go(v + 1)\n          }\n          if (e.key === \"ArrowLeft\") {\n            e.preventDefault()\n            go(v - 1)\n          }\n          if (e.key === \"Enter\") p.onPlay && p.onPlay(v)\n        }}\n      >\n        {items.map(function (it?: any, i?: any): any {\n          var d: any = i - v\n          if (d > n / 2) d -= n\n          if (d < -n / 2) d += n\n          var ad: any = Math.abs(d)\n          if (ad > 2) return null\n          return (\n            <div\n              key={i}\n              id={\"frk-disc-\" + i}\n              role=\"option\"\n              aria-selected={d === 0}\n              aria-label={it.title + (it.subtitle ? \", \" + it.subtitle : \"\")}\n              className={cx(\"frk-disc\", d === 0 && \"is-on\", d === 0 && p.playing && \"is-spinning\")}\n              style={{\n                width: size,\n                height: size,\n                transform: \"translateX(\" + d * size * 0.62 + \"px) scale(\" + (1 - ad * 0.22) + \")\",\n                zIndex: 10 - ad,\n                opacity: ad === 2 ? 0.5 : 1,\n              }}\n              onClick={function (): any {\n                d === 0 ? p.onPlay && p.onPlay(i) : go(i)\n              }}\n            >\n              <span className=\"frk-disc__vinyl\">\n                <span className={cx(\"frk-disc__label\", \"frk-tone--\" + (it.tone || \"rams\"))}>\n                  {it.src ? (\n                    <img src={it.src} alt=\"\" />\n                  ) : (\n                    <span className=\"frk-disc__letter\">{it.badge || it.title.charAt(0)}</span>\n                  )}\n                </span>\n              </span>\n            </div>\n          )\n        })}\n      </div>\n      {items[v] ? (\n        <div className=\"frk-discs__meta\" aria-live=\"polite\">\n          <span className=\"frk-discs__title\">{items[v].title}</span>\n          {items[v].subtitle ? <span className=\"frk-discs__sub\">{items[v].subtitle}</span> : null}\n        </div>\n      ) : null}\n    </div>\n  )\n}\n\n/* ---------- Sidebar: navegación de escritorio/iPad ---------- */\n"
+  }
+ ],
+ "docs": "# DiscCarousel\n\nElegir entre discos: el elegido en el centro, los vecinos más pequeños a los lados; al reproducir, el disco gira. La etiqueta del centro es el color o la imagen (`src`) del álbum, rutina o lista.\n\n- **Props**: `items` (`[{title, subtitle, tone, src, badge}]`), `value`/`defaultValue`, `onChange(i)`, `playing`, `onPlay(i)`, `size` (220), `label`.\n- **Teclado**: ← → para cambiar, Enter para reproducir. Funciona solo o con `ClickWheel`.\n"
+}

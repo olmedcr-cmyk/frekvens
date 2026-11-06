@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "grille",
+ "type": "registry:ui",
+ "title": "Grille",
+ "description": "Rejilla de altavoz o lámpara en un disco o una cúpula: ranuras horizontales o agujeros de puntos recortados en un círculo de color. Es el retrato de un aparato: úsalo como arte de un Tile, una carta o",
+ "categories": [
+  "Puntos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/grille.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/grille.tsx",
+   "content": "\"use client\"\n/* Frekvens · Grille — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { GrilleProps } from \"./types\"\nexport type { GrilleProps }\n\nconst { useId }: any = React\n\n/* ---------- Grille: speaker/lamp grille in a disc or dome ---------- */\nexport function Grille(props: GrilleProps): React.ReactElement\nexport function Grille(p?: any): any {\n  var s: any = p.size || 160,\n    variant: any = p.variant || \"slots\",\n    dome: any = p.shape === \"dome\",\n    H: any = dome ? s / 2 : s,\n    id: any = useId(),\n    parts: any = []\n  if (variant === \"slots\") {\n    for (var y: any = s * 0.2; y < s * 0.82; y += s * 0.085)\n      parts.push(\n        <rect\n          key={y}\n          x={s * 0.12}\n          y={y}\n          width={s * 0.76}\n          height={s * 0.04}\n          rx={s * 0.02}\n          className=\"frk-grille__hole\"\n        />,\n      )\n  } else {\n    var pt: any = p.pitch || s / 11\n    for (var gy: any = pt / 2; gy < s; gy += pt)\n      for (var gx: any = pt / 2; gx < s; gx += pt)\n        if (Math.hypot(gx - s / 2, gy - s / 2) < s * 0.38)\n          parts.push(\n            <circle key={gx + \"-\" + gy} cx={gx} cy={gy} r={pt * 0.28} className=\"frk-grille__hole\" />,\n          )\n  }\n  return (\n    <svg\n      className={cx(\"frk-grille\", \"frk-grille--\" + (p.tone || \"verde\"), p.className)}\n      width={s}\n      height={H}\n      viewBox={\"0 0 \" + s + \" \" + H}\n      role={p.label ? \"img\" : undefined}\n      aria-label={p.label}\n      aria-hidden={p.label ? undefined : true}\n    >\n      <defs>\n        <clipPath id={id}>\n          <circle cx={s / 2} cy={s / 2} r={s / 2} />\n        </clipPath>\n      </defs>\n      <g clipPath={\"url(#\" + id + \")\"}>\n        <rect width={s} height={s} className=\"frk-grille__body\" />\n        {parts}\n      </g>\n    </svg>\n  )\n}\n\n/* ================= Frekvens 3: tiempo, mecanismos, conversación, generativo ================= */\n"
+  }
+ ],
+ "docs": "# Grille\n\nRejilla de altavoz o lámpara en un disco o una cúpula: ranuras horizontales o agujeros de puntos recortados en un círculo de color. Es el retrato de un aparato: úsalo como arte de un Tile, una carta o una pantalla de audio.\n\n- **Props**: `variant` (`slots` · `dots`), `shape` (`disc` · `dome`, la media esfera de una lámpara), `size` (160), `pitch` (paso de los puntos), `tone` (`verde` · `ink` · `sol` · `rams` · `tabaco` · `surface`), `label` (si comunica algo; si no, es decorativo).\n- Una por vista. Con `dome`, apila una `Grille` o un disco debajo para la silueta completa de lámpara.\n"
+}

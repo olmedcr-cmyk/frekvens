@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "dot-matrix",
+ "type": "registry:ui",
+ "title": "DotMatrix",
+ "description": "Dibuja números y formas con puntos sobre una retícula: la firma visual del sistema. Sol, nube, gota, aro, disco, corazón, o cualquier texto numérico en una fuente de 5×7.",
+ "categories": [
+  "Puntos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/dot-matrix.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/dot-matrix.tsx",
+   "content": "\"use client\"\n/* Frekvens · DotMatrix — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx, shapeRows, textRows } from \"./lib\"\n\nimport type { DotMatrixProps } from \"./types\"\nexport type { DotMatrixProps }\n\nconst { useState }: any = React\n\nexport function DotMatrix(props: DotMatrixProps): React.ReactElement\nexport function DotMatrix(p?: any): any {\n  var rows: any = p.rows || (p.text != null ? textRows(p.text) : shapeRows(p.shape || \"sun\", p.grid || 15))\n  var dot: any = p.dot || 6,\n    pitch: any = p.pitch || 10,\n    H: any = rows.length,\n    W: any = rows.reduce(function (m?: any, r?: any): any {\n      return Math.max(m, r.length)\n    }, 0)\n  var ps: any = useState(null),\n    ptr: any = ps[0],\n    setPtr: any = ps[1],\n    reach: any = pitch * 3.2\n  var dots: any = []\n  rows.forEach(function (r?: any, y?: any): any {\n    for (var x: any = 0; x < W; x++) {\n      var on: any = r[x] === \"1\" || r[x] === \"#\"\n      var px: any = x * pitch + pitch / 2,\n        py: any = y * pitch + pitch / 2,\n        rr: any = dot / 2\n      if (ptr) {\n        var dd: any = Math.hypot(px - ptr[0], py - ptr[1])\n        if (dd < reach) rr = rr * (1 + 0.6 * (1 - dd / reach))\n      }\n      if (on || p.showOff)\n        dots.push(\n          <circle key={x + \"-\" + y} cx={px} cy={py} r={rr} className={on ? \"frk-dm__on\" : \"frk-dm__off\"} />,\n        )\n    }\n  })\n  return (\n    <svg\n      className={cx(\"frk-dm\", \"frk-dm--\" + (p.tone || \"ink\"), p.className)}\n      width={W * pitch}\n      height={H * pitch}\n      viewBox={\"0 0 \" + W * pitch + \" \" + H * pitch}\n      role=\"img\"\n      aria-label={p.label || (p.text != null ? String(p.text) : p.shape)}\n      onPointerMove={\n        p.reactive\n          ? function (e?: any): any {\n              var b: any = e.currentTarget.getBoundingClientRect()\n              setPtr([\n                (e.clientX - b.left) * ((W * pitch) / b.width),\n                (e.clientY - b.top) * ((H * pitch) / b.height),\n              ])\n            }\n          : undefined\n      }\n      onPointerLeave={\n        p.reactive\n          ? function (): any {\n              setPtr(null)\n            }\n          : undefined\n      }\n    >\n      {dots}\n    </svg>\n  )\n}\n\n/* ---------- DotGrid: n of m discs ---------- */\n"
+  }
+ ],
+ "docs": "# DotMatrix\n\nDibuja números y formas con puntos sobre una retícula: la firma visual del sistema. Sol, nube, gota, aro, disco, corazón, o cualquier texto numérico en una fuente de 5×7.\n\n- **Props**: `shape` (`sun` · `cloud` · `drop` · `ring` · `disc` · `heart`), `grid` (lado en puntos, 15), `text` (dígitos, `:` `.` `°` `%` `-`), `rows` (array de strings `'0101'` para un dibujo propio), `dot` (diámetro, 6), `pitch` (paso, 10), `showOff` (dibuja también los puntos apagados en `dot-off`), `tone` (`ink` · `klein` · `rams` · `tabaco` · `paper`), `label`, `reactive` (los puntos cercanos al puntero crecen hasta un 60 %: el dibujo responde al dedo; se mantiene con movimiento reducido porque es respuesta directa).\n- Es la ilustración del sistema: no uses fotos ni ilustración plana. Un pictograma de puntos por Tile o por pantalla.\n- `pitch` ≥ `dot` × 1.5 para que respire; en héroe, `dot` 8–10.\n"
+}

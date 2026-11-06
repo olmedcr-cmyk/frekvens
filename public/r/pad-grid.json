@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "pad-grid",
+ "type": "registry:ui",
+ "title": "PadGrid",
+ "description": "Rejilla de pads de percusión tipo controlador MIDI: fondo ink, pads grises que se encienden en sol (o rams, klein) al golpearlos y suenan con WebAudio. Con keyboard, Q W E / A S D / Z X C los tocan.",
+ "categories": [
+  "Botonera"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/pad-grid.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/pad-grid.tsx",
+   "content": "\"use client\"\n/* Frekvens · PadGrid — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { PADKEYS, cx, range } from \"./lib\"\n\nimport type { PadGridProps } from \"./types\"\nexport type { PadGridProps }\n\nconst { useState, useRef, useEffect }: any = React\n\nexport function PadGrid(props: PadGridProps): React.ReactElement\nexport function PadGrid(p?: any): any {\n  var n: any = (p.columns || 3) * (p.rows || 3),\n    s: any = useState({}),\n    hit: any = s[0],\n    setHit: any = s[1],\n    ctx: any = useRef(null)\n  function play(i?: any): any {\n    setHit(function (o?: any): any {\n      var x: any = Object.assign({}, o)\n      x[i] = Date.now()\n      return x\n    })\n    setTimeout(function (): any {\n      setHit(function (o?: any): any {\n        var x: any = Object.assign({}, o)\n        delete x[i]\n        return x\n      })\n    }, 140)\n    p.onPad && p.onPad(i)\n    if (p.sound !== false)\n      try {\n        var c: any = (ctx.current =\n          ctx.current || new (window.AudioContext || (window as any).webkitAudioContext)())\n        var o: any = c.createOscillator(),\n          g: any = c.createGain()\n        o.type = i % 3 === 0 ? \"sine\" : i % 3 === 1 ? \"triangle\" : \"square\"\n        o.frequency.setValueAtTime(110 * Math.pow(2, i / 4), c.currentTime)\n        o.frequency.exponentialRampToValueAtTime(55, c.currentTime + 0.25)\n        g.gain.setValueAtTime(0.12, c.currentTime)\n        g.gain.exponentialRampToValueAtTime(0.001, c.currentTime + 0.3)\n        o.connect(g)\n        g.connect(c.destination)\n        o.start()\n        o.stop(c.currentTime + 0.3)\n      } catch (e) {}\n  }\n  useEffect(function (): any {\n    if (!p.keyboard) return\n    function f(e?: any): any {\n      var i: any = PADKEYS.indexOf(e.key.toLowerCase())\n      if (i >= 0 && i < n && !e.repeat) play(i)\n    }\n    window.addEventListener(\"keydown\", f)\n    return function (): any {\n      window.removeEventListener(\"keydown\", f)\n    }\n  })\n  return (\n    <div\n      className={cx(\"frk-pads\", \"frk-pads--\" + (p.tone || \"sol\"), p.className)}\n      role=\"group\"\n      aria-label={p.label || \"Pads\"}\n      style={{\n        gridTemplateColumns: \"repeat(\" + (p.columns || 3) + \", 1fr)\",\n      }}\n    >\n      {range(n).map(function (i?: any): any {\n        var l: any = p.labels && p.labels[i]\n        return (\n          <button\n            key={i}\n            type=\"button\"\n            className={cx(\"frk-padkey\", hit[i] && \"is-hit\")}\n            aria-label={\n              (l || \"Pad \" + (i + 1)) + (p.keyboard ? \" (tecla \" + PADKEYS[i].toUpperCase() + \")\" : \"\")\n            }\n            onPointerDown={function (e?: any): any {\n              e.preventDefault()\n              play(i)\n            }}\n            onKeyDown={function (e?: any): any {\n              if ((e.key === \" \" || e.key === \"Enter\") && !e.repeat) {\n                e.preventDefault()\n                play(i)\n              }\n            }}\n          >\n            {l ? <span className=\"frk-padkey__lbl\">{l}</span> : null}\n          </button>\n        )\n      })}\n    </div>\n  )\n}\n\n/* ---------- TapeDeck: dos carretes ---------- */\n"
+  }
+ ],
+ "docs": "# PadGrid\n\nRejilla de pads de percusión tipo controlador MIDI: fondo `ink`, pads grises que se encienden en `sol` (o `rams`, `klein`) al golpearlos y suenan con WebAudio. Con `keyboard`, Q W E / A S D / Z X C los tocan.\n\n- **Props**: `columns` (3), `rows` (3), `labels`, `tone`, `sound` (true), `keyboard`, `onPad(i)`, `label`.\n- Responde en `pointerdown` (sin esperar al soltar) y a Espacio/Enter con el foco.\n"
+}

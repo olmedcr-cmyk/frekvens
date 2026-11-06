@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "progress-ring",
+ "type": "registry:ui",
+ "title": "ProgressRing",
+ "description": "Anillo de progreso con el porcentaje en el centro. Avanza con dur-grow y ease-arrive.",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/progress-ring.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/progress-ring.tsx",
+   "content": "\"use client\"\n/* Frekvens · ProgressRing — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { clamp, cx } from \"./lib\"\n\nimport type { ProgressRingProps } from \"./types\"\nexport type { ProgressRingProps }\n\n/* ---------- ProgressRing ---------- */\nexport function ProgressRing(props: ProgressRingProps): React.ReactElement\nexport function ProgressRing(p?: any): any {\n  var v: any = clamp(p.value || 0, 0, 100),\n    s: any = p.size || 96,\n    w: any = p.thickness || 8,\n    r: any = (s - w) / 2,\n    c: any = 2 * Math.PI * r\n  return (\n    <div\n      className={cx(\"frk-ring\", \"frk-ring--\" + (p.tone || \"rams\"), p.className)}\n      role=\"progressbar\"\n      aria-valuemin={0}\n      aria-valuemax={100}\n      aria-valuenow={v}\n      aria-label={p.label}\n      style={{\n        width: s,\n        height: s,\n      }}\n    >\n      <svg width={s} height={s} viewBox={\"0 0 \" + s + \" \" + s} aria-hidden={true}>\n        <circle cx={s / 2} cy={s / 2} r={r} className=\"frk-ring__track\" strokeWidth={w} />\n        <circle\n          cx={s / 2}\n          cy={s / 2}\n          r={r}\n          className=\"frk-ring__fill\"\n          strokeWidth={w}\n          strokeDasharray={c}\n          strokeDashoffset={c * (1 - v / 100)}\n          transform={\"rotate(-90 \" + s / 2 + \" \" + s / 2 + \")\"}\n        />\n      </svg>\n      <span className=\"frk-ring__text\">{p.children != null ? p.children : Math.round(v) + \"%\"}</span>\n    </div>\n  )\n}\n\n/* ---------- SlideToStart: deliberate start, drag or press ---------- */\n"
+  }
+ ],
+ "docs": "# ProgressRing\n\nAnillo de progreso con el porcentaje en el centro. Avanza con `dur-grow` y `ease-arrive`.\n\n- **Props**: `value` (0–100), `size` (96), `thickness` (8), `tone` (`rams` · `klein` · `ink` · `verde`), `label`, `children` (sustituye al porcentaje).\n- Para progreso continuo de una sola cosa (sesión, día). Para \"n de m\" contables, `DotGrid` o `StateMark`.\n"
+}

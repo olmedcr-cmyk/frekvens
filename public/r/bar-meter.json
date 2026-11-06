@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "bar-meter",
+ "type": "registry:ui",
+ "title": "BarMeter",
+ "description": "Barras en píldora por categoría o día; una activa en ink, el resto en well, previsión o pendiente rayada.",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/bar-meter.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/bar-meter.tsx",
+   "content": "\"use client\"\n/* Frekvens · BarMeter — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { BarMeterProps } from \"./types\"\nexport type { BarMeterProps }\n\n/* ---------- BarMeter: pill bars, one active, hatched forecast ---------- */\nexport function BarMeter(props: BarMeterProps): React.ReactElement\nexport function BarMeter(p?: any): any {\n  var data: any = p.data || [],\n    mx: any = Math.max.apply(\n      null,\n      data\n        .map(function (d?: any): any {\n          return d.value\n        })\n        .concat([1]),\n    ),\n    H: any = p.height || 160,\n    w: any = p.barWidth || 40\n  return (\n    <div\n      className={cx(\"frk-bars\", p.className)}\n      role=\"img\"\n      aria-label={\n        p.label ||\n        data\n          .map(function (d?: any): any {\n            return d.label + \" \" + d.value\n          })\n          .join(\", \")\n      }\n    >\n      {data.map(function (d?: any, i?: any): any {\n        return (\n          <div key={i} className=\"frk-bars__col\">\n            <div\n              className=\"frk-bars__slot\"\n              style={{\n                height: H,\n                width: w,\n              }}\n            >\n              <span\n                className={cx(\"frk-bars__bar\", i === p.active && \"is-on\", d.hatched && \"is-hatched\")}\n                style={{\n                  height: Math.max(w, (d.value / mx) * H),\n                }}\n              />\n            </div>\n            <span className={cx(\"frk-bars__lbl\", i === p.active && \"is-on\")}>{d.label}</span>\n          </div>\n        )\n      })}\n    </div>\n  )\n}\n\n/* ---------- Readout: dot numerals + mono label ---------- */\n"
+  }
+ ],
+ "docs": "# BarMeter\n\nBarras en píldora por categoría o día; una activa en `ink`, el resto en `well`, previsión o pendiente rayada.\n\n- **Props**: `data` (`[{label, value, hatched}]`), `active` (índice resaltado), `height` (160), `barWidth` (40), `label`.\n- 3–7 barras. El día actual o la categoría elegida es la `active`; su etiqueta va en negrita. Datos futuros: `hatched`.\n"
+}

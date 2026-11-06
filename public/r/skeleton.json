@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "skeleton",
+ "type": "registry:ui",
+ "title": "Skeleton",
+ "description": "Carga en puntos: el hueco del contenido que viene se dibuja como una trama de puntos dot-off con un brillo que la recorre. Nada de rectángulos grises.",
+ "categories": [
+  "Feedback"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/skeleton.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/skeleton.tsx",
+   "content": "\"use client\"\n/* Frekvens · Skeleton — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx, range } from \"./lib\"\n\nimport type { SkeletonProps } from \"./types\"\nexport type { SkeletonProps }\n\n/* ---------- Skeleton: carga de puntos ---------- */\nexport function Skeleton(props: SkeletonProps): React.ReactElement\nexport function Skeleton(p?: any): any {\n  var shape: any = p.shape || \"text\",\n    lines: any = p.lines || 3\n  var body: any =\n    shape === \"text\" ? (\n      range(lines).map(function (i?: any): any {\n        return (\n          <span\n            key={i}\n            className=\"frk-skel__line\"\n            style={{\n              width: i === lines - 1 ? \"60%\" : \"100%\",\n            }}\n          />\n        )\n      })\n    ) : (\n      <span\n        className={\"frk-skel__\" + shape}\n        style={{\n          height: p.height,\n          width: p.width,\n        }}\n      />\n    )\n  return (\n    <div className={cx(\"frk-skel\", \"frk-skel--\" + shape, p.className)} aria-busy={true} role=\"status\">\n      {body}\n      <span className=\"frk-sr\">{p.label || \"Cargando\"}</span>\n    </div>\n  )\n}\n\n/* ---------- EmptyState ---------- */\n"
+  }
+ ],
+ "docs": "# Skeleton\n\nCarga en puntos: el hueco del contenido que viene se dibuja como una trama de puntos `dot-off` con un brillo que la recorre. Nada de rectángulos grises.\n\n- **Props**: `shape` (`text` · `tile` · `circle`), `lines` (3), `width`, `height`, `label`.\n- Solo si la carga pasa de ~300 ms; si pasa de 3 s, añade un `DotLoader` con texto.\n"
+}

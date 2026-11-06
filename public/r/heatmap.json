@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "heatmap",
+ "type": "registry:ui",
+ "title": "Heatmap",
+ "description": "Actividad en semitono: una rejilla de puntos (semanas × días) donde el tamaño del punto es la cantidad. Sin escala de colores: el dato se lee por tamaño, como un periódico impreso.",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/heatmap.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/heatmap.tsx",
+   "content": "\"use client\"\n/* Frekvens · Heatmap — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx, lvl } from \"./lib\"\n\nimport type { HeatmapProps } from \"./types\"\nexport type { HeatmapProps }\n\n/* ---------- Heatmap: semitono de puntos ---------- */\nexport function Heatmap(props: HeatmapProps): React.ReactElement\nexport function Heatmap(p?: any): any {\n  var data: any = p.data || [],\n    rows: any = p.rows || 7,\n    cols: any = Math.ceil(data.length / rows),\n    size: any = p.cell || 14,\n    mx: any = Math.max.apply(null, data.concat([1]))\n  var total: any = data.reduce(function (a?: any, b?: any): any {\n      return a + b\n    }, 0),\n    days: any = data.filter(function (x?: any): any {\n      return x > 0\n    }).length\n  return (\n    <figure className={cx(\"frk-heat\", \"frk-heat--\" + (p.tone || \"ink\"), p.className)}>\n      <svg\n        width={cols * size}\n        height={rows * size}\n        style={{\n          maxWidth: \"100%\",\n          height: \"auto\",\n        }}\n        viewBox={\"0 0 \" + cols * size + \" \" + rows * size}\n        role=\"img\"\n        aria-label={\n          (p.label || \"Actividad\") +\n          \": \" +\n          days +\n          \" de \" +\n          data.length +\n          \" días con actividad, total \" +\n          total +\n          (p.unit || \"\")\n        }\n      >\n        {data.map(function (v?: any, i?: any): any {\n          var c: any = Math.floor(i / rows),\n            r: any = i % rows,\n            k: any = lvl(v, mx)\n          return (\n            <circle\n              key={i}\n              cx={c * size + size / 2}\n              cy={r * size + size / 2}\n              r={v > 0 ? size * (0.18 + 0.27 * k) : size * 0.12}\n              className={v > 0 ? \"is-on\" : \"\"}\n            >\n              <title>{v + (p.unit || \"\")}</title>\n            </circle>\n          )\n        })}\n      </svg>\n      {p.caption ? <figcaption className=\"frk-line__cap\">{p.caption}</figcaption> : null}\n    </figure>\n  )\n}\n\n/* ---------- SplitBar: reparto en píldoras ---------- */\n"
+  }
+ ],
+ "docs": "# Heatmap\n\nActividad en semitono: una rejilla de puntos (semanas × días) donde el tamaño del punto es la cantidad. Sin escala de colores: el dato se lee por tamaño, como un periódico impreso.\n\n- **Props**: `data` (valores por día, en orden), `rows` (7), `cell` (14 px), `tone` (`ink` · `rams` · `klein` · `verde`), `unit`, `caption`, `label`.\n- El nombre accesible resume días activos y total; cada punto tiene su valor como título.\n"
+}

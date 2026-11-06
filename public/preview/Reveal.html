@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>Reveal — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'600px'}},h(F.Reveal,{variant:'wipe',stagger:120,style:{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'8px'}},
+ h(F.Tile,{tone:'klein',title:'Rise',height:200},''),h(F.Tile,{tone:'sol',title:'Scale',height:200},''),h(F.Tile,{tone:'rams',title:'Wipe',height:200},''),h(F.Tile,{tone:'verde',title:'Focus',height:200},''))));
+</script>
+</body>
+</html>

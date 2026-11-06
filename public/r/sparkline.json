@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "sparkline",
+ "type": "registry:ui",
+ "title": "Sparkline",
+ "description": "Tendencia mínima: una línea y un punto final, para meter dentro de una fila, una tabla o un Tile.",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/sparkline.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/sparkline.tsx",
+   "content": "\"use client\"\n/* Frekvens · Sparkline — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { SparklineProps } from \"./types\"\nexport type { SparklineProps }\n\n/* ---------- Sparkline ---------- */\nexport function Sparkline(props: SparklineProps): React.ReactElement\nexport function Sparkline(p?: any): any {\n  var d: any = p.data || [],\n    W: any = p.width || 96,\n    H: any = p.height || 28,\n    mn: any = Math.min.apply(null, d),\n    mx: any = Math.max.apply(null, d),\n    sp: any = mx - mn || 1\n  var pts: any = d.map(function (v?: any, i?: any): any {\n    return [2 + (i / (d.length - 1 || 1)) * (W - 6), 3 + (1 - (v - mn) / sp) * (H - 6)]\n  })\n  var last: any = pts[pts.length - 1] || [0, 0],\n    up: any = d[d.length - 1] >= d[0]\n  return (\n    <svg\n      className={cx(\"frk-spark\", \"frk-spark--\" + (p.tone || \"ink\"), p.className)}\n      width={W}\n      height={H}\n      viewBox={\"0 0 \" + W + \" \" + H}\n      role=\"img\"\n      aria-label={(p.label || \"Tendencia\") + (up ? \" al alza\" : \" a la baja\") + \", último \" + d[d.length - 1]}\n    >\n      <polyline\n        points={pts\n          .map(function (q?: any): any {\n            return q.join(\",\")\n          })\n          .join(\" \")}\n      />\n      <circle cx={last[0]} cy={last[1]} r={3} />\n    </svg>\n  )\n}\n\n/* ---------- ClickWheel: rueda táctil tipo reproductor de bolsillo ---------- */\n"
+  }
+ ],
+ "docs": "# Sparkline\n\nTendencia mínima: una línea y un punto final, para meter dentro de una fila, una tabla o un Tile.\n\n- **Props**: `data`, `width` (96), `height` (28), `tone` (`ink` · `rams` · `klein`), `label`.\n"
+}

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>Switch — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'16px',maxWidth:'360px'}},
+  h('div',{style:{display:'flex',gap:'16px',flexWrap:'wrap'}},h(C.Switch,{label:'Sonido',defaultChecked:true}),h(C.Switch,{label:'Vibración'}),h(C.Switch,{label:'Bloqueado',disabled:true})),
+  h(C.Switch,{label:'Modo noche',showLabel:true,defaultChecked:true}),h(C.Switch,{label:'Avisar al empezar',showLabel:true})));
+</script>
+</body>
+</html>

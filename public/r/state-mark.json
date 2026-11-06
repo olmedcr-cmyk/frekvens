@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "state-mark",
+ "type": "registry:ui",
+ "title": "StateMark",
+ "description": "El lenguaje de estados de la casa: **aro** = pendiente, **puntos** = en curso, **disco** = hecho. Tres formas, un mismo diámetro, sin color.",
+ "categories": [
+  "Puntos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/state-mark.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/state-mark.tsx",
+   "content": "\"use client\"\n/* Frekvens · StateMark — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { StateMarkProps } from \"./types\"\nexport type { StateMarkProps }\n\n/* ---------- StateMark: ring · dots · disc ---------- */\nexport function StateMark(props: StateMarkProps): React.ReactElement\nexport function StateMark(p?: any): any {\n  var s: any = p.size || 24,\n    st: any = p.state || \"empty\",\n    inner: any\n  if (st === \"empty\")\n    inner = <circle cx={12} cy={12} r={10} fill=\"none\" stroke=\"currentColor\" strokeWidth={2.4} />\n  else if (st === \"full\") inner = <circle cx={12} cy={12} r={11} fill=\"currentColor\" />\n  else\n    inner = [\n      [6, 3],\n      [12, 3],\n      [18, 3],\n      [3, 8],\n      [9, 8],\n      [15, 8],\n      [21, 8],\n      [6, 13],\n      [12, 13],\n      [18, 13],\n      [3, 18],\n      [9, 18],\n      [15, 18],\n      [21, 18],\n      [9, 22.5],\n      [15, 22.5],\n    ].map(function (q?: any, i?: any): any {\n      return <circle key={i} cx={q[0]} cy={q[1] - 0.8} r={1.6} fill=\"currentColor\" />\n    })\n  var names: any = {\n    empty: \"Pendiente\",\n    partial: \"En curso\",\n    full: \"Hecho\",\n  }\n  return (\n    <span className={cx(\"frk-state\", p.className)} title={p.title}>\n      <svg\n        {...(p.label === \"\"\n          ? {\n              width: s,\n              height: s,\n              viewBox: \"0 0 24 24\",\n              \"aria-hidden\": true,\n            }\n          : {\n              width: s,\n              height: s,\n              viewBox: \"0 0 24 24\",\n              role: \"img\",\n              \"aria-label\": p.label || names[st],\n            })}\n      >\n        {inner}\n      </svg>\n      {p.children != null ? <span className=\"frk-state__text\">{p.children}</span> : null}\n    </span>\n  )\n}\n\n/* ---------- LevelBars: battery-style vertical rules ---------- */\n"
+  }
+ ],
+ "docs": "# StateMark\n\nEl lenguaje de estados de la casa: **aro** = pendiente, **puntos** = en curso, **disco** = hecho. Tres formas, un mismo diámetro, sin color.\n\n- **Props**: `state` (`empty` · `partial` · `full`), `size` (24), `label` (por defecto: Pendiente / En curso / Hecho), `children` (texto al lado).\n- Úsalo en listas de tareas, calendario de entrenos, pasos de onboarding y reservas. El color puede acompañar, nunca sustituir a la forma.\n"
+}

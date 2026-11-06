@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "sortable",
+ "type": "registry:ui",
+ "title": "Sortable",
+ "description": "Lista ordenable: la misma mecánica que Board en una sola columna. Para prioridades, el orden de un menú, una cola de reproducción.",
+ "categories": [
+  "Arrastre"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/board.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/sortable.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/sortable.tsx",
+   "content": "\"use client\"\n/* Frekvens · Sortable — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Board } from \"./board\"\n\nimport type { SortableProps } from \"./types\"\nexport type { SortableProps }\n\nexport function Sortable(props: SortableProps): React.ReactElement\nexport function Sortable(p?: any): any {\n  return (\n    <Board\n      variant=\"list\"\n      columns={[\n        {\n          id: \"list\",\n          title: p.label || \"Lista\",\n          items: p.items || [],\n        },\n      ]}\n      onChange={function (c?: any): any {\n        p.onChange && p.onChange(c[0].items)\n      }}\n      className={p.className}\n    />\n  )\n}\n\n/* ---------- Blueprint: lienzo de plano con rejilla de puntos ---------- */\n"
+  }
+ ],
+ "docs": "# Sortable\n\nLista ordenable: la misma mecánica que `Board` en una sola columna. Para prioridades, el orden de un menú, una cola de reproducción.\n\n- **Props**: `items` (`[{id, title, meta, tag}]`), `onChange(items)`, `label`.\n- Teclado: Espacio coge, ↑↓ mueven, Espacio suelta, Esc cancela.\n"
+}

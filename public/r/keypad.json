@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "keypad",
+ "type": "registry:ui",
+ "title": "Keypad",
+ "description": "Fila de teclas pegadas con junta de 1 px, a lo Teenage Engineering: la barra de modos o de transporte al pie de la pantalla.",
+ "categories": [
+  "Botonera"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/keypad.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/keypad.tsx",
+   "content": "\"use client\"\n/* Frekvens · Keypad — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx } from \"./lib\"\n\nimport type { KeypadProps } from \"./types\"\nexport type { KeypadProps }\n\n/* ---------- Keypad: flush TE-style key strip ---------- */\nexport function Keypad(props: KeypadProps): React.ReactElement\nexport function Keypad(p?: any): any {\n  var cols: any = p.columns || (p.keys ? p.keys.length : 3)\n  return (\n    <div\n      className={cx(\"frk-keypad\", p.className)}\n      role=\"group\"\n      aria-label={p.label}\n      style={{\n        gridTemplateColumns: \"repeat(\" + cols + \",1fr)\",\n        height: p.height,\n      }}\n    >\n      {(p.keys || []).map(function (k?: any, i?: any): any {\n        return (\n          <button\n            key={i}\n            type=\"button\"\n            onClick={k.onClick}\n            aria-label={k.ariaLabel}\n            aria-pressed={k.active != null ? !!k.active : undefined}\n            className={cx(\"frk-keypad__key\", \"frk-tone--\" + (k.tone || \"paper\"), k.active && \"is-active\")}\n          >\n            {k.icon ? <Icon name={k.icon} size={28} /> : null}\n            {k.label ? <span className=\"frk-keypad__label\">{k.label}</span> : null}\n          </button>\n        )\n      })}\n    </div>\n  )\n}\n\n/* ---------- Dial: black disc knob ---------- */\n"
+  }
+ ],
+ "docs": "# Keypad\n\nFila de teclas pegadas con junta de 1 px, a lo Teenage Engineering: la barra de modos o de transporte al pie de la pantalla.\n\n- **Props**: `keys` (array de `{label, icon, tone, active, onClick, ariaLabel}`), `columns` (por defecto, una por tecla), `height`, `label` (nombre accesible del grupo).\n- 3 o 4 teclas. Etiquetas de 3 letras en mono (`LOG` `SET` `PRO`) o un icono de transporte (rec · play · stop). La tecla activa se invierte a `ink`.\n- Siempre a sangre del ancho útil, pegado al borde inferior seguro. No mezclar texto e icono en la misma fila salvo que todas las teclas lleven ambos.\n"
+}

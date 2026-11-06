@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>PantallaVoz</title>
+<style>
+  .screens { display:flex; gap:var(--space-5); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .phone { position:relative; width:390px; height:800px; box-sizing:border-box; border-radius:48px; padding:var(--space-8) var(--space-5) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .card { box-sizing:border-box; border-radius:var(--radius-xl); background:var(--surface); padding:var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); margin:0; }
+  .wide { width:1180px; box-sizing:border-box; }
+  .row { display:flex; gap:var(--space-4); flex-wrap:wrap; align-items:center; }
+  .push { margin-top:auto; }
+ .states { display:flex; flex-direction:column; gap:12px; }
+
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function Talk(){return h('div',{className:'phone'},h(F.TopBar,{title:'Asistente',subtitle:'Manos libres'}),h(F.VoicePosition,{demo:true,size:200}),
+  h(F.Message,{role:'user'},'Pon la lista de la compra en la pantalla de la cocina'),h(F.Message,{role:'assistant'},'Hecho: te hablo desde la izquierda, que es donde estás.'));}
+function States(){return h('div',{className:'phone',style:{padding:'32px 16px 16px',height:'auto',minHeight:'800px'}},h(F.Text,{variant:'title',sub:'Dos lecturas fijas'},'Estados'),h('div',{className:'states'},
+  h(F.VoicePosition,{side:'left',distance:'near',state:'listening',size:120,animate:false,caption:'Izquierda · cerca'}),
+  h(F.VoicePosition,{side:'right',distance:'far',state:'processing',size:120,animate:false,tone:'rams'})));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(Talk),h(States)));
+</script>
+</body>
+</html>

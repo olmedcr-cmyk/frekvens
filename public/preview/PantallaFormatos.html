@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>Pantalla · Formatos</title>
+<style>
+  .wrap { display:flex; flex-wrap:wrap; gap:var(--space-6); padding:var(--space-5); align-items:flex-start; }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); margin-top:var(--space-2); }
+  .w { border-radius:40px; overflow:hidden; box-sizing:border-box; }
+  .w .frk-tile { height:100%; min-height:0; border-radius:28px; }
+  .s { width:170px; height:170px; } .m { width:364px; height:170px; } .l { width:364px; height:382px; }
+  .watch { width:198px; height:242px; border-radius:52px; background:#0e0e0d; color:#f2f0ea; padding:22px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:space-between; --paper:#f2f0ea; --dot-off:#2b2925; --ink:#f2f0ea; --ink-muted:#a8a39a; }
+  .live { width:364px; height:84px; border-radius:42px; background:#0e0e0d; color:#f2f0ea; display:flex; align-items:center; gap:14px; padding:0 18px 0 12px; box-sizing:border-box; --paper:#f2f0ea; --dot-off:#2b2925; }
+  .live b { font:800 28px/1 var(--font-dot); margin-left:auto; }
+  .desk { width:560px; border-radius:var(--radius-lg); background:var(--surface); padding:var(--space-5); box-sizing:border-box; display:grid; grid-template-columns:1fr 1fr 1fr; gap:var(--space-2); }
+  .col { display:flex; flex-direction:column; }
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function cap(t){return h('div',{className:'cap'},t);}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'wrap'},
+  h('div',{className:'col'},h('div',{className:'w s'},h(F.Tile,{tone:'sol',title:'Hoy',subtitle:'Cardio',value:'42′'})),cap('Widget S · 2×2')),
+  h('div',{className:'col'},h('div',{className:'w m'},h(F.Strip,{tone:'surface',title:'Próxima',value:'18:00'},h(F.SplitFlap,{value:'FUERZA',size:'s',length:6}))),cap('Widget M · 4×2')),
+  h('div',{className:'col'},h('div',{className:'w l',style:{background:'var(--ink)',padding:'12px',display:'grid',gap:'8px',gridTemplateRows:'1fr auto'}},
+    h(F.Tile,{tone:'rams',title:'Semana',subtitle:'184 de 240 min'},h(F.BarMeter,{active:2,height:110,barWidth:30,data:[{label:'L',value:40},{label:'M',value:70},{label:'X',value:95},{label:'J',value:50,hatched:true},{label:'V',value:60,hatched:true}]})),
+    h(F.Grid,{columns:2},h(F.Tile,{tone:'surface',title:'Racha',value:'12',height:110}),h(F.Tile,{tone:'klein',title:'Bono',value:'4',height:110}))),cap('Widget L · 4×4')),
+  h('div',{className:'col'},h('div',{className:'watch'},h(F.Text,{variant:'label'},'Tabata 3/8'),h(F.DotMatrix,{text:'14',dot:9,pitch:12,tone:'paper'}),h(F.LevelBars,{value:60,count:12,height:18})),cap('Reloj · 41 mm')),
+  h('div',{className:'col'},h('div',{className:'live'},h(F.VoiceOrb,{state:'speaking',size:56,grid:9,tone:'rams',caption:false}),h('div',null,h('div',{style:{font:'700 15px/18px var(--font-sans)'}},'Kraft'),h('div',{style:{font:'500 11px/14px var(--font-mono)',letterSpacing:'.08em'}},'HABLANDO')),h('b',null,'02:14')),cap('Actividad en vivo / isla')),
+  h('div',{className:'col'},h('div',{className:'desk'},
+    h('div',{style:{gridColumn:'span 2'}},h(F.LineChart,{data:[30,42,38,55,61,58,70],labels:['L','M','X','J','V','S','D'],now:4,tone:'rams',width:340,height:150,caption:'Minutos por día'})),
+    h(F.Tile,{tone:'verde',title:'Listo',subtitle:'Sala 2',value:'07:30'}),
+    h('div',{style:{gridColumn:'span 3'}},h(F.Ticker,{tone:'ink',items:[{label:'TABATA',value:'07:30',delta:'+3'},{label:'FUERZA',value:'18:00',delta:'-1'},{label:'CARDIO',value:'20:15'}]}))),cap('Escritorio · panel'))
+));
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "stack",
+ "type": "registry:ui",
+ "title": "Stack",
+ "description": "Primitiva de composición: apila hijos en columna o fila con un hueco de la escala de espacio. Existe para que una UI generada por un modelo no tenga que escribir CSS.",
+ "categories": [
+  "Generativo"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/stack.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/stack.tsx",
+   "content": "\"use client\"\n/* Frekvens · Stack — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { StackProps } from \"./types\"\nexport type { StackProps }\n\n/* ---------- Layout primitives (para composición generativa) ---------- */\nexport function Stack(props: StackProps): React.ReactElement\nexport function Stack(p?: any): any {\n  return (\n    <div\n      className={cx(\"frk-stackl\", p.className)}\n      style={Object.assign(\n        {\n          display: \"flex\",\n          flexDirection: p.direction === \"row\" ? \"row\" : \"column\",\n          gap: \"var(--space-\" + (p.gap == null ? 3 : p.gap) + \")\",\n          alignItems: p.align,\n          justifyContent: p.justify,\n          flexWrap: p.wrap ? \"wrap\" : undefined,\n          padding: p.padding != null ? \"var(--space-\" + p.padding + \")\" : undefined,\n        },\n        p.style,\n      )}\n    >\n      {p.children}\n    </div>\n  )\n}\n"
+  }
+ ],
+ "docs": "# Stack\n\nPrimitiva de composición: apila hijos en columna o fila con un hueco de la escala de espacio. Existe para que una UI generada por un modelo no tenga que escribir CSS.\n\n- **Props**: `direction` (`column` · `row`), `gap` (paso de espacio 1–9, por defecto 3), `align`, `justify`, `wrap`, `padding` (paso de espacio), `children`.\n"
+}

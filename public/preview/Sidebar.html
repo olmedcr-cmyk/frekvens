@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>Sidebar — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+var sec=[{label:'Operación',items:[{id:'o',label:'Resumen',icon:'home'},{id:'s',label:'Salas',icon:'dots',count:6},{id:'r',label:'Reservas',icon:'timer',count:128},{id:'i',label:'Incidencias',icon:'close',count:3,alert:true}]},{label:'Gestión',items:[{id:'c',label:'Clientes',icon:'copy'},{id:'p',label:'Pagos',icon:'arrow-up-right',count:12}]}];
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'flex',gap:'16px',height:'480px'}},h(F.Sidebar,{sections:sec,header:'Kraft',footer:h(F.Avatar,{name:'Cris Olmedo',size:36,status:'online'})}),h(F.Sidebar,{sections:sec,defaultCollapsed:true,defaultValue:'i',label:'Secciones (contraída)'})));
+</script>
+</body>
+</html>

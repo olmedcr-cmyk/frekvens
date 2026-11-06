@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>Timeline — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'420px'}},h(F.Timeline,{label:'Despliegue',items:[{title:'Build',text:'48 s',time:'18:02',state:'done'},{title:'Migración de base de datos',text:'3 de 5 tablas',time:'18:03',state:'running'},{title:'Publicar',time:'—',state:'upcoming'},{avatar:'Marta Ruiz',title:'Marta aprobó el cambio',time:'hace 2 min',state:'done'}]})));
+</script>
+</body>
+</html>

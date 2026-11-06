@@ -1,0 +1,12 @@
+<!-- @dsCard group="Controles" height=320 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Fader — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Stack,{direction:'row',gap:6},h(F.Fader,{label:'Voz',defaultValue:72,tone:'rams'}),h(F.Fader,{label:'Música',defaultValue:40,tone:'ink'}),h(F.Fader,{label:'Master',defaultValue:85,tone:'sol',format:function(v){return v+' %';}})));
+</script>
+</body>
+</html>

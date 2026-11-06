@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>Tile — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'8px',maxWidth:'420px'}},
+ h(C.Tile,{title:'Rio de Janeiro',tone:'sol',value:'32°'},h(C.DotMatrix,{shape:'sun',dot:4,pitch:6})),
+ h(C.Tile,{title:'Las Vegas',value:'21°'},h(C.DotMatrix,{shape:'cloud',dot:3.5,pitch:5,grid:20}))));
+</script>
+</body>
+</html>

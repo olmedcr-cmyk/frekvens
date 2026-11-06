@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "fader",
+ "type": "registry:ui",
+ "title": "Fader",
+ "description": "Fader de mesa de mezclas: ranura ink, regla con 11 marcas y un capuchón de color que se arrastra en vertical. Lectura mono debajo. Para niveles de canal, macros de un teclado, luces.",
+ "categories": [
+  "Controles"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/fader.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/fader.tsx",
+   "content": "\"use client\"\n/* Frekvens · Fader — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { clamp, cx, range, useValue } from \"./lib\"\n\nimport type { FaderProps } from \"./types\"\nexport type { FaderProps }\n\nconst { useRef }: any = React\n\n/* ---------- Fader: deslizador vertical ---------- */\nexport function Fader(props: FaderProps): React.ReactElement\nexport function Fader(p?: any): any {\n  var min: any = p.min || 0,\n    max: any = p.max == null ? 100 : p.max,\n    H: any = p.height || 200,\n    st: any = useValue(p, p.defaultValue != null ? p.defaultValue : 50),\n    v: any = st[0],\n    ref: any = useRef(null),\n    drag: any = useRef(false)\n  function set(n?: any): any {\n    n = clamp(Math.round(n), min, max)\n    if (n !== v) st[1](n)\n  }\n  function fromE(e?: any): any {\n    var r: any = ref.current.getBoundingClientRect()\n    set(min + (1 - (e.clientY - r.top) / r.height) * (max - min))\n  }\n  var pct: any = (v - min) / (max - min || 1)\n  return (\n    <div className={cx(\"frk-fader\", p.className)}>\n      <div\n        ref={ref}\n        className=\"frk-fader__track\"\n        style={{\n          height: H,\n        }}\n        role=\"slider\"\n        tabIndex={0}\n        aria-orientation=\"vertical\"\n        aria-label={p.label || \"Fader\"}\n        aria-valuemin={min}\n        aria-valuemax={max}\n        aria-valuenow={v}\n        onPointerDown={function (e?: any): any {\n          drag.current = true\n          e.currentTarget.setPointerCapture(e.pointerId)\n          fromE(e)\n        }}\n        onPointerMove={function (e?: any): any {\n          if (drag.current) fromE(e)\n        }}\n        onPointerUp={function (): any {\n          drag.current = false\n        }}\n        onKeyDown={function (e?: any): any {\n          var d: any = (\n            {\n              ArrowUp: 1,\n              ArrowRight: 1,\n              ArrowDown: -1,\n              ArrowLeft: -1,\n              PageUp: 10,\n              PageDown: -10,\n            } as any\n          )[e.key]\n          if (d) {\n            e.preventDefault()\n            set(v + d * (p.step || 1))\n          }\n        }}\n      >\n        <span className=\"frk-fader__slot\" />\n        {range(11).map(function (i?: any): any {\n          return (\n            <span\n              key={i}\n              className=\"frk-fader__tick\"\n              style={{\n                bottom: i * 10 + \"%\",\n              }}\n            />\n          )\n        })}\n        <span\n          className={cx(\"frk-fader__cap\", \"frk-tone--\" + (p.tone || \"ink\"))}\n          style={{\n            bottom: \"calc(\" + pct * 100 + \"% - 14px)\",\n          }}\n        />\n      </div>\n      <span className=\"frk-fader__val\">{p.format ? p.format(v) : v}</span>\n      {p.label ? <span className=\"frk-fader__lbl\">{p.label}</span> : null}\n    </div>\n  )\n}\n\n/* ---------- Keycap: tecla mecánica esculpida ---------- */\n"
+  }
+ ],
+ "docs": "# Fader\n\nFader de mesa de mezclas: ranura `ink`, regla con 11 marcas y un capuchón de color que se arrastra en vertical. Lectura mono debajo. Para niveles de canal, macros de un teclado, luces.\n\n- **Props**: `value`/`defaultValue`, `onChange(v)`, `min`, `max`, `step`, `height` (200), `tone` del capuchón, `format(v)`, `label`.\n- Slider vertical (`aria-orientation`): ↑↓ paso a paso, RePág/AvPág de 10 en 10.\n"
+}

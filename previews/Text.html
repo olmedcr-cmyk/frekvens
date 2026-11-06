@@ -1,0 +1,12 @@
+<!-- @dsCard group="Generativo" height=300 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Text — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Stack,{gap:3},h(F.Text,{variant:'display-xl',sub:'21° Sunny'},'New York'),h(F.Text,{variant:'label'},'Trabajo · serie 3/8'),h(F.Text,{variant:'numeral-xl'},'32°'),h(F.Text,{variant:'body',muted:true},'Texto corrido en body, atenuado.')));
+</script>
+</body>
+</html>

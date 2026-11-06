@@ -1,0 +1,12 @@
+<!-- @dsCard group="Conversación" height=200 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Composer — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'16px',maxWidth:'480px'}},h(F.Composer,{suggestions:['Reservar','Ver mi semana']}),h(F.Composer,{listening:true,level:.7})));
+</script>
+</body>
+</html>

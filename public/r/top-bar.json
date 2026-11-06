@@ -1,0 +1,25 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "top-bar",
+ "type": "registry:ui",
+ "title": "TopBar",
+ "description": "Cabecera de pantalla: tecla redonda de atrás, título centrado y acciones a la derecha. En variante large, el título va abajo en display-xl con la segunda línea de estado (el título de dos líneas de la",
+ "categories": [
+  "Navegación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json",
+  "https://frekvens.vercel.app/r/text.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/top-bar.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/top-bar.tsx",
+   "content": "\"use client\"\n/* Frekvens · TopBar — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { Text } from \"./text\"\nimport { cx } from \"./lib\"\n\nimport type { TopBarProps } from \"./types\"\nexport type { TopBarProps }\n\nconst h: any = React.createElement\n\n/* ---------- TopBar ---------- */\nexport function TopBar(props: TopBarProps): React.ReactElement\nexport function TopBar(p?: any): any {\n  return h(\n    p.as || \"div\",\n    {\n      className: cx(\"frk-topbar\", p.large && \"frk-topbar--large\", p.className),\n    },\n    <div className=\"frk-topbar__row\">\n      {p.onBack ? (\n        <button\n          type=\"button\"\n          className=\"frk-key frk-tone--well frk-key--s frk-key--round\"\n          aria-label={p.backLabel || \"Atrás\"}\n          onClick={p.onBack}\n        >\n          <span className=\"frk-key__main\">\n            <Icon name=\"arrow-left\" size={20} />\n          </span>\n        </button>\n      ) : (\n        <span className=\"frk-topbar__spacer\" />\n      )}\n      {p.large ? <span className=\"frk-topbar__spacer\" /> : <h1 className=\"frk-topbar__title\">{p.title}</h1>}\n      <div className=\"frk-topbar__actions\">{p.actions}</div>\n    </div>,\n    p.large ? (\n      <Text variant=\"display-xl\" sub={p.subtitle} as=\"h1\">\n        {p.title}\n      </Text>\n    ) : null,\n  )\n}\n\n/* ---------- Steps: progreso por pasos ---------- */\n"
+  }
+ ],
+ "docs": "# TopBar\n\nCabecera de pantalla: tecla redonda de atrás, título centrado y acciones a la derecha. En variante `large`, el título va abajo en `display-xl` con la segunda línea de estado (el título de dos líneas de la casa).\n\n- **Props**: `title`, `subtitle` (solo `large`), `onBack()`, `backLabel`, `actions` (nodos; normalmente `Menu` o teclas redondas), `large`, `as` (`'header'` si es la cabecera única de la página).\n- Una por pantalla. Nada de logos ni hamburguesas: navegación en `TabBar`.\n"
+}

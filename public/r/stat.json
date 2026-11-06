@@ -1,0 +1,26 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "stat",
+ "type": "registry:ui",
+ "title": "Stat",
+ "description": "KPI de panel: etiqueta mono, valor grande fino, tendencia (Sparkline), variación con ▲▼ y, si hace falta, estado (En objetivo · Atención · En riesgo), valor anterior y enlace.",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/chip.json",
+  "https://frekvens.vercel.app/r/sparkline.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/stat.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/stat.tsx",
+   "content": "\"use client\"\n/* Frekvens · Stat — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Chip } from \"./chip\"\nimport { Icon } from \"./icon\"\nimport { Sparkline } from \"./sparkline\"\nimport { cx } from \"./lib\"\n\nimport type { StatProps } from \"./types\"\nexport type { StatProps }\n\n/* ---------- Stat: KPI con variación ---------- */\nexport function Stat(props: StatProps): React.ReactElement\nexport function Stat(p?: any): any {\n  var d: any = p.delta,\n    neg: any = (d != null && String(d).trim().charAt(0) === \"-\") || String(d).charAt(0) === \"−\"\n  var good: any = p.inverse ? neg : !neg\n  return (\n    <div className={cx(\"frk-stat\", \"frk-tone--\" + (p.tone || \"surface\"), p.className)}>\n      <div className=\"frk-stat__head\">\n        <span className=\"frk-stat__label\">{p.label}</span>\n        {p.status ? (\n          <Chip\n            tone={\n              (\n                {\n                  ok: \"verde\",\n                  warn: \"sol\",\n                  risk: \"rec\",\n                } as any\n              )[p.status] || \"well\"\n            }\n            dot={true}\n          >\n            {p.statusLabel ||\n              (\n                {\n                  ok: \"En objetivo\",\n                  warn: \"Atención\",\n                  risk: \"En riesgo\",\n                } as any\n              )[p.status]}\n          </Chip>\n        ) : null}\n      </div>\n      <div className=\"frk-stat__row\">\n        <span className=\"frk-stat__value\">\n          {p.value}\n          {p.unit ? <small>{p.unit}</small> : null}\n        </span>\n        {p.trend ? <Sparkline data={p.trend} tone={good ? \"ink\" : \"rams\"} label={p.label} /> : null}\n      </div>\n      <div className=\"frk-stat__foot\">\n        {d != null ? (\n          <span className={cx(\"frk-stat__delta\", good ? \"is-good\" : \"is-bad\")}>\n            {(neg ? \"▼ \" : \"▲ \") + String(d).replace(/^[-−+]/, \"\")}\n          </span>\n        ) : null}\n        {p.previous ? <span className=\"frk-stat__prev\">{\"antes \" + p.previous}</span> : null}\n        {p.link ? (\n          <button type=\"button\" className=\"frk-stat__link\" onClick={p.link.onClick}>\n            {p.link.label}\n            <Icon name=\"arrow-right\" size={14} />\n          </button>\n        ) : null}\n      </div>\n    </div>\n  )\n}\n\n/* ---------- UsageMeter: cuota usada ---------- */\n"
+  }
+ ],
+ "docs": "# Stat\n\nKPI de panel: etiqueta mono, valor grande fino, tendencia (`Sparkline`), variación con ▲▼ y, si hace falta, estado (`En objetivo` · `Atención` · `En riesgo`), valor anterior y enlace.\n\n- **Props**: `label`, `value`, `unit`, `delta` (`'+12 %'`, `'-3 %'`), `inverse` (bajar es bueno: cancelaciones, gasto), `trend` (array), `previous`, `status` (`ok` · `warn` · `risk`) + `statusLabel`, `link` (`{label, onClick}`), `tone` (`surface`).\n- El sentido malo se marca con subrayado `rams`, además de la flecha: nunca solo con color.\n"
+}

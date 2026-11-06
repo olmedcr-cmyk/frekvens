@@ -1,0 +1,12 @@
+<!-- @dsCard group="Superficies" height=420 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Viewport3D — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Grid,{columns:2},h(F.Viewport3D,{shape:'cube'}),h(F.Viewport3D,{shape:'stack',yaw:-30})));
+</script>
+</body>
+</html>

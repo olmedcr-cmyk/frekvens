@@ -1,0 +1,12 @@
+<!-- @dsCard group="Feedback" height=130 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Tooltip — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{paddingTop:'48px'}},h(F.Tooltip,{content:'Bloquear pantalla mientras entrenas'},h(F.KeyButton,{tone:'ink',shape:'round',size:'s',icon:'lock','aria-label':'Bloquear'}))));
+</script>
+</body>
+</html>

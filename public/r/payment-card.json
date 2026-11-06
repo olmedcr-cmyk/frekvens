@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "payment-card",
+ "type": "registry:ui",
+ "title": "PaymentCard",
+ "description": "Tarjeta de pago: bloque de color en proporción de tarjeta real, chip de puntos, últimos 4 dígitos en mono. Congelada, se cubre de escarcha con un piloto.",
+ "categories": [
+  "Superficies"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/led.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/payment-card.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/payment-card.tsx",
+   "content": "\"use client\"\n/* Frekvens · PaymentCard — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { LED } from \"./led\"\nimport { cx, range } from \"./lib\"\n\nimport type { PaymentCardProps } from \"./types\"\nexport type { PaymentCardProps }\n\n/* ---------- PaymentCard ---------- */\nexport function PaymentCard(props: PaymentCardProps): React.ReactElement\nexport function PaymentCard(p?: any): any {\n  var frozen: any = !!p.frozen\n  return (\n    <div\n      className={cx(\"frk-card\", \"frk-tone--\" + (p.tone || \"klein\"), frozen && \"is-frozen\", p.className)}\n      role=\"img\"\n      aria-label={\n        \"Tarjeta \" + (p.brand || \"\") + \" terminada en \" + (p.last4 || \"0000\") + (frozen ? \", congelada\" : \"\")\n      }\n    >\n      <div className=\"frk-card__top\">\n        <span className=\"frk-card__brand\">{p.brand || \"Frekvens\"}</span>\n        <svg width={34} height={26} viewBox=\"0 0 34 26\" aria-hidden={true} className=\"frk-card__chip\">\n          {range(12).map(function (i?: any): any {\n            return <circle key={i} cx={4 + (i % 4) * 9} cy={4 + Math.floor(i / 4) * 9} r={2.6} />\n          })}\n        </svg>\n      </div>\n      <div className=\"frk-card__num\">{\"•••• \" + (p.last4 || \"0000\")}</div>\n      <div className=\"frk-card__bottom\">\n        <span>{p.name || \"\"}</span>\n        <span>{p.expiry || \"\"}</span>\n      </div>\n      {frozen ? (\n        <div className=\"frk-card__frost\" aria-hidden={true}>\n          <LED tone=\"klein\">Congelada</LED>\n        </div>\n      ) : null}\n    </div>\n  )\n}\n\n/* ---------- Recorder: grabadora ---------- */\n"
+  }
+ ],
+ "docs": "# PaymentCard\n\nTarjeta de pago: bloque de color en proporción de tarjeta real, chip de puntos, últimos 4 dígitos en mono. Congelada, se cubre de escarcha con un piloto.\n\n- **Props**: `tone` (`klein`), `brand`, `last4`, `name`, `expiry`, `frozen`.\n- Nunca muestra el número completo; el nombre accesible dice marca, últimos dígitos y estado.\n"
+}

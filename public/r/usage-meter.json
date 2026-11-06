@@ -1,0 +1,25 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "usage-meter",
+ "type": "registry:ui",
+ "title": "UsageMeter",
+ "description": "Cuota usada frente a un límite (\"996 de 10.000\"): barra ink que pasa a sol al 70 % y a rams al 90 %, con acción (ampliar) cuando está cerca del tope. Con segments, se convierte en un reparto por categ",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/split-bar.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/usage-meter.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/usage-meter.tsx",
+   "content": "\"use client\"\n/* Frekvens · UsageMeter — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { SplitBar } from \"./split-bar\"\nimport { clamp, cx } from \"./lib\"\n\nimport type { UsageMeterProps } from \"./types\"\nexport type { UsageMeterProps }\n\n/* ---------- UsageMeter: cuota usada ---------- */\nexport function UsageMeter(props: UsageMeterProps): React.ReactElement\nexport function UsageMeter(p?: any): any {\n  var used: any = p.used || 0,\n    limit: any = p.limit || 1,\n    pct: any = clamp((used / limit) * 100, 0, 100),\n    level: any = pct >= 90 ? \"is-high\" : pct >= 70 ? \"is-mid\" : \"\"\n  var f: any =\n    p.format ||\n    function (n?: any): any {\n      return n.toLocaleString(\"es-ES\")\n    }\n  return (\n    <div className={cx(\"frk-usage\", level, p.className)}>\n      <div className=\"frk-usage__head\">\n        <span className=\"frk-usage__label\">{p.label}</span>\n        <span className=\"frk-usage__num\">{f(used) + \" / \" + f(limit) + (p.unit ? \" \" + p.unit : \"\")}</span>\n      </div>\n      {p.segments ? (\n        <SplitBar segments={p.segments} />\n      ) : (\n        <span\n          className=\"frk-usage__bar\"\n          role=\"meter\"\n          aria-label={p.label}\n          aria-valuemin={0}\n          aria-valuemax={limit}\n          aria-valuenow={used}\n          aria-valuetext={Math.round(pct) + \" %\"}\n        >\n          <span\n            style={{\n              width: pct + \"%\",\n            }}\n          />\n        </span>\n      )}\n      {level === \"is-high\" && p.action ? (\n        <button type=\"button\" className=\"frk-stat__link\" onClick={p.action.onClick}>\n          {p.action.label}\n          <Icon name=\"arrow-right\" size={14} />\n        </button>\n      ) : null}\n    </div>\n  )\n}\n\n/* ---------- Timeline: actividad, despliegues, historia ---------- */\n"
+  }
+ ],
+ "docs": "# UsageMeter\n\nCuota usada frente a un límite (\"996 de 10.000\"): barra `ink` que pasa a `sol` al 70 % y a `rams` al 90 %, con acción (ampliar) cuando está cerca del tope. Con `segments`, se convierte en un reparto por categorías.\n\n- **Props**: `label`, `used`, `limit`, `unit`, `format(n)`, `segments` (`SplitBar`), `action` (`{label, onClick}`, se muestra al 90 %).\n"
+}

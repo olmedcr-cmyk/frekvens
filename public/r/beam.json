@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "beam",
+ "type": "registry:ui",
+ "title": "Beam",
+ "description": "Haz de puntos que recorre el borde de una caja mientras algo trabaja: un tren de siete puntos klein (y su eco a media opacidad) da la vuelta sobre una pista punteada tenue. Para el campo de prompt mie",
+ "categories": [
+  "Conversación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/beam.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/beam.tsx",
+   "content": "\"use client\"\n/* Frekvens · Beam — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { BeamProps } from \"./types\"\nexport type { BeamProps }\n\nconst { useRef, useState, useEffect }: any = React\n\n/* ---------- Beam: haz de puntos que recorre el borde mientras algo trabaja ---------- */\nexport function Beam(props: BeamProps): React.ReactElement\nexport function Beam(p?: any): any {\n  var ref: any = useRef(null),\n    sz: any = useState([0, 0]),\n    wh: any = sz[0],\n    setWh: any = sz[1],\n    on: any = p.active !== false,\n    r: any = p.radius == null ? 24 : p.radius\n  useEffect(function (): any {\n    var el: any = ref.current\n    if (!el || !window.ResizeObserver) return\n    var ro: any = new ResizeObserver(function (): any {\n      setWh([el.offsetWidth, el.offsetHeight])\n    })\n    ro.observe(el)\n    return function (): any {\n      ro.disconnect()\n    }\n  }, [])\n  var w: any = wh[0],\n    hh: any = wh[1],\n    rect: any = w\n      ? {\n          x: 1.5,\n          y: 1.5,\n          width: Math.max(0, w - 3),\n          height: Math.max(0, hh - 3),\n          rx: Math.min(r, hh / 2),\n        }\n      : null,\n    per: any = rect ? 2 * (rect.width + rect.height) - (8 - 2 * Math.PI) * rect.rx : 0,\n    dash: any = {\n      strokeDasharray: \"0 8 0 8 0 8 0 8 0 8 0 8 0 \" + Math.max(1, per - 48).toFixed(1),\n      \"--per\": per.toFixed(1),\n    }\n  return (\n    <div\n      ref={ref}\n      className={cx(\"frk-beam\", \"frk-beam--\" + (p.tone || \"klein\"), on && \"is-on\", p.className)}\n      style={Object.assign(\n        {\n          borderRadius: r,\n        },\n        p.style,\n      )}\n      aria-busy={on || undefined}\n    >\n      {p.children}\n      {rect ? (\n        <svg className=\"frk-beam__svg\" width={w} height={hh} aria-hidden={true}>\n          <rect\n            {...Object.assign(\n              {\n                className: \"frk-beam__track\",\n              },\n              rect,\n            )}\n          />\n          {on ? (\n            <rect\n              {...Object.assign(\n                {\n                  className: \"frk-beam__head\",\n                  style: dash,\n                },\n                rect,\n              )}\n            />\n          ) : null}\n          {on ? (\n            <rect\n              {...Object.assign(\n                {\n                  className: \"frk-beam__tail\",\n                  style: dash,\n                },\n                rect,\n              )}\n            />\n          ) : null}\n        </svg>\n      ) : null}\n      {on && p.label ? (\n        <span className=\"frk-sr\" role=\"status\">\n          {p.label}\n        </span>\n      ) : null}\n    </div>\n  )\n}\n/* ---------- Aura: halo que respira (disponible, en directo, ausente) ---------- */\n"
+  }
+ ],
+ "docs": "# Beam\n\nHaz de puntos que recorre el borde de una caja mientras algo trabaja: un tren de siete puntos `klein` (y su eco a media opacidad) da la vuelta sobre una pista punteada tenue. Para el campo de prompt mientras genera, una tarjeta que se está rellenando, un agente ocupado.\n\nAprendido de *Border beam* (libraries.dev), en el idioma de Frekvens: puntos en vez de luz.\n\n- **Props**: `active` (true), `tone` (`klein` · `rams` · `sol` · `ink`), `radius` (24, igual que la caja que envuelve), `label` (se anuncia como estado: \"Generando\"), `children`.\n- Envuelve cualquier caja: `h(F.Beam, {active: busy, label: 'Generando'}, h(F.PromptBox, …))`. Pone `aria-busy`. Con movimiento reducido, el tren se queda quieto y la pista sigue indicando que trabaja.\n- Solo uno por pantalla, y solo mientras hay trabajo de verdad: si se queda encendido, deja de significar algo.\n"
+}

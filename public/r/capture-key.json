@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "capture-key",
+ "type": "registry:ui",
+ "title": "CaptureKey",
+ "description": "Tecla de captura, como una tecla física dedicada: un toque captura (pantalla, foto, enlace), mantener graba voz mientras dura la pulsación. Todo va a un único espacio que la IA ordena después.",
+ "categories": [
+  "Captura"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/voice-orb.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/capture-key.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/capture-key.tsx",
+   "content": "\"use client\"\n/* Frekvens · CaptureKey — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { VoiceOrb } from \"./voice-orb\"\nimport { cx, fmt, useClock } from \"./lib\"\n\nimport type { CaptureKeyProps } from \"./types\"\nexport type { CaptureKeyProps }\n\nconst { useState, useRef }: any = React\n\n/* ---------- CaptureKey: tecla de captura (toca: foto · mantén: voz) ---------- */\nexport function CaptureKey(props: CaptureKeyProps): React.ReactElement\nexport function CaptureKey(p?: any): any {\n  var s: any = useState(\"idle\"),\n    st: any = s[0],\n    setSt: any = s[1],\n    t: any = useRef(null),\n    c: any = useClock(st === \"voice\")\n  function down(): any {\n    t.current = setTimeout(function (): any {\n      setSt(\"voice\")\n      p.onVoiceStart && p.onVoiceStart()\n    }, 350)\n  }\n  function up(): any {\n    clearTimeout(t.current)\n    if (st === \"voice\") {\n      setSt(\"saved\")\n      p.onCapture &&\n        p.onCapture({\n          kind: \"voice\",\n          ms: c[0],\n        })\n    } else if (st === \"idle\") {\n      setSt(\"flash\")\n      p.onCapture &&\n        p.onCapture({\n          kind: \"photo\",\n        })\n      setTimeout(function (): any {\n        setSt(\"saved\")\n      }, 260)\n    }\n    setTimeout(function (): any {\n      setSt(\"idle\")\n      c[1]()\n    }, 1600)\n  }\n  var label: any = (\n    {\n      idle: p.hint || \"Toca: captura · Mantén: voz\",\n      flash: \"Capturado\",\n      voice: \"Escuchando · \" + fmt(c[0]),\n      saved: \"Guardado en tu espacio\",\n    } as any\n  )[st]\n  return (\n    <div className={cx(\"frk-capture\", \"is-\" + st, p.className)}>\n      <button\n        type=\"button\"\n        className=\"frk-capture__key\"\n        aria-label={p.label || \"Capturar\"}\n        onPointerDown={down}\n        onPointerUp={up}\n        onPointerLeave={function (): any {\n          if (st === \"voice\") up()\n          else clearTimeout(t.current)\n        }}\n        onKeyDown={function (e?: any): any {\n          if ((e.key === \" \" || e.key === \"Enter\") && !e.repeat) {\n            e.preventDefault()\n            down()\n          }\n        }}\n        onKeyUp={function (e?: any): any {\n          if (e.key === \" \" || e.key === \"Enter\") up()\n        }}\n      >\n        {st === \"voice\" ? (\n          <VoiceOrb state=\"listening\" size={44} grid={7} tone=\"paper\" caption={false} label=\"\" />\n        ) : (\n          <span className=\"frk-capture__dot\" />\n        )}\n      </button>\n      <span className=\"frk-capture__label\" aria-live=\"polite\">\n        {label}\n      </span>\n    </div>\n  )\n}\n\n/* ---------- Viewfinder: cámara / escáner ---------- */\n"
+  }
+ ],
+ "docs": "# CaptureKey\n\nTecla de captura, como una tecla física dedicada: un toque captura (pantalla, foto, enlace), mantener graba voz mientras dura la pulsación. Todo va a un único espacio que la IA ordena después.\n\n- **Props**: `onCapture({kind, ms})`, `onVoiceStart()`, `hint`, `label`.\n- Estados visibles: reposo (punto), destello, escuchando (orbe sobre `rec`), guardado (`verde`). Funciona con Espacio/Enter igual que con el dedo.\n"
+}

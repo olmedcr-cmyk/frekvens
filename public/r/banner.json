@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "banner",
+ "type": "registry:ui",
+ "title": "Banner",
+ "description": "Aviso dentro de la página, a todo el ancho: un bloque de color con icono, título opcional, una frase y, si hace falta, una acción. Para lo que el usuario debe saber mientras sigue en la pantalla.",
+ "categories": [
+  "Feedback"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/banner.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/banner.tsx",
+   "content": "\"use client\"\n/* Frekvens · Banner — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { BANNER, cx } from \"./lib\"\n\nimport type { BannerProps } from \"./types\"\nexport type { BannerProps }\n\nconst { useState }: any = React\n\nexport function Banner(props: BannerProps): React.ReactElement\nexport function Banner(p?: any): any {\n  var t: any = BANNER[p.tone || \"info\"],\n    s: any = useState(true)\n  if (!s[0]) return null\n  return (\n    <div\n      role={p.tone === \"error\" ? \"alert\" : \"status\"}\n      className={cx(\"frk-banner\", \"frk-tone--\" + t[0], p.className)}\n    >\n      <span className=\"frk-banner__icon\">\n        <Icon name={p.icon || t[1]} size={20} />\n      </span>\n      <div className=\"frk-banner__text\">\n        {p.title ? <strong>{p.title}</strong> : null}\n        {p.children ? <span>{p.children}</span> : null}\n      </div>\n      {p.action ? (\n        <button type=\"button\" className=\"frk-banner__action\" onClick={p.action.onClick}>\n          {p.action.label}\n        </button>\n      ) : null}\n      {p.dismissible ? (\n        <button\n          type=\"button\"\n          className=\"frk-toast__close\"\n          aria-label=\"Descartar aviso\"\n          onClick={function (): any {\n            s[1](false)\n            p.onDismiss && p.onDismiss()\n          }}\n        >\n          <Icon name=\"close\" size={18} />\n        </button>\n      ) : null}\n    </div>\n  )\n}\n\n/* ---------- Skeleton: carga de puntos ---------- */\n"
+  }
+ ],
+ "docs": "# Banner\n\nAviso dentro de la página, a todo el ancho: un bloque de color con icono, título opcional, una frase y, si hace falta, una acción. Para lo que el usuario debe saber mientras sigue en la pantalla.\n\n- **Props**: `tone` (`info` klein-soft · `ok` verde · `warn` sol · `error` rec), `title`, `children`, `icon`, `action` (`{label, onClick}`), `dismissible`, `onDismiss()`.\n- `error` se anuncia como alerta. Lo pasajero va en `Toast`; lo que bloquea, en `Sheet`.\n"
+}

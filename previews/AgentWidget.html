@@ -1,0 +1,12 @@
+<!-- @dsCard group="Conversación" height=640 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>AgentWidget — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'flex',gap:'24px',alignItems:'flex-end',flexWrap:'wrap'}},h(F.AgentWidget,{inline:true,defaultOpen:true,demo:true,defaultState:'speaking',name:'Kraft',transcript:'¿Te reservo fuerza mañana a las 18:00?'}),h(F.AgentWidget,{inline:true,defaultOpen:true,mode:'chat',name:'Kraft',suggestions:['Mi semana','Reservar'],messages:[{role:'assistant',text:'Hola, ¿qué entrenamos hoy?'}]})));
+</script>
+</body>
+</html>

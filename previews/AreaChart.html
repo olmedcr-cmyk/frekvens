@@ -1,0 +1,12 @@
+<!-- @dsCard group="Gráficas" height=320 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>AreaChart — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.AreaChart,{label:'Consumo',series:[{label:'Este mes',data:[12,18,15,24,30,26,34,40,36,44],tone:'rams'},{label:'Mes pasado',data:[10,12,14,16,20,18,22,24,26,28],tone:'ink'}],labels:['1','','','','15','','','','','30']}));
+</script>
+</body>
+</html>

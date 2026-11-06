@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>SplitBar — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Stack,{gap:6},h('div',{style:{maxWidth:'480px'}},h(F.SplitBar,{segments:[{label:'Vivienda',value:820},{label:'Comida',value:340},{label:'Transporte',value:120},{label:'Ocio',value:180}],format:function(v){return v+' €';}})),h('div',{style:{display:'flex',maxWidth:'260px'}},h(F.SplitBar,{variant:'columns',height:200,segments:[{label:'Servicios',value:70,tone:'sol'},{label:'Productos',value:30,tone:'surface'}]}))));
+</script>
+</body>
+</html>

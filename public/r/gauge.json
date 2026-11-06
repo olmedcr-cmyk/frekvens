@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "gauge",
+ "type": "registry:ui",
+ "title": "Gauge",
+ "description": "Arco de instrumento: pista tabaco, tramo recorrido en ink y un punto de lectura. Para un porcentaje de 0 a 100.",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/gauge.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/gauge.tsx",
+   "content": "\"use client\"\n/* Frekvens · Gauge — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { clamp, cx } from \"./lib\"\n\nimport type { GaugeProps } from \"./types\"\nexport type { GaugeProps }\n\n/* ---------- Gauge: arc instrument ---------- */\nexport function Gauge(props: GaugeProps): React.ReactElement\nexport function Gauge(p?: any): any {\n  var v: any = clamp(p.value == null ? 0 : p.value, 0, 100),\n    w: any = p.width || 240,\n    sw: any = p.thickness || 14\n  var r: any = 100,\n    cxp: any = 120,\n    cyp: any = 118,\n    a0: any = -62,\n    a1: any = 62\n  function pt(a?: any): any {\n    var t: any = (a * Math.PI) / 180\n    return [cxp + r * Math.sin(t), cyp - r * Math.cos(t)]\n  }\n  function arc(from?: any, to?: any): any {\n    var s: any = pt(from),\n      e: any = pt(to)\n    return \"M\" + s[0] + \" \" + s[1] + \" A\" + r + \" \" + r + \" 0 0 1 \" + e[0] + \" \" + e[1]\n  }\n  var av: any = a0 + ((a1 - a0) * v) / 100,\n    dot: any = pt(av)\n  return (\n    <div\n      className={cx(\"frk-gauge\", p.className)}\n      role=\"meter\"\n      aria-valuemin={0}\n      aria-valuemax={100}\n      aria-valuenow={v}\n      aria-label={p.label || \"Nivel\"}\n      style={{\n        width: w,\n      }}\n    >\n      <svg\n        viewBox={\"0 0 240 \" + (cyp - r * Math.cos((a1 * Math.PI) / 180) + sw)}\n        width={w}\n        aria-hidden={true}\n      >\n        <path d={arc(a0, a1)} className=\"frk-gauge__track\" strokeWidth={sw} />\n        <path d={arc(a0, av)} className=\"frk-gauge__fill\" strokeWidth={sw} />\n        <circle cx={dot[0]} cy={dot[1]} r={sw * 0.42} className=\"frk-gauge__dot\" />\n      </svg>\n      {p.caption ? <div className=\"frk-gauge__caption\">{p.caption}</div> : null}\n    </div>\n  )\n}\n\n/* ---------- Slider: track + rams dot ---------- */\n"
+  }
+ ],
+ "docs": "# Gauge\n\nArco de instrumento: pista `tabaco`, tramo recorrido en `ink` y un punto de lectura. Para un porcentaje de 0 a 100.\n\n- **Props**: `value` (0–100), `width` (240 px), `thickness` (14), `caption` (texto bajo el arco, p. ej. `int. 80%`), `label` (nombre accesible).\n- Solo lectura (`role=\"meter\"`). Si el usuario debe ajustarlo, usa `Slider` o `Dial`.\n- Va a la derecha de un `Strip`, con el valor en grande a la izquierda (`ON`, `78%`).\n"
+}

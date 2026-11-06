@@ -1,0 +1,12 @@
+<!-- @dsCard group="Conversación" height=300 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Notch — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'20px'}},h(F.Notch,{inline:true,state:'thinking',name:'Kraft',peek:'Resumiendo tu semana'}),h(F.Notch,{inline:true,defaultExpanded:true,state:'speaking',name:'Kraft',text:'Has entrenado 184 min. ¿Te reservo fuerza mañana?',progress:62,actions:[{label:'Reservar',icon:'check'},{label:'Ahora no'}]})));
+</script>
+</body>
+</html>

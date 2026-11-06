@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>Beam — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function D(){var s=React.useState(true);return h('div',{style:{display:'grid',gap:'16px',maxWidth:'560px'}},h(F.Beam,{active:s[0],label:'Generando',radius:28},h(F.Composer,{placeholder:'Pide un plan de entrenamiento',busy:s[0]})),h(F.KeyButton,{tone:'well',shape:'pill',size:'s',onClick:function(){s[1](!s[0]);}},s[0]?'Parar':'Generar'));}
+ReactDOM.createRoot(document.getElementById('root')).render(h(D));
+</script>
+</body>
+</html>

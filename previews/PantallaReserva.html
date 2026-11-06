@@ -1,0 +1,51 @@
+<!-- @dsCard group="Pantallas" height=860 page subtitle="Reserva: bento, desplegable y hoja inferior" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Pantalla · Reserva</title>
+<style>
+  .screens { display:flex; gap:var(--space-6); padding:var(--space-5); flex-wrap:wrap; }
+  .phone { position:relative; width:390px; height:800px; box-sizing:border-box; border-radius:48px; padding:var(--space-8) var(--space-3) var(--space-3); display:flex; flex-direction:column; gap:var(--space-2); background:var(--ink); overflow:hidden; }
+  .phone.light { background:var(--paper); padding:var(--space-8) var(--space-5) var(--space-5); gap:var(--space-5); outline:var(--hairline) solid var(--line); }
+  .top { display:flex; justify-content:space-between; align-items:center; padding:0 var(--space-3) var(--space-2); color:var(--paper); font:800 22px/1 var(--font-sans); letter-spacing:-.02em; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-2); }
+  .big { font:400 88px/.9 var(--font-sans); letter-spacing:-.04em; }
+  .of { font:13px/18px var(--font-sans); opacity:.75; }
+  .phone h1 { margin:0; font:800 40px/.95 var(--font-sans); letter-spacing:-.03em; }
+  .phone h1 span { color:var(--ink-muted); display:block; }
+  .leds { display:flex; gap:var(--space-4); }
+  .push { margin-top:auto; }
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function Bento(){
+  return h('div',{className:'phone'},
+    h('div',{className:'top'},'kraft',h(F.Menu,{label:'Cuenta',align:'end',tone:'ink',items:[{label:'Perfil',icon:'home'},{label:'Ajustes',icon:'dots'},{separator:true},{label:'Salir',icon:'arrow-right',danger:true}]})),
+    h(F.Tile,{tone:'rams',title:'Minutos esta semana',subtitle:'de 240',height:190,value:h('span',{className:'big'},'184')}),
+    h('div',{className:'two'},
+      h(F.Tile,{tone:'surface',title:'Series hoy',height:160,value:'18'}),
+      h(F.Tile,{tone:'sol',title:'Reservar',subtitle:'Grupo o solo',height:160,onClick:function(){}},h(F.Icon,{name:'plus',size:40}))),
+    h('div',{className:'two'},
+      h(F.Tile,{tone:'verde',title:'Calentar',subtitle:'8 min',height:150},h(F.Grille,{variant:'slots',tone:'ink',size:64})),
+      h(F.Tile,{tone:'klein',title:'Racha',subtitle:'días',height:150,value:'12'})),
+    h('div',{className:'push'},h(F.SlideToStart,{label:'Empezar entreno'})));
+}
+function Reserva(){
+  var s=React.useState(true), t=React.useState(false);
+  return h('div',{className:'phone light'},
+    h('h1',null,'Jueves',h('span',null,'5 noviembre')),
+    h('div',{className:'leds'},h(F.LED,{tone:'verde'},'Sala libre'),h(F.LED,{tone:'sol',blink:true},'Últimas plazas')),
+    h(F.ListRow,{index:'07',title:'Tabata grupal',detail:'Sala 2 · Marta',value:'07:30'}),
+    h(F.ListRow,{index:'18',title:'Fuerza 1:1',detail:'Sala 1',value:'18:00'}),
+    h(F.KeyButton,{tone:'klein',shape:'pill',block:true,className:'push',onClick:function(){s[1](true);}},"Reservar 18:00"),
+    h(F.Toast,{open:t[0],tone:'verde',icon:'check',duration:2600,onClose:function(){t[1](false);},fixed:false},'Reserva confirmada'),
+    h(F.Sheet,{open:s[0],inline:true,title:'Fuerza 1:1',onClose:function(){s[1](false);}},
+      h(F.Select,{label:'Duración',block:true,defaultValue:'45',options:[{value:'30',label:'30 min'},{value:'45',label:'45 min'},{value:'60',label:'60 min'}]}),
+      h(F.TextField,{label:'Nota para el entrenador',placeholder:'Hombro derecho delicado'}),
+      h(F.KeyButton,{tone:'klein',shape:'pill',block:true,onClick:function(){s[1](false);t[1](true);}},'Confirmar · 12 €')));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(Bento),h(Reserva)));
+</script>
+</body>
+</html>

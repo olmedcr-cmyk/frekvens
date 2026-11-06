@@ -1,0 +1,15 @@
+<!-- @dsCard group="Formularios" height=300 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>TextField — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'20px',maxWidth:'420px'}},
+ h(F.TextField,{label:'Nombre',placeholder:'Cris',hint:'Como quieres que te llamemos.'}),
+ h(F.TextField,{label:'Correo',type:'email',mono:true,placeholder:'tu@correo.com',onSubmit:function(){},submitLabel:'Suscribirme'}),
+ h(F.TextField,{label:'Código',mono:true,defaultValue:'KRF-12',error:'El código tiene 6 caracteres: KRF-123.'})));
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "rocker",
+ "type": "registry:ui",
+ "title": "Rocker",
+ "description": "Interruptores basculantes de máquina sobre una placa verde: la tecla bascula al encenderse y el piloto LED de debajo se enciende. Para 2–4 funciones físicas paralelas (sonido, vibración, pantalla siem",
+ "categories": [
+  "Botonera"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json",
+  "https://frekvens.vercel.app/r/led.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/rocker.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/rocker.tsx",
+   "content": "\"use client\"\n/* Frekvens · Rocker — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { LED } from \"./led\"\nimport { cx } from \"./lib\"\n\nimport type { RockerProps } from \"./types\"\nexport type { RockerProps }\n\nconst { useState }: any = React\n\n/* ---------- Rocker: interruptores basculantes con piloto ---------- */\nexport function Rocker(props: RockerProps): React.ReactElement\nexport function Rocker(p?: any): any {\n  var items: any = p.items || []\n  var s: any = useState(\n      items.map(function (x?: any): any {\n        return !!x.on\n      }),\n    ),\n    on: any = s[0],\n    setOn: any = s[1]\n  return (\n    <div className={cx(\"frk-rockers\", p.className)} role=\"group\" aria-label={p.label}>\n      {items.map(function (x?: any, i?: any): any {\n        var v: any = x.checked != null ? x.checked : on[i]\n        return (\n          <div key={i} className=\"frk-rocker\">\n            <button\n              type=\"button\"\n              role=\"switch\"\n              aria-checked={v}\n              aria-label={x.label}\n              className={cx(\"frk-rocker__key\", v && \"is-on\")}\n              onClick={function (): any {\n                var n: any = on.slice()\n                n[i] = !v\n                setOn(n)\n                x.onChange && x.onChange(!v)\n              }}\n            >\n              <span className=\"frk-rocker__face\">\n                <Icon name={x.icon || \"power\"} size={22} />\n              </span>\n            </button>\n            <LED tone={x.tone || \"rec\"} on={v}>\n              {x.label}\n            </LED>\n          </div>\n        )\n      })}\n    </div>\n  )\n}\n\n/* ---------- Reveal: transiciones de entrada ---------- */\n"
+  }
+ ],
+ "docs": "# Rocker\n\nInterruptores basculantes de máquina sobre una placa `verde`: la tecla bascula al encenderse y el piloto `LED` de debajo se enciende. Para 2–4 funciones físicas paralelas (sonido, vibración, pantalla siempre encendida).\n\n- **Props**: `items` (`[{label, icon, on, checked, tone, onChange}]`), `label` (del grupo).\n- Cada tecla es un `role=\"switch\"`; el piloto repite el estado en texto para lectores.\n"
+}

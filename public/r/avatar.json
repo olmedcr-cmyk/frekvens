@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "avatar",
+ "type": "registry:ui",
+ "title": "Avatar",
+ "description": "Disco con foto o iniciales en Archivo 800. El estado se ve como un **aura** que respira alrededor del disco (ver Aura): disponible verde, en directo rec (más rápido), ausente sol, ocupado rams; descon",
+ "categories": [
+  "Base"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/avatar.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/avatar.tsx",
+   "content": "\"use client\"\n/* Frekvens · Avatar — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { AURA, cx } from \"./lib\"\n\nimport type { AvatarProps } from \"./types\"\nexport type { AvatarProps }\n\n/* ---------- Avatar ---------- */\nexport function Avatar(props: AvatarProps): React.ReactElement\nexport function Avatar(p?: any): any {\n  var s: any = p.size || 48,\n    ini: any = String(p.name || \"?\")\n      .split(/\\s+/)\n      .map(function (w?: any): any {\n        return w.charAt(0)\n      })\n      .join(\"\")\n      .slice(0, 2)\n      .toUpperCase()\n  return (\n    <span\n      className={cx(\n        \"frk-avatar\",\n        \"frk-tone--\" + (p.tone || \"ink\"),\n        p.status && p.status !== \"offline\" && \"frk-aura frk-aura--\" + (AURA[p.status] || \"verde\") + \" is-on\",\n        p.status === \"live\" && \"is-fast\",\n        p.status === \"offline\" && \"is-offline\",\n        p.className,\n      )}\n      style={{\n        width: s,\n        height: s,\n        fontSize: Math.round(s * 0.38),\n      }}\n      role=\"img\"\n      aria-label={\n        p.name +\n        (p.status\n          ? \" · \" +\n            ((\n              {\n                online: \"disponible\",\n                live: \"en directo\",\n                away: \"ausente\",\n                busy: \"ocupado\",\n                offline: \"desconectado\",\n              } as any\n            )[p.status] || p.status)\n          : \"\")\n      }\n    >\n      {p.src ? <img src={p.src} alt=\"\" className=\"frk-avatar__img\" /> : <span aria-hidden={true}>{ini}</span>}\n      {null}\n    </span>\n  )\n}\n\n/* ---------- LineChart: línea con marcador de \"ahora\" ---------- */\n"
+  }
+ ],
+ "docs": "# Avatar\n\nDisco con foto o iniciales en Archivo 800. El estado se ve como un **aura** que respira alrededor del disco (ver `Aura`): disponible `verde`, en directo `rec` (más rápido), ausente `sol`, ocupado `rams`; desconectado sin halo y en gris.\n\n- **Props**: `name` (obligatorio: da las iniciales y el nombre accesible), `src`, `size` (48), `tone` (`ink`), `status` (`online` · `live` · `away` · `busy` · `offline`).\n- El estado va también en el nombre accesible (\"Marta Ruiz · disponible\").\n"
+}

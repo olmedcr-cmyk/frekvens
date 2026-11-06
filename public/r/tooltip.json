@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "tooltip",
+ "type": "registry:ui",
+ "title": "Tooltip",
+ "description": "Etiqueta flotante ink que explica un control sin texto. Aparece a los 400 ms al pasar el puntero o al enfocar, se cierra con Esc y nunca contiene acciones.",
+ "categories": [
+  "Feedback"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/tooltip.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/tooltip.tsx",
+   "content": "\"use client\"\n/* Frekvens · Tooltip — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { TooltipProps } from \"./types\"\nexport type { TooltipProps }\n\nconst R: any = React\nconst { useId, useState, useRef }: any = React\n\n/* ---------- Tooltip ---------- */\nexport function Tooltip(props: TooltipProps): React.ReactElement\nexport function Tooltip(p?: any): any {\n  var id: any = useId(),\n    s: any = useState(false),\n    open: any = s[0],\n    setOpen: any = s[1],\n    t: any = useRef(null)\n  function show(): any {\n    clearTimeout(t.current)\n    t.current = setTimeout(\n      function (): any {\n        setOpen(true)\n      },\n      p.delay == null ? 400 : p.delay,\n    )\n  }\n  function hide(): any {\n    clearTimeout(t.current)\n    setOpen(false)\n  }\n  var child: any = R.Children.only(p.children)\n  return (\n    <span\n      className=\"frk-tip-wrap\"\n      onPointerEnter={show}\n      onPointerLeave={hide}\n      onFocus={show}\n      onBlur={hide}\n      onKeyDown={function (e?: any): any {\n        if (e.key === \"Escape\") hide()\n      }}\n    >\n      {R.cloneElement(child, {\n        \"aria-describedby\": id,\n      })}\n      <span\n        id={id}\n        role=\"tooltip\"\n        className={cx(\"frk-tip\", \"frk-tip--\" + (p.side || \"top\"), open && \"is-in\")}\n      >\n        {p.content}\n      </span>\n    </span>\n  )\n}\n\n/* ---------- Avatar ---------- */\n"
+  }
+ ],
+ "docs": "# Tooltip\n\nEtiqueta flotante `ink` que explica un control sin texto. Aparece a los 400 ms al pasar el puntero o al enfocar, se cierra con Esc y nunca contiene acciones.\n\n- **Props**: `content`, `side` (`top` · `bottom`), `delay` (400), `children` (un único elemento enfocable).\n- En móvil no hay hover: lo esencial nunca vive solo en un tooltip.\n"
+}

@@ -1,0 +1,27 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "composer",
+ "type": "registry:ui",
+ "title": "Composer",
+ "description": "Barra para escribir o hablar: textarea en píldora que crece hasta 160 px, tecla de micrófono y tecla de enviar klein. Al hablar, la barra se enmarca en rec, aparece un VoiceOrb pequeño y la tecla pasa",
+ "categories": [
+  "Conversación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/suggestions.json",
+  "https://frekvens.vercel.app/r/voice-orb.json",
+  "https://frekvens.vercel.app/r/icon.json",
+  "https://frekvens.vercel.app/r/dot-loader.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/composer.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/composer.tsx",
+   "content": "\"use client\"\n/* Frekvens · Composer — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { DotLoader } from \"./dot-loader\"\nimport { Icon } from \"./icon\"\nimport { Suggestions } from \"./suggestions\"\nimport { VoiceOrb } from \"./voice-orb\"\nimport { cx, useValue } from \"./lib\"\n\nimport type { ComposerProps } from \"./types\"\nexport type { ComposerProps }\n\nconst { useRef, useState, useEffect }: any = React\n\n/* ---------- Composer: escribir o hablar ---------- */\nexport function Composer(props: ComposerProps): React.ReactElement\nexport function Composer(p?: any): any {\n  var st: any = useValue(\n      {\n        value: p.value,\n        defaultValue: \"\",\n        onChange: p.onChange,\n      },\n      \"\",\n    ),\n    v: any = st[0],\n    ta: any = useRef(null)\n  var l: any = useState(false),\n    listening: any = p.listening != null ? p.listening : l[0]\n  useEffect(\n    function (): any {\n      var el: any = ta.current\n      if (!el) return\n      el.style.height = \"auto\"\n      el.style.height = Math.min(el.scrollHeight, 160) + \"px\"\n    },\n    [v],\n  )\n  function send(): any {\n    if (!v.trim() || p.busy) return\n    p.onSend && p.onSend(v.trim())\n    st[1](\"\")\n  }\n  return (\n    <div className={cx(\"frk-composer\", listening && \"is-listening\", p.className)}>\n      {p.suggestions ? (\n        <Suggestions\n          items={p.suggestions}\n          onPick={function (s?: any): any {\n            p.onSend ? p.onSend(s) : st[1](s)\n          }}\n        />\n      ) : null}\n      <div className=\"frk-composer__bar\">\n        {listening ? (\n          <div className=\"frk-composer__listen\">\n            <VoiceOrb state=\"listening\" size={40} grid={7} caption={false} level={p.level} />\n            <span>{p.listeningText || \"Te escucho…\"}</span>\n          </div>\n        ) : (\n          <textarea\n            ref={ta}\n            rows={1}\n            value={v}\n            placeholder={p.placeholder || \"Escribe o habla\"}\n            aria-label={p.label || \"Mensaje\"}\n            className=\"frk-composer__input\"\n            onChange={function (e?: any): any {\n              st[1](e.target.value)\n            }}\n            onKeyDown={function (e?: any): any {\n              if (e.key === \"Enter\" && !e.shiftKey) {\n                e.preventDefault()\n                send()\n              }\n            }}\n          />\n        )}\n        {p.voice !== false ? (\n          <button\n            type=\"button\"\n            className={cx(\n              \"frk-key\",\n              \"frk-key--s\",\n              \"frk-key--round\",\n              listening ? \"frk-tone--rec\" : \"frk-tone--well\",\n            )}\n            aria-label={listening ? \"Dejar de escuchar\" : \"Hablar\"}\n            aria-pressed={listening}\n            onClick={function (): any {\n              var n: any = !listening\n              l[1](n)\n              p.onListen && p.onListen(n)\n            }}\n          >\n            <span className=\"frk-key__main\">\n              <Icon name={listening ? \"stop\" : \"mic\"} size={20} />\n            </span>\n          </button>\n        ) : null}\n        {listening ? null : (\n          <button\n            type=\"button\"\n            className=\"frk-key frk-key--s frk-key--round frk-tone--klein\"\n            aria-label=\"Enviar\"\n            disabled={!v.trim() || p.busy}\n            onClick={send}\n          >\n            <span className=\"frk-key__main\">\n              {p.busy ? <DotLoader label=\"Enviando\" /> : <Icon name=\"arrow-up\" size={20} />}\n            </span>\n          </button>\n        )}\n      </div>\n    </div>\n  )\n}\n\n/* ---------- Render: UI generativa desde JSON ---------- */\n"
+  }
+ ],
+ "docs": "# Composer\n\nBarra para escribir o hablar: textarea en píldora que crece hasta 160 px, tecla de micrófono y tecla de enviar `klein`. Al hablar, la barra se enmarca en `rec`, aparece un `VoiceOrb` pequeño y la tecla pasa a ■.\n\n- **Props**: `value`/`onChange`, `onSend(text)`, `placeholder`, `suggestions` (pinta `Suggestions` encima), `voice` (true), `listening` + `onListen(bool)` (para controlar el micro desde fuera), `level` (nivel de audio), `listeningText`, `busy` (deshabilita enviar y muestra `DotLoader`), `label`.\n- Enter envía; Mayús+Enter es salto de línea. Enviar está deshabilitado con el campo vacío.\n"
+}

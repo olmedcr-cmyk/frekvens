@@ -1,0 +1,32 @@
+<!-- @dsCard group="Pantallas" height=1040 width=1460 page subtitle="Diálogos: destructivo, campo, compartir, asistente por pasos, fecha y hora" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>PantallaDialogos</title>
+<style>
+  .screens { display:flex; gap:var(--space-5); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .card { width:380px; box-sizing:border-box; border-radius:var(--radius-xl); background:var(--surface); padding:var(--space-6) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); }
+  .or { display:flex; align-items:center; gap:var(--space-3); font:500 11px/14px var(--font-mono); letter-spacing:.08em; color:var(--ink-muted); }
+  .or::before, .or::after { content:''; flex:1; height:1px; background:var(--line); }
+  .small { font:400 13px/18px var(--font-sans); color:var(--ink-muted); text-align:center; margin:0; }
+  .small a { color:var(--klein-ink); font-weight:700; }
+  .frame { position:relative; width:440px; height:440px; border-radius:var(--radius-xl); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); margin-top:var(--space-2); }
+  .grid3 { display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-2); }
+  .wide { width:1180px; box-sizing:border-box; }
+
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function W(cap,kids){return h('div',null,h('div',{className:'frame'},kids),h('div',{className:'cap'},cap));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},
+ W('Confirmar · destructivo',h(F.Dialog,{open:true,inline:true,tone:'danger',title:'¿Borrar el bono?',text:'Quedan 4 sesiones sin usar. Se perderán.',primary:'Borrar bono'})),
+ W('Pedir un dato',h(F.Dialog,{open:true,inline:true,title:'Renombrar sala',primary:'Guardar'},h(F.TextField,{label:'Nombre',defaultValue:'Sala 2'}))),
+ W('Compartir',h(F.Dialog,{open:true,inline:true,title:'Compartir rutina',secondary:false,primary:'Listo'},h(F.TextField,{label:'Enlace',mono:true,defaultValue:'kraft.app/r/tabata-8',onSubmit:function(){},submitLabel:'Copiar enlace'}),h(F.Switch,{label:'Cualquiera con el enlace',defaultChecked:true,onText:'PÚBLICO',offText:'PRIVADO'}))),
+ W('Asistente por pasos',h(F.Dialog,{open:true,inline:true,steps:['Sala','Horario','Precio'],step:1,title:'¿Cuándo?',primary:'Siguiente',secondary:'Atrás'},h(F.Segmented,{label:'Días',options:['L-V','Fin de semana','Todos']}))),
+ W('Fecha y hora',h(F.Dialog,{open:true,inline:true,size:'l',title:'Mover reserva',primary:'Mover'},h(F.Stack,{direction:'row',gap:3},h('div',{style:{flex:1}},h(F.Calendar,{today:'2026-11-05',switchable:false})),h(F.Wheel,{label:'Hora',defaultValue:'18',items:['16','17','18','19','20'],visible:3,width:90}))))
+));
+</script>
+</body>
+</html>

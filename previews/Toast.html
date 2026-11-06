@@ -1,0 +1,13 @@
+<!-- @dsCard group="Formularios" height=230 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Toast — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'8px',justifyItems:'start'}},
+ h(F.Toast,{open:true,icon:'check'},'Sesión guardada'),h(F.Toast,{open:true,tone:'verde',icon:'timer',action:{label:'Deshacer'}},'Serie añadida'),h(F.Toast,{open:true,tone:'rec',icon:'close',onClose:function(){}},'No hay conexión')));
+</script>
+</body>
+</html>

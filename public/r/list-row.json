@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "list-row",
+ "type": "registry:ui",
+ "title": "ListRow",
+ "description": "Fila con filete superior y número o icono grande a la izquierda: pasos, historial, ajustes. Sin tarjetas, sin sombras.",
+ "categories": [
+  "Superficies"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/list-row.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/list-row.tsx",
+   "content": "\"use client\"\n/* Frekvens · ListRow — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx } from \"./lib\"\n\nimport type { ListRowProps } from \"./types\"\nexport type { ListRowProps }\n\n/* ---------- ListRow: hairline row, big index ---------- */\nexport function ListRow(props: ListRowProps): React.ReactElement\nexport function ListRow(p?: any): any {\n  var Tag: any = p.onClick ? \"button\" : \"div\"\n  return (\n    <Tag type={p.onClick ? \"button\" : undefined} onClick={p.onClick} className={cx(\"frk-row\", p.className)}>\n      <span className=\"frk-row__lead\">{p.icon ? <Icon name={p.icon} size={28} /> : p.index}</span>\n      <span className=\"frk-row__body\">\n        <span className=\"frk-row__title\">{p.title}</span>\n        {p.detail ? <span className=\"frk-row__detail\">{p.detail}</span> : null}\n      </span>\n      {p.value != null ? <span className=\"frk-row__value\">{p.value}</span> : null}\n    </Tag>\n  )\n}\n\n/* ---------- Chip: mono pill ---------- */\n"
+  }
+ ],
+ "docs": "# ListRow\n\nFila con filete superior y número o icono grande a la izquierda: pasos, historial, ajustes. Sin tarjetas, sin sombras.\n\n- **Props**: `index` (número grande), `icon` (alternativa al número), `title`, `detail`, `value` (mono, a la derecha), `onClick` (la convierte en botón).\n- Pasos de un proceso: `index` 1…n. Ajustes: `icon` + `value`. Nunca chevron decorativo: si navega, el `value` es `→`.\n"
+}

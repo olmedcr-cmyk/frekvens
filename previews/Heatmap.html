@@ -1,0 +1,13 @@
+<!-- @dsCard group="Instrumentos" height=200 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Heatmap — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+var heat=[];for(var i=0;i<26*7;i++){var x=Math.sin(i*1.7)*Math.cos(i*.31);heat.push(x>-.2?Math.round((x+.2)*60):0);}
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Heatmap,{data:heat,unit:' min',caption:'Minutos entrenados · 26 semanas',tone:'rams'}));
+</script>
+</body>
+</html>

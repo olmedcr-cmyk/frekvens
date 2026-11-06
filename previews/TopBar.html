@@ -1,0 +1,12 @@
+<!-- @dsCard group="Navegación" height=320 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>TopBar — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'24px',maxWidth:'390px'}},h(F.TopBar,{title:'Reserva',onBack:function(){},actions:h(F.Menu,{label:'Opciones',align:'end',items:[{label:'Compartir',icon:'arrow-up-right'}]})}),h(F.TopBar,{large:true,title:'Semana',subtitle:'3 de 5 sesiones',onBack:function(){}})));
+</script>
+</body>
+</html>

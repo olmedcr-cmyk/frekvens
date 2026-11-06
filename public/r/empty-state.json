@@ -1,0 +1,25 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "empty-state",
+ "type": "registry:ui",
+ "title": "EmptyState",
+ "description": "Estado vacío: un aro de puntos, un título que dice qué falta, una frase que dice qué hacer y, si se puede, la acción.",
+ "categories": [
+  "Feedback"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/dot-matrix.json",
+  "https://frekvens.vercel.app/r/key-button.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/empty-state.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/empty-state.tsx",
+   "content": "\"use client\"\n/* Frekvens · EmptyState — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { DotMatrix } from \"./dot-matrix\"\nimport { KeyButton } from \"./key-button\"\nimport { cx } from \"./lib\"\n\nimport type { EmptyStateProps } from \"./types\"\nexport type { EmptyStateProps }\n\n/* ---------- EmptyState ---------- */\nexport function EmptyState(props: EmptyStateProps): React.ReactElement\nexport function EmptyState(p?: any): any {\n  return (\n    <div className={cx(\"frk-empty\", p.compact && \"frk-empty--compact\", p.className)}>\n      <DotMatrix\n        shape={p.shape || \"ring\"}\n        grid={p.compact ? 9 : 13}\n        dot={p.compact ? 4 : 6}\n        pitch={p.compact ? 7 : 10}\n        showOff={true}\n        label=\"\"\n      />\n      <div className=\"frk-empty__title\">{p.title}</div>\n      {p.text ? <p className=\"frk-empty__text\">{p.text}</p> : null}\n      {p.action ? (\n        <KeyButton tone=\"ink\" shape=\"pill\" onClick={p.action.onClick}>\n          {p.action.label}\n        </KeyButton>\n      ) : null}\n    </div>\n  )\n}\n\n/* ---------- Badge: contador sobre otro elemento ---------- */\n"
+  }
+ ],
+ "docs": "# EmptyState\n\nEstado vacío: un aro de puntos, un título que dice qué falta, una frase que dice qué hacer y, si se puede, la acción.\n\n- **Props**: `title`, `text`, `action` (`{label, onClick}`), `shape` (forma de `DotMatrix`, `ring`), `compact`.\n- Nunca \"No hay datos\": \"Aún no has entrenado esta semana\" + \"Reservar\".\n"
+}

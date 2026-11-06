@@ -1,0 +1,14 @@
+<!-- @dsCard group="Superficies" height=250 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Tile — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'8px',maxWidth:'420px'}},
+ h(C.Tile,{title:'Rio de Janeiro',tone:'sol',value:'32°'},h(C.DotMatrix,{shape:'sun',dot:4,pitch:6})),
+ h(C.Tile,{title:'Las Vegas',value:'21°'},h(C.DotMatrix,{shape:'cloud',dot:3.5,pitch:5,grid:20}))));
+</script>
+</body>
+</html>

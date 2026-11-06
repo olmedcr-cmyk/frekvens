@@ -1,0 +1,25 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "timeline",
+ "type": "registry:ui",
+ "title": "Timeline",
+ "description": "Línea de tiempo vertical con el lenguaje de estados: hecho (disco), en curso (puntos), pendiente (aro), error. Sirve para despliegues, pedidos, historial de actividad (con avatar) y pasos de un proces",
+ "categories": [
+  "Superficies"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/avatar.json",
+  "https://frekvens.vercel.app/r/state-mark.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/timeline.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/timeline.tsx",
+   "content": "\"use client\"\n/* Frekvens · Timeline — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Avatar } from \"./avatar\"\nimport { StateMark } from \"./state-mark\"\nimport { cx } from \"./lib\"\n\nimport type { TimelineProps } from \"./types\"\nexport type { TimelineProps }\n\n/* ---------- Timeline: actividad, despliegues, historia ---------- */\nexport function Timeline(props: TimelineProps): React.ReactElement\nexport function Timeline(p?: any): any {\n  return (\n    <ol className={cx(\"frk-timeline\", p.className)} aria-label={p.label}>\n      {(p.items || []).map(function (it?: any, i?: any): any {\n        var st: any = it.state || \"done\"\n        return (\n          <li key={i} className={cx(\"frk-tl\", \"is-\" + st)}>\n            <span className=\"frk-tl__mark\">\n              {it.avatar ? (\n                <Avatar name={it.avatar} size={28} />\n              ) : (\n                <StateMark\n                  state={\n                    st === \"done\" ? \"full\" : st === \"running\" ? \"partial\" : st === \"error\" ? \"full\" : \"empty\"\n                  }\n                  size={20}\n                  label={\n                    (\n                      {\n                        done: \"Hecho\",\n                        running: \"En curso\",\n                        upcoming: \"Pendiente\",\n                        error: \"Error\",\n                      } as any\n                    )[st]\n                  }\n                />\n              )}\n            </span>\n            <span className=\"frk-tl__body\">\n              <span className=\"frk-tl__title\">{it.title}</span>\n              {it.text ? <span className=\"frk-tl__text\">{it.text}</span> : null}\n            </span>\n            {it.time ? <time className=\"frk-tl__time\">{it.time}</time> : null}\n          </li>\n        )\n      })}\n    </ol>\n  )\n}\n\n/* ---------- Checklist: puesta en marcha ---------- */\n"
+  }
+ ],
+ "docs": "# Timeline\n\nLínea de tiempo vertical con el lenguaje de estados: hecho (disco), en curso (puntos), pendiente (aro), error. Sirve para despliegues, pedidos, historial de actividad (con `avatar`) y pasos de un proceso.\n\n- **Props**: `items` (`[{title, text, time, state:'done'|'running'|'upcoming'|'error', avatar}]`), `label`.\n"
+}

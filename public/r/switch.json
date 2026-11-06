@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "switch",
+ "type": "registry:ui",
+ "title": "Switch",
+ "description": "Interruptor en píldora de 120 × 56. El disco **viaja** de un extremo al otro y aterriza con un rebote corto (ease-spring); al pulsar se estira, como un pulgar que empuja. Encendido: pista ink, disco s",
+ "categories": [
+  "Controles"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/switch.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/switch.tsx",
+   "content": "\"use client\"\n/* Frekvens · Switch — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { SwitchProps } from \"./types\"\nexport type { SwitchProps }\n\nconst R: any = React\nconst { useState }: any = React\n\nexport function Switch(props: SwitchProps): React.ReactElement\nexport function Switch(p?: any): any {\n  var st: any = useState(!!p.defaultChecked),\n    on: any = p.checked != null ? p.checked : st[0],\n    lid: any = R.useId ? R.useId() : null\n  function toggle(): any {\n    if (p.checked == null) st[1](!on)\n    if (p.onChange) p.onChange(!on)\n    if (navigator.vibrate)\n      try {\n        navigator.vibrate(6)\n      } catch (e) {}\n  }\n  var sw: any = (\n    <button\n      type=\"button\"\n      role=\"switch\"\n      aria-checked={on}\n      aria-label={p.showLabel ? undefined : p.label}\n      aria-labelledby={p.showLabel ? lid : undefined}\n      disabled={p.disabled}\n      onClick={toggle}\n      className={cx(\"frk-switch\", on && \"is-on\", !p.showLabel && p.className)}\n    >\n      <span className=\"frk-switch__text frk-switch__text--on\" aria-hidden={true}>\n        {p.onText || \"ON\"}\n      </span>\n      <span className=\"frk-switch__text frk-switch__text--off\" aria-hidden={true}>\n        {p.offText || \"OFF\"}\n      </span>\n      <span className=\"frk-switch__dot\" aria-hidden={true} />\n    </button>\n  )\n  return p.showLabel ? (\n    <div className={cx(\"frk-switchrow\", p.className)}>\n      <span id={lid} className=\"frk-switchrow__label\" onClick={p.disabled ? undefined : toggle}>\n        {p.label}\n      </span>\n      {sw}\n    </div>\n  ) : (\n    sw\n  )\n}\n\n/* ---------- Segmented: pill toggle con disco que viaja ---------- */\n"
+  }
+ ],
+ "docs": "# Switch\n\nInterruptor en píldora de 120 × 56. El disco **viaja** de un extremo al otro y aterriza con un rebote corto (`ease-spring`); al pulsar se estira, como un pulgar que empuja. Encendido: pista `ink`, disco `sol` con un halo pequeño. `ON`/`OFF` se cruzan con el disco, así que nunca depende solo del color.\n\n- **Props**: `checked`/`defaultChecked`, `onChange(bool)`, `label` (nombre accesible), `showLabel` (pinta la etiqueta a la izquierda y la fila entera es pulsable), `onText`, `offText`, `disabled`.\n- Efecto inmediato (luz, sonido, modo). Si el cambio requiere confirmar, usa `KeyButton`.\n- Vibra 6 ms donde hay vibración. Con movimiento reducido el disco cambia de lado sin viajar.\n"
+}

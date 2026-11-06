@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "line-chart",
+ "type": "registry:ui",
+ "title": "LineChart",
+ "description": "Línea suave con marcador de **ahora**: lo pasado en trazo lleno, lo previsto fino y atenuado, y un aro con línea vertical en el punto actual (la curva del clima de las referencias).",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/line-chart.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/line-chart.tsx",
+   "content": "\"use client\"\n/* Frekvens · LineChart — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { LineChartProps } from \"./types\"\nexport type { LineChartProps }\n\n/* ---------- LineChart: línea con marcador de \"ahora\" ---------- */\nexport function LineChart(props: LineChartProps): React.ReactElement\nexport function LineChart(p?: any): any {\n  var data: any = p.data || [],\n    W: any = p.width || 360,\n    H: any = p.height || 140,\n    pd: any = 12,\n    n: any = data.length\n  var mn: any = Math.min.apply(null, data),\n    mx: any = Math.max.apply(null, data),\n    sp: any = mx - mn || 1\n  var pts: any = data.map(function (v?: any, i?: any): any {\n    return [pd + (i / (n - 1)) * (W - pd * 2), pd + (1 - (v - mn) / sp) * (H - pd * 2 - 18)]\n  })\n  var d: any = pts\n    .map(function (q?: any, i?: any): any {\n      if (!i) return \"M\" + q[0] + \" \" + q[1]\n      var a: any = pts[i - 1],\n        c: any = (q[0] - a[0]) / 2\n      return \"C\" + (a[0] + c) + \" \" + a[1] + \" \" + (q[0] - c) + \" \" + q[1] + \" \" + q[0] + \" \" + q[1]\n    })\n    .join(\" \")\n  var now: any = p.now != null ? p.now : -1,\n    np: any = pts[now]\n  return (\n    <figure\n      className={cx(\"frk-line\", \"frk-line--\" + (p.tone || \"ink\"), p.className)}\n      style={{\n        width: \"100%\",\n        maxWidth: W,\n      }}\n    >\n      <svg\n        viewBox={\"0 0 \" + W + \" \" + H}\n        width=\"100%\"\n        role=\"img\"\n        aria-label={\n          (p.label || \"Gráfico\") +\n          \": mínimo \" +\n          mn +\n          (p.unit || \"\") +\n          \", máximo \" +\n          mx +\n          (p.unit || \"\") +\n          (np ? \", ahora \" + data[now] + (p.unit || \"\") : \"\")\n        }\n      >\n        <path d={d} className={np ? \"frk-line__path is-future\" : \"frk-line__path\"} />\n        {np ? (\n          <path\n            d={d}\n            className=\"frk-line__path\"\n            style={{\n              clipPath: \"inset(0 \" + Math.round(((W - np[0]) / W) * 100) + \"% 0 0)\",\n            }}\n          />\n        ) : null}\n        {np ? (\n          <g>\n            <line x1={np[0]} y1={np[1]} x2={np[0]} y2={H - 18} className=\"frk-line__now\" />\n            <circle cx={np[0]} cy={np[1]} r={7} className=\"frk-line__ring\" />\n            <circle cx={np[0]} cy={np[1]} r={2.5} className=\"frk-line__dot\" />\n          </g>\n        ) : null}\n        {(p.labels || []).map(function (l?: any, i?: any): any {\n          var x: any = pd + (i / (p.labels.length - 1 || 1)) * (W - pd * 2)\n          return (\n            <text\n              key={i}\n              x={x}\n              y={H - 2}\n              className={cx(\"frk-line__lbl\", i === now && \"is-now\")}\n              textAnchor={i === 0 ? \"start\" : i === p.labels.length - 1 ? \"end\" : \"middle\"}\n            >\n              {l}\n            </text>\n          )\n        })}\n      </svg>\n      {p.caption ? <figcaption className=\"frk-line__cap\">{p.caption}</figcaption> : null}\n    </figure>\n  )\n}\n\n/* ================= Frekvens 5: datos densos, música, SaaS, notch, 3D, banca, energía, captura ================= */\n"
+  }
+ ],
+ "docs": "# LineChart\n\nLínea suave con marcador de **ahora**: lo pasado en trazo lleno, lo previsto fino y atenuado, y un aro con línea vertical en el punto actual (la curva del clima de las referencias).\n\n- **Props**: `data` (números), `labels` (eje x), `now` (índice), `unit`, `tone` (`ink` · `rams` · `klein`), `width` (360), `height` (140), `caption`, `label`.\n- El nombre accesible resume mínimo, máximo y valor actual. Una línea por gráfico; para comparar categorías, `BarMeter`.\n"
+}

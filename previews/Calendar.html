@@ -1,0 +1,12 @@
+<!-- @dsCard group="Formularios" height=470 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Calendar — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'32px'}},h(F.Calendar,{today:'2026-11-05',marks:['2026-11-03','2026-11-05','2026-11-07']}),h(F.Calendar,{view:'month',today:'2026-11-05',defaultValue:'2026-11-12',marks:['2026-11-03','2026-11-05','2026-11-07','2026-11-12','2026-11-19']})));
+</script>
+</body>
+</html>

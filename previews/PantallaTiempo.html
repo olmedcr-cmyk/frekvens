@@ -1,0 +1,34 @@
+<!-- @dsCard group="Pantallas" height=860 page subtitle="Cronómetro, cuenta atrás, reloj de arena y metrónomo en pestañas" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Pantalla · Tiempo</title>
+<style>
+  .screens { display:flex; gap:var(--space-6); padding:var(--space-5); flex-wrap:wrap; }
+  .phone { width:390px; height:800px; box-sizing:border-box; border-radius:48px; padding:var(--space-8) var(--space-5) var(--space-5); display:flex; flex-direction:column; gap:var(--space-5); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .center { display:flex; justify-content:center; padding-top:var(--space-5); }
+  .rack { display:flex; justify-content:space-between; align-items:flex-end; margin-top:auto; }
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function A(){
+  return h('div',{className:'phone'},
+    h(F.Text,{variant:'display-xl',sub:'Tabata 3/8'},'Tiempo'),
+    h(F.Tabs,{label:'Herramienta',defaultValue:'t',tabs:[
+      {id:'t',label:'Cuenta',content:h('div',{className:'center'},h(F.Timer,{duration:20,autoStart:true,label:'Trabajo',size:250}))},
+      {id:'c',label:'Crono',content:h('div',{className:'center'},h(F.Stopwatch,{}))},
+      {id:'m',label:'Ritmo',content:h('div',{className:'center'},h(F.Pendulum,{defaultBpm:120}))}]}));
+}
+function B(){
+  return h('div',{className:'phone frk-tone--salvia',style:{background:'var(--salvia)'}},
+    h(F.Text,{variant:'display-xl',sub:'Descanso'},'Respira'),
+    h('div',{className:'center'},h(F.Hourglass,{duration:30,autoStart:true,pitch:12})),
+    h('div',{className:'rack'},
+      h('div',{style:{display:'flex',gap:'8px'}},h(F.Wheel,{label:'Minutos',defaultValue:'00',unit:'MIN',visible:3,width:110}),h(F.Wheel,{label:'Segundos',defaultValue:'30',unit:'SEG',visible:3,width:110})),
+      h(F.HoldButton,{label:'Terminar sesión',size:96},'Fin')));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(A),h(B)));
+</script>
+</body>
+</html>

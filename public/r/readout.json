@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "readout",
+ "type": "registry:ui",
+ "title": "Readout",
+ "description": "El número que manda: cifra en Doto (puntos) con etiqueta mono encima y unidad pequeña. Temporizador, cuenta atrás, contador.",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/readout.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/readout.tsx",
+   "content": "\"use client\"\n/* Frekvens · Readout — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { ReadoutProps } from \"./types\"\nexport type { ReadoutProps }\n\n/* ---------- Readout: dot numerals + mono label ---------- */\nexport function Readout(props: ReadoutProps): React.ReactElement\nexport function Readout(p?: any): any {\n  return (\n    <div className={cx(\"frk-readout\", \"frk-readout--\" + (p.size || \"hero\"), p.className)}>\n      {p.label ? <div className=\"frk-readout__label\">{p.label}</div> : null}\n      <div className=\"frk-readout__value\" aria-live={p.live ? \"polite\" : undefined}>\n        {p.value}\n        {p.unit ? <span className=\"frk-readout__unit\">{p.unit}</span> : null}\n      </div>\n      {p.meta ? <div className=\"frk-readout__meta\">{p.meta}</div> : null}\n    </div>\n  )\n}\n\n/* ---------- Tile: widget card ---------- */\n"
+  }
+ ],
+ "docs": "# Readout\n\nEl número que manda: cifra en `Doto` (puntos) con etiqueta mono encima y unidad pequeña. Temporizador, cuenta atrás, contador.\n\n- **Props**: `value`, `unit`, `label`, `meta` (línea técnica debajo), `size` (`hero` 120 · `display` 64 · `label` 24), `live` (anuncia cambios a lectores de pantalla; solo para hitos, no cada segundo).\n- Un `hero` por pantalla, arriba a la izquierda o centrado como cuenta atrás 3·2·1. Cifras tabulares: no bailan al cambiar.\n"
+}

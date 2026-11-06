@@ -1,0 +1,12 @@
+<!-- @dsCard group="Botonera" height=220 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Keycap — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'repeat(4,64px)',gridAutoRows:'64px',gap:'10px'}},h(F.Keycap,{tone:'ink'},'esc'),h(F.Keycap,null,'7'),h(F.Keycap,null,'8'),h(F.Keycap,{h:2},'+'),h(F.Keycap,{sub:'fn'},'F1'),h(F.Keycap,{tone:'sol'},'★'),h(F.Keycap,{tone:'rams'},'↵')));
+</script>
+</body>
+</html>

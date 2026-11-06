@@ -1,0 +1,34 @@
+<!-- @dsCard group="Pantallas" height=900 width=1240 page subtitle="Reservar con puntos: plazas, día y hora; disponible con aura; horario en paletas" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>PantallaPlazas</title>
+<style>
+  .screens { display:flex; gap:var(--space-5); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .phone { position:relative; width:390px; height:800px; box-sizing:border-box; border-radius:48px; padding:var(--space-8) var(--space-5) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .card { box-sizing:border-box; border-radius:var(--radius-xl); background:var(--surface); padding:var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); margin:0; }
+  .wide { width:1180px; box-sizing:border-box; }
+  .row { display:flex; gap:var(--space-4); flex-wrap:wrap; align-items:center; }
+  .push { margin-top:auto; }
+ .who { display:flex; align-items:center; gap:var(--space-4); }
+  .days { display:flex; flex-direction:column; gap:var(--space-4); }
+
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function Seats(){var s=React.useState([]);var n=(s[0]||[]).length;return h('div',{className:'phone'},
+  h(F.SplitFlap,{cycle:['QUEDAN 4 PLAZAS','TABATA · 18:00'],size:'s'}),
+  h('div',{className:'who'},h(F.Avatar,{name:'Marta Ruiz',size:56,status:'online',tone:'rams'}),h(F.Text,{variant:'body-strong',sub:'Disponible para dudas'},'Marta Ruiz')),
+  h(F.DotGrid,{select:'many',max:2,total:16,columns:4,value:s[0],onChange:s[1],disabled:[0,1,5,6,7,10,12,13,14,15].slice(0,12),label:'Plazas de la sala',labels:Array.from({length:16},function(_,i){return 'ABCD'[Math.floor(i/4)]+(i%4+1);}),showLabels:true,caption:n?n+' de 2 plazas':'Elige hasta 2 plazas'}),
+  h('div',{className:'push'},h(F.KeyButton,{tone:'klein',shape:'pill',block:true,disabled:!n},n?'Reservar '+n+(n>1?' plazas':' plaza'):'Elige una plaza')));}
+function Day(){return h('div',{className:'phone'},h(F.Text,{variant:'title',sub:'Noviembre'},'¿Qué día?'),
+  h(F.DotGrid,{select:'one',total:28,columns:7,size:44,gap:4,showLabels:true,defaultValue:5,disabled:[0,1,2,3,4,13,20,27],caption:false,label:'Día de noviembre',labels:Array.from({length:28},function(_,i){return i+1;})}),
+  h('p',{className:'cap'},'Hora'),h(F.DotGrid,{select:'one',total:8,columns:4,tone:'rams',showLabels:true,defaultValue:5,disabled:[2,6],caption:false,label:'Hora',labels:['07','08','09','10','17','18','19','20']}),
+  h('div',{className:'push'},h(F.KeyButton,{tone:'ink',shape:'pill',block:true},'Jueves 6 · 18:00')));}
+function Board(){return h(F.FlapBoard,{title:'Hoy en el estudio',meta:'Sala 2',rows:[{id:1,time:'07:30',text:'Tabata',status:'Embarque',tone:'sol'},{id:2,time:'09:00',text:'Fuerza',status:'A tiempo'},{id:3,time:'18:00',text:'Cardio',status:'Completa',tone:'rec'},{id:4,time:'20:15',text:'Movilidad',status:'Plazas',tone:'verde'}]});}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(Seats),h(Day),h(Board)));
+</script>
+</body>
+</html>

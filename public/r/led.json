@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "led",
+ "type": "registry:ui",
+ "title": "LED",
+ "description": "Piloto de máquina: un rectángulo de luz de 10×6 px con halo. Estado de un aparato (calentando, listo, grabando) junto a una etiqueta mono.",
+ "categories": [
+  "Puntos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/led.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/led.tsx",
+   "content": "\"use client\"\n/* Frekvens · LED — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { LEDProps } from \"./types\"\nexport type { LEDProps }\n\n/* ---------- LED: indicator light ---------- */\nexport function LED(props: LEDProps): React.ReactElement\nexport function LED(p?: any): any {\n  return (\n    <span\n      className={cx(\n        \"frk-led\",\n        \"frk-led--\" + (p.tone || \"rec\"),\n        p.on !== false && \"is-on\",\n        p.blink && \"is-blink\",\n        p.className,\n      )}\n    >\n      <span className=\"frk-led__lamp\" aria-hidden={true} />\n      {p.children != null ? <span className=\"frk-led__text\">{p.children}</span> : null}\n      <span className=\"frk-sr\">{p.on !== false ? \" (encendido)\" : \" (apagado)\"}</span>\n    </span>\n  )\n}\n\n/* ---------- Grille: speaker/lamp grille in a disc or dome ---------- */\n"
+  }
+ ],
+ "docs": "# LED\n\nPiloto de máquina: un rectángulo de luz de 10×6 px con halo. Estado de un aparato (calentando, listo, grabando) junto a una etiqueta mono.\n\n- **Props**: `tone` (`rec` · `verde` · `sol` · `klein`), `on` (true), `blink` (parpadeo de 1.2 s en dos pasos, sin fundido), `children` (etiqueta).\n- Siempre con etiqueta: el color solo no dice nada. Se anuncia \"(encendido)/(apagado)\" a lectores de pantalla.\n- En fila sobre teclas (como los pilotos de una cafetera) o al lado de un `Chip`.\n"
+}

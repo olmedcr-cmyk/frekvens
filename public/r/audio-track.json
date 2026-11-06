@@ -1,0 +1,25 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "audio-track",
+ "type": "registry:ui",
+ "title": "AudioTrack",
+ "description": "Pista de audio con la onda como barra de posición: barras redondeadas, las reproducidas en el color del texto. Tecla redonda de play, título, tiempo y chip de velocidad.",
+ "categories": [
+  "Medios"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json",
+  "https://frekvens.vercel.app/r/chip.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/audio-track.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/audio-track.tsx",
+   "content": "\"use client\"\n/* Frekvens · AudioTrack — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Chip } from \"./chip\"\nimport { Icon } from \"./icon\"\nimport { clamp, cx, fmtS, seeded, useMedia } from \"./lib\"\n\nimport type { AudioTrackProps } from \"./types\"\nexport type { AudioTrackProps }\n\nconst { useRef }: any = React\n\nexport function AudioTrack(props: AudioTrackProps): React.ReactElement\nexport function AudioTrack(p?: any): any {\n  var ref: any = useRef(null),\n    m: any = useMedia(p, ref),\n    peaks: any = p.peaks || seeded(p.bars || 56, p.seed),\n    wave: any = useRef(null),\n    drag: any = useRef(false)\n  function at(e?: any): any {\n    var r: any = wave.current.getBoundingClientRect()\n    m.seek(clamp((e.clientX - r.left) / r.width, 0, 1) * m.d)\n  }\n  var pr: any = m.d ? m.t / m.d : 0\n  return (\n    <div\n      className={cx(\n        \"frk-audio\",\n        \"frk-tone--\" + (p.tone || \"surface\"),\n        m.playing && \"is-playing\",\n        p.className,\n      )}\n    >\n      {p.src ? <audio ref={ref} src={p.src} preload=\"metadata\" /> : null}\n      <button\n        type=\"button\"\n        className=\"frk-key frk-tone--ink frk-key--s frk-key--round\"\n        aria-label={m.playing ? \"Pausa\" : \"Reproducir \" + (p.title || \"\")}\n        onClick={m.toggle}\n      >\n        <span className=\"frk-key__main\">\n          <Icon name={m.playing ? \"pause\" : \"play\"} size={22} />\n        </span>\n      </button>\n      <div className=\"frk-audio__main\">\n        <div className=\"frk-audio__head\">\n          <span className=\"frk-audio__title\">{p.title}</span>\n          <span className=\"frk-audio__time\">{fmtS(m.t) + \" · \" + fmtS(m.d)}</span>\n        </div>\n        <div\n          ref={wave}\n          className=\"frk-audio__wave\"\n          role=\"slider\"\n          tabIndex={0}\n          aria-label={\"Posición de \" + (p.title || \"audio\")}\n          aria-valuemin={0}\n          aria-valuemax={Math.round(m.d)}\n          aria-valuenow={Math.round(m.t)}\n          aria-valuetext={fmtS(m.t)}\n          onPointerDown={function (e?: any): any {\n            drag.current = true\n            e.currentTarget.setPointerCapture(e.pointerId)\n            at(e)\n          }}\n          onPointerMove={function (e?: any): any {\n            if (drag.current) at(e)\n          }}\n          onPointerUp={function (): any {\n            drag.current = false\n          }}\n          onKeyDown={function (e?: any): any {\n            if (e.key === \"ArrowRight\") {\n              e.preventDefault()\n              m.seek(m.t + 5)\n            }\n            if (e.key === \"ArrowLeft\") {\n              e.preventDefault()\n              m.seek(m.t - 5)\n            }\n            if (e.key === \" \") {\n              e.preventDefault()\n              m.toggle()\n            }\n          }}\n        >\n          {peaks.map(function (v?: any, i?: any): any {\n            return (\n              <span\n                key={i}\n                className={cx(i / peaks.length < pr && \"is-on\")}\n                style={{\n                  height: Math.round(v * 100) + \"%\",\n                }}\n              />\n            )\n          })}\n        </div>\n      </div>\n      {p.speed !== false ? (\n        <Chip tone=\"well\" square={true}>\n          {(p.rate || \"1\") + \"×\"}\n        </Chip>\n      ) : null}\n    </div>\n  )\n}\n\n/* ---------- Ticker: cinta que corre (con pausa) ---------- */\n"
+  }
+ ],
+ "docs": "# AudioTrack\n\nPista de audio con la onda como barra de posición: barras redondeadas, las reproducidas en el color del texto. Tecla redonda de play, título, tiempo y chip de velocidad.\n\n- **Props**: `src`, `title`, `peaks` (array 0–1; si no, se genera una onda estable con `seed`), `bars` (56), `tone` (`surface`), `rate`, `speed` (false oculta el chip), `duration` (modo demo).\n- La onda es un `slider`: ← → 5 s, Espacio play. Para notas de voz, podcasts, mensajes del entrenador.\n"
+}

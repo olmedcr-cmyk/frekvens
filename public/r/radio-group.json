@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "radio-group",
+ "type": "registry:ui",
+ "title": "RadioGroup",
+ "description": "Elección única con el lenguaje de estados: el aro vacío se llena hasta ser disco al elegirlo. Flechas para moverse dentro del grupo (patrón ARIA radiogroup).",
+ "categories": [
+  "Formularios"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/radio-group.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/radio-group.tsx",
+   "content": "\"use client\"\n/* Frekvens · RadioGroup — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx, norm, useValue } from \"./lib\"\n\nimport type { RadioGroupProps } from \"./types\"\nexport type { RadioGroupProps }\n\nconst { useRef }: any = React\n\n/* ---------- RadioGroup: aro → disco ---------- */\nexport function RadioGroup(props: RadioGroupProps): React.ReactElement\nexport function RadioGroup(p?: any): any {\n  var opts: any = norm(p.options),\n    st: any = useValue(p, p.defaultValue),\n    v: any = st[0],\n    refs: any = useRef([])\n  function key(e?: any, i?: any): any {\n    var d: any =\n      e.key === \"ArrowDown\" || e.key === \"ArrowRight\"\n        ? 1\n        : e.key === \"ArrowUp\" || e.key === \"ArrowLeft\"\n          ? -1\n          : 0\n    if (!d) return\n    e.preventDefault()\n    var n: any = i\n    for (var k: any = 0; k < opts.length; k++) {\n      n = (n + d + opts.length) % opts.length\n      if (!opts[n].disabled) break\n    }\n    st[1](opts[n].value)\n    refs.current[n] && refs.current[n].focus()\n  }\n  var sel: any = -1\n  opts.forEach(function (o?: any, i?: any): any {\n    if (o.value === v) sel = i\n  })\n  return (\n    <div\n      role=\"radiogroup\"\n      aria-label={p.label}\n      className={cx(\"frk-radio\", p.direction === \"row\" && \"frk-radio--row\", p.className)}\n    >\n      {p.label ? (\n        <span className=\"frk-field__label\" aria-hidden={true}>\n          {p.label}\n        </span>\n      ) : null}\n      {opts.map(function (o?: any, i?: any): any {\n        var on: any = o.value === v\n        return (\n          <button\n            key={o.value}\n            ref={function (el?: any): any {\n              refs.current[i] = el\n            }}\n            type=\"button\"\n            role=\"radio\"\n            aria-checked={on}\n            disabled={o.disabled}\n            tabIndex={on || (sel < 0 && i === 0) ? 0 : -1}\n            className={cx(\"frk-radio__opt\", on && \"is-on\")}\n            onClick={function (): any {\n              st[1](o.value)\n            }}\n            onKeyDown={function (e?: any): any {\n              key(e, i)\n            }}\n          >\n            <span className=\"frk-radio__mark\" aria-hidden={true} />\n            <span className=\"frk-check__text\">\n              <span className=\"frk-check__label\">{o.label}</span>\n              {o.hint ? <span className=\"frk-check__hint\">{o.hint}</span> : null}\n            </span>\n          </button>\n        )\n      })}\n    </div>\n  )\n}\n\n/* ---------- Calendar: tira de semana o mes ---------- */\n"
+  }
+ ],
+ "docs": "# RadioGroup\n\nElección única con el lenguaje de estados: el aro vacío se llena hasta ser disco al elegirlo. Flechas para moverse dentro del grupo (patrón ARIA radiogroup).\n\n- **Props**: `options` (strings o `{value, label, hint, disabled}`), `value`/`defaultValue`, `onChange(v)`, `label`, `direction` (`column` · `row`).\n- 2–5 opciones con explicación. Sin explicación y con pocas opciones, `Segmented`.\n"
+}

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Captura" height=560 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Viewfinder — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'360px'}},h(F.Viewfinder,{defaultMode:'escanear',shots:3})));
+</script>
+</body>
+</html>

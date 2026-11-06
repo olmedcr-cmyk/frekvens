@@ -1,0 +1,12 @@
+<!-- @dsCard group="Instrumentos" height=320 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>SplitBar — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Stack,{gap:6},h('div',{style:{maxWidth:'480px'}},h(F.SplitBar,{segments:[{label:'Vivienda',value:820},{label:'Comida',value:340},{label:'Transporte',value:120},{label:'Ocio',value:180}],format:function(v){return v+' €';}})),h('div',{style:{display:'flex',maxWidth:'260px'}},h(F.SplitBar,{variant:'columns',height:200,segments:[{label:'Servicios',value:70,tone:'sol'},{label:'Productos',value:30,tone:'surface'}]}))));
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!-- @dsCard group="Superficies" height=300 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>ListRow — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'440px'}},
+ h(C.ListRow,{index:1,title:'Elige tu sesión',detail:'Grupo, solo u online'}),h(C.ListRow,{index:2,title:'Reserva la hora',detail:'Hasta 2 h antes'}),h(C.ListRow,{index:3,title:'Entrena',value:'45 MIN'}),h(C.ListRow,{icon:'timer',title:'Cuenta atrás',value:'3·2·1'})));
+</script>
+</body>
+</html>

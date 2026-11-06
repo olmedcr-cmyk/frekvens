@@ -1,0 +1,14 @@
+<!-- @dsCard group="Botonera" height=120 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Keypad — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'8px',maxWidth:'420px'}},
+ h(C.Keypad,{label:'Modo',keys:[{label:'Log',active:true},{label:'Set'},{label:'Pro'}]}),
+ h(C.Keypad,{label:'Transporte',keys:[{icon:'rec',ariaLabel:'Grabar',tone:'rec'},{icon:'play',ariaLabel:'Reproducir'},{icon:'stop',ariaLabel:'Parar'}]})));
+</script>
+</body>
+</html>

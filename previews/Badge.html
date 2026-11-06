@@ -1,0 +1,12 @@
+<!-- @dsCard group="Base" height=110 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Badge — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Stack,{direction:'row',gap:6,align:'center'},h(F.Badge,{count:3},h(F.KeyButton,{tone:'well',shape:'round',size:'s',icon:'dots','aria-label':'Mensajes'})),h(F.Badge,{count:128},h(F.Icon,{name:'home',size:28,title:'Inicio'})),h(F.Badge,{dot:true,tone:'verde'},h(F.Avatar,{name:'Marta Ruiz',size:44}))));
+</script>
+</body>
+</html>

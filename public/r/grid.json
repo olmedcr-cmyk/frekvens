@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "grid",
+ "type": "registry:ui",
+ "title": "Grid",
+ "description": "Primitiva de composición: rejilla de columnas iguales con la junta de la botonera. El bento de Tiles sale de aquí.",
+ "categories": [
+  "Generativo"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/grid.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/grid.tsx",
+   "content": "\"use client\"\n/* Frekvens · Grid — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { GridProps } from \"./types\"\nexport type { GridProps }\n\nexport function Grid(props: GridProps): React.ReactElement\nexport function Grid(p?: any): any {\n  return (\n    <div\n      className={cx(\"frk-grid\", p.className)}\n      style={Object.assign(\n        {\n          display: \"grid\",\n          gridTemplateColumns: \"repeat(\" + (p.columns || 2) + \", minmax(0, 1fr))\",\n          gap: \"var(--space-\" + (p.gap == null ? 2 : p.gap) + \")\",\n        },\n        p.style,\n      )}\n    >\n      {p.children}\n    </div>\n  )\n}\n"
+  }
+ ],
+ "docs": "# Grid\n\nPrimitiva de composición: rejilla de columnas iguales con la junta de la botonera. El bento de Tiles sale de aquí.\n\n- **Props**: `columns` (2), `gap` (paso de espacio, por defecto 2), `children`.\n"
+}

@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "stepper",
+ "type": "registry:ui",
+ "title": "Stepper",
+ "description": "Menos · número · más. Para cantidades pequeñas y enteras (series, plazas, minutos). El número entra rodando desde abajo al cambiar.",
+ "categories": [
+  "Controles"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/stepper.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/stepper.tsx",
+   "content": "\"use client\"\n/* Frekvens · Stepper — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { clamp, cx, useValue } from \"./lib\"\n\nimport type { StepperProps } from \"./types\"\nexport type { StepperProps }\n\n/* ---------- Stepper: − value + ---------- */\nexport function Stepper(props: StepperProps): React.ReactElement\nexport function Stepper(p?: any): any {\n  var min: any = p.min == null ? 0 : p.min,\n    max: any = p.max == null ? 99 : p.max,\n    step: any = p.step || 1\n  var st: any = useValue(p, min),\n    v: any = st[0]\n  function set(n?: any): any {\n    n = clamp(n, min, max)\n    if (n !== v) st[1](n)\n  }\n  return (\n    <div className={cx(\"frk-stepper\", p.className)} role=\"group\" aria-label={p.label}>\n      <button\n        type=\"button\"\n        className=\"frk-key frk-tone--well frk-key--s frk-key--round\"\n        aria-label={\"Menos \" + (p.label || \"\")}\n        disabled={v <= min}\n        onClick={function (): any {\n          set(v - step)\n        }}\n      >\n        <span className=\"frk-key__main\">\n          <Icon name=\"minus\" size={22} />\n        </span>\n      </button>\n      <div className=\"frk-stepper__val\">\n        <output aria-live=\"polite\" key={v} className=\"frk-stepper__num\">\n          {v}\n        </output>\n        {p.unit ? <span className=\"frk-stepper__unit\">{p.unit}</span> : null}\n      </div>\n      <button\n        type=\"button\"\n        className=\"frk-key frk-tone--ink frk-key--s frk-key--round\"\n        aria-label={\"Más \" + (p.label || \"\")}\n        disabled={v >= max}\n        onClick={function (): any {\n          set(v + step)\n        }}\n      >\n        <span className=\"frk-key__main\">\n          <Icon name=\"plus\" size={22} />\n        </span>\n      </button>\n    </div>\n  )\n}\n\n/* ---------- ProgressRing ---------- */\n"
+  }
+ ],
+ "docs": "# Stepper\n\nMenos · número · más. Para cantidades pequeñas y enteras (series, plazas, minutos). El número entra rodando desde abajo al cambiar.\n\n- **Props**: `value`/`defaultValue`, `onChange(n)`, `min` (0), `max` (99), `step` (1), `unit`, `label` (nombre del grupo; se usa en los botones: \"Más series\").\n- En los límites el botón correspondiente se deshabilita. Para rangos grandes, `Slider` o `Dial`.\n"
+}

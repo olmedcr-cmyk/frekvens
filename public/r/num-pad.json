@@ -1,0 +1,25 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "num-pad",
+ "type": "registry:ui",
+ "title": "NumPad",
+ "description": "Teclado numérico para importes: cifra enorme con la moneda pequeña, teclas planas pegadas como una calculadora, coma decimal (máx. 2 decimales) y borrar. También acepta el teclado físico.",
+ "categories": [
+  "Formularios"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json",
+  "https://frekvens.vercel.app/r/key-button.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/num-pad.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/num-pad.tsx",
+   "content": "\"use client\"\n/* Frekvens · NumPad — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { KeyButton } from \"./key-button\"\nimport { cx, useValue } from \"./lib\"\n\nimport type { NumPadProps } from \"./types\"\nexport type { NumPadProps }\n\nconst { useEffect }: any = React\n\n/* ---------- NumPad: introducir importes ---------- */\nexport function NumPad(props: NumPadProps): React.ReactElement\nexport function NumPad(p?: any): any {\n  var st: any = useValue(p, \"\"),\n    v: any = st[0],\n    max: any = p.maxLength || 7\n  function press(k?: any): any {\n    var n: any = v\n    if (k === \"del\") n = v.slice(0, -1)\n    else if (k === \",\") {\n      if (v.indexOf(\",\") < 0) n = (v || \"0\") + \",\"\n    } else {\n      if (v.replace(\",\", \"\").length >= max) return\n      if (v.indexOf(\",\") >= 0 && v.split(\",\")[1].length >= 2) return\n      n = v === \"0\" ? k : v + k\n    }\n    st[1](n)\n  }\n  useEffect(function (): any {\n    if (!p.keyboard) return\n    function f(e?: any): any {\n      if (/^[0-9]$/.test(e.key)) press(e.key)\n      else if (e.key === \",\" || e.key === \".\") press(\",\")\n      else if (e.key === \"Backspace\") press(\"del\")\n    }\n    window.addEventListener(\"keydown\", f)\n    return function (): any {\n      window.removeEventListener(\"keydown\", f)\n    }\n  })\n  var keys: any = [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \",\", \"0\", \"del\"]\n  return (\n    <div className={cx(\"frk-numpad\", p.className)}>\n      <output\n        className={cx(\"frk-numpad__display\", !v && \"is-empty\")}\n        aria-live=\"polite\"\n        aria-label={(p.label || \"Importe\") + \": \" + (v || \"0\") + \" \" + (p.currency || \"€\")}\n      >\n        {v || \"0\"}\n        <span className=\"frk-numpad__cur\">{p.currency || \"€\"}</span>\n      </output>\n      {p.hint ? <span className=\"frk-numpad__hint\">{p.hint}</span> : null}\n      <div className=\"frk-numpad__keys\" role=\"group\" aria-label=\"Teclado numérico\">\n        {keys.map(function (k?: any): any {\n          return (\n            <button\n              key={k}\n              type=\"button\"\n              className=\"frk-numpad__key\"\n              aria-label={k === \"del\" ? \"Borrar\" : k === \",\" ? \"Coma decimal\" : k}\n              onClick={function (): any {\n                press(k)\n              }}\n            >\n              {k === \"del\" ? <Icon name=\"arrow-left\" size={24} /> : k}\n            </button>\n          )\n        })}\n      </div>\n      {p.onSubmit ? (\n        <KeyButton\n          tone=\"klein\"\n          shape=\"pill\"\n          block={true}\n          disabled={!v || parseFloat(v.replace(\",\", \".\")) === 0}\n          onClick={function (): any {\n            p.onSubmit(parseFloat(v.replace(\",\", \".\")))\n          }}\n        >\n          {p.submitLabel || \"Continuar\"}\n        </KeyButton>\n      ) : null}\n    </div>\n  )\n}\n\n/* ---------- HourStrip: precio por horas ---------- */\n"
+  }
+ ],
+ "docs": "# NumPad\n\nTeclado numérico para importes: cifra enorme con la moneda pequeña, teclas planas pegadas como una calculadora, coma decimal (máx. 2 decimales) y borrar. También acepta el teclado físico.\n\n- **Props**: `value`/`defaultValue` (string), `onChange(s)`, `currency` (`€`), `maxLength` (7), `hint`, `onSubmit(number)`, `submitLabel`, `keyboard` (escucha teclas), `label`.\n"
+}

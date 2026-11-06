@@ -1,0 +1,52 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Frekvens</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--paper); color:var(--ink); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; height:288px; width:960px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; overflow:hidden; }
+  .art svg { display:block; }
+  .klein { fill:var(--klein); }
+  .sol { fill:var(--sol); }
+  .ink { fill:var(--ink); }
+  .rams { fill:var(--rams); }
+  .verde { fill:var(--verde); }
+  .dot, .knob { fill:var(--paper); }
+  .key { rx:var(--radius-lg); }
+  .words { position:absolute; left:var(--space-6); bottom:var(--space-6); max-width:440px; }
+  .name { margin:0; font-size:88px; line-height:.95; font-weight:800; letter-spacing:-.04em; color:var(--ink); }
+  .tag { margin:var(--space-3) 0 0 2px; font-size:14px; line-height:20px; color:var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      klein 176×184 bled off the top (identity blue) · sol lamp (dome r80 + sphere r40) · ink 120×184 bled top/right · rams 96×96 · verde pill 232×96 — ≈45% of 960×288
+  arrangement a keypad on one space-2 joint, top row bleeding up; the sol lamp hangs in the middle; one ink dial disc closes the bottom row
+  pattern     dot grid, from "puntos, matemáticamente correcto": a 37-dot sun at space-3 (12px) pitch cut in paper out of the ink key
+  scales      joints space-2 (8px); pitch space-3 (12px); key corners radius-lg (24px); pill rx = radius-full (half of 96); dot r = half of dot-size
+-->
+<rect class="klein key" x="16" y="-24" width="176" height="184" rx="24"/>
+<path class="sol" d="M208 96 A80 80 0 0 1 368 96 Z"/>
+<circle class="sol" cx="288" cy="112" r="40"/>
+<rect class="ink key" x="384" y="-24" width="120" height="184" rx="24"/>
+<circle class="dot" cx="396" cy="60" r="3"/><circle class="dot" cx="396" cy="72" r="3"/><circle class="dot" cx="396" cy="84" r="3"/><circle class="dot" cx="408" cy="48" r="3"/><circle class="dot" cx="408" cy="60" r="3"/><circle class="dot" cx="408" cy="72" r="3"/><circle class="dot" cx="408" cy="84" r="3"/><circle class="dot" cx="408" cy="96" r="3"/><circle class="dot" cx="420" cy="36" r="3"/><circle class="dot" cx="420" cy="48" r="3"/><circle class="dot" cx="420" cy="60" r="3"/><circle class="dot" cx="420" cy="72" r="3"/><circle class="dot" cx="420" cy="84" r="3"/><circle class="dot" cx="420" cy="96" r="3"/><circle class="dot" cx="420" cy="108" r="3"/><circle class="dot" cx="432" cy="36" r="3"/><circle class="dot" cx="432" cy="48" r="3"/><circle class="dot" cx="432" cy="60" r="3"/><circle class="dot" cx="432" cy="72" r="3"/><circle class="dot" cx="432" cy="84" r="3"/><circle class="dot" cx="432" cy="96" r="3"/><circle class="dot" cx="432" cy="108" r="3"/><circle class="dot" cx="444" cy="36" r="3"/><circle class="dot" cx="444" cy="48" r="3"/><circle class="dot" cx="444" cy="60" r="3"/><circle class="dot" cx="444" cy="72" r="3"/><circle class="dot" cx="444" cy="84" r="3"/><circle class="dot" cx="444" cy="96" r="3"/><circle class="dot" cx="444" cy="108" r="3"/><circle class="dot" cx="456" cy="48" r="3"/><circle class="dot" cx="456" cy="60" r="3"/><circle class="dot" cx="456" cy="72" r="3"/><circle class="dot" cx="456" cy="84" r="3"/><circle class="dot" cx="456" cy="96" r="3"/><circle class="dot" cx="468" cy="60" r="3"/><circle class="dot" cx="468" cy="72" r="3"/><circle class="dot" cx="468" cy="84" r="3"/>
+<rect class="rams key" x="16" y="168" width="96" height="96" rx="24"/>
+<rect class="verde" x="120" y="168" width="232" height="96" rx="48"/>
+<circle class="ink" cx="416" cy="216" r="48"/>
+<circle class="knob" cx="431.0" cy="190.0" r="6"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Frekvens</h1>
+<p class="tag">Las apps de Cris Olmedo: botoneras, puntos, círculos.</p>
+</div>
+</div>
+</body>
+</html>

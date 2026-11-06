@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>SplitFlap — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function Demo(){var w=['FUERZA 18:00','TABATA 07:30','CARDIO 20:15'],s=React.useState(0);React.useEffect(function(){var t=setInterval(function(){s[1](function(i){return (i+1)%3;});},3200);return function(){clearInterval(t);};},[]);
+return h(F.Stack,{gap:4},h(F.SplitFlap,{value:w[s[0]],length:12}),h(F.Stack,{direction:'row',gap:3,wrap:true},h(F.SplitFlap,{value:'PUERTA',size:'s',length:6}),h(F.SplitFlap,{value:'B12',size:'s',length:3,tone:'sol'})),h(F.SplitFlap,{cycle:['QUEDAN 3 PLAZAS','ABRE A LAS 7:00','SALA 2 · PISO 1'],size:'s'}));}
+ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

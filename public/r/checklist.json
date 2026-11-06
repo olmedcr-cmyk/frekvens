@@ -1,0 +1,27 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "checklist",
+ "type": "registry:ui",
+ "title": "Checklist",
+ "description": "Lista de puesta en marcha: contador n / total con puntos, y cada paso desplegable con su explicación y su acción. Al marcar uno, se abre el siguiente pendiente.",
+ "categories": [
+  "Superficies"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/dot-grid.json",
+  "https://frekvens.vercel.app/r/state-mark.json",
+  "https://frekvens.vercel.app/r/icon.json",
+  "https://frekvens.vercel.app/r/key-button.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/checklist.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/checklist.tsx",
+   "content": "\"use client\"\n/* Frekvens · Checklist — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { DotGrid } from \"./dot-grid\"\nimport { Icon } from \"./icon\"\nimport { KeyButton } from \"./key-button\"\nimport { StateMark } from \"./state-mark\"\nimport { cx } from \"./lib\"\n\nimport type { ChecklistProps } from \"./types\"\nexport type { ChecklistProps }\n\nconst { useState }: any = React\n\n/* ---------- Checklist: puesta en marcha ---------- */\nexport function Checklist(props: ChecklistProps): React.ReactElement\nexport function Checklist(p?: any): any {\n  var items: any = p.items || [],\n    s: any = useState(\n      items.map(function (x?: any): any {\n        return !!x.done\n      }),\n    ),\n    done: any = s[0],\n    setDone: any = s[1],\n    o: any = useState(p.defaultOpen != null ? p.defaultOpen : done.indexOf(false)),\n    open: any = o[0]\n  var n: any = done.filter(Boolean).length\n  return (\n    <div className={cx(\"frk-checklist\", p.className)}>\n      <div className=\"frk-checklist__head\">\n        <span className=\"frk-checklist__title\">{p.title || \"Primeros pasos\"}</span>\n        <span className=\"frk-checklist__count\">{n + \" / \" + items.length}</span>\n      </div>\n      <DotGrid\n        total={items.length}\n        filled={n}\n        columns={items.length}\n        size={12}\n        gap={4}\n        tone=\"ink\"\n        label={n + \" de \" + items.length + \" completados\"}\n      />\n      <ul>\n        {items.map(function (it?: any, i?: any): any {\n          var on: any = done[i],\n            isOpen: any = open === i\n          return (\n            <li key={i} className={cx(\"frk-ck\", on && \"is-done\", isOpen && \"is-open\")}>\n              <button\n                type=\"button\"\n                className=\"frk-ck__head\"\n                aria-expanded={isOpen}\n                onClick={function (): any {\n                  o[1](isOpen ? -1 : i)\n                }}\n              >\n                <StateMark\n                  state={on ? \"full\" : isOpen ? \"partial\" : \"empty\"}\n                  size={22}\n                  label={on ? \"Hecho\" : \"Pendiente\"}\n                />\n                <span className=\"frk-ck__title\">{it.title}</span>\n                <Icon name=\"chevron-down\" size={18} className=\"frk-ck__chev\" />\n              </button>\n              {isOpen ? (\n                <div className=\"frk-ck__body\">\n                  {it.text ? <p>{it.text}</p> : null}\n                  <KeyButton\n                    tone={on ? \"well\" : \"ink\"}\n                    shape=\"pill\"\n                    size=\"s\"\n                    onClick={function (): any {\n                      var d: any = done.slice()\n                      d[i] = !on\n                      setDone(d)\n                      if (!on) o[1](d.indexOf(false))\n                      it.onAction && it.onAction()\n                    }}\n                  >\n                    {on ? \"Deshacer\" : it.action || \"Hecho\"}\n                  </KeyButton>\n                </div>\n              ) : null}\n            </li>\n          )\n        })}\n      </ul>\n    </div>\n  )\n}\n\n/* ---------- PromptBox: caja de prompt para IA ---------- */\n"
+  }
+ ],
+ "docs": "# Checklist\n\nLista de puesta en marcha: contador `n / total` con puntos, y cada paso desplegable con su explicación y su acción. Al marcar uno, se abre el siguiente pendiente.\n\n- **Props**: `title`, `items` (`[{title, text, action, done, onAction}]`), `defaultOpen` (índice).\n- Para onboarding de producto. 3–7 pasos; el primero, el más fácil.\n"
+}

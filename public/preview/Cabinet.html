@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>Cabinet — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'440px'}},h(F.Cabinet,{defaultValue:1,drawers:[
+ {label:'Sesiones',meta:'48',tone:'surface',content:'Todas tus sesiones desde enero.'},
+ {label:'Pagos',meta:'12 €',tone:'sol',content:h(F.ListRow,{index:'03',title:'Fuerza 1:1',detail:'5 nov',value:'12 €'})},
+ {label:'Bonos',meta:'2',tone:'tabaco',content:'Bono 10 sesiones · quedan 4.'},
+ {label:'Ajustes',tone:'surface',content:'Unidades, sonidos, notificaciones.'}]})));
+</script>
+</body>
+</html>

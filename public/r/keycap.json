@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "keycap",
+ "type": "registry:ui",
+ "title": "Keycap",
+ "description": "Tecla mecánica esculpida, como las de un macropad: falda más oscura, superficie clara con brillo arriba y hundimiento de 2 px al pulsar. Ocupa varias celdas de rejilla con w/h (la tecla + de dos altur",
+ "categories": [
+  "Botonera"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/keycap.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/keycap.tsx",
+   "content": "\"use client\"\n/* Frekvens · Keycap — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx, omit } from \"./lib\"\n\nimport type { KeycapProps } from \"./types\"\nexport type { KeycapProps }\n\n/* ---------- Keycap: tecla mecánica esculpida ---------- */\nexport function Keycap(props: KeycapProps): React.ReactElement\nexport function Keycap(p?: any): any {\n  var rest: any = omit(p, [\"tone\", \"w\", \"h\", \"sub\", \"className\", \"children\", \"legend\"])\n  return (\n    <button\n      {...Object.assign(\n        {\n          type: \"button\",\n        },\n        rest,\n        {\n          className: cx(\"frk-keycap\", \"frk-keycap--\" + (p.tone || \"paper\"), p.className),\n          style: Object.assign(\n            {\n              gridColumn: p.w > 1 ? \"span \" + p.w : undefined,\n              gridRow: p.h > 1 ? \"span \" + p.h : undefined,\n            },\n            p.style,\n          ),\n        },\n      )}\n    >\n      <span className=\"frk-keycap__top\">\n        <span className=\"frk-keycap__legend\">{p.children}</span>\n        {p.sub ? <span className=\"frk-keycap__sub\">{p.sub}</span> : null}\n      </span>\n    </button>\n  )\n}\n\n/* ---------- Calculator ---------- */\n"
+  }
+ ],
+ "docs": "# Keycap\n\nTecla mecánica esculpida, como las de un macropad: falda más oscura, superficie clara con brillo arriba y hundimiento de 2 px al pulsar. Ocupa varias celdas de rejilla con `w`/`h` (la tecla `+` de dos alturas, el `0` doble).\n\n- **Props**: todas las de `button` + `tone` (`paper` · `ink` · `rams` · `sol` · `klein`), `w`, `h`, `sub` (segunda leyenda).\n- Mínimo 56 × 56. Para acciones de interfaz, `KeyButton`: Keycap es para teclados y calculadoras.\n"
+}

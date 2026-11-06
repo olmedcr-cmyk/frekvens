@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "checkbox",
+ "type": "registry:ui",
+ "title": "Checkbox",
+ "description": "Casilla cuadrada de 32 px con ✓ que se rellena de ink. Admite estado mixto (−). Toda la fila (casilla + texto) es pulsable: 44 px de alto como mínimo.",
+ "categories": [
+  "Formularios"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/checkbox.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/checkbox.tsx",
+   "content": "\"use client\"\n/* Frekvens · Checkbox — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx } from \"./lib\"\n\nimport type { CheckboxProps } from \"./types\"\nexport type { CheckboxProps }\n\nconst { useId, useState }: any = React\n\n/* ---------- Checkbox ---------- */\nexport function Checkbox(props: CheckboxProps): React.ReactElement\nexport function Checkbox(p?: any): any {\n  var id: any = useId(),\n    st: any = useState(!!p.defaultChecked),\n    on: any = p.checked != null ? p.checked : st[0]\n  function toggle(): any {\n    if (p.disabled) return\n    var n: any = p.indeterminate ? true : !on\n    if (p.checked == null) st[1](n)\n    p.onChange && p.onChange(n)\n  }\n  return (\n    <label\n      className={cx(\n        \"frk-check\",\n        on && \"is-on\",\n        p.indeterminate && \"is-mixed\",\n        p.disabled && \"is-disabled\",\n        p.className,\n      )}\n      htmlFor={id}\n    >\n      <button\n        id={id}\n        type=\"button\"\n        role=\"checkbox\"\n        aria-label={p.ariaLabel}\n        aria-checked={p.indeterminate ? \"mixed\" : on}\n        disabled={p.disabled}\n        className=\"frk-check__box\"\n        onClick={toggle}\n        aria-describedby={p.hint ? id + \"h\" : undefined}\n      >\n        <Icon name={p.indeterminate ? \"minus\" : \"check\"} size={20} strokeWidth={2.6} />\n      </button>\n      <span className=\"frk-check__text\">\n        <span className=\"frk-check__label\">{p.label || p.children}</span>\n        {p.hint ? (\n          <span id={id + \"h\"} className=\"frk-check__hint\">\n            {p.hint}\n          </span>\n        ) : null}\n      </span>\n    </label>\n  )\n}\n\n/* ---------- RadioGroup: aro → disco ---------- */\n"
+  }
+ ],
+ "docs": "# Checkbox\n\nCasilla cuadrada de 32 px con ✓ que se rellena de `ink`. Admite estado mixto (−). Toda la fila (casilla + texto) es pulsable: 44 px de alto como mínimo.\n\n- **Props**: `label` (o `children`), `hint`, `checked`/`defaultChecked`, `onChange(bool)`, `indeterminate`, `disabled`.\n- Para opciones independientes y para aceptar condiciones. Si el cambio surte efecto al instante, usa `Switch`.\n"
+}

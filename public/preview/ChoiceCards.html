@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>ChoiceCards — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.ChoiceCards,{label:'Plan',defaultValue:'team',options:[{value:'solo',label:'Solo',price:'0 €',period:'/ mes',features:['1 sala','Reservas ilimitadas']},{value:'team',label:'Equipo',price:'29 €',period:'/ mes',badge:'Recomendado',features:['5 salas','Pagos','Agente de voz']},{value:'studio',label:'Estudio',price:'79 €',period:'/ mes',features:['Salas ilimitadas','API','Soporte 24 h']}]}));
+</script>
+</body>
+</html>

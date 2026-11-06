@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "dial",
+ "type": "registry:ui",
+ "title": "Dial",
+ "description": "Mando circular: disco ink, punto indicador en paper, aguja sol y marcas de paso alrededor. Se arrastra girando o con flechas del teclado.",
+ "categories": [
+  "Controles"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/dial.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/dial.tsx",
+   "content": "\"use client\"\n/* Frekvens · Dial — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { clamp, cx, range, useValue } from \"./lib\"\n\nimport type { DialProps } from \"./types\"\nexport type { DialProps }\n\nconst { useRef }: any = React\n\n/* ---------- Dial: black disc knob ---------- */\nexport function Dial(props: DialProps): React.ReactElement\nexport function Dial(p?: any): any {\n  var min: any = p.min || 0,\n    max: any = p.max == null ? 8 : p.max,\n    size: any = p.size || 160,\n    span: any = max - min || 1\n  var st: any = useValue(p, min),\n    v: any = st[0],\n    set: any = function (n?: any): any {\n      n = clamp(Math.round(n), min, max)\n      if (n !== v) st[1](n)\n    }\n  var ref: any = useRef(null)\n  var ang: any = ((-135 + ((v - min) / span) * 270) * Math.PI) / 180\n  function fromEvent(e?: any): any {\n    var r: any = ref.current.getBoundingClientRect()\n    var a: any =\n      (Math.atan2(e.clientX - (r.left + r.width / 2), -(e.clientY - (r.top + r.height / 2))) * 180) / Math.PI\n    set(min + ((clamp(a, -135, 135) + 135) / 270) * span)\n  }\n  function key(e?: any): any {\n    var k: any = e.key\n    if (k === \"ArrowUp\" || k === \"ArrowRight\") {\n      set(v + 1)\n      e.preventDefault()\n    } else if (k === \"ArrowDown\" || k === \"ArrowLeft\") {\n      set(v - 1)\n      e.preventDefault()\n    } else if (k === \"Home\") {\n      set(min)\n      e.preventDefault()\n    } else if (k === \"End\") {\n      set(max)\n      e.preventDefault()\n    }\n  }\n  var ticks: any = range(max - min + 1).map(function (i?: any): any {\n    var a: any = ((-135 + (i / span) * 270) * Math.PI) / 180\n    return (\n      <circle\n        key={i}\n        cx={50 + 47 * Math.sin(a)}\n        cy={50 - 47 * Math.cos(a)}\n        r={1.5}\n        className={cx(\"frk-dial__tick\", i <= v - min && \"is-on\")}\n      />\n    )\n  })\n  return (\n    <div\n      className={cx(\"frk-dial\", \"frk-dial--\" + (p.tone || \"ink\"), p.className)}\n      style={{\n        width: size,\n      }}\n    >\n      <div\n        ref={ref}\n        className=\"frk-dial__knob\"\n        role=\"slider\"\n        tabIndex={0}\n        aria-label={p.label || \"Dial\"}\n        aria-valuemin={min}\n        aria-valuemax={max}\n        aria-valuenow={v}\n        onPointerDown={function (e?: any): any {\n          e.currentTarget.setPointerCapture(e.pointerId)\n          fromEvent(e)\n        }}\n        onPointerMove={function (e?: any): any {\n          if (e.buttons) fromEvent(e)\n        }}\n        onKeyDown={key}\n        style={{\n          width: size,\n          height: size,\n        }}\n      >\n        <svg viewBox=\"0 0 100 100\" width={size} height={size} aria-hidden={true}>\n          {ticks}\n          <circle cx={50} cy={50} r={41} className=\"frk-dial__disc\" />\n          <line\n            x1={50 + 4 * Math.sin(ang + 2.4)}\n            y1={50 - 4 * Math.cos(ang + 2.4)}\n            x2={50 + 14 * Math.sin(ang + 0.5)}\n            y2={50 - 14 * Math.cos(ang + 0.5)}\n            className=\"frk-dial__needle\"\n          />\n          <circle\n            cx={50 + 30 * Math.sin(ang)}\n            cy={50 - 30 * Math.cos(ang)}\n            r={4.2}\n            className=\"frk-dial__dot\"\n          />\n        </svg>\n      </div>\n      {p.label ? <div className=\"frk-dial__label\">{p.label + \":\" + v}</div> : null}\n    </div>\n  )\n}\n\n/* ---------- Gauge: arc instrument ---------- */\n"
+  }
+ ],
+ "docs": "# Dial\n\nMando circular: disco `ink`, punto indicador en `paper`, aguja `sol` y marcas de paso alrededor. Se arrastra girando o con flechas del teclado.\n\n- **Props**: `value`/`defaultValue`, `onChange(n)`, `min` (0), `max` (8), `size` (160 px), `tone` (`ink` · `klein` · `tabaco`), `label` (mono, se muestra como `PWR:4`).\n- Para valores discretos y pocos (≤ 12 pasos): intensidad, modo, nivel. Para rangos continuos usa `Slider`.\n- En rejilla de 2×2 con `space-6` de separación como panel de mandos. La etiqueta siempre debajo, nunca dentro del disco.\n"
+}

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Formularios" height=520 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>FileDrop — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'480px'}},h(F.FileDrop,{files:[{name:'tarifas-2026.csv',size:182000,progress:42},{name:'foto-sala-2.jpg',size:2400000,progress:100},{name:'contrato.pdf',size:820000,progress:100,error:'Supera 50 MB'}]})));
+</script>
+</body>
+</html>

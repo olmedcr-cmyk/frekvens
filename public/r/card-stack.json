@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "card-stack",
+ "type": "registry:ui",
+ "title": "CardStack",
+ "description": "Cartas de color apiladas que se solapan un radio: al tocar una, crece con frenada larga (dur-grow, ease-arrive) y muestra su título y su número. Listas cortas con personalidad: rutinas, playlists, cat",
+ "categories": [
+  "Superficies"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/card-stack.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/card-stack.tsx",
+   "content": "\"use client\"\n/* Frekvens · CardStack — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx, useValue } from \"./lib\"\n\nimport type { CardStackProps } from \"./types\"\nexport type { CardStackProps }\n\n/* ---------- CardStack: overlapping coloured cards ---------- */\nexport function CardStack(props: CardStackProps): React.ReactElement\nexport function CardStack(p?: any): any {\n  var items: any = p.items || []\n  var st: any = useValue(p, p.defaultValue != null ? p.defaultValue : 0),\n    v: any = st[0]\n  return (\n    <div className={cx(\"frk-stack\", p.className)} role=\"list\">\n      {items.map(function (it?: any, i?: any): any {\n        var on: any = i === v\n        return (\n          <div\n            key={i}\n            role=\"listitem\"\n            className=\"frk-stack__item\"\n            style={{\n              zIndex: i + 1,\n            }}\n          >\n            <button\n              type=\"button\"\n              className={cx(\"frk-stack__card\", \"frk-tone--\" + (it.tone || \"surface\"), on && \"is-open\")}\n              aria-expanded={on}\n              onClick={function (): any {\n                st[1](i)\n              }}\n            >\n              <span className=\"frk-stack__top\">\n                <span className=\"frk-stack__badge\">{it.badge}</span>\n                {it.icon ? (\n                  <span className=\"frk-stack__badge\">\n                    <Icon name={it.icon} size={20} />\n                  </span>\n                ) : null}\n              </span>\n              <span className=\"frk-stack__bottom\">\n                <span className=\"frk-stack__title\">\n                  {it.title}\n                  {it.subtitle ? <span className=\"frk-stack__sub\">{it.subtitle}</span> : null}\n                </span>\n                {it.value != null ? <span className=\"frk-stack__value\">{it.value}</span> : null}\n              </span>\n            </button>\n          </div>\n        )\n      })}\n    </div>\n  )\n}\n\n/* ---------- LED: indicator light ---------- */\n"
+  }
+ ],
+ "docs": "# CardStack\n\nCartas de color apiladas que se solapan un radio: al tocar una, crece con frenada larga (`dur-grow`, `ease-arrive`) y muestra su título y su número. Listas cortas con personalidad: rutinas, playlists, categorías.\n\n- **Props**: `items` (`[{badge, icon, title, subtitle, value, tone}]`), `value`/`defaultValue` (índice abierto), `onChange(i)`.\n- 3–5 cartas, cada una de un tono distinto (`klein-soft`, `sol`, `rams`, `verde`, `lavanda`…). La última no se solapa con nada.\n- La insignia es redonda con borde discontinuo: letra, número o icono.\n"
+}

@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "pager",
+ "type": "registry:ui",
+ "title": "Pager",
+ "description": "Carrusel horizontal con scroll-snap, botones redondos de anterior/siguiente y puntos de posición (el activo se alarga en píldora). Funciona con el dedo, con los botones y con ← →.",
+ "categories": [
+  "Superficies"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/pager.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/pager.tsx",
+   "content": "\"use client\"\n/* Frekvens · Pager — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { clamp, cx, reduced } from \"./lib\"\n\nimport type { PagerProps } from \"./types\"\nexport type { PagerProps }\n\nconst R: any = React\nconst { useRef, useState }: any = React\n\n/* ---------- Pager: carrusel con botones de scroll y puntos ---------- */\nexport function Pager(props: PagerProps): React.ReactElement\nexport function Pager(p?: any): any {\n  var kids: any = R.Children.toArray(p.children),\n    track: any = useRef(null)\n  var s: any = useState(0),\n    idx: any = s[0],\n    setIdx: any = s[1]\n  function onScroll(): any {\n    var el: any = track.current\n    if (!el || !el.firstChild) return\n    var w: any = el.firstChild.offsetWidth + (p.gap || 8)\n    setIdx(clamp(Math.round(el.scrollLeft / w), 0, kids.length - 1))\n  }\n  function go(i?: any): any {\n    var el: any = track.current\n    if (!el) return\n    i = clamp(i, 0, kids.length - 1)\n    var c: any = el.children[i]\n    c &&\n      el.scrollTo({\n        left: c.offsetLeft - el.offsetLeft,\n        behavior: reduced() ? \"auto\" : \"smooth\",\n      })\n  }\n  return (\n    <div\n      className={cx(\"frk-pager\", p.className)}\n      role=\"region\"\n      aria-roledescription=\"carrusel\"\n      aria-label={p.label}\n    >\n      <div\n        ref={track}\n        className=\"frk-pager__track\"\n        style={{\n          gap: p.gap || 8,\n        }}\n        onScroll={onScroll}\n        tabIndex={0}\n        onKeyDown={function (e?: any): any {\n          if (e.key === \"ArrowRight\") {\n            e.preventDefault()\n            go(idx + 1)\n          }\n          if (e.key === \"ArrowLeft\") {\n            e.preventDefault()\n            go(idx - 1)\n          }\n        }}\n      >\n        {kids.map(function (k?: any, i?: any): any {\n          return (\n            <div\n              key={i}\n              className=\"frk-pager__slide\"\n              style={{\n                flexBasis: p.itemWidth || \"85%\",\n              }}\n              aria-roledescription=\"diapositiva\"\n              aria-label={i + 1 + \" de \" + kids.length}\n            >\n              {k}\n            </div>\n          )\n        })}\n      </div>\n      <div className=\"frk-pager__bar\">\n        <div className=\"frk-pager__dots\" aria-hidden={true}>\n          {kids.map(function (_?: any, i?: any): any {\n            return <span key={i} className={cx(i === idx && \"is-on\")} />\n          })}\n        </div>\n        <div className=\"frk-pager__btns\">\n          <button\n            type=\"button\"\n            className=\"frk-key frk-tone--well frk-key--s frk-key--round\"\n            aria-label=\"Anterior\"\n            disabled={idx === 0}\n            onClick={function (): any {\n              go(idx - 1)\n            }}\n          >\n            <span className=\"frk-key__main\">\n              <Icon name=\"arrow-left\" size={20} />\n            </span>\n          </button>\n          <button\n            type=\"button\"\n            className=\"frk-key frk-tone--ink frk-key--s frk-key--round\"\n            aria-label=\"Siguiente\"\n            disabled={idx === kids.length - 1}\n            onClick={function (): any {\n              go(idx + 1)\n            }}\n          >\n            <span className=\"frk-key__main\">\n              <Icon name=\"arrow-right\" size={20} />\n            </span>\n          </button>\n        </div>\n      </div>\n    </div>\n  )\n}\n\n/* ---------- Wheel: rueda selectora con scroll-snap ---------- */\n"
+  }
+ ],
+ "docs": "# Pager\n\nCarrusel horizontal con scroll-snap, botones redondos de anterior/siguiente y puntos de posición (el activo se alarga en píldora). Funciona con el dedo, con los botones y con ← →.\n\n- **Props**: `children` (una diapositiva cada uno), `itemWidth` (`'85%'`, deja asomar la siguiente), `gap` (8), `label`.\n- Para onboarding, tarjetas de rutina o galerías. Nunca autoavance.\n"
+}

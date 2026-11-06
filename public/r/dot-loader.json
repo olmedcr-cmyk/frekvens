@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "dot-loader",
+ "type": "registry:ui",
+ "title": "DotLoader",
+ "description": "Puntos que laten mientras algo piensa o carga: fila de tres (row) o rejilla 3×3 en onda diagonal (grid). Hereda el color del texto.",
+ "categories": [
+  "Conversación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/dot-loader.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/dot-loader.tsx",
+   "content": "\"use client\"\n/* Frekvens · DotLoader — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx, range } from \"./lib\"\n\nimport type { DotLoaderProps } from \"./types\"\nexport type { DotLoaderProps }\n\n/* ---------- DotLoader: pensando ---------- */\nexport function DotLoader(props: DotLoaderProps): React.ReactElement\nexport function DotLoader(p?: any): any {\n  var v: any = p.variant || \"row\",\n    n: any = v === \"grid\" ? 9 : 3\n  return (\n    <span className={cx(\"frk-loader\", \"frk-loader--\" + v, p.className)} role=\"status\">\n      {range(n).map(function (i?: any): any {\n        return (\n          <span\n            key={i}\n            style={{\n              animationDelay: (v === \"grid\" ? ((i % 3) + Math.floor(i / 3)) * 90 : i * 140) + \"ms\",\n            }}\n          />\n        )\n      })}\n      <span className=\"frk-sr\">{p.label || \"Pensando\"}</span>\n    </span>\n  )\n}\n\n/* ---------- VoiceOrb: orbe de puntos para voz ---------- */\n"
+  }
+ ],
+ "docs": "# DotLoader\n\nPuntos que laten mientras algo piensa o carga: fila de tres (`row`) o rejilla 3×3 en onda diagonal (`grid`). Hereda el color del texto.\n\n- **Props**: `variant` (`row` · `grid`), `label` (texto para lectores, \"Pensando\").\n- Si la espera pasa de ~3 s, añade al lado qué está pasando (\"Buscando huecos…\").\n"
+}

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>Select — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'frk-row-flex',style:{gap:'16px',alignItems:'flex-start'}},
+ h(F.Select,{label:'Modalidad',defaultOpen:true,defaultValue:'grupo',options:[{value:'grupo',label:'Grupo',meta:'12 PLAZAS'},{value:'solo',label:'Solo',meta:'1:1'},{value:'online',label:'Online',meta:'EN VIVO'},{value:'pausa',label:'Pausada',disabled:true}]}),
+ h(F.Select,{label:'Duración',placeholder:'Elige minutos',options:['20 min','30 min','45 min','60 min'],hint:'Puedes cambiarla luego.'})));
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Botonera" height=200 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>SlideToStart — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'12px',maxWidth:'380px'}},h(F.SlideToStart,{label:'Empezar entreno'}),h(F.SlideToStart,{tone:'klein',label:'Pagar 12 €',icon:'arrow-right'},'Desliza para pagar 12 €')));
+</script>
+</body>
+</html>

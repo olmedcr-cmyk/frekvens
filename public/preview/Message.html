@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>Message — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'20px',maxWidth:'480px'}},
+ h(F.Message,{role:'system'},'Hoy · 18:02'),
+ h(F.Message,{role:'user'},'¿Tengo hueco mañana para fuerza?'),
+ h(F.Message,{role:'assistant',meta:'18:02',onCopy:function(){},onRetry:function(){},ui:{type:'Grid',props:{columns:2},children:[{type:'Tile',props:{tone:'sol',title:'07:30',subtitle:'Sala 2',height:120}},{type:'Tile',props:{title:'18:00',subtitle:'Sala 1',height:120}}]}},'Sí, dos. ¿Cuál te reservo?'),
+ h(F.Message,{role:'assistant',streaming:true},'Reservando la de las 18:00')));
+</script>
+</body>
+</html>

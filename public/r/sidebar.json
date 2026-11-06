@@ -1,0 +1,25 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "sidebar",
+ "type": "registry:ui",
+ "title": "Sidebar",
+ "description": "Barra lateral para iPad y escritorio: secciones con etiqueta mono, elementos con icono y contador (en rec si es una alerta), el activo en ink. Se contrae a una tira de iconos de 76 px.",
+ "categories": [
+  "Navegación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json",
+  "https://frekvens.vercel.app/r/badge.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/sidebar.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/sidebar.tsx",
+   "content": "\"use client\"\n/* Frekvens · Sidebar — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Badge } from \"./badge\"\nimport { Icon } from \"./icon\"\nimport { cx, useValue } from \"./lib\"\n\nimport type { SidebarProps } from \"./types\"\nexport type { SidebarProps }\n\nconst { useState }: any = React\n\n/* ---------- Sidebar: navegación de escritorio/iPad ---------- */\nexport function Sidebar(props: SidebarProps): React.ReactElement\nexport function Sidebar(p?: any): any {\n  var st: any = useValue(\n      p,\n      p.sections && p.sections[0] && p.sections[0].items[0] && p.sections[0].items[0].id,\n    ),\n    v: any = st[0]\n  var c: any = useState(!!p.defaultCollapsed),\n    col: any = p.collapsed != null ? p.collapsed : c[0]\n  return (\n    <nav\n      className={cx(\"frk-side\", col && \"is-collapsed\", \"frk-tone--\" + (p.tone || \"surface\"), p.className)}\n      aria-label={p.label || \"Secciones\"}\n    >\n      <div className=\"frk-side__head\">\n        {col ? null : p.header}\n        <button\n          type=\"button\"\n          className=\"frk-side__toggle\"\n          aria-label={col ? \"Expandir barra lateral\" : \"Contraer barra lateral\"}\n          aria-expanded={!col}\n          onClick={function (): any {\n            c[1](!col)\n            p.onCollapse && p.onCollapse(!col)\n          }}\n        >\n          <Icon name={col ? \"arrow-right\" : \"arrow-left\"} size={18} />\n        </button>\n      </div>\n      {(p.sections || []).map(function (sec?: any, si?: any): any {\n        return (\n          <div key={si} className=\"frk-side__sec\">\n            {sec.label && !col ? <span className=\"frk-side__label\">{sec.label}</span> : null}\n            <ul>\n              {sec.items.map(function (it?: any): any {\n                var on: any = it.id === v\n                return (\n                  <li key={it.id}>\n                    <button\n                      type=\"button\"\n                      className={cx(\"frk-side__item\", on && \"is-on\")}\n                      aria-current={on ? \"page\" : undefined}\n                      aria-label={col ? it.label : undefined}\n                      title={col ? it.label : undefined}\n                      onClick={function (): any {\n                        st[1](it.id)\n                      }}\n                    >\n                      <Badge dot={col && !!it.count} tone={it.alert ? \"rec\" : \"rams\"}>\n                        <Icon name={it.icon || \"dots\"} size={20} />\n                      </Badge>\n                      {col ? null : <span className=\"frk-side__text\">{it.label}</span>}\n                      {!col && it.count != null ? (\n                        <span className={cx(\"frk-side__count\", it.alert && \"is-alert\")}>{it.count}</span>\n                      ) : null}\n                    </button>\n                  </li>\n                )\n              })}\n            </ul>\n          </div>\n        )\n      })}\n      {p.footer && !col ? <div className=\"frk-side__foot\">{p.footer}</div> : null}\n    </nav>\n  )\n}\n\n/* ---------- DataTable ---------- */\n"
+  }
+ ],
+ "docs": "# Sidebar\n\nBarra lateral para iPad y escritorio: secciones con etiqueta mono, elementos con icono y contador (en `rec` si es una alerta), el activo en `ink`. Se contrae a una tira de iconos de 76 px.\n\n- **Props**: `sections` (`[{label, items:[{id, label, icon, count, alert}]}]`), `value`/`defaultValue`, `onChange(id)`, `collapsed`/`defaultCollapsed`, `onCollapse(bool)`, `header`, `footer`, `tone` (`surface`), `label`.\n- Contraída, cada icono conserva su nombre accesible y su título; los contadores pasan a punto.\n"
+}

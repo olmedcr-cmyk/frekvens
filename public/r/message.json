@@ -1,0 +1,27 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "message",
+ "type": "registry:ui",
+ "title": "Message",
+ "description": "Un turno de conversación. **Usuario**: bocadillo ink a la derecha. **Asistente**: sin bocadillo, texto a la izquierda con un avatar redondo que usa el lenguaje de estados (puntos mientras escribe, dis",
+ "categories": [
+  "Conversación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/state-mark.json",
+  "https://frekvens.vercel.app/r/dot-loader.json",
+  "https://frekvens.vercel.app/r/render.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/message.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/message.tsx",
+   "content": "\"use client\"\n/* Frekvens · Message — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { DotLoader } from \"./dot-loader\"\nimport { Icon } from \"./icon\"\nimport { Render } from \"./render\"\nimport { StateMark } from \"./state-mark\"\nimport { cx } from \"./lib\"\n\nimport type { MessageProps } from \"./types\"\nexport type { MessageProps }\n\n/* ---------- Message: turno de conversación ---------- */\nexport function Message(props: MessageProps): React.ReactElement\nexport function Message(p?: any): any {\n  var role: any = p.role || \"assistant\"\n  return (\n    <div className={cx(\"frk-msg\", \"frk-msg--\" + role, p.className)}>\n      {role === \"assistant\" ? (\n        <span className=\"frk-msg__avatar\" aria-hidden={true}>\n          <StateMark state={p.streaming ? \"partial\" : \"full\"} size={16} />\n        </span>\n      ) : null}\n      <div className=\"frk-msg__body\">\n        {p.name ? <span className=\"frk-msg__name\">{p.name}</span> : null}\n        {p.thinking ? (\n          <DotLoader label=\"Pensando\" />\n        ) : (\n          <div className=\"frk-msg__text\">\n            {p.children}\n            {p.streaming ? <span className=\"frk-msg__caret\" aria-hidden={true} /> : null}\n          </div>\n        )}\n        {p.ui ? (\n          <div className=\"frk-msg__ui\">\n            <Render spec={p.ui} actions={p.actions} />\n          </div>\n        ) : null}\n        {p.meta || p.onCopy || p.onRetry ? (\n          <div className=\"frk-msg__meta\">\n            {p.meta ? <span>{p.meta}</span> : null}\n            {p.onCopy ? (\n              <button type=\"button\" className=\"frk-msg__act\" aria-label=\"Copiar\" onClick={p.onCopy}>\n                <Icon name=\"copy\" size={16} />\n              </button>\n            ) : null}\n            {p.onRetry ? (\n              <button type=\"button\" className=\"frk-msg__act\" aria-label=\"Reintentar\" onClick={p.onRetry}>\n                <Icon name=\"refresh\" size={16} />\n              </button>\n            ) : null}\n          </div>\n        ) : null}\n      </div>\n    </div>\n  )\n}\n\n/* ---------- Suggestions: respuestas sugeridas ---------- */\n"
+  }
+ ],
+ "docs": "# Message\n\nUn turno de conversación. **Usuario**: bocadillo `ink` a la derecha. **Asistente**: sin bocadillo, texto a la izquierda con un avatar redondo que usa el lenguaje de estados (puntos mientras escribe, disco al terminar). **Sistema**: línea mono centrada.\n\n- **Props**: `role` (`user` · `assistant` · `system`), `children` (texto), `streaming` (punto `rams` parpadeando al final), `thinking` (muestra `DotLoader` en vez de texto), `ui` (spec JSON: incrusta UI generada con `Render`), `actions` (para esa UI), `name`, `meta` (hora, modelo), `onCopy`, `onRetry`.\n- El texto del asistente es `body` a 17/25: se lee, no se escanea. La UI incrustada va debajo del texto, nunca en lugar de la respuesta.\n"
+}

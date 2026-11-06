@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "segmented",
+ "type": "registry:ui",
+ "title": "Segmented",
+ "description": "Selector en píldora ink: la opción elegida es una **pieza paper que viaja** de una opción a otra con ease-spring (380 ms) y se encoge un 3 % mientras pulsas. El Home | 🔒 de Nothing. 2–4 opciones.",
+ "categories": [
+  "Controles"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/segmented.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/segmented.tsx",
+   "content": "\"use client\"\n/* Frekvens · Segmented — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx, useFollow, useIsoLayout, useValue } from \"./lib\"\n\nimport type { SegmentedProps } from \"./types\"\nexport type { SegmentedProps }\n\nconst { useRef, useState }: any = React\n\n/* ---------- Segmented: pill toggle con disco que viaja ---------- */\nexport function Segmented(props: SegmentedProps): React.ReactElement\nexport function Segmented(p?: any): any {\n  var opts: any = (p.options || []).map(function (o?: any): any {\n    return typeof o === \"string\"\n      ? {\n          value: o,\n          label: o,\n        }\n      : o\n  })\n  var st: any = useValue(p, opts[0] && opts[0].value),\n    v: any = st[0],\n    box: any = useRef(null),\n    th: any = useState(null),\n    thumb: any = th[0],\n    setThumb: any = th[1],\n    first: any = useRef(true)\n  var fref: any = useFollow(thumb)\n  useIsoLayout(\n    function (): any {\n      var el: any = box.current\n      if (!el) return\n      function m(): any {\n        var on: any = el.querySelector('[aria-checked=\"true\"]')\n        if (on)\n          setThumb({\n            x: on.offsetLeft,\n            w: on.offsetWidth,\n            h: on.offsetHeight,\n            y: on.offsetTop,\n          })\n      }\n      m()\n      var ro: any = window.ResizeObserver ? new ResizeObserver(m) : null\n      ro && ro.observe(el)\n      return function (): any {\n        ro && ro.disconnect()\n      }\n    },\n    [v, opts.length],\n  )\n  function key(e?: any): any {\n    var i: any = 0\n    opts.forEach(function (o?: any, k?: any): any {\n      if (o.value === v) i = k\n    })\n    var d: any = (\n      {\n        ArrowRight: 1,\n        ArrowDown: 1,\n        ArrowLeft: -1,\n        ArrowUp: -1,\n      } as any\n    )[e.key]\n    if (!d) return\n    e.preventDefault()\n    var n: any = (i + d + opts.length) % opts.length\n    st[1](opts[n].value)\n    var bs: any = box.current.querySelectorAll(\"[role=radio]\")\n    bs[n] && bs[n].focus()\n  }\n  return (\n    <div\n      ref={box}\n      className={cx(\"frk-seg\", thumb && \"has-thumb\", p.className)}\n      role=\"radiogroup\"\n      aria-label={p.label}\n      onKeyDown={key}\n    >\n      {thumb ? <span ref={fref} className=\"frk-seg__thumb\" aria-hidden={true} /> : null}\n      {opts.map(function (o?: any): any {\n        var sel: any = o.value === v\n        return (\n          <button\n            key={o.value}\n            type=\"button\"\n            role=\"radio\"\n            tabIndex={sel ? 0 : -1}\n            aria-checked={sel}\n            aria-label={o.ariaLabel}\n            className={cx(\"frk-seg__opt\", sel && \"is-on\")}\n            onClick={function (): any {\n              st[1](o.value)\n            }}\n          >\n            {o.icon ? <Icon name={o.icon} size={18} /> : null}\n            {o.label ? <span>{o.label}</span> : null}\n          </button>\n        )\n      })}\n    </div>\n  )\n}\n\n/* ---------- DotMatrix: glyphs & shapes in dots ---------- */\n"
+  }
+ ],
+ "docs": "# Segmented\n\nSelector en píldora `ink`: la opción elegida es una **pieza `paper` que viaja** de una opción a otra con `ease-spring` (380 ms) y se encoge un 3 % mientras pulsas. El `Home | 🔒` de Nothing. 2–4 opciones.\n\n- **Props**: `options` (strings o `{value,label,icon,ariaLabel}`), `value`/`defaultValue`, `onChange(v)`, `label`.\n- Teclado: flechas para cambiar (patrón radiogroup, un solo punto de tabulación).\n- Navegación principal flotante al pie (centrada, `space-5` sobre el borde) o filtro de vista. Opciones solo-icono necesitan `ariaLabel`.\n"
+}

@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "volume-wheel",
+ "type": "registry:ui",
+ "title": "VolumeWheel",
+ "description": "Rueda lateral estriada, como la rueda de scroll de un dispositivo de bolsillo: se gira con la rueda del ratón, arrastrando arriba/abajo o con las flechas, y sus estrías se desplazan al girar. Al lado,",
+ "categories": [
+  "Controles"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/volume-wheel.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/volume-wheel.tsx",
+   "content": "\"use client\"\n/* Frekvens · VolumeWheel — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { clamp, cx, range, useValue } from \"./lib\"\n\nimport type { VolumeWheelProps } from \"./types\"\nexport type { VolumeWheelProps }\n\nconst { useRef, useEffect }: any = React\n\n/* ---------- VolumeWheel: rueda lateral estriada (tipo Rabbit) ---------- */\nexport function VolumeWheel(props: VolumeWheelProps): React.ReactElement\nexport function VolumeWheel(p?: any): any {\n  var step: any = p.step || 5,\n    segs: any = p.segments || 16,\n    H: any = p.height || 240\n  var st: any = useValue(p, 50),\n    v: any = st[0],\n    drag: any = useRef(null)\n  function set(n?: any): any {\n    n = clamp(Math.round(n), 0, 100)\n    if (n !== v) st[1](n)\n  }\n  function wheel(e?: any): any {\n    e.preventDefault()\n    set(v + (e.deltaY < 0 ? step : -step))\n  }\n  var ref: any = useRef(null)\n  useEffect(function (): any {\n    var n: any = ref.current\n    if (!n) return\n    n.addEventListener(\"wheel\", wheel, {\n      passive: false,\n    })\n    return function (): any {\n      n.removeEventListener(\"wheel\", wheel)\n    }\n  })\n  function down(e?: any): any {\n    drag.current = {\n      y: e.clientY,\n      v: v,\n    }\n    e.currentTarget.setPointerCapture(e.pointerId)\n  }\n  function mv(e?: any): any {\n    if (drag.current) set(drag.current.v + (drag.current.y - e.clientY) / 2)\n  }\n  function key(e?: any): any {\n    var k: any = e.key\n    if (k === \"ArrowUp\" || k === \"ArrowRight\") {\n      e.preventDefault()\n      set(v + step)\n    } else if (k === \"ArrowDown\" || k === \"ArrowLeft\") {\n      e.preventDefault()\n      set(v - step)\n    } else if (k === \"Home\") set(0)\n    else if (k === \"End\") set(100)\n  }\n  var on: any = Math.round((v / 100) * segs),\n    shift: any = (v * 1.6) % 12\n  return (\n    <div\n      className={cx(\"frk-volume\", \"frk-volume--\" + (p.tone || \"rams\"), p.className)}\n      style={{\n        height: H,\n      }}\n    >\n      <div className=\"frk-volume__level\" aria-hidden={true}>\n        {range(segs).map(function (i?: any): any {\n          return <span key={i} className={cx(segs - 1 - i < on && \"is-on\")} />\n        })}\n      </div>\n      <div\n        ref={ref}\n        className=\"frk-volume__wheel\"\n        role=\"slider\"\n        tabIndex={0}\n        aria-orientation=\"vertical\"\n        aria-label={p.label || \"Volumen\"}\n        aria-valuemin={0}\n        aria-valuemax={100}\n        aria-valuenow={v}\n        aria-valuetext={v + \"%\"}\n        onPointerDown={down}\n        onPointerMove={mv}\n        onPointerUp={function (): any {\n          drag.current = null\n        }}\n        onPointerCancel={function (): any {\n          drag.current = null\n        }}\n        onKeyDown={key}\n      >\n        <div\n          className=\"frk-volume__ridges\"\n          style={{\n            transform: \"translateY(\" + -shift + \"px)\",\n          }}\n        />\n      </div>\n      <div className=\"frk-volume__read\">\n        <span className=\"frk-volume__num\">{v}</span>\n        <span className=\"frk-volume__unit\">{p.unitLabel || \"VOL\"}</span>\n      </div>\n    </div>\n  )\n}\n\n/* ---------- HoldButton: mantener para confirmar ---------- */\n"
+  }
+ ],
+ "docs": "# VolumeWheel\n\nRueda lateral estriada, como la rueda de scroll de un dispositivo de bolsillo: se gira con la rueda del ratón, arrastrando arriba/abajo o con las flechas, y sus estrías se desplazan al girar. Al lado, una columna de segmentos y el valor en puntos.\n\n- **Props**: `value`/`defaultValue` (0–100), `onChange(n)`, `step` (5), `segments` (16), `height` (240), `tone` (`rams` · `klein` · `ink`), `label`, `unitLabel` (`VOL`).\n- Úsala para volumen, intensidad o cualquier nivel que se ajusta \"sin mirar\". `role=\"slider\"` vertical.\n"
+}

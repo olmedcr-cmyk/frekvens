@@ -1,0 +1,12 @@
+<!-- @dsCard group="Formularios" height=520 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>NumPad — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.NumPad,{defaultValue:'24,5',hint:'Saldo disponible: 1.894,00 €',onSubmit:function(){},submitLabel:'Enviar a Marta'}));
+</script>
+</body>
+</html>

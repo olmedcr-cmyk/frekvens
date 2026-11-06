@@ -1,0 +1,869 @@
+{
+ "__lib": {
+  "deps": []
+ },
+ "KeyButton": {
+  "file": "key-button.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Keypad": {
+  "file": "keypad.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "HoldButton": {
+  "file": "hold-button.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "SlideToStart": {
+  "file": "slide-to-start.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Rocker": {
+  "file": "rocker.tsx",
+  "deps": [
+   "Icon",
+   "LED"
+  ],
+  "lib": true
+ },
+ "Icon": {
+  "file": "icon.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Dial": {
+  "file": "dial.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Gauge": {
+  "file": "gauge.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Slider": {
+  "file": "slider.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Switch": {
+  "file": "switch.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Segmented": {
+  "file": "segmented.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Stepper": {
+  "file": "stepper.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Wheel": {
+  "file": "wheel.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "VolumeWheel": {
+  "file": "volume-wheel.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Checkbox": {
+  "file": "checkbox.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "RadioGroup": {
+  "file": "radio-group.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Select": {
+  "file": "select.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Menu": {
+  "file": "menu.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Tabs": {
+  "file": "tabs.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "TextField": {
+  "file": "text-field.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Calendar": {
+  "file": "calendar.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Sheet": {
+  "file": "sheet.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Toast": {
+  "file": "toast.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Banner": {
+  "file": "banner.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Tooltip": {
+  "file": "tooltip.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Timer": {
+  "file": "timer.tsx",
+  "deps": [
+   "Stopwatch"
+  ],
+  "lib": true
+ },
+ "Stopwatch": {
+  "file": "stopwatch.tsx",
+  "deps": [
+   "Icon",
+   "Readout"
+  ],
+  "lib": true
+ },
+ "Hourglass": {
+  "file": "hourglass.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Pendulum": {
+  "file": "pendulum.tsx",
+  "deps": [
+   "Stepper",
+   "Stopwatch"
+  ],
+  "lib": true
+ },
+ "MediaPlayer": {
+  "file": "media-player.tsx",
+  "deps": [
+   "DotMatrix",
+   "Chip",
+   "Icon"
+  ],
+  "lib": true
+ },
+ "AudioTrack": {
+  "file": "audio-track.tsx",
+  "deps": [
+   "Icon",
+   "Chip"
+  ],
+  "lib": true
+ },
+ "Ticker": {
+  "file": "ticker.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "SplitFlap": {
+  "file": "split-flap.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "DotMatrix": {
+  "file": "dot-matrix.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "DotGrid": {
+  "file": "dot-grid.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "StateMark": {
+  "file": "state-mark.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Steps": {
+  "file": "steps.tsx",
+  "deps": [
+   "StateMark"
+  ],
+  "lib": true
+ },
+ "Grille": {
+  "file": "grille.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "LED": {
+  "file": "led.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "LevelBars": {
+  "file": "level-bars.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "BarMeter": {
+  "file": "bar-meter.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "LineChart": {
+  "file": "line-chart.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "ProgressRing": {
+  "file": "progress-ring.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Readout": {
+  "file": "readout.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Tile": {
+  "file": "tile.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Strip": {
+  "file": "strip.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "CardStack": {
+  "file": "card-stack.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Cabinet": {
+  "file": "cabinet.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Pager": {
+  "file": "pager.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Deck": {
+  "file": "deck.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "ListRow": {
+  "file": "list-row.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Chip": {
+  "file": "chip.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Badge": {
+  "file": "badge.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Avatar": {
+  "file": "avatar.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "TopBar": {
+  "file": "top-bar.tsx",
+  "deps": [
+   "Icon",
+   "Text"
+  ],
+  "lib": true
+ },
+ "TabBar": {
+  "file": "tab-bar.tsx",
+  "deps": [
+   "Badge",
+   "Icon"
+  ],
+  "lib": true
+ },
+ "EmptyState": {
+  "file": "empty-state.tsx",
+  "deps": [
+   "DotMatrix",
+   "KeyButton"
+  ],
+  "lib": true
+ },
+ "Skeleton": {
+  "file": "skeleton.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Message": {
+  "file": "message.tsx",
+  "deps": [
+   "StateMark",
+   "DotLoader",
+   "Render",
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Composer": {
+  "file": "composer.tsx",
+  "deps": [
+   "Suggestions",
+   "VoiceOrb",
+   "Icon",
+   "DotLoader"
+  ],
+  "lib": true
+ },
+ "Suggestions": {
+  "file": "suggestions.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "VoiceOrb": {
+  "file": "voice-orb.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "DotLoader": {
+  "file": "dot-loader.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "AgentWidget": {
+  "file": "agent-widget.tsx",
+  "deps": [
+   "Avatar",
+   "LED",
+   "Segmented",
+   "Icon",
+   "VoiceOrb",
+   "Message",
+   "EmptyState",
+   "Composer"
+  ],
+  "lib": true
+ },
+ "Render": {
+  "file": "render.tsx",
+  "deps": [
+   "KeyButton",
+   "Keypad",
+   "HoldButton",
+   "SlideToStart",
+   "Rocker",
+   "Icon",
+   "Dial",
+   "Gauge",
+   "Slider",
+   "Switch",
+   "Segmented",
+   "Stepper",
+   "Wheel",
+   "VolumeWheel",
+   "Checkbox",
+   "RadioGroup",
+   "Select",
+   "Menu",
+   "Tabs",
+   "TextField",
+   "Calendar",
+   "Sheet",
+   "Toast",
+   "Banner",
+   "Tooltip",
+   "Timer",
+   "Stopwatch",
+   "Hourglass",
+   "Pendulum",
+   "MediaPlayer",
+   "AudioTrack",
+   "Ticker",
+   "SplitFlap",
+   "DotMatrix",
+   "DotGrid",
+   "StateMark",
+   "Steps",
+   "Grille",
+   "LED",
+   "LevelBars",
+   "BarMeter",
+   "LineChart",
+   "ProgressRing",
+   "Readout",
+   "Tile",
+   "Strip",
+   "CardStack",
+   "Cabinet",
+   "Pager",
+   "Deck",
+   "ListRow",
+   "Chip",
+   "Badge",
+   "Avatar",
+   "TopBar",
+   "TabBar",
+   "EmptyState",
+   "Skeleton",
+   "Message",
+   "Composer",
+   "Suggestions",
+   "VoiceOrb",
+   "DotLoader",
+   "AgentWidget",
+   "Reveal",
+   "Stack",
+   "Grid",
+   "Text",
+   "ClickWheel",
+   "DiscCarousel",
+   "NumPad",
+   "Viewfinder",
+   "CaptureKey",
+   "Recorder",
+   "NoteEditor",
+   "Sidebar",
+   "DataTable",
+   "CommandBar",
+   "Notch",
+   "Viewport3D",
+   "Heatmap",
+   "SplitBar",
+   "Sparkline",
+   "HourStrip",
+   "PaymentCard",
+   "Dialog",
+   "FileDrop",
+   "ChoiceCards",
+   "Stat",
+   "UsageMeter",
+   "Timeline",
+   "Checklist",
+   "PromptBox",
+   "Clock",
+   "VUMeter",
+   "RotarySelector",
+   "Fader",
+   "Keycap",
+   "Calculator",
+   "PadGrid",
+   "TapeDeck",
+   "Board",
+   "Sortable",
+   "Blueprint",
+   "AreaChart",
+   "Scatter",
+   "RadarChart",
+   "DonutChart",
+   "Scope",
+   "VoicePosition",
+   "Beam",
+   "Aura",
+   "FlapBoard"
+  ],
+  "lib": true
+ },
+ "Reveal": {
+  "file": "reveal.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Stack": {
+  "file": "stack.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Grid": {
+  "file": "grid.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Text": {
+  "file": "text.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "ClickWheel": {
+  "file": "click-wheel.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "DiscCarousel": {
+  "file": "disc-carousel.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "NumPad": {
+  "file": "num-pad.tsx",
+  "deps": [
+   "Icon",
+   "KeyButton"
+  ],
+  "lib": true
+ },
+ "Viewfinder": {
+  "file": "viewfinder.tsx",
+  "deps": [
+   "DotMatrix",
+   "LED",
+   "Chip",
+   "Icon",
+   "Segmented"
+  ],
+  "lib": true
+ },
+ "CaptureKey": {
+  "file": "capture-key.tsx",
+  "deps": [
+   "VoiceOrb"
+  ],
+  "lib": true
+ },
+ "Recorder": {
+  "file": "recorder.tsx",
+  "deps": [
+   "LED",
+   "LevelBars",
+   "Keypad",
+   "AudioTrack"
+  ],
+  "lib": true
+ },
+ "NoteEditor": {
+  "file": "note-editor.tsx",
+  "deps": [
+   "StateMark",
+   "AudioTrack",
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Sidebar": {
+  "file": "sidebar.tsx",
+  "deps": [
+   "Icon",
+   "Badge"
+  ],
+  "lib": true
+ },
+ "DataTable": {
+  "file": "data-table.tsx",
+  "deps": [
+   "Chip",
+   "Sparkline",
+   "Avatar",
+   "EmptyState",
+   "Checkbox",
+   "Icon"
+  ],
+  "lib": true
+ },
+ "CommandBar": {
+  "file": "command-bar.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Notch": {
+  "file": "notch.tsx",
+  "deps": [
+   "VoiceOrb",
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Viewport3D": {
+  "file": "viewport-3d.tsx",
+  "deps": [
+   "Segmented"
+  ],
+  "lib": true
+ },
+ "Heatmap": {
+  "file": "heatmap.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "SplitBar": {
+  "file": "split-bar.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Sparkline": {
+  "file": "sparkline.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "HourStrip": {
+  "file": "hour-strip.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "PaymentCard": {
+  "file": "payment-card.tsx",
+  "deps": [
+   "LED"
+  ],
+  "lib": true
+ },
+ "Dialog": {
+  "file": "dialog.tsx",
+  "deps": [
+   "Icon",
+   "Steps",
+   "KeyButton"
+  ],
+  "lib": true
+ },
+ "FileDrop": {
+  "file": "file-drop.tsx",
+  "deps": [
+   "Icon",
+   "DotMatrix"
+  ],
+  "lib": true
+ },
+ "ChoiceCards": {
+  "file": "choice-cards.tsx",
+  "deps": [
+   "Chip",
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Stat": {
+  "file": "stat.tsx",
+  "deps": [
+   "Chip",
+   "Sparkline",
+   "Icon"
+  ],
+  "lib": true
+ },
+ "UsageMeter": {
+  "file": "usage-meter.tsx",
+  "deps": [
+   "SplitBar",
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Timeline": {
+  "file": "timeline.tsx",
+  "deps": [
+   "Avatar",
+   "StateMark"
+  ],
+  "lib": true
+ },
+ "Checklist": {
+  "file": "checklist.tsx",
+  "deps": [
+   "DotGrid",
+   "StateMark",
+   "Icon",
+   "KeyButton"
+  ],
+  "lib": true
+ },
+ "PromptBox": {
+  "file": "prompt-box.tsx",
+  "deps": [
+   "Icon",
+   "DotLoader",
+   "Suggestions"
+  ],
+  "lib": true
+ },
+ "Clock": {
+  "file": "clock.tsx",
+  "deps": [
+   "DotMatrix"
+  ],
+  "lib": true
+ },
+ "VUMeter": {
+  "file": "vu-meter.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "RotarySelector": {
+  "file": "rotary-selector.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Fader": {
+  "file": "fader.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Keycap": {
+  "file": "keycap.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Calculator": {
+  "file": "calculator.tsx",
+  "deps": [
+   "Keycap"
+  ],
+  "lib": true
+ },
+ "PadGrid": {
+  "file": "pad-grid.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "TapeDeck": {
+  "file": "tape-deck.tsx",
+  "deps": [
+   "Keypad"
+  ],
+  "lib": true
+ },
+ "Board": {
+  "file": "board.tsx",
+  "deps": [
+   "Icon",
+   "Chip",
+   "Avatar",
+   "StateMark"
+  ],
+  "lib": true
+ },
+ "Sortable": {
+  "file": "sortable.tsx",
+  "deps": [
+   "Board"
+  ],
+  "lib": false
+ },
+ "Blueprint": {
+  "file": "blueprint.tsx",
+  "deps": [
+   "Segmented",
+   "Icon"
+  ],
+  "lib": true
+ },
+ "AreaChart": {
+  "file": "area-chart.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Scatter": {
+  "file": "scatter.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "RadarChart": {
+  "file": "radar-chart.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "DonutChart": {
+  "file": "donut-chart.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Scope": {
+  "file": "scope.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "VoicePosition": {
+  "file": "voice-position.tsx",
+  "deps": [
+   "LED"
+  ],
+  "lib": true
+ },
+ "Beam": {
+  "file": "beam.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Aura": {
+  "file": "aura.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "FlapBoard": {
+  "file": "flap-board.tsx",
+  "deps": [
+   "SplitFlap"
+  ],
+  "lib": true
+ }
+}

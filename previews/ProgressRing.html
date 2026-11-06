@@ -1,0 +1,12 @@
+<!-- @dsCard group="Instrumentos" height=150 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>ProgressRing — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'frk-row-flex',style:{gap:'24px'}},h(F.ProgressRing,{value:75,label:'Leg day'}),h(F.ProgressRing,{value:40,tone:'klein',size:72,thickness:6,label:'Semana'}),h(F.ProgressRing,{value:100,tone:'verde',label:'Hecho'},h(F.Icon,{name:'check'}))));
+</script>
+</body>
+</html>

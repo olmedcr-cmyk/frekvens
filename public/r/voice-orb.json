@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "voice-orb",
+ "type": "registry:ui",
+ "title": "VoiceOrb",
+ "description": "Orbe de puntos para la voz: el estado de un agente de voz se lee en cómo se mueven los puntos. **En espera**: quietos y apagados. **Escuchando**: laten desde el centro según el nivel del micrófono. **",
+ "categories": [
+  "Conversación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/voice-orb.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/voice-orb.tsx",
+   "content": "\"use client\"\n/* Frekvens · VoiceOrb — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { clamp, cx, reduced } from \"./lib\"\n\nimport type { VoiceOrbProps } from \"./types\"\nexport type { VoiceOrbProps }\n\nconst { useState, useEffect }: any = React\n\n/* ---------- VoiceOrb: orbe de puntos para voz ---------- */\nexport function VoiceOrb(props: VoiceOrbProps): React.ReactElement\nexport function VoiceOrb(p?: any): any {\n  var size: any = p.size || 200,\n    n: any = p.grid || 15,\n    pitch: any = size / n,\n    state: any = p.state || \"idle\"\n  var s: any = useState(0),\n    t: any = s[0],\n    setT: any = s[1]\n  useEffect(\n    function (): any {\n      if (state === \"idle\" || reduced()) return\n      var raf: any\n      var t0: any = performance.now()\n      function tick(): any {\n        setT((performance.now() - t0) / 1000)\n        raf = requestAnimationFrame(tick)\n      }\n      raf = requestAnimationFrame(tick)\n      return function (): any {\n        cancelAnimationFrame(raf)\n      }\n    },\n    [state],\n  )\n  var lvl: any = p.level != null ? p.level : 0.5,\n    c: any = (n - 1) / 2,\n    dots: any = []\n  for (var y: any = 0; y < n; y++)\n    for (var x: any = 0; x < n; x++) {\n      var dx: any = x - c,\n        dy: any = y - c,\n        d: any = Math.sqrt(dx * dx + dy * dy)\n      if (d > c + 0.2) continue\n      var k: any = 0.35\n      if (state === \"listening\")\n        k = 0.35 + lvl * 0.55 * (0.6 + 0.4 * Math.sin(t * 9 + d * 0.9)) * (1 - d / (c + 1))\n      else if (state === \"speaking\") k = 0.3 + 0.5 * Math.max(0, Math.sin(d * 0.9 - t * 7)) * lvl * 1.4\n      else if (state === \"thinking\") {\n        var a: any = Math.atan2(dy, dx),\n          ph: any = (((a - t * 3) % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI)\n        k = 0.25 + (ph < 1.2 ? 0.45 * (1 - ph / 1.2) : 0) * (d / (c + 0.5))\n      }\n      dots.push(\n        <circle\n          key={x + \"-\" + y}\n          cx={x * pitch + pitch / 2}\n          cy={y * pitch + pitch / 2}\n          r={(clamp(k, 0.15, 0.95) * pitch) / 2}\n        />,\n      )\n    }\n  var names: any = {\n    idle: \"En espera\",\n    listening: \"Escuchando\",\n    thinking: \"Pensando\",\n    speaking: \"Hablando\",\n  }\n  return (\n    <div\n      className={cx(\"frk-orb\", \"frk-orb--\" + state, \"frk-orb--\" + (p.tone || \"ink\"), p.className)}\n      style={{\n        width: size,\n      }}\n    >\n      <svg\n        width={size}\n        height={size}\n        viewBox={\"0 0 \" + size + \" \" + size}\n        role=\"img\"\n        aria-label={p.label || names[state]}\n      >\n        {dots}\n      </svg>\n      {p.caption !== false ? (\n        <span className=\"frk-orb__caption\" aria-live=\"polite\">\n          {p.caption || names[state]}\n        </span>\n      ) : null}\n    </div>\n  )\n}\n\n/* ---------- Message: turno de conversación ---------- */\n"
+  }
+ ],
+ "docs": "# VoiceOrb\n\nOrbe de puntos para la voz: el estado de un agente de voz se lee en cómo se mueven los puntos. **En espera**: quietos y apagados. **Escuchando**: laten desde el centro según el nivel del micrófono. **Pensando**: un barrido gira como un radar. **Hablando**: ondas que salen hacia fuera.\n\n- **Props**: `state` (`idle` · `listening` · `thinking` · `speaking`), `level` (0–1, nivel de audio real si lo tienes), `size` (200), `grid` (15), `tone` (`ink` · `klein` · `rams` · `paper`), `caption` (texto bajo el orbe; `false` lo oculta), `label`.\n- El texto de estado se anuncia (`aria-live`). Con movimiento reducido, el orbe queda quieto y el estado se dice en texto.\n"
+}

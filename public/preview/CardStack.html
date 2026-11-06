@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>CardStack — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'380px'}},h(F.CardStack,{defaultValue:2,items:[
+ {badge:'A',icon:'arrow-up-right',title:'Fuerza',subtitle:'Tren superior',value:12,tone:'lavanda'},
+ {badge:'Q',icon:'arrow-right',title:'Movilidad',subtitle:'Cadera y hombro',value:20,tone:'malva'},
+ {badge:'7',icon:'arrow-right',title:'Tabata',subtitle:'8 × 20/10',value:4,tone:'rams'},
+ {badge:'S',icon:'arrow-right',title:'Cardio',subtitle:'Zona 2',value:45,tone:'verde'}]})));
+</script>
+</body>
+</html>

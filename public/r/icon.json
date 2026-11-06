@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "icon",
+ "type": "registry:ui",
+ "title": "Icon",
+ "description": "Iconos geométricos propios en rejilla de 24, trazo 2 px, terminaciones rectas, rellenos sólidos para transporte. Heredan currentColor.",
+ "categories": [
+  "Base"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/icon.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/icon.tsx",
+   "content": "\"use client\"\n/* Frekvens · Icon — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { ICONS, cx } from \"./lib\"\n\nimport type { IconProps } from \"./types\"\nexport type { IconProps }\n\nconst h: any = React.createElement\n\nexport function Icon(props: IconProps): React.ReactElement\nexport function Icon(p?: any): any {\n  var s: any = p.size || 24,\n    parts: any = ICONS[p.name] || []\n  return (\n    <svg\n      className={cx(\"frk-icon\", p.className)}\n      width={s}\n      height={s}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth={p.strokeWidth || 2}\n      strokeLinecap=\"square\"\n      strokeLinejoin=\"miter\"\n      aria-hidden={p.title ? undefined : true}\n      role={p.title ? \"img\" : undefined}\n      focusable=\"false\"\n    >\n      {p.title ? <title>{p.title}</title> : null}\n      {parts.map(function (x?: any, i?: any): any {\n        return h(\n          x[0],\n          Object.assign(\n            {\n              key: i,\n            },\n            x[1],\n          ),\n        )\n      })}\n    </svg>\n  )\n}\nIcon.names = Object.keys(ICONS)\n\n/* ---------- KeyButton ---------- */\n"
+  }
+ ],
+ "docs": "# Icon\n\nIconos geométricos propios en rejilla de 24, trazo 2 px, terminaciones rectas, rellenos sólidos para transporte. Heredan `currentColor`.\n\n- **Props**: `name` (ver `Frekvens.Icon.names`), `size` (24 por defecto; 28 en Keypad, 32–48 en teclas grandes), `title` (si el icono va solo y significa algo), `strokeWidth`.\n- Iconos de transporte (`play` `pause` `stop` `rec`) siempre rellenos; el resto, trazo. Nunca emoji.\n- Junto a un número o una palabra, el icono va delante y alineado al centro óptico.\n"
+}

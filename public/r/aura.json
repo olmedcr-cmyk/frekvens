@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "aura",
+ "type": "registry:ui",
+ "title": "Aura",
+ "description": "Disponible no es un puntito en la esquina: es un halo que respira alrededor de quien está. verde disponible, rec en directo (respira más rápido), sol ausente, klein la IA trabajando, rams ocupado. Des",
+ "categories": [
+  "Puntos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/aura.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/aura.tsx",
+   "content": "\"use client\"\n/* Frekvens · Aura — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { AURA, cx } from \"./lib\"\n\nimport type { AuraProps } from \"./types\"\nexport type { AuraProps }\n\nexport function Aura(props: AuraProps): React.ReactElement\nexport function Aura(p?: any): any {\n  var tone: any = AURA[p.status] || p.tone || \"verde\",\n    on: any = p.active !== false && p.status !== \"offline\"\n  return (\n    <span\n      className={cx(\n        \"frk-aura\",\n        \"frk-aura--\" + tone,\n        on && \"is-on\",\n        p.status === \"live\" && \"is-fast\",\n        p.shape === \"rect\" && \"frk-aura--rect\",\n        p.className,\n      )}\n      style={p.style}\n    >\n      {p.children}\n      {p.label ? <span className=\"frk-sr\">{\" · \" + p.label}</span> : null}\n    </span>\n  )\n}\n\n/* ---------- FlapBoard: panel de salidas con paletas ---------- */\n"
+  }
+ ],
+ "docs": "# Aura\n\nDisponible no es un puntito en la esquina: es un halo que respira alrededor de quien está. `verde` disponible, `rec` en directo (respira más rápido), `sol` ausente, `klein` la IA trabajando, `rams` ocupado. Desconectado: sin halo y en gris.\n\n- **Props**: `status` (`online` · `available` · `live` · `away` · `busy` · `ai` · `offline`) o `tone`, `active`, `shape` (`round` · `rect`), `label` (texto para lectores), `children`.\n- `Avatar` lo usa solo con `status`. Úsalo también en una tecla o una tarjeta que está lista para usarse (una sala libre, un agente conectado).\n- Un halo por zona. Con movimiento reducido el halo queda fijo: el estado se sigue viendo.\n"
+}

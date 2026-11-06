@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>Blueprint — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Blueprint,{height:540,nodes:[{id:'in',x:40,y:60,w:140,h:70,title:'Entrada',text:'phono · cd · usb'},{id:'pre',x:260,y:60,w:160,h:70,title:'Previo',text:'ganancia 0–40 dB',tone:'klein-soft'},{id:'amp',x:500,y:60,w:150,h:70,title:'Etapa de potencia',text:'2 × 60 W',tone:'sol'},{id:'vu',x:260,y:200,w:100,h:100,title:'VU',kind:'circle'},{id:'out',x:500,y:220,w:150,h:60,title:'Altavoces',text:'8 Ω',tone:'ink'}],edges:[{from:'in',to:'pre',label:'línea'},{from:'pre',to:'amp'},{from:'pre',to:'vu',label:'medida'},{from:'amp',to:'out',label:'speaker'}]}));
+</script>
+</body>
+</html>

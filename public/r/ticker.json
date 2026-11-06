@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "ticker",
+ "type": "registry:ui",
+ "title": "Ticker",
+ "description": "Cinta que corre en horizontal: noticias, marcadores, horarios, valores. Se pausa sola al pasar el puntero o al enfocarla, y lleva siempre su propia tecla de pausa (todo lo que se mueve más de 5 s debe",
+ "categories": [
+  "Medios"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/ticker.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/ticker.tsx",
+   "content": "\"use client\"\n/* Frekvens · Ticker — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx } from \"./lib\"\n\nimport type { TickerProps } from \"./types\"\nexport type { TickerProps }\n\nconst { useState }: any = React\n\n/* ---------- Ticker: cinta que corre (con pausa) ---------- */\nexport function Ticker(props: TickerProps): React.ReactElement\nexport function Ticker(p?: any): any {\n  var items: any = p.items || [],\n    s: any = useState(false),\n    paused: any = s[0],\n    setPaused: any = s[1]\n  var row: any = function (hidden?: any): any {\n    return (\n      <div className=\"frk-ticker__row\" aria-hidden={hidden || undefined}>\n        {items.map(function (it?: any, i?: any): any {\n          var o: any =\n              typeof it === \"string\"\n                ? {\n                    label: it,\n                  }\n                : it,\n            up: any = o.delta != null && String(o.delta).charAt(0) !== \"-\"\n          return (\n            <span key={i} className=\"frk-ticker__item\">\n              <span className=\"frk-ticker__label\">{o.label}</span>\n              {o.value != null ? <span className=\"frk-ticker__value\">{o.value}</span> : null}\n              {o.delta != null ? (\n                <span className={cx(\"frk-ticker__delta\", up ? \"is-up\" : \"is-down\")}>\n                  {(up ? \"▲ \" : \"▼ \") + String(o.delta).replace(\"-\", \"\")}\n                </span>\n              ) : null}\n              <span className=\"frk-ticker__sep\" aria-hidden={true}>\n                ●\n              </span>\n            </span>\n          )\n        })}\n      </div>\n    )\n  }\n  return (\n    <div\n      className={cx(\"frk-ticker\", \"frk-tone--\" + (p.tone || \"ink\"), paused && \"is-paused\", p.className)}\n      role=\"region\"\n      aria-label={p.label || \"Cinta de noticias\"}\n    >\n      <div className=\"frk-ticker__viewport\">\n        <div\n          className=\"frk-ticker__track\"\n          style={{\n            animationDuration: (p.speed || 30) + \"s\",\n          }}\n        >\n          {row(false)}\n          {row(true)}\n        </div>\n      </div>\n      <button\n        type=\"button\"\n        className=\"frk-ticker__pause\"\n        aria-label={paused ? \"Reanudar cinta\" : \"Pausar cinta\"}\n        aria-pressed={paused}\n        onClick={function (): any {\n          setPaused(!paused)\n        }}\n      >\n        <Icon name={paused ? \"play\" : \"pause\"} size={16} />\n      </button>\n    </div>\n  )\n}\n\n/* ---------- SplitFlap: panel de paletas ---------- */\n"
+  }
+ ],
+ "docs": "# Ticker\n\nCinta que corre en horizontal: noticias, marcadores, horarios, valores. Se pausa sola al pasar el puntero o al enfocarla, y lleva siempre su propia tecla de pausa (todo lo que se mueve más de 5 s debe poder pararse).\n\n- **Props**: `items` (strings o `{label, value, delta}`; `delta` negativo pinta ▼, positivo ▲ en negrita: la flecha lleva el significado, no el color), `speed` (segundos por vuelta, 30), `tone` (`ink`), `label`.\n- Con movimiento reducido no corre: se convierte en una fila desplazable. Una cinta por pantalla, nunca información crítica solo ahí.\n"
+}

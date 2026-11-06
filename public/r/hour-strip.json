@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "hour-strip",
+ "type": "registry:ui",
+ "title": "HourStrip",
+ "description": "Precio (o consumo) por horas del día: 24 barras en píldora coloreadas por tramo (barato verde, medio sol, caro rams), la hora actual marcada con aro y las pasadas atenuadas. Para luz, agua, gas o cual",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/hour-strip.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/hour-strip.tsx",
+   "content": "\"use client\"\n/* Frekvens · HourStrip — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx, pad } from \"./lib\"\n\nimport type { HourStripProps } from \"./types\"\nexport type { HourStripProps }\n\n/* ---------- HourStrip: precio por horas ---------- */\nexport function HourStrip(props: HourStripProps): React.ReactElement\nexport function HourStrip(p?: any): any {\n  var prices: any = p.prices || [],\n    now: any = p.now != null ? p.now : -1,\n    mn: any = Math.min.apply(null, prices),\n    mx: any = Math.max.apply(null, prices),\n    sp: any = mx - mn || 1\n  function band(v?: any): any {\n    var k: any = (v - mn) / sp\n    return k < 0.34 ? \"verde\" : k < 0.67 ? \"sol\" : \"rams\"\n  }\n  var cheap: any = prices\n    .map(function (v?: any, i?: any): any {\n      return [v, i]\n    })\n    .sort(function (a?: any, b?: any): any {\n      return a[0] - b[0]\n    })\n    .slice(0, 3)\n    .map(function (x?: any): any {\n      return pad(x[1]) + \"h\"\n    })\n    .join(\", \")\n  return (\n    <figure className={cx(\"frk-hours\", p.className)}>\n      {now >= 0 ? (\n        <div className=\"frk-hours__now\">\n          <span className=\"frk-text--label\">{\"Ahora · \" + pad(now) + \":00\"}</span>\n          <span className=\"frk-hours__price\">\n            {String(prices[now]).replace(\".\", \",\")}\n            <small>{\" \" + (p.unit || \"€/kWh\")}</small>\n          </span>\n        </div>\n      ) : null}\n      <div\n        className=\"frk-hours__bars\"\n        role=\"img\"\n        aria-label={\n          (p.label || \"Precio por hora\") +\n          \". Más barato: \" +\n          cheap +\n          \". Más caro: \" +\n          pad(prices.indexOf(mx)) +\n          \"h.\"\n        }\n      >\n        {prices.map(function (v?: any, i?: any): any {\n          return (\n            <span\n              key={i}\n              className={cx(\n                \"frk-hours__bar\",\n                \"frk-tone--\" + band(v),\n                i === now && \"is-now\",\n                i < now && \"is-past\",\n              )}\n              style={{\n                height: 24 + ((v - mn) / sp) * 76 + \"%\",\n              }}\n              title={pad(i) + \"h · \" + v}\n            />\n          )\n        })}\n      </div>\n      <div className=\"frk-hours__axis\" aria-hidden={true}>\n        {[\"00\", \"06\", \"12\", \"18\", \"23\"].map(function (t?: any): any {\n          return <span key={t}>{t}</span>\n        })}\n      </div>\n      <figcaption className=\"frk-hours__legend\">\n        <span>\n          <i className=\"frk-tone--verde\" />\n          Barato\n        </span>\n        <span>\n          <i className=\"frk-tone--sol\" />\n          Medio\n        </span>\n        <span>\n          <i className=\"frk-tone--rams\" />\n          Caro\n        </span>\n      </figcaption>\n    </figure>\n  )\n}\n\n/* ---------- PaymentCard ---------- */\n"
+  }
+ ],
+ "docs": "# HourStrip\n\nPrecio (o consumo) por horas del día: 24 barras en píldora coloreadas por tramo (barato `verde`, medio `sol`, caro `rams`), la hora actual marcada con aro y las pasadas atenuadas. Para luz, agua, gas o cualquier tarifa por horas.\n\n- **Props**: `prices` (24 valores), `now` (hora actual), `unit` (`€/kWh`), `label`.\n- El nombre accesible dice las tres horas más baratas y la más cara: el usuario quiere saber cuándo poner la lavadora.\n"
+}

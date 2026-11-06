@@ -1,0 +1,13 @@
+<!-- @dsCard group="Conversación" height=380 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Beam — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function D(){var s=React.useState(true);return h('div',{style:{display:'grid',gap:'16px',maxWidth:'560px'}},h(F.Beam,{active:s[0],label:'Generando',radius:28},h(F.Composer,{placeholder:'Pide un plan de entrenamiento',busy:s[0]})),h(F.KeyButton,{tone:'well',shape:'pill',size:'s',onClick:function(){s[1](!s[0]);}},s[0]?'Parar':'Generar'));}
+ReactDOM.createRoot(document.getElementById('root')).render(h(D));
+</script>
+</body>
+</html>

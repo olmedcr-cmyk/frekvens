@@ -1,0 +1,25 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "stopwatch",
+ "type": "registry:ui",
+ "title": "Stopwatch",
+ "description": "Cronómetro con centésimas, vueltas y la mejor vuelta marcada en klein-ink. Dos teclas redondas que cambian de papel según el estado (Empezar/Parar en rams, Vuelta/Reiniciar al lado), siempre en el mis",
+ "categories": [
+  "Tiempo"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json",
+  "https://frekvens.vercel.app/r/readout.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/stopwatch.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/stopwatch.tsx",
+   "content": "\"use client\"\n/* Frekvens · Stopwatch — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { Readout } from \"./readout\"\nimport { cx, fmt, pad, useClock } from \"./lib\"\n\nimport type { StopwatchProps } from \"./types\"\nexport type { StopwatchProps }\n\nconst { useState }: any = React\n\nexport function roundKey(tone?: any, icon?: any, label?: any, onClick?: any, extra?: any): any {\n  return (\n    <button\n      {...Object.assign(\n        {\n          type: \"button\",\n          className: \"frk-key frk-tone--\" + tone + \" frk-key--m frk-key--round\",\n          \"aria-label\": label,\n          onClick: onClick,\n        },\n        extra || {},\n      )}\n    >\n      <span className=\"frk-key__main\">\n        <Icon name={icon} size={28} />\n      </span>\n    </button>\n  )\n}\n\n/* ---------- Stopwatch: cronómetro con vueltas ---------- */\n/* ---------- Stopwatch: cronómetro con vueltas ---------- */\nexport function Stopwatch(props: StopwatchProps): React.ReactElement\nexport function Stopwatch(p?: any): any {\n  var r: any = useState(!!p.autoStart),\n    run: any = r[0],\n    setRun: any = r[1]\n  var c: any = useClock(run),\n    t: any = c[0]\n  var l: any = useState([]),\n    laps: any = l[0],\n    setLaps: any = l[1]\n  function lap(): any {\n    var last: any = laps.length ? laps[0].at : 0\n    var n: any = [\n      {\n        at: t,\n        split: t - last,\n      },\n    ].concat(laps)\n    setLaps(n)\n    p.onLap && p.onLap(t)\n  }\n  function reset(): any {\n    c[1]()\n    setLaps([])\n  }\n  var best: any =\n    laps.length > 1\n      ? Math.min.apply(\n          null,\n          laps.map(function (x?: any): any {\n            return x.split\n          }),\n        )\n      : -1\n  return (\n    <div className={cx(\"frk-watch\", p.className)}>\n      <Readout label={p.label || \"Cronómetro\"} value={fmt(t, true)} size={p.size || \"display\"} />\n      <div className=\"frk-watch__keys\">\n        {run\n          ? roundKey(\"ink\", \"flag\", \"Vuelta\", lap)\n          : roundKey(\"well\", \"refresh\", \"Reiniciar\", reset, {\n              disabled: t === 0,\n            })}\n        {run\n          ? roundKey(\"rams\", \"pause\", \"Parar\", function (): any {\n              setRun(false)\n            })\n          : roundKey(\"rams\", \"play\", t ? \"Continuar\" : \"Empezar\", function (): any {\n              setRun(true)\n            })}\n      </div>\n      {laps.length ? (\n        <ol className=\"frk-watch__laps\" aria-label=\"Vueltas\">\n          {laps.map(function (x?: any, i?: any): any {\n            return (\n              <li key={laps.length - i} className={cx(\"frk-watch__lap\", x.split === best && \"is-best\")}>\n                <span>{\"V\" + pad(laps.length - i)}</span>\n                <span>{fmt(x.split, true)}</span>\n                <span>{fmt(x.at, true)}</span>\n              </li>\n            )\n          })}\n        </ol>\n      ) : null}\n    </div>\n  )\n}\n\n/* ---------- Timer: cuenta atrás en un anillo de puntos ---------- */\n"
+  }
+ ],
+ "docs": "# Stopwatch\n\nCronómetro con centésimas, vueltas y la mejor vuelta marcada en `klein-ink`. Dos teclas redondas que cambian de papel según el estado (Empezar/Parar en `rams`, Vuelta/Reiniciar al lado), siempre en el mismo sitio.\n\n- **Props**: `autoStart`, `onLap(ms)`, `label`, `size` (`display` · `hero`, el tamaño del `Readout`).\n- Las cifras son tabulares: no bailan. El estado de las teclas comparte hueco (Vuelta ↔ Reiniciar, Parar ↔ Empezar) para que el pulgar no tenga que buscar.\n"
+}

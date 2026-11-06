@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "level-bars",
+ "type": "registry:ui",
+ "title": "LevelBars",
+ "description": "Nivel como reglas verticales redondeadas: encendidas en ink, apagadas en ink-faint. Batería, carga, volumen.",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/level-bars.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/level-bars.tsx",
+   "content": "\"use client\"\n/* Frekvens · LevelBars — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { clamp, cx, range } from \"./lib\"\n\nimport type { LevelBarsProps } from \"./types\"\nexport type { LevelBarsProps }\n\n/* ---------- LevelBars: battery-style vertical rules ---------- */\nexport function LevelBars(props: LevelBarsProps): React.ReactElement\nexport function LevelBars(p?: any): any {\n  var n: any = p.count || 20,\n    v: any = clamp(p.value == null ? 0 : p.value, 0, 100),\n    on: any = Math.round((n * v) / 100)\n  return (\n    <div\n      className={cx(\"frk-levels\", p.className)}\n      role=\"meter\"\n      aria-valuemin={0}\n      aria-valuemax={100}\n      aria-valuenow={v}\n      aria-label={p.label || \"Nivel\"}\n      style={{\n        height: p.height || 64,\n      }}\n    >\n      {range(n).map(function (i?: any): any {\n        return <span key={i} className={cx(\"frk-levels__bar\", i < on && \"is-on\")} />\n      })}\n    </div>\n  )\n}\n\n/* ---------- BarMeter: pill bars, one active, hatched forecast ---------- */\n"
+  }
+ ],
+ "docs": "# LevelBars\n\nNivel como reglas verticales redondeadas: encendidas en `ink`, apagadas en `ink-faint`. Batería, carga, volumen.\n\n- **Props**: `value` (0–100), `count` (20), `height` (64), `label`.\n- Siempre junto a la cifra (`78%`). Solo lectura.\n"
+}

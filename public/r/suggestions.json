@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "suggestions",
+ "type": "registry:ui",
+ "title": "Suggestions",
+ "description": "Respuestas sugeridas en chips de contorno en el color del texto (funcionan sobre claro y oscuro): entran escalonadas y se tiñen al pasar. Un toque envía.",
+ "categories": [
+  "Conversación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/suggestions.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/suggestions.tsx",
+   "content": "\"use client\"\n/* Frekvens · Suggestions — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx } from \"./lib\"\n\nimport type { SuggestionsProps } from \"./types\"\nexport type { SuggestionsProps }\n\n/* ---------- Suggestions: respuestas sugeridas ---------- */\nexport function Suggestions(props: SuggestionsProps): React.ReactElement\nexport function Suggestions(p?: any): any {\n  return (\n    <div className={cx(\"frk-suggest\", p.className)} role=\"group\" aria-label={p.label || \"Sugerencias\"}>\n      {(p.items || []).map(function (s?: any, i?: any): any {\n        var o: any =\n          typeof s === \"string\"\n            ? {\n                label: s,\n              }\n            : s\n        return (\n          <button\n            key={i}\n            type=\"button\"\n            className=\"frk-suggest__chip\"\n            style={{\n              animationDelay: i * 50 + \"ms\",\n            }}\n            onClick={function (): any {\n              p.onPick && p.onPick(o.value || o.label)\n            }}\n          >\n            {o.icon ? <Icon name={o.icon} size={16} /> : null}\n            {o.label}\n          </button>\n        )\n      })}\n    </div>\n  )\n}\n\n/* ---------- Composer: escribir o hablar ---------- */\n"
+  }
+ ],
+ "docs": "# Suggestions\n\nRespuestas sugeridas en chips de contorno en el color del texto (funcionan sobre claro y oscuro): entran escalonadas y se tiñen al pasar. Un toque envía.\n\n- **Props**: `items` (strings o `{label, value, icon}`), `onPick(value)`, `label`.\n- 2–4 sugerencias, frases de 1–4 palabras, en la voz del usuario (\"Mañana\", \"Solo 30 min\"), no del sistema.\n"
+}

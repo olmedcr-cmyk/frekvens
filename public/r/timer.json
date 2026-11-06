@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "timer",
+ "type": "registry:ui",
+ "title": "Timer",
+ "description": "Cuenta atrás en un anillo de 60 puntos: los encendidos (rams) son el tiempo que queda; cada quinto punto es más grande, como las marcas de un reloj. En los tres últimos segundos el número cambia a una",
+ "categories": [
+  "Tiempo"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/stopwatch.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/timer.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/timer.tsx",
+   "content": "\"use client\"\n/* Frekvens · Timer — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { roundKey } from \"./stopwatch\"\nimport { cx, fmt, range, useClock } from \"./lib\"\n\nimport type { TimerProps } from \"./types\"\nexport type { TimerProps }\n\nconst { useState, useRef, useEffect }: any = React\n\n/* ---------- Timer: cuenta atrás en un anillo de puntos ---------- */\nexport function Timer(props: TimerProps): React.ReactElement\nexport function Timer(p?: any): any {\n  var dur: any = (p.duration || 60) * 1000,\n    size: any = p.size || 260,\n    n: any = p.dots || 60\n  var r: any = useState(!!p.autoStart),\n    run: any = r[0],\n    setRun: any = r[1]\n  var c: any = useClock(run),\n    left: any = Math.max(0, dur - c[0]),\n    done: any = left === 0\n  var fired: any = useRef(false)\n  useEffect(\n    function (): any {\n      if (done && run) {\n        setRun(false)\n        if (!fired.current) {\n          fired.current = true\n          p.onComplete && p.onComplete()\n        }\n      }\n      if (!done) fired.current = false\n    },\n    [done, run],\n  )\n  var lit: any = Math.ceil((left / dur) * n),\n    secs: any = Math.ceil(left / 1000),\n    last3: any = run && secs <= 3 && secs > 0\n  var dots: any = range(n).map(function (i?: any): any {\n    var a: any = (i / n) * 2 * Math.PI,\n      R0: any = size / 2 - 10\n    return (\n      <circle\n        key={i}\n        cx={size / 2 + R0 * Math.sin(a)}\n        cy={size / 2 - R0 * Math.cos(a)}\n        r={i % 5 === 0 ? 4 : 2.6}\n        className={i < lit ? \"is-on\" : \"\"}\n      />\n    )\n  })\n  return (\n    <div className={cx(\"frk-timer\", done && \"is-done\", p.className)}>\n      <div\n        className=\"frk-timer__face\"\n        style={{\n          width: size,\n          height: size,\n        }}\n      >\n        <svg width={size} height={size} aria-hidden={true}>\n          {dots}\n        </svg>\n        <div className=\"frk-timer__center\">\n          {p.label ? <span className=\"frk-timer__label\">{p.label}</span> : null}\n          <span\n            key={last3 ? secs : \"v\"}\n            className={cx(\"frk-timer__value\", last3 && \"is-count\")}\n            role=\"timer\"\n            aria-live={last3 || done ? \"assertive\" : \"off\"}\n          >\n            {done ? p.doneText || \"Hecho\" : last3 ? String(secs) : fmt(left)}\n          </span>\n        </div>\n      </div>\n      <div className=\"frk-watch__keys\">\n        {roundKey(\n          \"well\",\n          \"refresh\",\n          \"Reiniciar\",\n          function (): any {\n            c[1]()\n            setRun(false)\n          },\n          {\n            disabled: left === dur,\n          },\n        )}\n        {run\n          ? roundKey(\"rams\", \"pause\", \"Pausa\", function (): any {\n              setRun(false)\n            })\n          : roundKey(\"rams\", \"play\", \"Empezar\", function (): any {\n              if (done) c[1]()\n              setRun(true)\n            })}\n      </div>\n    </div>\n  )\n}\n\n/* ---------- Hourglass: reloj de arena de puntos, se gira al tocar ---------- */\n"
+  }
+ ],
+ "docs": "# Timer\n\nCuenta atrás en un anillo de 60 puntos: los encendidos (`rams`) son el tiempo que queda; cada quinto punto es más grande, como las marcas de un reloj. En los tres últimos segundos el número cambia a una cuenta 3·2·1 gigante y, al terminar, el anillo se vuelve `verde`.\n\n- **Props**: `duration` (segundos), `autoStart`, `onComplete()`, `label`, `doneText`, `size` (260), `dots` (60).\n- Anuncia a lectores de pantalla solo la cuenta final y el final (`role=\"timer\"`), no cada segundo.\n- Para series encadenadas (Tabata), encadena Timers desde fuera con `onComplete`.\n"
+}

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Instrumentos" height=200 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Gauge — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'frk-row-flex',style:{gap:'32px'}},h(C.Gauge,{value:80,caption:'int. 80%',label:'Intensidad'}),h(C.Gauge,{value:35,width:180,caption:'35%',label:'Carga'})));
+</script>
+</body>
+</html>

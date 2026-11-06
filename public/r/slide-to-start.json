@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "slide-to-start",
+ "type": "registry:ui",
+ "title": "SlideToStart",
+ "description": "Arranque deliberado: arrastra el disco hasta el final para empezar. Evita empezar un entreno o un pago por un toque accidental. Si sueltas antes del 82 %, el disco vuelve con ease-throw; al completar ",
+ "categories": [
+  "Botonera"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json",
+  "https://frekvens.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/slide-to-start.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/slide-to-start.tsx",
+   "content": "\"use client\"\n/* Frekvens · SlideToStart — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { clamp, cx } from \"./lib\"\n\nimport type { SlideToStartProps } from \"./types\"\nexport type { SlideToStartProps }\n\nconst { useRef, useState }: any = React\n\n/* ---------- SlideToStart: deliberate start, drag or press ---------- */\nexport function SlideToStart(props: SlideToStartProps): React.ReactElement\nexport function SlideToStart(p?: any): any {\n  var track: any = useRef(null),\n    drag: any = useRef(null)\n  var s: any = useState(0),\n    x: any = s[0],\n    setX: any = s[1]\n  var d: any = useState(false),\n    done: any = d[0],\n    setDone: any = d[1]\n  function max(): any {\n    return track.current ? track.current.clientWidth - 64 - 8 : 200\n  }\n  function finish(): any {\n    setX(max())\n    setDone(true)\n    p.onComplete && p.onComplete()\n    if (p.resetAfter !== false)\n      setTimeout(function (): any {\n        setDone(false)\n        setX(0)\n      }, 1200)\n  }\n  function down(e?: any): any {\n    if (done) return\n    drag.current = {\n      x: e.clientX - x,\n    }\n    e.currentTarget.setPointerCapture(e.pointerId)\n  }\n  function mv(e?: any): any {\n    if (drag.current) setX(clamp(e.clientX - drag.current.x, 0, max()))\n  }\n  function up(): any {\n    if (!drag.current) return\n    drag.current = null\n    if (x > max() * 0.82) finish()\n    else setX(0)\n  }\n  return (\n    <div\n      ref={track}\n      className={cx(\"frk-slide\", \"frk-tone--\" + (p.tone || \"surface\"), done && \"is-done\", p.className)}\n    >\n      <span\n        className=\"frk-slide__text\"\n        style={{\n          opacity: 1 - (x / (max() || 1)) * 1.4,\n        }}\n      >\n        {done ? p.doneLabel || \"Vamos\" : p.children || \"Desliza para empezar\"}\n      </span>\n      <button\n        type=\"button\"\n        className={cx(\"frk-slide__knob\", drag.current && \"is-dragging\")}\n        style={{\n          transform: \"translateX(\" + x + \"px)\",\n        }}\n        aria-label={p.label || \"Empezar\"}\n        onPointerDown={down}\n        onPointerMove={mv}\n        onPointerUp={up}\n        onPointerCancel={up}\n        onKeyDown={function (e?: any): any {\n          if (e.key === \"Enter\" || e.key === \" \") {\n            e.preventDefault()\n            finish()\n          }\n        }}\n      >\n        <Icon name={done ? \"check\" : p.icon || \"play\"} size={24} />\n      </button>\n    </div>\n  )\n}\n\n/* ---------- CardStack: overlapping coloured cards ---------- */\n"
+  }
+ ],
+ "docs": "# SlideToStart\n\nArranque deliberado: arrastra el disco hasta el final para empezar. Evita empezar un entreno o un pago por un toque accidental. Si sueltas antes del 82 %, el disco vuelve con `ease-throw`; al completar se vuelve `verde` con ✓.\n\n- **Props**: `onComplete()`, `children` (texto, \"Desliza para empezar\"), `doneLabel`, `icon` (`play`), `tone` (`surface`), `label`, `resetAfter` (vuelve al inicio tras 1.2 s; `false` para dejarlo hecho).\n- Accesible sin arrastrar: el disco es un botón; Enter o Espacio completan.\n- Una por pantalla, en la zona del pulgar. Para acciones reversibles, una `KeyButton` normal.\n"
+}

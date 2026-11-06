@@ -1,0 +1,12 @@
+<!-- @dsCard group="Generativo" height=160 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Stack — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h(F.Stack,{direction:'row',gap:2},h(F.Chip,null,'Uno'),h(F.Chip,{tone:'sol'},'Dos'),h(F.Chip,{tone:'ink'},'Tres')));
+</script>
+</body>
+</html>

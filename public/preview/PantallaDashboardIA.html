@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(e){}</script><meta charset="utf-8"><title>PantallaDashboardIA</title>
+<style>
+  .screens { display:flex; gap:var(--space-5); padding:var(--space-5); flex-wrap:wrap; align-items:flex-start; }
+  .card { width:380px; box-sizing:border-box; border-radius:var(--radius-xl); background:var(--surface); padding:var(--space-6) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4); }
+  .or { display:flex; align-items:center; gap:var(--space-3); font:500 11px/14px var(--font-mono); letter-spacing:.08em; color:var(--ink-muted); }
+  .or::before, .or::after { content:''; flex:1; height:1px; background:var(--line); }
+  .small { font:400 13px/18px var(--font-sans); color:var(--ink-muted); text-align:center; margin:0; }
+  .small a { color:var(--klein-ink); font-weight:700; }
+  .frame { position:relative; width:440px; height:440px; border-radius:var(--radius-xl); background:var(--paper); outline:var(--hairline) solid var(--line); overflow:hidden; }
+  .cap { font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); margin-top:var(--space-2); }
+  .grid3 { display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-2); }
+  .wide { width:1180px; box-sizing:border-box; }
+ .split { width:1180px; display:grid; grid-template-columns:340px 1fr; gap:var(--space-4); }
+  .code { margin:0; padding:var(--space-4); border-radius:var(--radius-lg); background:#0e0e0d; color:#f2f0ea; font:500 11px/17px var(--font-mono); white-space:pre-wrap; word-break:break-word; max-height:880px; overflow:auto; }
+  .code b { color:#ffd447; font-weight:500; }
+  .dash { padding:var(--space-5); border-radius:var(--radius-xl); background:var(--paper); outline:var(--hairline) solid var(--line); min-width:0; }
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+var LANG="root = Stack({\"gap\":3}, [head, filters, kpis, charts, table])\nhead = Text({\"variant\":\"display-xl\",\"sub\":\"Agente \u00b7 hace 1 min\"}, \"Ventas \u00b7 Q4\")\nfilters = Stack({\"direction\":\"row\",\"gap\":2}, [f1, f2])\nf1 = Segmented({\"label\":\"Periodo\",\"options\":[\"7 d\",\"30 d\",\"Trimestre\"],\"defaultValue\":\"Trimestre\"})\nf2 = Select({\"label\":\"\",\"options\":[\"Todas las regiones\",\"Norte\",\"Centro\",\"Sur\"]})\nkpis = Grid({\"columns\":4}, [k1, k2, k3, k4])\nk1 = Stat({\"label\":\"Pipeline\",\"value\":\"6,8\",\"unit\":\" M\u20ac\",\"delta\":\"+12 %\",\"trend\":[3,4,5,5,6,7]})\nk2 = Stat({\"label\":\"Oportunidades\",\"value\":\"214\",\"delta\":\"+6 %\",\"trend\":[5,5,6,6,7,7]})\nk3 = Stat({\"label\":\"Tasa de cierre\",\"value\":\"27\",\"unit\":\" %\",\"delta\":\"+2,4 %\",\"trend\":[4,4,5,5,5,6]})\nk4 = Stat({\"label\":\"Ticket medio\",\"value\":\"31,8\",\"unit\":\" k\u20ac\",\"delta\":\"-1,2 %\",\"trend\":[6,6,6,5,5,5]})\ncharts = Grid({\"columns\":2}, [c1, c2])\nc1 = Strip({\"title\":\"Pipeline por fase\"}, [split])\nsplit = SplitBar({\"segments\":[{\"label\":\"Prospecci\u00f3n\",\"value\":2.9},{\"label\":\"Cualificado\",\"value\":1.9},{\"label\":\"Propuesta\",\"value\":1.2},{\"label\":\"Negociaci\u00f3n\",\"value\":0.8}]})\nc2 = LineChart({\"data\":[0.9,1.0,1.1,1.05,1.2,1.3,1.42],\"labels\":[\"Jun\",\"Jul\",\"Ago\",\"Sep\",\"Oct\",\"Nov\",\"Dic\"],\"now\":5,\"tone\":\"rams\",\"width\":520,\"height\":150,\"caption\":\"Reservas \u00b7 previsi\u00f3n\",\"label\":\"Reservas\"})\ntable = DataTable({\"label\":\"Cierres del mes\",\"dense\":true,\"pageSize\":4,\"columns\":[{\"key\":\"deal\",\"label\":\"Oportunidad\",\"sortable\":true},{\"key\":\"owner\",\"label\":\"Responsable\",\"type\":\"avatar\"},{\"key\":\"stage\",\"label\":\"Fase\",\"type\":\"status\",\"tones\":{\"Propuesta\":\"sol\",\"Negociaci\u00f3n\":\"rams\",\"Ganada\":\"verde\"}},{\"key\":\"amount\",\"label\":\"Importe\",\"align\":\"end\",\"mono\":true}],\"rows\":[{\"id\":1,\"deal\":\"Gimnasio Norte\",\"owner\":\"Marta Ruiz\",\"stage\":\"Negociaci\u00f3n\",\"amount\":\"48.000 \u20ac\"},{\"id\":2,\"deal\":\"Club Sur\",\"owner\":\"Leo Paz\",\"stage\":\"Propuesta\",\"amount\":\"31.200 \u20ac\"},{\"id\":3,\"deal\":\"Box Centro\",\"owner\":\"Ana Vidal\",\"stage\":\"Ganada\",\"amount\":\"22.900 \u20ac\"},{\"id\":4,\"deal\":\"Yoga Mar\",\"owner\":\"Iker Sanz\",\"stage\":\"Propuesta\",\"amount\":\"12.400 \u20ac\"},{\"id\":5,\"deal\":\"Kraft Online\",\"owner\":\"Nora Gil\",\"stage\":\"Ganada\",\"amount\":\"9.800 \u20ac\"}]})";
+function Demo(){var lines=LANG.split('\n'),s=React.useState(0),n=s[0];
+ React.useEffect(function(){if(n>=lines.length)return;var t=setTimeout(function(){s[1](n+1);},n===0?400:260);return function(){clearTimeout(t);};},[n]);
+ var src=lines.slice(0,n).join('\n');
+ return h('div',{className:'split'},
+  h('div',null,h(F.Stack,{direction:'row',justify:'space-between',align:'center',style:{marginBottom:'8px'}},h(F.Text,{variant:'label'},'Frekvens Lang · '+n+'/'+lines.length+' líneas'),h(F.KeyButton,{tone:'well',shape:'pill',size:'s',icon:'refresh',onClick:function(){s[1](0);}},'Repetir')),
+   h('pre',{className:'code','aria-label':'Código generado'},lines.slice(0,n).map(function(l,i){var m=l.match(/^(\w+) = (\w+)/);return h('div',{key:i},m?h(React.Fragment,null,m[1]+' = ',h('b',null,m[2]),l.slice(m[0].length)):l);}),n<lines.length?h(F.DotLoader,{label:'Generando'}):null)),
+  h('div',{className:'dash'},h(F.Render,{lang:src})));}
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'screens'},h(Demo)));
+</script>
+</body>
+</html>

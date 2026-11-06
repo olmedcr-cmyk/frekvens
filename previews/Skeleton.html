@@ -1,0 +1,12 @@
+<!-- @dsCard group="Feedback" height=230 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Skeleton — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'auto 1fr',gap:'16px',maxWidth:'460px',alignItems:'start'}},h(F.Skeleton,{shape:'circle'}),h(F.Skeleton,{lines:3}),h('span'),h(F.Skeleton,{shape:'tile'})));
+</script>
+</body>
+</html>

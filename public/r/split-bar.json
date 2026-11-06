@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "split-bar",
+ "type": "registry:ui",
+ "title": "SplitBar",
+ "description": "Reparto de un total: una barra de píldoras con leyenda (bar) o columnas altas con relleno redondeado (columns, el 70/30 de las referencias).",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/split-bar.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/split-bar.tsx",
+   "content": "\"use client\"\n/* Frekvens · SplitBar — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { SplitBarProps } from \"./types\"\nexport type { SplitBarProps }\n\n/* ---------- SplitBar: reparto en píldoras ---------- */\nexport function SplitBar(props: SplitBarProps): React.ReactElement\nexport function SplitBar(p?: any): any {\n  var seg: any = p.segments || [],\n    tot: any =\n      seg.reduce(function (a?: any, s?: any): any {\n        return a + s.value\n      }, 0) || 1,\n    tones: any = [\"ink\", \"rams\", \"sol\", \"klein\", \"verde\", \"tabaco\"]\n  if (p.variant === \"columns\") {\n    return (\n      <div\n        className={cx(\"frk-split\", \"frk-split--columns\", p.className)}\n        role=\"img\"\n        aria-label={seg\n          .map(function (s?: any): any {\n            return s.label + \" \" + Math.round((s.value / tot) * 100) + \"%\"\n          })\n          .join(\", \")}\n      >\n        {seg.map(function (s?: any, i?: any): any {\n          var pc: any = Math.round((s.value / tot) * 100)\n          return (\n            <div\n              key={i}\n              className=\"frk-split__col\"\n              style={{\n                height: p.height || 220,\n              }}\n            >\n              <div\n                className={cx(\"frk-split__fill\", \"frk-tone--\" + (s.tone || \"surface\"))}\n                style={{\n                  height: Math.max(30, pc) + \"%\",\n                }}\n              >\n                <span className=\"frk-split__pc\">{pc + \"%\"}</span>\n                <span className=\"frk-split__lbl\">{s.label}</span>\n              </div>\n            </div>\n          )\n        })}\n      </div>\n    )\n  }\n  return (\n    <div className={cx(\"frk-split\", p.className)}>\n      <div\n        className=\"frk-split__bar\"\n        role=\"img\"\n        aria-label={seg\n          .map(function (s?: any): any {\n            return s.label + \" \" + Math.round((s.value / tot) * 100) + \"%\"\n          })\n          .join(\", \")}\n      >\n        {seg.map(function (s?: any, i?: any): any {\n          return (\n            <span\n              key={i}\n              className={\"frk-tone--\" + (s.tone || tones[i % tones.length])}\n              style={{\n                flexGrow: s.value,\n              }}\n            />\n          )\n        })}\n      </div>\n      <ul className=\"frk-split__legend\">\n        {seg.map(function (s?: any, i?: any): any {\n          return (\n            <li key={i}>\n              <span className={cx(\"frk-split__sw\", \"frk-tone--\" + (s.tone || tones[i % tones.length]))} />\n              <span>{s.label}</span>\n              <b>{p.format ? p.format(s.value) : Math.round((s.value / tot) * 100) + \"%\"}</b>\n            </li>\n          )\n        })}\n      </ul>\n    </div>\n  )\n}\n\n/* ---------- Sparkline ---------- */\n"
+  }
+ ],
+ "docs": "# SplitBar\n\nReparto de un total: una barra de píldoras con leyenda (`bar`) o columnas altas con relleno redondeado (`columns`, el 70/30 de las referencias).\n\n- **Props**: `segments` (`[{label, value, tone}]`), `variant` (`bar` · `columns`), `height` (220, columnas), `format(v)` (para la leyenda; por defecto %).\n- 2–5 segmentos. El primero, el que importa.\n"
+}
