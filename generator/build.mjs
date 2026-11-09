@@ -63,7 +63,7 @@ const allCss = `${fontsCss}@import "./tokens.css";\n@import "./components.css";\
 
 // 3. Estructura del repo
 const R = (p) => path.join(REPO, p);
-for (const f of fs.existsSync(REPO) ? fs.readdirSync(REPO) : []) if (!['node_modules', '.git', '.next', 'generator', 'CLAUDE.md', 'HANDOFF.md'].includes(f)) fs.rmSync(path.join(REPO, f), { recursive: true, force: true });
+for (const f of fs.existsSync(REPO) ? fs.readdirSync(REPO) : []) if (!['node_modules', '.git', '.next', '.vercel', 'generator', 'CLAUDE.md', 'HANDOFF.md', 'package-lock.json'].includes(f)) fs.rmSync(path.join(REPO, f), { recursive: true, force: true });
 for (const f of fs.readdirSync(SRC)) if (f.endsWith('.tsx') || f.endsWith('.ts')) write(R(`registry/frekvens/ui/${f}`), read(path.join(SRC, f)));
 write(R('registry/frekvens/ui/frekvens.css'), allCss);
 write(R('registry/frekvens/ui/tokens.css'), tokensCss);
@@ -126,8 +126,8 @@ write(R('package.json'), JSON.stringify({
   description: 'Frekvens: componentes React para copiar y pegar, al estilo shadcn/ui. Botoneras grandes, puntos, instrumentos, conversación e IA.',
   scripts: { dev: 'next dev', build: 'next build', start: 'next start', 'registry:build': 'shadcn build', test: 'tsc -p tsconfig.registry.json && node test/smoke.mjs && node test/registry.mjs', 'test:a11y': 'node test/a11y.mjs' },
   dependencies: { next: '15.5.29', react: '18.3.1', 'react-dom': '18.3.1' },
-  devDependencies: { '@types/node': '22.10.2', '@types/react': '18.3.18', '@types/react-dom': '18.3.5', shadcn: '2.3.0', tailwindcss: '4.0.17', '@tailwindcss/postcss': '4.0.17', typescript: '5.7.2', esbuild: '0.24.0', playwright: '1.49.1', 'axe-core': '4.10.2' },
-}, null, 2));
+  devDependencies: { '@tailwindcss/postcss': '4.0.17', '@types/node': '22.10.2', '@types/react': '18.3.18', '@types/react-dom': '18.3.5', 'axe-core': '4.10.2', esbuild: '0.24.0', playwright: '1.49.1', shadcn: '2.3.0', tailwindcss: '4.0.17', typescript: '5.7.2' },
+}, null, 2) + "\n");
 write(R('components.json'), JSON.stringify({ $schema: 'https://ui.shadcn.com/schema.json', style: 'new-york', rsc: true, tsx: true, tailwind: { config: '', css: 'app/globals.css', baseColor: 'neutral', cssVariables: true }, aliases: { components: '@/components', utils: '@/lib/utils', ui: '@/components/ui', lib: '@/lib', hooks: '@/hooks' }, registries: { '@frekvens': `${HOME}/r/{name}.json` } }, null, 2));
 write(R('tsconfig.json'), JSON.stringify({ compilerOptions: { target: 'ES2020', lib: ['dom', 'dom.iterable', 'esnext'], allowJs: true, skipLibCheck: true, strict: true, noEmit: true, esModuleInterop: true, module: 'esnext', moduleResolution: 'bundler', resolveJsonModule: true, isolatedModules: true, jsx: 'preserve', incremental: true, plugins: [{ name: 'next' }], paths: { '@/*': ['./*'] } }, include: ['next-env.d.ts', '**/*.ts', '**/*.tsx', '.next/types/**/*.ts'], exclude: ['node_modules', 'generator'] }, null, 2));
 write(R('next.config.mjs'), `/** @type {import('next').NextConfig} */\nconst nextConfig = { reactStrictMode: true }\nexport default nextConfig\n`);

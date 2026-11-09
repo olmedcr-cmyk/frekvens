@@ -1745,3 +1745,21 @@ button.frk-tile:active, .frk-choice:active { transform: translateY(0) scale(.99)
   .frk-switch__dot, .frk-switch__text, .frk-seg__thumb { transition-duration: 1ms !important; }
   .frk-check.is-on .frk-check__box .frk-icon * { animation: none; }
 }
+
+/* ---------- Contenedores estrechos: ningún componente se sale de su caja ---------- */
+.frk-seg, .frk-tabbar { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+.frk-seg::-webkit-scrollbar, .frk-tabbar::-webkit-scrollbar { display: none; }
+.frk-seg__opt, .frk-tabbar__item { flex: none; }
+.frk-readout--hero .frk-readout__value { font-size: clamp(56px, 24vw, 120px); }
+.frk-readout--display .frk-readout__value { font-size: clamp(40px, 15vw, 64px); }
+.frk-watch { min-width: min(280px, 100%); max-width: 100%; }
+.frk-timer, .frk-pendulum, .frk-notch--inline, .frk-note, .frk-audio, .frk-beam, .frk-tile, .frk-reveal__item, .frk-flap, .frk-flap__cells { min-width: 0; max-width: 100%; }
+.frk-pendulum__ctrl { flex-wrap: wrap; justify-content: center; row-gap: var(--space-3); }
+.frk-flap__cells { flex-wrap: wrap; row-gap: 3px; }
+.frk-note__title { width: 100%; min-width: 0; }
+.frk-composer__input { min-width: 0; width: 100%; }
+@media (max-width: 420px) { .frk-pad { padding: var(--space-4); } }
+.frk-notch--inline { width: min(240px, 100%); }
+.frk-notch--inline.is-open { width: min(440px, 100%); }
+.frk-note__input { field-sizing: content; }
+.frk-note__title { font-size: clamp(26px, 9vw, 36px); }
