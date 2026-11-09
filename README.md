@@ -9,7 +9,7 @@ Frekvens es el sistema de diseño de Cris Olmedo: Nothing, Teenage Engineering, 
 Como en shadcn/ui, el código se copia a tu proyecto. No hay paquete que actualizar: el componente es tuyo.
 
 ```sh
-npx shadcn@latest add https://frekvens.vercel.app/r/switch.json
+npx shadcn@latest add https://frekvens-ui.vercel.app/r/switch.json
 ```
 
 Eso crea `components/frekvens/switch.tsx` y trae lo que necesita: `components/frekvens/lib.tsx` (utilidades) y `styles/frekvens/*.css` (tokens y estilos). Después, importa los estilos una vez en tu CSS global:
@@ -31,13 +31,13 @@ Y pon el tema en `<html data-theme="light">` (o `dark`). `applyTheme('auto')`, e
 Todo de una vez:
 
 ```sh
-npx shadcn@latest add https://frekvens.vercel.app/r/frekvens.json
+npx shadcn@latest add https://frekvens-ui.vercel.app/r/frekvens.json
 ```
 
 O con el registro configurado en `components.json`:
 
 ```json
-{ "registries": { "@frekvens": "https://frekvens.vercel.app/r/{name}.json" } }
+{ "registries": { "@frekvens": "https://frekvens-ui.vercel.app/r/{name}.json" } }
 ```
 
 ```sh

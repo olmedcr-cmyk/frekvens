@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   if (!c) return <p>No existe.</p>
   const file = `registry/frekvens/ui/${c.slug}.tsx`
   const code = fs.readFileSync(path.join(process.cwd(), file), "utf8")
-  const home = "https://frekvens.vercel.app"
+  const home = "https://frekvens-ui.vercel.app"
   return (
     <article style={{ display: "flex", flexDirection: "column", gap: 24 }}>
       <div><small style={{ font: "500 11px/14px var(--font-mono)", letterSpacing: ".08em", textTransform: "uppercase", color: "var(--ink-muted)" }}>{c.group}</small><h1 style={{ font: "800 48px/1 var(--font-sans)", letterSpacing: "-.02em", margin: "4px 0 0" }}>{c.name}</h1></div>

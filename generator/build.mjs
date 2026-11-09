@@ -9,7 +9,7 @@ const PRJ = path.resolve(HERE, 'source/project');
 const REPO = path.resolve(process.argv[2] || path.join(HERE, '..'));
 const SRC = path.join(HERE, '.out');
 const VERSION = '0.1.0';
-const HOME = (process.env.FREKVENS_URL || 'https://frekvens.vercel.app').replace(/\/$/, ''); // dónde se sirve /r: FREKVENS_URL=https://tu-dominio npm run build
+const HOME = (process.env.FREKVENS_URL || 'https://frekvens-ui.vercel.app').replace(/\/$/, ''); // dónde se sirve /r: FREKVENS_URL=https://tu-dominio npm run build
 
 const read = (p) => fs.readFileSync(p, 'utf8');
 const write = (p, s) => { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, s); };
@@ -132,7 +132,7 @@ write(R('components.json'), JSON.stringify({ $schema: 'https://ui.shadcn.com/sch
 write(R('tsconfig.json'), JSON.stringify({ compilerOptions: { target: 'ES2020', lib: ['dom', 'dom.iterable', 'esnext'], allowJs: true, skipLibCheck: true, strict: true, noEmit: true, esModuleInterop: true, module: 'esnext', moduleResolution: 'bundler', resolveJsonModule: true, isolatedModules: true, jsx: 'preserve', incremental: true, plugins: [{ name: 'next' }], paths: { '@/*': ['./*'] } }, include: ['next-env.d.ts', '**/*.ts', '**/*.tsx', '.next/types/**/*.ts'], exclude: ['node_modules', 'generator'] }, null, 2));
 write(R('next.config.mjs'), `/** @type {import('next').NextConfig} */\nconst nextConfig = { reactStrictMode: true }\nexport default nextConfig\n`);
 write(R('postcss.config.mjs'), `export default { plugins: { '@tailwindcss/postcss': {} } }\n`);
-write(R('.gitignore'), 'node_modules\n.next\nout\n*.tgz\n.DS_Store\ntest/shots\n');
+write(R('.gitignore'), 'node_modules\n.next\nout\n*.tgz\n.DS_Store\ntest/shots\n.vercel\n');
 write(R('LICENSE'), `MIT License\n\nCopyright (c) 2026 Cris Olmedo\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n`);
 write(R('NOTICE.md'), `# Avisos\n\n- El muelle con impulso de \`useFollow\` (Segmented, Tabs) y las curvas \`ease-settle\` / \`ease-press\` vienen de *stageshow* (github.com/benjitaylor/skills), MIT © 2026 Benji Taylor.\n- Las fuentes Archivo, Doto e IBM Plex Mono son de Google Fonts (OFL).\n- "Frekvens" es también el nombre de una colección de IKEA; este proyecto no tiene relación con IKEA.\n`);
 // docs

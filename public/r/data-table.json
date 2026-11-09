@@ -9,13 +9,13 @@
  ],
  "dependencies": [],
  "registryDependencies": [
-  "https://frekvens.vercel.app/r/frekvens-lib.json",
-  "https://frekvens.vercel.app/r/chip.json",
-  "https://frekvens.vercel.app/r/sparkline.json",
-  "https://frekvens.vercel.app/r/avatar.json",
-  "https://frekvens.vercel.app/r/empty-state.json",
-  "https://frekvens.vercel.app/r/checkbox.json",
-  "https://frekvens.vercel.app/r/icon.json"
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+  "https://frekvens-ui.vercel.app/r/chip.json",
+  "https://frekvens-ui.vercel.app/r/sparkline.json",
+  "https://frekvens-ui.vercel.app/r/avatar.json",
+  "https://frekvens-ui.vercel.app/r/empty-state.json",
+  "https://frekvens-ui.vercel.app/r/checkbox.json",
+  "https://frekvens-ui.vercel.app/r/icon.json"
  ],
  "files": [
   {

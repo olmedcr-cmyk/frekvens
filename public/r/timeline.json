@@ -9,9 +9,9 @@
  ],
  "dependencies": [],
  "registryDependencies": [
-  "https://frekvens.vercel.app/r/frekvens-lib.json",
-  "https://frekvens.vercel.app/r/avatar.json",
-  "https://frekvens.vercel.app/r/state-mark.json"
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+  "https://frekvens-ui.vercel.app/r/avatar.json",
+  "https://frekvens-ui.vercel.app/r/state-mark.json"
  ],
  "files": [
   {

@@ -9,7 +9,7 @@ export default function Home() {
       <section className="prose" style={{ maxWidth: "none" }}>
         <h1 style={{ fontSize: 56, lineHeight: 0.95, maxWidth: 720 }}>Componentes React para copiar y pegar.<br /><span style={{ color: "var(--ink-muted)" }}>Grandes, de puntos, accesibles.</span></h1>
         <p className="prose" style={{ margin: "16px 0 0" }}>Frekvens es el sistema de diseño de Cris Olmedo hecho librería al estilo shadcn/ui: el código se copia a tu proyecto, lo editas tú y no dependes de nadie. {catalog.length} componentes, tema claro y oscuro, 0 infracciones de accesibilidad en {catalog.length * 2} vistas y listos para UI generada por un modelo.</p>
-        <div className="cmd" style={{ marginTop: 24, maxWidth: 560 }}>npx shadcn@latest add https://frekvens.vercel.app/r/switch.json</div>
+        <div className="cmd" style={{ marginTop: 24, maxWidth: 560 }}>npx shadcn@latest add https://frekvens-ui.vercel.app/r/switch.json</div>
       </section>
       <Hero />
       {groups.map((g) => (

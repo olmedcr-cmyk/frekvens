@@ -17,6 +17,6 @@
     "hooks": "@/hooks"
   },
   "registries": {
-    "@frekvens": "https://frekvens.vercel.app/r/{name}.json"
+    "@frekvens": "https://frekvens-ui.vercel.app/r/{name}.json"
   }
 }

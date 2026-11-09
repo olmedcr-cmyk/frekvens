@@ -9,11 +9,11 @@
  ],
  "dependencies": [],
  "registryDependencies": [
-  "https://frekvens.vercel.app/r/frekvens-lib.json",
-  "https://frekvens.vercel.app/r/dot-grid.json",
-  "https://frekvens.vercel.app/r/state-mark.json",
-  "https://frekvens.vercel.app/r/icon.json",
-  "https://frekvens.vercel.app/r/key-button.json"
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+  "https://frekvens-ui.vercel.app/r/dot-grid.json",
+  "https://frekvens-ui.vercel.app/r/state-mark.json",
+  "https://frekvens-ui.vercel.app/r/icon.json",
+  "https://frekvens-ui.vercel.app/r/key-button.json"
  ],
  "files": [
   {

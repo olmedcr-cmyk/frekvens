@@ -18,10 +18,10 @@ Estado al 6 de noviembre de 2026. Todo lo de abajo está hecho y comprobado en l
      --description "Componentes React para copiar y pegar, al estilo shadcn/ui. Grandes, de puntos, accesibles. MIT."
    ```
 2. **Desplegar la web** (Vercel recomendado: Next 15 sin configuración). Importa el repo en Vercel o `npx vercel --prod`. La web sirve también el registro en `/r/*.json`.
-3. **Apuntar el registro al dominio real.** Las URLs de dependencias van dentro de los JSON. Si el dominio no es `https://frekvens.vercel.app`:
+3. **Apuntar el registro al dominio real.** Las URLs de dependencias van dentro de los JSON. Si el dominio no es `https://frekvens-ui.vercel.app`:
    ```sh
    cd generator && npm install && FREKVENS_URL=https://<dominio> npm run build && cd ..
-   grep -rl "frekvens.vercel.app" app generator/tpl   # la web también lo menciona: cámbialo en generator/tpl/app y regenera
+   grep -rl "frekvens-ui.vercel.app" app generator/tpl   # la web también lo menciona: cámbialo en generator/tpl/app y regenera
    npm test && git commit -am "Registro apuntando a <dominio>" && git push
    ```
    Si el usuario de GitHub no es `olmedcr-cmyk`, cambia también el enlace de GitHub en `generator/tpl/app/layout.tsx`.

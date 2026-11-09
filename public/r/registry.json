@@ -1,7 +1,7 @@
 {
  "$schema": "https://ui.shadcn.com/schema/registry.json",
  "name": "frekvens",
- "homepage": "https://frekvens.vercel.app",
+ "homepage": "https://frekvens-ui.vercel.app",
  "items": [
   {
    "name": "frekvens-styles",
@@ -43,7 +43,7 @@
    "title": "Frekvens · utilidades",
    "description": "cx, useValue, useFollow (muelle con impulso), iconos, parseLang y lo que comparten los componentes.",
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-styles.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-styles.json"
    ],
    "files": [
     {
@@ -73,8 +73,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -95,8 +95,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -117,8 +117,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -139,8 +139,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -161,9 +161,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/led.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/led.json"
    ],
    "files": [
     {
@@ -184,7 +184,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -205,7 +205,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -226,7 +226,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -247,7 +247,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -268,7 +268,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -289,8 +289,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -311,8 +311,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -333,7 +333,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -354,7 +354,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -375,8 +375,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -397,7 +397,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -418,8 +418,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -440,8 +440,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -462,8 +462,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -484,8 +484,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -506,8 +506,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -528,8 +528,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -550,8 +550,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -572,8 +572,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -594,7 +594,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -615,8 +615,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/stopwatch.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/stopwatch.json"
    ],
    "files": [
     {
@@ -637,9 +637,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/readout.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/readout.json"
    ],
    "files": [
     {
@@ -660,7 +660,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -681,9 +681,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/stepper.json",
-    "https://frekvens.vercel.app/r/stopwatch.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/stepper.json",
+    "https://frekvens-ui.vercel.app/r/stopwatch.json"
    ],
    "files": [
     {
@@ -704,10 +704,10 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/dot-matrix.json",
-    "https://frekvens.vercel.app/r/chip.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/dot-matrix.json",
+    "https://frekvens-ui.vercel.app/r/chip.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -728,9 +728,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/chip.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/chip.json"
    ],
    "files": [
     {
@@ -751,8 +751,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -773,7 +773,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -794,7 +794,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -815,7 +815,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -836,7 +836,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -857,8 +857,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/state-mark.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/state-mark.json"
    ],
    "files": [
     {
@@ -879,7 +879,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -900,7 +900,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -921,7 +921,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -942,7 +942,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -963,7 +963,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -984,7 +984,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1005,7 +1005,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1026,7 +1026,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1047,7 +1047,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1068,8 +1068,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -1090,7 +1090,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1111,8 +1111,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -1133,8 +1133,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -1155,8 +1155,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -1177,7 +1177,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1198,7 +1198,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1219,7 +1219,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1240,9 +1240,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/text.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/text.json"
    ],
    "files": [
     {
@@ -1263,9 +1263,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/badge.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/badge.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -1286,9 +1286,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/dot-matrix.json",
-    "https://frekvens.vercel.app/r/key-button.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/dot-matrix.json",
+    "https://frekvens-ui.vercel.app/r/key-button.json"
    ],
    "files": [
     {
@@ -1309,7 +1309,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1330,11 +1330,11 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/state-mark.json",
-    "https://frekvens.vercel.app/r/dot-loader.json",
-    "https://frekvens.vercel.app/r/render.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/state-mark.json",
+    "https://frekvens-ui.vercel.app/r/dot-loader.json",
+    "https://frekvens-ui.vercel.app/r/render.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -1355,11 +1355,11 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/suggestions.json",
-    "https://frekvens.vercel.app/r/voice-orb.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/dot-loader.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/suggestions.json",
+    "https://frekvens-ui.vercel.app/r/voice-orb.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/dot-loader.json"
    ],
    "files": [
     {
@@ -1380,8 +1380,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -1402,7 +1402,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1423,7 +1423,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1444,15 +1444,15 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/avatar.json",
-    "https://frekvens.vercel.app/r/led.json",
-    "https://frekvens.vercel.app/r/segmented.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/voice-orb.json",
-    "https://frekvens.vercel.app/r/message.json",
-    "https://frekvens.vercel.app/r/empty-state.json",
-    "https://frekvens.vercel.app/r/composer.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/avatar.json",
+    "https://frekvens-ui.vercel.app/r/led.json",
+    "https://frekvens-ui.vercel.app/r/segmented.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/voice-orb.json",
+    "https://frekvens-ui.vercel.app/r/message.json",
+    "https://frekvens-ui.vercel.app/r/empty-state.json",
+    "https://frekvens-ui.vercel.app/r/composer.json"
    ],
    "files": [
     {
@@ -1473,120 +1473,120 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/key-button.json",
-    "https://frekvens.vercel.app/r/keypad.json",
-    "https://frekvens.vercel.app/r/hold-button.json",
-    "https://frekvens.vercel.app/r/slide-to-start.json",
-    "https://frekvens.vercel.app/r/rocker.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/dial.json",
-    "https://frekvens.vercel.app/r/gauge.json",
-    "https://frekvens.vercel.app/r/slider.json",
-    "https://frekvens.vercel.app/r/switch.json",
-    "https://frekvens.vercel.app/r/segmented.json",
-    "https://frekvens.vercel.app/r/stepper.json",
-    "https://frekvens.vercel.app/r/wheel.json",
-    "https://frekvens.vercel.app/r/volume-wheel.json",
-    "https://frekvens.vercel.app/r/checkbox.json",
-    "https://frekvens.vercel.app/r/radio-group.json",
-    "https://frekvens.vercel.app/r/select.json",
-    "https://frekvens.vercel.app/r/menu.json",
-    "https://frekvens.vercel.app/r/tabs.json",
-    "https://frekvens.vercel.app/r/text-field.json",
-    "https://frekvens.vercel.app/r/calendar.json",
-    "https://frekvens.vercel.app/r/sheet.json",
-    "https://frekvens.vercel.app/r/toast.json",
-    "https://frekvens.vercel.app/r/banner.json",
-    "https://frekvens.vercel.app/r/tooltip.json",
-    "https://frekvens.vercel.app/r/timer.json",
-    "https://frekvens.vercel.app/r/stopwatch.json",
-    "https://frekvens.vercel.app/r/hourglass.json",
-    "https://frekvens.vercel.app/r/pendulum.json",
-    "https://frekvens.vercel.app/r/media-player.json",
-    "https://frekvens.vercel.app/r/audio-track.json",
-    "https://frekvens.vercel.app/r/ticker.json",
-    "https://frekvens.vercel.app/r/split-flap.json",
-    "https://frekvens.vercel.app/r/dot-matrix.json",
-    "https://frekvens.vercel.app/r/dot-grid.json",
-    "https://frekvens.vercel.app/r/state-mark.json",
-    "https://frekvens.vercel.app/r/steps.json",
-    "https://frekvens.vercel.app/r/grille.json",
-    "https://frekvens.vercel.app/r/led.json",
-    "https://frekvens.vercel.app/r/level-bars.json",
-    "https://frekvens.vercel.app/r/bar-meter.json",
-    "https://frekvens.vercel.app/r/line-chart.json",
-    "https://frekvens.vercel.app/r/progress-ring.json",
-    "https://frekvens.vercel.app/r/readout.json",
-    "https://frekvens.vercel.app/r/tile.json",
-    "https://frekvens.vercel.app/r/strip.json",
-    "https://frekvens.vercel.app/r/card-stack.json",
-    "https://frekvens.vercel.app/r/cabinet.json",
-    "https://frekvens.vercel.app/r/pager.json",
-    "https://frekvens.vercel.app/r/deck.json",
-    "https://frekvens.vercel.app/r/list-row.json",
-    "https://frekvens.vercel.app/r/chip.json",
-    "https://frekvens.vercel.app/r/badge.json",
-    "https://frekvens.vercel.app/r/avatar.json",
-    "https://frekvens.vercel.app/r/top-bar.json",
-    "https://frekvens.vercel.app/r/tab-bar.json",
-    "https://frekvens.vercel.app/r/empty-state.json",
-    "https://frekvens.vercel.app/r/skeleton.json",
-    "https://frekvens.vercel.app/r/message.json",
-    "https://frekvens.vercel.app/r/composer.json",
-    "https://frekvens.vercel.app/r/suggestions.json",
-    "https://frekvens.vercel.app/r/voice-orb.json",
-    "https://frekvens.vercel.app/r/dot-loader.json",
-    "https://frekvens.vercel.app/r/agent-widget.json",
-    "https://frekvens.vercel.app/r/reveal.json",
-    "https://frekvens.vercel.app/r/stack.json",
-    "https://frekvens.vercel.app/r/grid.json",
-    "https://frekvens.vercel.app/r/text.json",
-    "https://frekvens.vercel.app/r/click-wheel.json",
-    "https://frekvens.vercel.app/r/disc-carousel.json",
-    "https://frekvens.vercel.app/r/num-pad.json",
-    "https://frekvens.vercel.app/r/viewfinder.json",
-    "https://frekvens.vercel.app/r/capture-key.json",
-    "https://frekvens.vercel.app/r/recorder.json",
-    "https://frekvens.vercel.app/r/note-editor.json",
-    "https://frekvens.vercel.app/r/sidebar.json",
-    "https://frekvens.vercel.app/r/data-table.json",
-    "https://frekvens.vercel.app/r/command-bar.json",
-    "https://frekvens.vercel.app/r/notch.json",
-    "https://frekvens.vercel.app/r/viewport-3d.json",
-    "https://frekvens.vercel.app/r/heatmap.json",
-    "https://frekvens.vercel.app/r/split-bar.json",
-    "https://frekvens.vercel.app/r/sparkline.json",
-    "https://frekvens.vercel.app/r/hour-strip.json",
-    "https://frekvens.vercel.app/r/payment-card.json",
-    "https://frekvens.vercel.app/r/dialog.json",
-    "https://frekvens.vercel.app/r/file-drop.json",
-    "https://frekvens.vercel.app/r/choice-cards.json",
-    "https://frekvens.vercel.app/r/stat.json",
-    "https://frekvens.vercel.app/r/usage-meter.json",
-    "https://frekvens.vercel.app/r/timeline.json",
-    "https://frekvens.vercel.app/r/checklist.json",
-    "https://frekvens.vercel.app/r/prompt-box.json",
-    "https://frekvens.vercel.app/r/clock.json",
-    "https://frekvens.vercel.app/r/vu-meter.json",
-    "https://frekvens.vercel.app/r/rotary-selector.json",
-    "https://frekvens.vercel.app/r/fader.json",
-    "https://frekvens.vercel.app/r/keycap.json",
-    "https://frekvens.vercel.app/r/calculator.json",
-    "https://frekvens.vercel.app/r/pad-grid.json",
-    "https://frekvens.vercel.app/r/tape-deck.json",
-    "https://frekvens.vercel.app/r/board.json",
-    "https://frekvens.vercel.app/r/sortable.json",
-    "https://frekvens.vercel.app/r/blueprint.json",
-    "https://frekvens.vercel.app/r/area-chart.json",
-    "https://frekvens.vercel.app/r/scatter.json",
-    "https://frekvens.vercel.app/r/radar-chart.json",
-    "https://frekvens.vercel.app/r/donut-chart.json",
-    "https://frekvens.vercel.app/r/scope.json",
-    "https://frekvens.vercel.app/r/voice-position.json",
-    "https://frekvens.vercel.app/r/beam.json",
-    "https://frekvens.vercel.app/r/aura.json",
-    "https://frekvens.vercel.app/r/flap-board.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/key-button.json",
+    "https://frekvens-ui.vercel.app/r/keypad.json",
+    "https://frekvens-ui.vercel.app/r/hold-button.json",
+    "https://frekvens-ui.vercel.app/r/slide-to-start.json",
+    "https://frekvens-ui.vercel.app/r/rocker.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/dial.json",
+    "https://frekvens-ui.vercel.app/r/gauge.json",
+    "https://frekvens-ui.vercel.app/r/slider.json",
+    "https://frekvens-ui.vercel.app/r/switch.json",
+    "https://frekvens-ui.vercel.app/r/segmented.json",
+    "https://frekvens-ui.vercel.app/r/stepper.json",
+    "https://frekvens-ui.vercel.app/r/wheel.json",
+    "https://frekvens-ui.vercel.app/r/volume-wheel.json",
+    "https://frekvens-ui.vercel.app/r/checkbox.json",
+    "https://frekvens-ui.vercel.app/r/radio-group.json",
+    "https://frekvens-ui.vercel.app/r/select.json",
+    "https://frekvens-ui.vercel.app/r/menu.json",
+    "https://frekvens-ui.vercel.app/r/tabs.json",
+    "https://frekvens-ui.vercel.app/r/text-field.json",
+    "https://frekvens-ui.vercel.app/r/calendar.json",
+    "https://frekvens-ui.vercel.app/r/sheet.json",
+    "https://frekvens-ui.vercel.app/r/toast.json",
+    "https://frekvens-ui.vercel.app/r/banner.json",
+    "https://frekvens-ui.vercel.app/r/tooltip.json",
+    "https://frekvens-ui.vercel.app/r/timer.json",
+    "https://frekvens-ui.vercel.app/r/stopwatch.json",
+    "https://frekvens-ui.vercel.app/r/hourglass.json",
+    "https://frekvens-ui.vercel.app/r/pendulum.json",
+    "https://frekvens-ui.vercel.app/r/media-player.json",
+    "https://frekvens-ui.vercel.app/r/audio-track.json",
+    "https://frekvens-ui.vercel.app/r/ticker.json",
+    "https://frekvens-ui.vercel.app/r/split-flap.json",
+    "https://frekvens-ui.vercel.app/r/dot-matrix.json",
+    "https://frekvens-ui.vercel.app/r/dot-grid.json",
+    "https://frekvens-ui.vercel.app/r/state-mark.json",
+    "https://frekvens-ui.vercel.app/r/steps.json",
+    "https://frekvens-ui.vercel.app/r/grille.json",
+    "https://frekvens-ui.vercel.app/r/led.json",
+    "https://frekvens-ui.vercel.app/r/level-bars.json",
+    "https://frekvens-ui.vercel.app/r/bar-meter.json",
+    "https://frekvens-ui.vercel.app/r/line-chart.json",
+    "https://frekvens-ui.vercel.app/r/progress-ring.json",
+    "https://frekvens-ui.vercel.app/r/readout.json",
+    "https://frekvens-ui.vercel.app/r/tile.json",
+    "https://frekvens-ui.vercel.app/r/strip.json",
+    "https://frekvens-ui.vercel.app/r/card-stack.json",
+    "https://frekvens-ui.vercel.app/r/cabinet.json",
+    "https://frekvens-ui.vercel.app/r/pager.json",
+    "https://frekvens-ui.vercel.app/r/deck.json",
+    "https://frekvens-ui.vercel.app/r/list-row.json",
+    "https://frekvens-ui.vercel.app/r/chip.json",
+    "https://frekvens-ui.vercel.app/r/badge.json",
+    "https://frekvens-ui.vercel.app/r/avatar.json",
+    "https://frekvens-ui.vercel.app/r/top-bar.json",
+    "https://frekvens-ui.vercel.app/r/tab-bar.json",
+    "https://frekvens-ui.vercel.app/r/empty-state.json",
+    "https://frekvens-ui.vercel.app/r/skeleton.json",
+    "https://frekvens-ui.vercel.app/r/message.json",
+    "https://frekvens-ui.vercel.app/r/composer.json",
+    "https://frekvens-ui.vercel.app/r/suggestions.json",
+    "https://frekvens-ui.vercel.app/r/voice-orb.json",
+    "https://frekvens-ui.vercel.app/r/dot-loader.json",
+    "https://frekvens-ui.vercel.app/r/agent-widget.json",
+    "https://frekvens-ui.vercel.app/r/reveal.json",
+    "https://frekvens-ui.vercel.app/r/stack.json",
+    "https://frekvens-ui.vercel.app/r/grid.json",
+    "https://frekvens-ui.vercel.app/r/text.json",
+    "https://frekvens-ui.vercel.app/r/click-wheel.json",
+    "https://frekvens-ui.vercel.app/r/disc-carousel.json",
+    "https://frekvens-ui.vercel.app/r/num-pad.json",
+    "https://frekvens-ui.vercel.app/r/viewfinder.json",
+    "https://frekvens-ui.vercel.app/r/capture-key.json",
+    "https://frekvens-ui.vercel.app/r/recorder.json",
+    "https://frekvens-ui.vercel.app/r/note-editor.json",
+    "https://frekvens-ui.vercel.app/r/sidebar.json",
+    "https://frekvens-ui.vercel.app/r/data-table.json",
+    "https://frekvens-ui.vercel.app/r/command-bar.json",
+    "https://frekvens-ui.vercel.app/r/notch.json",
+    "https://frekvens-ui.vercel.app/r/viewport-3d.json",
+    "https://frekvens-ui.vercel.app/r/heatmap.json",
+    "https://frekvens-ui.vercel.app/r/split-bar.json",
+    "https://frekvens-ui.vercel.app/r/sparkline.json",
+    "https://frekvens-ui.vercel.app/r/hour-strip.json",
+    "https://frekvens-ui.vercel.app/r/payment-card.json",
+    "https://frekvens-ui.vercel.app/r/dialog.json",
+    "https://frekvens-ui.vercel.app/r/file-drop.json",
+    "https://frekvens-ui.vercel.app/r/choice-cards.json",
+    "https://frekvens-ui.vercel.app/r/stat.json",
+    "https://frekvens-ui.vercel.app/r/usage-meter.json",
+    "https://frekvens-ui.vercel.app/r/timeline.json",
+    "https://frekvens-ui.vercel.app/r/checklist.json",
+    "https://frekvens-ui.vercel.app/r/prompt-box.json",
+    "https://frekvens-ui.vercel.app/r/clock.json",
+    "https://frekvens-ui.vercel.app/r/vu-meter.json",
+    "https://frekvens-ui.vercel.app/r/rotary-selector.json",
+    "https://frekvens-ui.vercel.app/r/fader.json",
+    "https://frekvens-ui.vercel.app/r/keycap.json",
+    "https://frekvens-ui.vercel.app/r/calculator.json",
+    "https://frekvens-ui.vercel.app/r/pad-grid.json",
+    "https://frekvens-ui.vercel.app/r/tape-deck.json",
+    "https://frekvens-ui.vercel.app/r/board.json",
+    "https://frekvens-ui.vercel.app/r/sortable.json",
+    "https://frekvens-ui.vercel.app/r/blueprint.json",
+    "https://frekvens-ui.vercel.app/r/area-chart.json",
+    "https://frekvens-ui.vercel.app/r/scatter.json",
+    "https://frekvens-ui.vercel.app/r/radar-chart.json",
+    "https://frekvens-ui.vercel.app/r/donut-chart.json",
+    "https://frekvens-ui.vercel.app/r/scope.json",
+    "https://frekvens-ui.vercel.app/r/voice-position.json",
+    "https://frekvens-ui.vercel.app/r/beam.json",
+    "https://frekvens-ui.vercel.app/r/aura.json",
+    "https://frekvens-ui.vercel.app/r/flap-board.json"
    ],
    "files": [
     {
@@ -1612,7 +1612,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1633,7 +1633,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1654,7 +1654,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1675,7 +1675,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1696,8 +1696,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -1718,7 +1718,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1739,9 +1739,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/key-button.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/key-button.json"
    ],
    "files": [
     {
@@ -1762,12 +1762,12 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/dot-matrix.json",
-    "https://frekvens.vercel.app/r/led.json",
-    "https://frekvens.vercel.app/r/chip.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/segmented.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/dot-matrix.json",
+    "https://frekvens-ui.vercel.app/r/led.json",
+    "https://frekvens-ui.vercel.app/r/chip.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/segmented.json"
    ],
    "files": [
     {
@@ -1788,8 +1788,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/voice-orb.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/voice-orb.json"
    ],
    "files": [
     {
@@ -1810,11 +1810,11 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/led.json",
-    "https://frekvens.vercel.app/r/level-bars.json",
-    "https://frekvens.vercel.app/r/keypad.json",
-    "https://frekvens.vercel.app/r/audio-track.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/led.json",
+    "https://frekvens-ui.vercel.app/r/level-bars.json",
+    "https://frekvens-ui.vercel.app/r/keypad.json",
+    "https://frekvens-ui.vercel.app/r/audio-track.json"
    ],
    "files": [
     {
@@ -1835,10 +1835,10 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/state-mark.json",
-    "https://frekvens.vercel.app/r/audio-track.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/state-mark.json",
+    "https://frekvens-ui.vercel.app/r/audio-track.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -1859,9 +1859,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/badge.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/badge.json"
    ],
    "files": [
     {
@@ -1882,13 +1882,13 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/chip.json",
-    "https://frekvens.vercel.app/r/sparkline.json",
-    "https://frekvens.vercel.app/r/avatar.json",
-    "https://frekvens.vercel.app/r/empty-state.json",
-    "https://frekvens.vercel.app/r/checkbox.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/chip.json",
+    "https://frekvens-ui.vercel.app/r/sparkline.json",
+    "https://frekvens-ui.vercel.app/r/avatar.json",
+    "https://frekvens-ui.vercel.app/r/empty-state.json",
+    "https://frekvens-ui.vercel.app/r/checkbox.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -1909,8 +1909,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -1931,9 +1931,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/voice-orb.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/voice-orb.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -1954,8 +1954,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/segmented.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/segmented.json"
    ],
    "files": [
     {
@@ -1976,7 +1976,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -1997,7 +1997,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2018,7 +2018,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2039,7 +2039,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2060,8 +2060,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/led.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/led.json"
    ],
    "files": [
     {
@@ -2082,10 +2082,10 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/steps.json",
-    "https://frekvens.vercel.app/r/key-button.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/steps.json",
+    "https://frekvens-ui.vercel.app/r/key-button.json"
    ],
    "files": [
     {
@@ -2106,9 +2106,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/dot-matrix.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/dot-matrix.json"
    ],
    "files": [
     {
@@ -2129,9 +2129,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/chip.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/chip.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -2152,10 +2152,10 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/chip.json",
-    "https://frekvens.vercel.app/r/sparkline.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/chip.json",
+    "https://frekvens-ui.vercel.app/r/sparkline.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -2176,9 +2176,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/split-bar.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/split-bar.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -2199,9 +2199,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/avatar.json",
-    "https://frekvens.vercel.app/r/state-mark.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/avatar.json",
+    "https://frekvens-ui.vercel.app/r/state-mark.json"
    ],
    "files": [
     {
@@ -2222,11 +2222,11 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/dot-grid.json",
-    "https://frekvens.vercel.app/r/state-mark.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/key-button.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/dot-grid.json",
+    "https://frekvens-ui.vercel.app/r/state-mark.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/key-button.json"
    ],
    "files": [
     {
@@ -2247,10 +2247,10 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/dot-loader.json",
-    "https://frekvens.vercel.app/r/suggestions.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/dot-loader.json",
+    "https://frekvens-ui.vercel.app/r/suggestions.json"
    ],
    "files": [
     {
@@ -2271,8 +2271,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/dot-matrix.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/dot-matrix.json"
    ],
    "files": [
     {
@@ -2293,7 +2293,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2314,7 +2314,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2335,7 +2335,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2356,7 +2356,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2377,8 +2377,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/keycap.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/keycap.json"
    ],
    "files": [
     {
@@ -2399,7 +2399,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2420,8 +2420,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/keypad.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/keypad.json"
    ],
    "files": [
     {
@@ -2442,11 +2442,11 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/chip.json",
-    "https://frekvens.vercel.app/r/avatar.json",
-    "https://frekvens.vercel.app/r/state-mark.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/chip.json",
+    "https://frekvens-ui.vercel.app/r/avatar.json",
+    "https://frekvens-ui.vercel.app/r/state-mark.json"
    ],
    "files": [
     {
@@ -2467,8 +2467,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/board.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/board.json"
    ],
    "files": [
     {
@@ -2489,9 +2489,9 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/segmented.json",
-    "https://frekvens.vercel.app/r/icon.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/segmented.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
    ],
    "files": [
     {
@@ -2512,7 +2512,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2533,7 +2533,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2554,7 +2554,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2575,7 +2575,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2596,7 +2596,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2617,8 +2617,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/led.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/led.json"
    ],
    "files": [
     {
@@ -2639,7 +2639,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2660,7 +2660,7 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
    ],
    "files": [
     {
@@ -2681,8 +2681,8 @@
    ],
    "dependencies": [],
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/frekvens-lib.json",
-    "https://frekvens.vercel.app/r/split-flap.json"
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/split-flap.json"
    ],
    "files": [
     {
@@ -2699,120 +2699,120 @@
    "title": "Frekvens completo",
    "description": "Los 114 componentes, los estilos y las utilidades de una vez.",
    "registryDependencies": [
-    "https://frekvens.vercel.app/r/key-button.json",
-    "https://frekvens.vercel.app/r/keypad.json",
-    "https://frekvens.vercel.app/r/hold-button.json",
-    "https://frekvens.vercel.app/r/slide-to-start.json",
-    "https://frekvens.vercel.app/r/rocker.json",
-    "https://frekvens.vercel.app/r/icon.json",
-    "https://frekvens.vercel.app/r/dial.json",
-    "https://frekvens.vercel.app/r/gauge.json",
-    "https://frekvens.vercel.app/r/slider.json",
-    "https://frekvens.vercel.app/r/switch.json",
-    "https://frekvens.vercel.app/r/segmented.json",
-    "https://frekvens.vercel.app/r/stepper.json",
-    "https://frekvens.vercel.app/r/wheel.json",
-    "https://frekvens.vercel.app/r/volume-wheel.json",
-    "https://frekvens.vercel.app/r/checkbox.json",
-    "https://frekvens.vercel.app/r/radio-group.json",
-    "https://frekvens.vercel.app/r/select.json",
-    "https://frekvens.vercel.app/r/menu.json",
-    "https://frekvens.vercel.app/r/tabs.json",
-    "https://frekvens.vercel.app/r/text-field.json",
-    "https://frekvens.vercel.app/r/calendar.json",
-    "https://frekvens.vercel.app/r/sheet.json",
-    "https://frekvens.vercel.app/r/toast.json",
-    "https://frekvens.vercel.app/r/banner.json",
-    "https://frekvens.vercel.app/r/tooltip.json",
-    "https://frekvens.vercel.app/r/timer.json",
-    "https://frekvens.vercel.app/r/stopwatch.json",
-    "https://frekvens.vercel.app/r/hourglass.json",
-    "https://frekvens.vercel.app/r/pendulum.json",
-    "https://frekvens.vercel.app/r/media-player.json",
-    "https://frekvens.vercel.app/r/audio-track.json",
-    "https://frekvens.vercel.app/r/ticker.json",
-    "https://frekvens.vercel.app/r/split-flap.json",
-    "https://frekvens.vercel.app/r/dot-matrix.json",
-    "https://frekvens.vercel.app/r/dot-grid.json",
-    "https://frekvens.vercel.app/r/state-mark.json",
-    "https://frekvens.vercel.app/r/steps.json",
-    "https://frekvens.vercel.app/r/grille.json",
-    "https://frekvens.vercel.app/r/led.json",
-    "https://frekvens.vercel.app/r/level-bars.json",
-    "https://frekvens.vercel.app/r/bar-meter.json",
-    "https://frekvens.vercel.app/r/line-chart.json",
-    "https://frekvens.vercel.app/r/progress-ring.json",
-    "https://frekvens.vercel.app/r/readout.json",
-    "https://frekvens.vercel.app/r/tile.json",
-    "https://frekvens.vercel.app/r/strip.json",
-    "https://frekvens.vercel.app/r/card-stack.json",
-    "https://frekvens.vercel.app/r/cabinet.json",
-    "https://frekvens.vercel.app/r/pager.json",
-    "https://frekvens.vercel.app/r/deck.json",
-    "https://frekvens.vercel.app/r/list-row.json",
-    "https://frekvens.vercel.app/r/chip.json",
-    "https://frekvens.vercel.app/r/badge.json",
-    "https://frekvens.vercel.app/r/avatar.json",
-    "https://frekvens.vercel.app/r/top-bar.json",
-    "https://frekvens.vercel.app/r/tab-bar.json",
-    "https://frekvens.vercel.app/r/empty-state.json",
-    "https://frekvens.vercel.app/r/skeleton.json",
-    "https://frekvens.vercel.app/r/message.json",
-    "https://frekvens.vercel.app/r/composer.json",
-    "https://frekvens.vercel.app/r/suggestions.json",
-    "https://frekvens.vercel.app/r/voice-orb.json",
-    "https://frekvens.vercel.app/r/dot-loader.json",
-    "https://frekvens.vercel.app/r/agent-widget.json",
-    "https://frekvens.vercel.app/r/render.json",
-    "https://frekvens.vercel.app/r/reveal.json",
-    "https://frekvens.vercel.app/r/stack.json",
-    "https://frekvens.vercel.app/r/grid.json",
-    "https://frekvens.vercel.app/r/text.json",
-    "https://frekvens.vercel.app/r/click-wheel.json",
-    "https://frekvens.vercel.app/r/disc-carousel.json",
-    "https://frekvens.vercel.app/r/num-pad.json",
-    "https://frekvens.vercel.app/r/viewfinder.json",
-    "https://frekvens.vercel.app/r/capture-key.json",
-    "https://frekvens.vercel.app/r/recorder.json",
-    "https://frekvens.vercel.app/r/note-editor.json",
-    "https://frekvens.vercel.app/r/sidebar.json",
-    "https://frekvens.vercel.app/r/data-table.json",
-    "https://frekvens.vercel.app/r/command-bar.json",
-    "https://frekvens.vercel.app/r/notch.json",
-    "https://frekvens.vercel.app/r/viewport-3d.json",
-    "https://frekvens.vercel.app/r/heatmap.json",
-    "https://frekvens.vercel.app/r/split-bar.json",
-    "https://frekvens.vercel.app/r/sparkline.json",
-    "https://frekvens.vercel.app/r/hour-strip.json",
-    "https://frekvens.vercel.app/r/payment-card.json",
-    "https://frekvens.vercel.app/r/dialog.json",
-    "https://frekvens.vercel.app/r/file-drop.json",
-    "https://frekvens.vercel.app/r/choice-cards.json",
-    "https://frekvens.vercel.app/r/stat.json",
-    "https://frekvens.vercel.app/r/usage-meter.json",
-    "https://frekvens.vercel.app/r/timeline.json",
-    "https://frekvens.vercel.app/r/checklist.json",
-    "https://frekvens.vercel.app/r/prompt-box.json",
-    "https://frekvens.vercel.app/r/clock.json",
-    "https://frekvens.vercel.app/r/vu-meter.json",
-    "https://frekvens.vercel.app/r/rotary-selector.json",
-    "https://frekvens.vercel.app/r/fader.json",
-    "https://frekvens.vercel.app/r/keycap.json",
-    "https://frekvens.vercel.app/r/calculator.json",
-    "https://frekvens.vercel.app/r/pad-grid.json",
-    "https://frekvens.vercel.app/r/tape-deck.json",
-    "https://frekvens.vercel.app/r/board.json",
-    "https://frekvens.vercel.app/r/sortable.json",
-    "https://frekvens.vercel.app/r/blueprint.json",
-    "https://frekvens.vercel.app/r/area-chart.json",
-    "https://frekvens.vercel.app/r/scatter.json",
-    "https://frekvens.vercel.app/r/radar-chart.json",
-    "https://frekvens.vercel.app/r/donut-chart.json",
-    "https://frekvens.vercel.app/r/scope.json",
-    "https://frekvens.vercel.app/r/voice-position.json",
-    "https://frekvens.vercel.app/r/beam.json",
-    "https://frekvens.vercel.app/r/aura.json",
-    "https://frekvens.vercel.app/r/flap-board.json"
+    "https://frekvens-ui.vercel.app/r/key-button.json",
+    "https://frekvens-ui.vercel.app/r/keypad.json",
+    "https://frekvens-ui.vercel.app/r/hold-button.json",
+    "https://frekvens-ui.vercel.app/r/slide-to-start.json",
+    "https://frekvens-ui.vercel.app/r/rocker.json",
+    "https://frekvens-ui.vercel.app/r/icon.json",
+    "https://frekvens-ui.vercel.app/r/dial.json",
+    "https://frekvens-ui.vercel.app/r/gauge.json",
+    "https://frekvens-ui.vercel.app/r/slider.json",
+    "https://frekvens-ui.vercel.app/r/switch.json",
+    "https://frekvens-ui.vercel.app/r/segmented.json",
+    "https://frekvens-ui.vercel.app/r/stepper.json",
+    "https://frekvens-ui.vercel.app/r/wheel.json",
+    "https://frekvens-ui.vercel.app/r/volume-wheel.json",
+    "https://frekvens-ui.vercel.app/r/checkbox.json",
+    "https://frekvens-ui.vercel.app/r/radio-group.json",
+    "https://frekvens-ui.vercel.app/r/select.json",
+    "https://frekvens-ui.vercel.app/r/menu.json",
+    "https://frekvens-ui.vercel.app/r/tabs.json",
+    "https://frekvens-ui.vercel.app/r/text-field.json",
+    "https://frekvens-ui.vercel.app/r/calendar.json",
+    "https://frekvens-ui.vercel.app/r/sheet.json",
+    "https://frekvens-ui.vercel.app/r/toast.json",
+    "https://frekvens-ui.vercel.app/r/banner.json",
+    "https://frekvens-ui.vercel.app/r/tooltip.json",
+    "https://frekvens-ui.vercel.app/r/timer.json",
+    "https://frekvens-ui.vercel.app/r/stopwatch.json",
+    "https://frekvens-ui.vercel.app/r/hourglass.json",
+    "https://frekvens-ui.vercel.app/r/pendulum.json",
+    "https://frekvens-ui.vercel.app/r/media-player.json",
+    "https://frekvens-ui.vercel.app/r/audio-track.json",
+    "https://frekvens-ui.vercel.app/r/ticker.json",
+    "https://frekvens-ui.vercel.app/r/split-flap.json",
+    "https://frekvens-ui.vercel.app/r/dot-matrix.json",
+    "https://frekvens-ui.vercel.app/r/dot-grid.json",
+    "https://frekvens-ui.vercel.app/r/state-mark.json",
+    "https://frekvens-ui.vercel.app/r/steps.json",
+    "https://frekvens-ui.vercel.app/r/grille.json",
+    "https://frekvens-ui.vercel.app/r/led.json",
+    "https://frekvens-ui.vercel.app/r/level-bars.json",
+    "https://frekvens-ui.vercel.app/r/bar-meter.json",
+    "https://frekvens-ui.vercel.app/r/line-chart.json",
+    "https://frekvens-ui.vercel.app/r/progress-ring.json",
+    "https://frekvens-ui.vercel.app/r/readout.json",
+    "https://frekvens-ui.vercel.app/r/tile.json",
+    "https://frekvens-ui.vercel.app/r/strip.json",
+    "https://frekvens-ui.vercel.app/r/card-stack.json",
+    "https://frekvens-ui.vercel.app/r/cabinet.json",
+    "https://frekvens-ui.vercel.app/r/pager.json",
+    "https://frekvens-ui.vercel.app/r/deck.json",
+    "https://frekvens-ui.vercel.app/r/list-row.json",
+    "https://frekvens-ui.vercel.app/r/chip.json",
+    "https://frekvens-ui.vercel.app/r/badge.json",
+    "https://frekvens-ui.vercel.app/r/avatar.json",
+    "https://frekvens-ui.vercel.app/r/top-bar.json",
+    "https://frekvens-ui.vercel.app/r/tab-bar.json",
+    "https://frekvens-ui.vercel.app/r/empty-state.json",
+    "https://frekvens-ui.vercel.app/r/skeleton.json",
+    "https://frekvens-ui.vercel.app/r/message.json",
+    "https://frekvens-ui.vercel.app/r/composer.json",
+    "https://frekvens-ui.vercel.app/r/suggestions.json",
+    "https://frekvens-ui.vercel.app/r/voice-orb.json",
+    "https://frekvens-ui.vercel.app/r/dot-loader.json",
+    "https://frekvens-ui.vercel.app/r/agent-widget.json",
+    "https://frekvens-ui.vercel.app/r/render.json",
+    "https://frekvens-ui.vercel.app/r/reveal.json",
+    "https://frekvens-ui.vercel.app/r/stack.json",
+    "https://frekvens-ui.vercel.app/r/grid.json",
+    "https://frekvens-ui.vercel.app/r/text.json",
+    "https://frekvens-ui.vercel.app/r/click-wheel.json",
+    "https://frekvens-ui.vercel.app/r/disc-carousel.json",
+    "https://frekvens-ui.vercel.app/r/num-pad.json",
+    "https://frekvens-ui.vercel.app/r/viewfinder.json",
+    "https://frekvens-ui.vercel.app/r/capture-key.json",
+    "https://frekvens-ui.vercel.app/r/recorder.json",
+    "https://frekvens-ui.vercel.app/r/note-editor.json",
+    "https://frekvens-ui.vercel.app/r/sidebar.json",
+    "https://frekvens-ui.vercel.app/r/data-table.json",
+    "https://frekvens-ui.vercel.app/r/command-bar.json",
+    "https://frekvens-ui.vercel.app/r/notch.json",
+    "https://frekvens-ui.vercel.app/r/viewport-3d.json",
+    "https://frekvens-ui.vercel.app/r/heatmap.json",
+    "https://frekvens-ui.vercel.app/r/split-bar.json",
+    "https://frekvens-ui.vercel.app/r/sparkline.json",
+    "https://frekvens-ui.vercel.app/r/hour-strip.json",
+    "https://frekvens-ui.vercel.app/r/payment-card.json",
+    "https://frekvens-ui.vercel.app/r/dialog.json",
+    "https://frekvens-ui.vercel.app/r/file-drop.json",
+    "https://frekvens-ui.vercel.app/r/choice-cards.json",
+    "https://frekvens-ui.vercel.app/r/stat.json",
+    "https://frekvens-ui.vercel.app/r/usage-meter.json",
+    "https://frekvens-ui.vercel.app/r/timeline.json",
+    "https://frekvens-ui.vercel.app/r/checklist.json",
+    "https://frekvens-ui.vercel.app/r/prompt-box.json",
+    "https://frekvens-ui.vercel.app/r/clock.json",
+    "https://frekvens-ui.vercel.app/r/vu-meter.json",
+    "https://frekvens-ui.vercel.app/r/rotary-selector.json",
+    "https://frekvens-ui.vercel.app/r/fader.json",
+    "https://frekvens-ui.vercel.app/r/keycap.json",
+    "https://frekvens-ui.vercel.app/r/calculator.json",
+    "https://frekvens-ui.vercel.app/r/pad-grid.json",
+    "https://frekvens-ui.vercel.app/r/tape-deck.json",
+    "https://frekvens-ui.vercel.app/r/board.json",
+    "https://frekvens-ui.vercel.app/r/sortable.json",
+    "https://frekvens-ui.vercel.app/r/blueprint.json",
+    "https://frekvens-ui.vercel.app/r/area-chart.json",
+    "https://frekvens-ui.vercel.app/r/scatter.json",
+    "https://frekvens-ui.vercel.app/r/radar-chart.json",
+    "https://frekvens-ui.vercel.app/r/donut-chart.json",
+    "https://frekvens-ui.vercel.app/r/scope.json",
+    "https://frekvens-ui.vercel.app/r/voice-position.json",
+    "https://frekvens-ui.vercel.app/r/beam.json",
+    "https://frekvens-ui.vercel.app/r/aura.json",
+    "https://frekvens-ui.vercel.app/r/flap-board.json"
    ],
    "files": [
     {

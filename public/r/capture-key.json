@@ -9,8 +9,8 @@
  ],
  "dependencies": [],
  "registryDependencies": [
-  "https://frekvens.vercel.app/r/frekvens-lib.json",
-  "https://frekvens.vercel.app/r/voice-orb.json"
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+  "https://frekvens-ui.vercel.app/r/voice-orb.json"
  ],
  "files": [
   {

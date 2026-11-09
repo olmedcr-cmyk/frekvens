@@ -5,7 +5,7 @@
  "title": "Frekvens · utilidades",
  "description": "cx, useValue, useFollow (muelle con impulso), iconos, parseLang y lo que comparten los componentes.",
  "registryDependencies": [
-  "https://frekvens.vercel.app/r/frekvens-styles.json"
+  "https://frekvens-ui.vercel.app/r/frekvens-styles.json"
  ],
  "files": [
   {
