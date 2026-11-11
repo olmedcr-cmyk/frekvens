@@ -220,7 +220,7 @@
       "name": "gauge",
       "type": "registry:ui",
       "title": "Gauge",
-      "description": "Arco de instrumento: pista tabaco, tramo recorrido en ink y un punto de lectura. Para un porcentaje de 0 a 100.",
+      "description": "Medio arco fino: pista tenue, tramo recorrido en el color del texto y la cifra dentro. Sin aguja ni punto: solo la lectura. Para un porcentaje de 0 a 100.",
       "categories": [
         "Instrumentos"
       ],
@@ -235,7 +235,7 @@
           "target": "~/components/frekvens/gauge.tsx"
         }
       ],
-      "docs": "# Gauge\n\nArco de instrumento: pista `tabaco`, tramo recorrido en `ink` y un punto de lectura. Para un porcentaje de 0 a 100.\n\n- **Props**: `value` (0–100), `width` (240 px), `thickness` (14), `caption` (texto bajo el arco, p. ej. `int. 80%`), `label` (nombre accesible).\n- Solo lectura (`role=\"meter\"`). Si el usuario debe ajustarlo, usa `Slider` o `Dial`.\n- Va a la derecha de un `Strip`, con el valor en grande a la izquierda (`ON`, `78%`).\n"
+      "docs": "# Gauge\n\nMedio arco fino: pista tenue, tramo recorrido en el color del texto y la cifra dentro. Sin aguja ni punto: solo la lectura. Para un porcentaje de 0 a 100.\n\n- **Props**: `value` (0–100), `width` (240 px), `thickness` (8), `unit` (`%`; pasa `''` para quitarla), `readout` (`false` deja solo el arco), `caption` (etiqueta bajo la cifra, p. ej. `Intensidad`), `label` (nombre accesible).\n- Toma el color del texto de donde vive, así que funciona sobre cualquier tono.\n- Solo lectura (`role=\"meter\"`). Si el usuario debe ajustarlo, usa `Slider` o `Dial`.\n- A la derecha de un `Strip`, que ya dice el valor en grande, úsalo con `readout={false}`.\n"
     },
     {
       "name": "slider",
@@ -2371,14 +2371,13 @@
       "name": "calculator",
       "type": "registry:ui",
       "title": "Calculator",
-      "description": "Calculadora completa con teclas esculpidas (Keycap) y pantalla LCD verde con la operación en curso arriba. + e = de dos alturas, 0 doble, = en rams. La variante round usa teclas circulares en línea, c",
+      "description": "Calculadora plana: la cifra grande arriba, la operación en curso encima en pequeño y una rejilla de 4 × 5 teclas iguales. Números en paper, operadores en well, = en ink, 0 doble. La variante round usa",
       "categories": [
         "Botonera"
       ],
       "dependencies": [],
       "registryDependencies": [
-        "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
-        "https://frekvens-ui.vercel.app/r/keycap.json"
+        "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
       ],
       "files": [
         {
@@ -2387,7 +2386,7 @@
           "target": "~/components/frekvens/calculator.tsx"
         }
       ],
-      "docs": "# Calculator\n\nCalculadora completa con teclas esculpidas (`Keycap`) y pantalla LCD verde con la operación en curso arriba. `+` e `=` de dos alturas, `0` doble, `=` en `rams`. La variante `round` usa teclas circulares en línea, como un teclado numérico redondo.\n\n- **Props**: `variant` (`keys` · `round`), `keyboard` (escucha el teclado físico: dígitos, + − * /, Enter, Esc, Retroceso).\n- Coma decimal española; resultado redondeado a 10 decimales; dividir entre 0 muestra \"Error\". La pantalla es `aria-live`.\n"
+      "docs": "# Calculator\n\nCalculadora plana: la cifra grande arriba, la operación en curso encima en pequeño y una rejilla de 4 × 5 teclas iguales. Números en `paper`, operadores en `well`, `=` en `ink`, `0` doble. La variante `round` usa teclas circulares.\n\n- **Props**: `variant` (`keys` · `round`), `keyboard` (escucha el teclado físico: dígitos, + − * /, Enter, Esc, Retroceso).\n- Coma decimal española; resultado redondeado a 10 decimales; dividir entre 0 muestra \"Error\". La pantalla es `aria-live`.\n"
     },
     {
       "name": "pad-grid",

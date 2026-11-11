@@ -42,9 +42,13 @@ export function ChoiceCards(p?: any): any {
       role="radiogroup"
       aria-label={p.label}
       className={cx("frk-choices", p.className)}
-      style={{
-        gridTemplateColumns: "repeat(" + (p.columns || opts.length) + ", minmax(0,1fr))",
-      }}
+      style={
+        p.columns
+          ? {
+              gridTemplateColumns: "repeat(" + p.columns + ", minmax(0,1fr))",
+            }
+          : undefined
+      }
     >
       {opts.map(function (o?: any, i?: any): any {
         var on: any = o.value === v

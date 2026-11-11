@@ -119,17 +119,17 @@
 
   /* ---------- Gauge: arc instrument ---------- */
   function Gauge(p) {
-    var v = clamp(p.value == null ? 0 : p.value, 0, 100), w = p.width || 240, sw = p.thickness || 14;
-    var r = 100, cxp = 120, cyp = 118, a0 = -62, a1 = 62;
-    function pt(a) { var t = a * Math.PI / 180; return [cxp + r * Math.sin(t), cyp - r * Math.cos(t)]; }
-    function arc(from, to) { var s = pt(from), e = pt(to); return 'M' + s[0] + ' ' + s[1] + ' A' + r + ' ' + r + ' 0 0 1 ' + e[0] + ' ' + e[1]; }
-    var av = a0 + (a1 - a0) * v / 100, dot = pt(av);
+    var v = clamp(p.value == null ? 0 : p.value, 0, 100), w = p.width || 240, sw = p.thickness || 8;
+    var r = 120 - sw / 2, cyp = 120, show = p.readout !== false;
+    function pt(a) { var t = a * Math.PI / 180; return [120 + r * Math.sin(t), cyp - r * Math.cos(t)]; }
+    function arc(from, to) { var s = pt(from), e = pt(to); return 'M' + s[0].toFixed(2) + ' ' + s[1].toFixed(2) + ' A' + r + ' ' + r + ' 0 0 1 ' + e[0].toFixed(2) + ' ' + e[1].toFixed(2); }
     return h('div', { className: cx('frk-gauge', p.className), role: 'meter', 'aria-valuemin': 0, 'aria-valuemax': 100, 'aria-valuenow': v, 'aria-label': p.label || 'Nivel', style: { width: w } },
-      h('svg', { viewBox: '0 0 240 ' + (cyp - r * Math.cos(a1 * Math.PI / 180) + sw), width: w, 'aria-hidden': true },
-        h('path', { d: arc(a0, a1), className: 'frk-gauge__track', strokeWidth: sw }),
-        h('path', { d: arc(a0, av), className: 'frk-gauge__fill', strokeWidth: sw }),
-        h('circle', { cx: dot[0], cy: dot[1], r: sw * 0.42, className: 'frk-gauge__dot' })),
-      p.caption ? h('div', { className: 'frk-gauge__caption' }, p.caption) : null);
+      h('svg', { viewBox: '0 0 240 ' + (cyp + sw / 2), 'aria-hidden': true },
+        h('path', { d: arc(-90, 90), className: 'frk-gauge__track', strokeWidth: sw }),
+        v > 0 ? h('path', { d: arc(-90, -90 + 180 * v / 100), className: 'frk-gauge__fill', strokeWidth: sw }) : null),
+      show || p.caption ? h('div', { className: 'frk-gauge__read' },
+        show ? h('div', { className: 'frk-gauge__value', style: { fontSize: Math.round(w * 0.24) } }, Math.round(v), h('span', { className: 'frk-gauge__unit' }, p.unit == null ? '%' : p.unit)) : null,
+        p.caption ? h('div', { className: 'frk-gauge__caption' }, p.caption) : null) : null);
   }
 
   /* ---------- Slider: track + rams dot ---------- */
@@ -1740,7 +1740,7 @@
     var opts = p.options || [], st = useValue(p, p.defaultValue), v = st[0], refs = useRef([]);
     function key(e, i) { var d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key]; if (!d) return; e.preventDefault(); var n = (i + d + opts.length) % opts.length; st[1](opts[n].value); refs.current[n] && refs.current[n].focus(); }
     var sel = -1; opts.forEach(function (o, i) { if (o.value === v) sel = i; });
-    return h('div', { role: 'radiogroup', 'aria-label': p.label, className: cx('frk-choices', p.className), style: { gridTemplateColumns: 'repeat(' + (p.columns || opts.length) + ', minmax(0,1fr))' } }, opts.map(function (o, i) {
+    return h('div', { role: 'radiogroup', 'aria-label': p.label, className: cx('frk-choices', p.className), style: p.columns ? { gridTemplateColumns: 'repeat(' + p.columns + ', minmax(0,1fr))' } : undefined }, opts.map(function (o, i) {
       var on = o.value === v;
       return h('button', { key: o.value, ref: function (el) { refs.current[i] = el; }, type: 'button', role: 'radio', 'aria-checked': on, tabIndex: on || (sel < 0 && i === 0) ? 0 : -1, className: cx('frk-choice', on && 'is-on', o.tone && 'frk-tone--' + o.tone), onClick: function () { st[1](o.value); }, onKeyDown: function (e) { key(e, i); } },
         h('span', { className: 'frk-choice__top' }, h('span', { className: 'frk-choice__mark', 'aria-hidden': true }), o.badge ? h(Chip, { tone: 'sol' }, o.badge) : null),
@@ -1955,16 +1955,16 @@
     }
     useEffect(function () { if (!p.keyboard) return; function f(e) { var m = { '/': '÷', '*': '×', '-': '−', '+': '+', Enter: '=', '=': '=', Escape: 'C', Backspace: '⌫', '.': ',', ',': ',', '%': '%' }; if (/^[0-9]$/.test(e.key)) press(e.key); else if (m[e.key]) { e.preventDefault(); press(m[e.key]); } } window.addEventListener('keydown', f); return function () { window.removeEventListener('keydown', f); }; }, []);
     var round = p.variant === 'round';
-    var K = function (k, o) { o = o || {}; return h(Keycap, { key: k, tone: o.tone || (round ? 'paper' : 'paper'), w: o.w, h: o.h, 'aria-label': o.label || k, onClick: function () { press(k); }, className: round ? 'frk-keycap--round' : undefined }, k); };
+    var K = function (k, o) { o = o || {}; return h('button', { key: k, type: 'button', className: cx('frk-calc__key', o.kind && 'frk-calc__key--' + o.kind, o.wide && 'frk-calc__key--wide'), 'aria-label': o.label || k, onClick: function () { press(k); } }, k); };
     return h('div', { className: cx('frk-calc', round && 'frk-calc--round', p.className) },
       h('div', { className: 'frk-calc__display', 'aria-live': 'polite', 'aria-atomic': true },
-        h('span', { className: 'frk-calc__expr' }, st.expr || ' '), h('output', { className: 'frk-calc__cur' }, st.cur)),
+        h('span', { className: 'frk-calc__expr' }, st.expr || ' '), h('output', { className: 'frk-calc__cur' }, st.cur)),
       h('div', { className: 'frk-calc__keys' },
-        K('C', { tone: 'ink', label: 'Borrar todo' }), K('÷', { label: 'Dividir' }), K('×', { label: 'Multiplicar' }), K('−', { label: 'Restar' }),
-        K('7'), K('8'), K('9'), K('+', { h: 2, label: 'Sumar' }),
-        K('4'), K('5'), K('6'),
-        K('1'), K('2'), K('3'), K('=', { h: 2, tone: 'rams', label: 'Igual' }),
-        K('0', { w: 2 }), K(',', { label: 'Coma' })));
+        K('C', { kind: 'op', label: 'Borrar todo' }), K('⌫', { kind: 'op', label: 'Borrar' }), K('%', { kind: 'op', label: 'Porcentaje' }), K('÷', { kind: 'op', label: 'Dividir' }),
+        K('7'), K('8'), K('9'), K('×', { kind: 'op', label: 'Multiplicar' }),
+        K('4'), K('5'), K('6'), K('−', { kind: 'op', label: 'Restar' }),
+        K('1'), K('2'), K('3'), K('+', { kind: 'op', label: 'Sumar' }),
+        K('0', { wide: true }), K(',', { label: 'Coma' }), K('=', { kind: 'go', label: 'Igual' })));
   }
 
   /* ---------- PadGrid: pads de percusión ---------- */

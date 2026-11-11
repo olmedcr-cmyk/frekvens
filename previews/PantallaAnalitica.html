@@ -33,7 +33,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'
    h('div',{className:'card'},h(F.Text,{variant:'headline',as:'h2'},'Reparto'),h(F.SplitBar,{segments:[{label:'Grupo',value:58},{label:'Solo',value:27},{label:'Online',value:15}]})),
    h('div',{className:'card'},h(F.Text,{variant:'headline',as:'h2'},'Semana'),h(F.BarMeter,{active:3,height:110,barWidth:18,data:[{label:'L',value:40},{label:'M',value:62},{label:'X',value:55},{label:'J',value:90},{label:'V',value:70},{label:'S',value:30,hatched:true},{label:'D',value:20,hatched:true}]})),
    h('div',{className:'card s2'},h(F.Text,{variant:'headline',as:'h2'},'Actividad diaria'),h(F.Heatmap,{data:heat,cell:16,caption:'Sesiones por día · 30 semanas'})),
-   h('div',{className:'card s2'},h(F.Text,{variant:'headline',as:'h2'},'Objetivos'),h(F.Stack,{direction:'row',gap:5},h(F.ProgressRing,{value:72,label:'Ocupación'}),h(F.ProgressRing,{value:91,tone:'klein',label:'Retención'}),h(F.ProgressRing,{value:48,tone:'ink',label:'Bonos'}),h(F.Gauge,{value:64,width:150,caption:'NPS 64'})))
+   h('div',{className:'card s2'},h(F.Text,{variant:'headline',as:'h2'},'Objetivos'),h(F.Stack,{direction:'row',gap:5},h(F.ProgressRing,{value:72,label:'Ocupación'}),h(F.ProgressRing,{value:91,tone:'klein',label:'Retención'}),h(F.ProgressRing,{value:48,tone:'ink',label:'Bonos'}),h(F.Gauge,{value:64,width:150,unit:'',caption:'NPS'})))
   )))));
 </script>
 </body>

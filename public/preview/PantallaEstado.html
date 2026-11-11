@@ -27,7 +27,7 @@ function Home(){
 function Panel(){
   return h('div',{className:'phone',style:{background:'var(--ink)',gap:'8px',padding:'64px 12px 12px'}},
     h(C.Strip,{title:'Temperatura',value:'24°'},h(C.DotMatrix,{shape:'sun',dot:3,pitch:5,tone:'tabaco'})),
-    h(C.Strip,{title:'Luz difusa',value:'ON'},h(C.Gauge,{value:80,width:150,thickness:12,caption:'80%'})),
+    h(C.Strip,{title:'Luz difusa',value:'ON'},h(C.Gauge,{value:80,width:150,thickness:12})),
     h(C.Strip,{title:'Batería',value:'78%'},h(C.LevelBars,{value:78,count:14,height:56})),
     h(C.Strip,{title:'Estado',value:'3/5'},h('div',{style:{display:'flex',gap:'6px'}},h(C.StateMark,{state:'full'}),h(C.StateMark,{state:'full'}),h(C.StateMark,{state:'full'}),h(C.StateMark,{state:'partial'}),h(C.StateMark,{state:'empty'}))),
     h(C.Strip,{tone:'tabaco',value:'19:53'},h('div',{style:{font:'400 18px/22px var(--font-sans)'}},'Jueves',h('br'),'5 noviembre')));

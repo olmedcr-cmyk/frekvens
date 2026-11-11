@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{if(parent!==window){var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}}catch(e){}</script><meta charset="utf-8"><title>AppFitness</title>
+<style>
+  .app { width:min(390px,100%); margin:0 auto; box-sizing:border-box; border-radius:44px; padding:var(--space-6) var(--space-4) var(--space-4); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); overflow:hidden; }
+  .bento { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-2); }
+  .bento > * { min-width:0; }
+  .wide { grid-column:1 / -1; }
+  .bento .frk-tile { height:100%; }
+  .bento .frk-tile__value { font-size:40px; }
+  .bento .wide .frk-tile__value { font-size:64px; }
+  .card { display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-4); border-radius:var(--radius-lg); background:var(--surface); box-sizing:border-box; min-width:0; }
+  .cap { margin:0; font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+  .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .list { display:flex; flex-direction:column; gap:var(--space-2); }
+  .app .frk-tabbar { align-self:center; }
+</style></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function App(){
+ return h('div',{className:'app'},
+  h(F.Text,{variant:'display-xl',sub:'Martes 11'},'Hoy'),
+  h('div',{className:'bento'},
+   h('div',{className:'wide'},h(F.Tile,{tone:'rams',meta:'Kcal hoy',title:'Energía',subtitle:'de 1.880',value:'1.213',height:200})),
+   h(F.Tile,{tone:'surface',title:'Proteína',subtitle:'de 150 g',value:'115 g',height:160}),
+   h(F.Tile,{tone:'sol',title:'Registrar',subtitle:'Habla o escribe',height:160,onClick:function(){}},h(F.Icon,{name:'mic',size:40})),
+   h('div',{className:'wide'},h(F.Tile,{tone:'salvia',meta:'Entrenador',title:'Te faltan 35 g.',subtitle:'No empiezas de cero: estás terminando.',height:128})),
+   h(F.Tile,{tone:'verde',title:'Entreno',subtitle:'Pierna · 45 min',value:'45′',height:160,onClick:function(){}}),
+   h(F.Tile,{tone:'ink',title:'Pierna',subtitle:'4 de 5 hechos',height:160},h(F.ProgressRing,{value:80,size:72,tone:'rams',label:'Pierna, 80 por ciento'},'80%'))),
+  h('div',{className:'card'},h('p',{className:'cap'},'Minutos · esta semana'),h(F.BarMeter,{data:[{label:'L',value:45},{label:'M',value:60},{label:'X',value:20},{label:'J',value:0,hatched:true},{label:'V',value:0,hatched:true}],active:1,height:112,barWidth:40,label:'Minutos entrenados por día'})),
+  h(F.TabBar,{label:'Secciones',items:[{id:'h',label:'Hoy',icon:'home'},{id:'e',label:'Entrenos',icon:'timer'},{id:'p',label:'Progreso',icon:'arrow-up-right'}]}));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

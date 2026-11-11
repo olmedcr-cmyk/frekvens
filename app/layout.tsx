@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next"
 import Link from "next/link"
 import "./globals.css"
 import { NavLinks } from "./nav-links"
+import { Mark } from "./mark"
 
 export const metadata: Metadata = {
   title: "Frekvens — componentes React para copiar y pegar",
@@ -16,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <div className="site">
           <header className="nav">
-            <Link href="/" className="brand">Frekvens</Link>
+            <Link href="/" className="brand"><Mark />Frekvens</Link>
             <NavLinks />
           </header>
           <main>{children}</main>

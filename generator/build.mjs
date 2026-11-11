@@ -171,5 +171,6 @@ if (fs.existsSync(TPL)) copyDir(TPL, REPO);
 const THUMBS = path.join(path.dirname(new URL(import.meta.url).pathname), 'thumbs');
 const thumbs = fs.existsSync(path.join(THUMBS, 'manifest.json')) ? JSON.parse(read(path.join(THUMBS, 'manifest.json'))) : {};
 for (const slug of Object.keys(thumbs)) { const src = path.join(THUMBS, `${slug}.jpg`); if (fs.existsSync(src)) { fs.mkdirSync(R('public/thumbs'), { recursive: true }); fs.copyFileSync(src, R(`public/thumbs/${slug}.jpg`)); } }
+write(R('app/thumbs.json'), JSON.stringify(thumbs) + '\n');
 write(R('app/catalog.json'), JSON.stringify(names.map((n) => ({ name: n, slug: kebab(n), group: groupOf(n), description: firstLine(docOf(n)), deps: manifest[n].deps.map((d) => ({ name: d, slug: kebab(d) })), doc: docOf(n), thumb: thumbs[kebab(n)] || null })), null, 1));
 console.log('repo en', REPO, '·', names.length, 'componentes ·', items.length, 'items en el registry');

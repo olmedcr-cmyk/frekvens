@@ -2,7 +2,6 @@
 /* Frekvens · Calculator — MIT © Cris Olmedo */
 
 import * as React from "react"
-import { Keycap } from "./keycap"
 import { cx } from "./lib"
 
 import type { CalculatorProps } from "./types"
@@ -107,64 +106,72 @@ export function Calculator(p?: any): any {
   var K: any = function (k?: any, o?: any): any {
     o = o || {}
     return (
-      <Keycap
+      <button
         key={k}
-        tone={o.tone || (round ? "paper" : "paper")}
-        w={o.w}
-        h={o.h}
+        type="button"
+        className={cx("frk-calc__key", o.kind && "frk-calc__key--" + o.kind, o.wide && "frk-calc__key--wide")}
         aria-label={o.label || k}
         onClick={function (): any {
           press(k)
         }}
-        className={round ? "frk-keycap--round" : undefined}
       >
         {k}
-      </Keycap>
+      </button>
     )
   }
   return (
     <div className={cx("frk-calc", round && "frk-calc--round", p.className)}>
       <div className="frk-calc__display" aria-live="polite" aria-atomic={true}>
-        <span className="frk-calc__expr">{st.expr || " "}</span>
+        <span className="frk-calc__expr">{st.expr || " "}</span>
         <output className="frk-calc__cur">{st.cur}</output>
       </div>
       <div className="frk-calc__keys">
         {K("C", {
-          tone: "ink",
+          kind: "op",
           label: "Borrar todo",
         })}
+        {K("⌫", {
+          kind: "op",
+          label: "Borrar",
+        })}
+        {K("%", {
+          kind: "op",
+          label: "Porcentaje",
+        })}
         {K("÷", {
+          kind: "op",
           label: "Dividir",
-        })}
-        {K("×", {
-          label: "Multiplicar",
-        })}
-        {K("−", {
-          label: "Restar",
         })}
         {K("7")}
         {K("8")}
         {K("9")}
-        {K("+", {
-          h: 2,
-          label: "Sumar",
+        {K("×", {
+          kind: "op",
+          label: "Multiplicar",
         })}
         {K("4")}
         {K("5")}
         {K("6")}
+        {K("−", {
+          kind: "op",
+          label: "Restar",
+        })}
         {K("1")}
         {K("2")}
         {K("3")}
-        {K("=", {
-          h: 2,
-          tone: "rams",
-          label: "Igual",
+        {K("+", {
+          kind: "op",
+          label: "Sumar",
         })}
         {K("0", {
-          w: 2,
+          wide: true,
         })}
         {K(",", {
           label: "Coma",
+        })}
+        {K("=", {
+          kind: "go",
+          label: "Igual",
         })}
       </div>
     </div>

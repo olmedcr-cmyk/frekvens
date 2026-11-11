@@ -1,7 +1,8 @@
 # Gauge
 
-Arco de instrumento: pista `tabaco`, tramo recorrido en `ink` y un punto de lectura. Para un porcentaje de 0 a 100.
+Medio arco fino: pista tenue, tramo recorrido en el color del texto y la cifra dentro. Sin aguja ni punto: solo la lectura. Para un porcentaje de 0 a 100.
 
-- **Props**: `value` (0–100), `width` (240 px), `thickness` (14), `caption` (texto bajo el arco, p. ej. `int. 80%`), `label` (nombre accesible).
+- **Props**: `value` (0–100), `width` (240 px), `thickness` (8), `unit` (`%`; pasa `''` para quitarla), `readout` (`false` deja solo el arco), `caption` (etiqueta bajo la cifra, p. ej. `Intensidad`), `label` (nombre accesible).
+- Toma el color del texto de donde vive, así que funciona sobre cualquier tono.
 - Solo lectura (`role="meter"`). Si el usuario debe ajustarlo, usa `Slider` o `Dial`.
-- Va a la derecha de un `Strip`, con el valor en grande a la izquierda (`ON`, `78%`).
+- A la derecha de un `Strip`, que ya dice el valor en grande, úsalo con `readout={false}`.

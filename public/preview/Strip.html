@@ -6,7 +6,7 @@
 <script>
 var C = window.Frekvens, h = React.createElement;
 ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gap:'8px',maxWidth:'560px'}},
- h(C.Strip,{title:'Diffused light',value:'ON'},h(C.Gauge,{value:80,width:220,caption:'int. 80%'})),
+ h(C.Strip,{title:'Diffused light',value:'ON'},h(C.Gauge,{value:80,width:168,readout:false,label:'Intensidad'})),
  h(C.Strip,{title:'Battery',value:'78%'},h(C.LevelBars,{value:78,height:56})),
  h(C.Strip,{value:'19:53'},h('div',{style:{font:'400 24px/30px var(--font-sans)',width:'100%'}},'Thursday',h('br'),'26 September'))));
 </script>

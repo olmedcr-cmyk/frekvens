@@ -16,7 +16,7 @@ export interface IconProps { name: IconName; size?: number; title?: string; stro
 
 export interface DialProps { value?: number; defaultValue?: number; onChange?: (v: number) => void; min?: number; max?: number; size?: number; tone?: 'ink' | 'klein' | 'tabaco'; label?: string; className?: string }
 
-export interface GaugeProps { value: number; width?: number; thickness?: number; caption?: React.ReactNode; label?: string; className?: string }
+export interface GaugeProps { value: number; width?: number; thickness?: number; unit?: string; readout?: boolean; caption?: React.ReactNode; label?: string; className?: string }
 
 export interface SliderProps { value?: number; defaultValue?: number; onChange?: (v: number) => void; min?: number; max?: number; step?: number; label?: string; stops?: string[]; format?: (v: number) => string; className?: string }
 

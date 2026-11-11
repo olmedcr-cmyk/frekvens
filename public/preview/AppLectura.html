@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{if(parent!==window){var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}}catch(e){}</script><meta charset="utf-8"><title>AppLectura</title>
+<style>
+  .app { width:min(390px,100%); margin:0 auto; box-sizing:border-box; border-radius:44px; padding:var(--space-6) var(--space-4) var(--space-4); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); overflow:hidden; }
+  .bento { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-2); }
+  .bento > * { min-width:0; }
+  .wide { grid-column:1 / -1; }
+  .bento .frk-tile { height:100%; }
+  .bento .frk-tile__value { font-size:40px; }
+  .bento .wide .frk-tile__value { font-size:64px; }
+  .card { display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-4); border-radius:var(--radius-lg); background:var(--surface); box-sizing:border-box; min-width:0; }
+  .cap { margin:0; font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+  .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .list { display:flex; flex-direction:column; gap:var(--space-2); }
+  .app .frk-tabbar { align-self:center; }
+</style></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function App(){
+ var days=[]; for(var i=0;i<84;i++) days.push((i*7+3)%5===0?0:((i*13)%9)+(i>60?4:0));
+ return h('div',{className:'app'},
+  h(F.Text,{variant:'display-xl',sub:'3 libros'},'Lectura'),
+  h('div',{className:'bento'},
+   h('div',{className:'wide'},h(F.Tile,{tone:'sol',meta:'Ahora',title:'El mar interior',subtitle:'Cap. 7 · La marea',value:'62%',height:208},h(F.LevelBars,{value:62,height:44,label:'Progreso del libro'}))),
+   h(F.Tile,{tone:'surface',title:'Hoy',subtitle:'de 30 min',value:'24′',height:160}),
+   h(F.Tile,{tone:'ink',title:'Racha',subtitle:'días seguidos',value:'12',height:160}),
+   h('div',{className:'wide card'},h('p',{className:'cap'},'Páginas · 12 semanas'),h(F.Heatmap,{data:days,rows:7,cell:22,tone:'rams',label:'Páginas leídas por día'}))),
+  h('div',{className:'list'},h('p',{className:'cap'},'En la mesilla'),
+   h(F.ListRow,{index:1,title:'Los años lentos',detail:'Ensayo · 214 páginas',value:'18%'}),
+   h(F.ListRow,{index:2,title:'Atlas de islas pequeñas',detail:'Viajes · 320 páginas',value:'4%'}),
+   h(F.ListRow,{index:3,title:'Cuaderno de invierno',detail:'Poesía · 96 páginas',value:'71%'})),
+  h(F.KeyButton,{tone:'klein',shape:'pill',block:true,icon:'play'},'Seguir leyendo'),
+  h(F.TabBar,{label:'Secciones',items:[{id:'h',label:'Hoy',icon:'home'},{id:'b',label:'Biblioteca',icon:'copy'},{id:'n',label:'Notas',icon:'dots'}]}));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

@@ -1,11 +1,14 @@
 "use client"
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export type Pin = { slug: string; name: string; group: string; thumb: [number, number] | null }
 
 export function Board({ heading, level, groups, pins }: { heading: string; level: 1 | 2; groups: string[]; pins: Pin[] }) {
-  const [group, setGroup] = useState<string | null>(null)
+  const [group, setGroupState] = useState<string | null>(null)
+  // El grupo viaja en el hash para poder enlazarlo desde el índice de la portada.
+  useEffect(() => { const g = decodeURIComponent(window.location.hash.slice(1)); if (groups.includes(g)) setGroupState(g) }, [groups])
+  const setGroup = (g: string | null) => { setGroupState(g); try { history.replaceState(null, "", g ? "#" + encodeURIComponent(g) : window.location.pathname) } catch {} }
   const shown = group ? pins.filter((p) => p.group === group) : pins
   const H = level === 1 ? "h1" : "h2"
   return (
@@ -17,7 +20,7 @@ export function Board({ heading, level, groups, pins }: { heading: string; level
       <div className="board-filter" role="group" aria-label="Filtrar por grupo">
         <button type="button" aria-pressed={group === null} onClick={() => setGroup(null)}>Todos</button>
         {groups.map((g) => (
-          <button key={g} type="button" aria-pressed={group === g} onClick={() => setGroup(group === g ? null : g)}>{g}</button>
+          <button key={g} type="button" aria-pressed={group === g} onClick={() => setGroup(group === g ? null : g)}>{g}<span className="board-filter__n">{pins.filter((p) => p.group === g).length}</span></button>
         ))}
       </div>
       <ul className="board">

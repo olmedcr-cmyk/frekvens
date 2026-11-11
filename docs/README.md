@@ -26,7 +26,7 @@ La base es papel cálido y tinta; el color se usa en **bloques sólidos completo
 - **`rams`** (naranja Braun) es el mando físico: el cursor del `Slider`, el progreso de `DotGrid`, la tecla START. Texto encima en `on-rams` (negro, nunca blanco).
 - **`sol`** (amarillo) es el dato destacado o el "ahora": un Tile protagonista, la línea temporal, el aviso suave. Texto en `on-sol`.
 - **`verde`** (verde de cafetera) es identidad y estado 'listo/caliente': Tiles protagonistas, rejillas (`Grille`), el ✓ de `SlideToStart`, el piloto `LED` verde. Texto en `on-verde`.
-- **`tabaco`** (marrón óxido) es material: arcos de instrumento (`Gauge`), un bloque de hora o historial. Texto en `on-tabaco`.
+- **`tabaco`** (marrón óxido) es material: un bloque de hora o historial. Texto en `on-tabaco`.
 - **`rec`** solo para grabar, borrar o error, siempre con palabra o icono.
 - Fondos ambientales **`salvia`**, **`lavanda`**, **`malva`**: una pantalla entera de una categoría (gastos, stock, tendencias). Todo el texto encima en `ink`; dentro de un contenedor `frk-tone--salvia/lavanda/malva`, `ink-muted` se oscurece solo para mantener 4.5:1.
 - Por fila de tiles, un solo bloque de color; el otro en `surface`. Por pantalla, como mucho dos colores de bloque además de papel y tinta.

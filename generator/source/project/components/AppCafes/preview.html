@@ -1,0 +1,38 @@
+<!-- @dsCard group="Apps" height=860 page subtitle="Pedir café: local cercano, carta en azulejos y pedido en una tecla" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>AppCafes</title>
+<style>
+  .app { width:min(390px,100%); margin:0 auto; box-sizing:border-box; border-radius:44px; padding:var(--space-6) var(--space-4) var(--space-4); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); overflow:hidden; }
+  .bento { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-2); }
+  .bento > * { min-width:0; }
+  .wide { grid-column:1 / -1; }
+  .bento .frk-tile { height:100%; }
+  .bento .frk-tile__value { font-size:40px; }
+  .bento .wide .frk-tile__value { font-size:64px; }
+  .card { display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-4); border-radius:var(--radius-lg); background:var(--surface); box-sizing:border-box; min-width:0; }
+  .cap { margin:0; font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+  .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .list { display:flex; flex-direction:column; gap:var(--space-2); }
+  .app .frk-tabbar { align-self:center; }
+</style></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement;
+function App(){
+ return h('div',{className:'app'},
+  h(F.Text,{variant:'display-xl',sub:'Cerca de ti'},'Cafés'),
+  h('div',{className:'bento'},
+   h('div',{className:'wide'},h(F.Tile,{tone:'tabaco',meta:'Abierto · 240 m',title:'Tostadero Norte',subtitle:'Hoy, filtro de Etiopía',value:'4,8',height:200})),
+   h(F.Tile,{tone:'surface',title:'Flat white',subtitle:'Leche de avena',value:'2,90 €',height:160,onClick:function(){}}),
+   h(F.Tile,{tone:'sol',title:'Filtro',subtitle:'V60 · 250 ml',value:'2,40 €',height:160,onClick:function(){}})),
+  h('div',{className:'card'},h('p',{className:'cap'},'Afluencia · hoy'),h(F.BarMeter,{data:[{label:'8',value:6},{label:'10',value:9},{label:'12',value:5},{label:'14',value:3},{label:'16',value:7}],active:1,height:104,barWidth:40,label:'Afluencia por hora'})),
+  h('div',{className:'row'},h(F.Segmented,{label:'Tamaño',options:['S','M','L'],defaultValue:'M'}),h(F.Stepper,{label:'Cantidad',defaultValue:2,min:1,max:9})),
+  h(F.KeyButton,{tone:'klein',shape:'pill',block:true},'Pedir · 5,80 €'),
+  h(F.TabBar,{label:'Secciones',items:[{id:'c',label:'Cerca',icon:'home'},{id:'p',label:'Pedidos',icon:'timer'},{id:'f',label:'Favoritos',icon:'check'}]}));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

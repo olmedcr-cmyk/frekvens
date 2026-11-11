@@ -775,9 +775,7 @@
  },
  "Calculator": {
   "file": "calculator.tsx",
-  "deps": [
-   "Keycap"
-  ],
+  "deps": [],
   "lib": true
  },
  "PadGrid": {
