@@ -1,6 +1,6 @@
-# Handoff — publicar Frekvens
+# Handoff — Frekvens
 
-Estado al 6 de noviembre de 2026. Todo lo de abajo está hecho y comprobado en la sesión de Cowork donde se generó; lo que queda es publicarlo, que no se pudo hacer desde allí (la sesión no tenía permiso para crear repositorios públicos).
+Estado al 11 de noviembre de 2026: publicado y con despliegue automático. Abajo, lo comprobado al generarlo, dónde vive y cómo se trabaja.
 
 ## Hecho y comprobado
 
@@ -10,27 +10,28 @@ Estado al 6 de noviembre de 2026. Todo lo de abajo está hecho y comprobado en l
 - Web de documentación (`app/`): `next build` genera 119 páginas estáticas (inicio, catálogo, ficha de cada componente con vista previa viva, comando de instalación, docs y código), claro/oscuro sin errores en consola.
 - Accesibilidad: el sistema de diseño de origen da 0 infracciones de axe en 290 páginas (claro y oscuro) y 34/34 pruebas de interacción. `npm run test:a11y` repite axe sobre `public/preview`; hay que pasarlo una vez en CI o en local tras `npx playwright install chromium` (en la sesión no llegó a terminar por tiempo).
 
-## Lo que queda (en orden)
+## Publicado (11 de noviembre de 2026)
 
-1. **Crear el repo y subir**
-   ```sh
-   gh repo create olmedcr-cmyk/frekvens --public --source . --remote origin --push \
-     --description "Componentes React para copiar y pegar, al estilo shadcn/ui. Grandes, de puntos, accesibles. MIT."
-   ```
-2. **Desplegar la web** (Vercel recomendado: Next 15 sin configuración). Importa el repo en Vercel o `npx vercel --prod`. La web sirve también el registro en `/r/*.json`.
-3. **Apuntar el registro al dominio real.** Las URLs de dependencias van dentro de los JSON. Si el dominio no es `https://frekvens-ui.vercel.app`:
-   ```sh
-   cd generator && npm install && FREKVENS_URL=https://<dominio> npm run build && cd ..
-   grep -rl "frekvens-ui.vercel.app" app generator/tpl   # la web también lo menciona: cámbialo en generator/tpl/app y regenera
-   npm test && git commit -am "Registro apuntando a <dominio>" && git push
-   ```
-   Si el usuario de GitHub no es `olmedcr-cmyk`, cambia también el enlace de GitHub en `generator/tpl/app/layout.tsx`.
-4. **Comprobar en real**: en un proyecto Next + Tailwind cualquiera, `npx shadcn@latest add https://<dominio>/r/switch.json` y `.../r/frekvens.json` (todo).
-5. **CI**: `.github/workflows/ci.yml` corre `npm test`, axe y la build en cada push. Que quede en verde.
-6. **Opcional**
-   - Añadirlo al directorio de registros de shadcn (`registries` en `components.json` ya documentado como `@frekvens`).
-   - `npm run registry:build` (`shadcn build`) para validar `registry.json` con el esquema oficial.
-   - Nombre: "Frekvens" es también una colección de IKEA. Cris decidió mantenerlo; `NOTICE.md` aclara que no hay relación.
+- **Repo**: https://github.com/olmedcr-cmyk/frekvens (público, rama `main`).
+- **Web y registro**: https://frekvens-ui.vercel.app (`frekvens.vercel.app` era de otra web). El registro se sirve en `/r/*.json`.
+- **Despliegue**: el proyecto `frekvens` de Vercel está conectado al repo; cada push a `main` despliega a producción.
+- **CI**: `.github/workflows/ci.yml` corre `npm test`, axe y la build en cada push.
+- **Instalación comprobada** en un Next.js 15 + Tailwind v4 limpio: `npx shadcn@latest init` y después `npx shadcn@latest add https://frekvens-ui.vercel.app/r/switch.json`.
+
+## Cómo se trabaja
+
+1. Los componentes se editan en `generator/source/project/components/` (`bundle.js`, `bundle.css`, `index.d.ts` y el `preview.html` y `README.md` de cada uno). La web, en `generator/tpl/app/`. Lo demás se genera: no lo edites a mano.
+2. `cd generator && npm install && npm run build` regenera el repo (conserva `package-lock.json` y `.vercel`).
+3. Si cambia el aspecto de un componente: `npm run thumbs` (necesita `npx playwright install chromium`) y vuelve a generar. Con nombres detrás, rehace solo esas: `npm run thumbs -- gauge strip`.
+4. `npm test`, `npm run test:a11y` y `npm run build` antes de subir.
+5. Para cambiar de dominio: `FREKVENS_URL=https://<dominio> npm run build` en `generator/`.
+
+## Pendiente (opcional)
+
+- Añadirlo al directorio de registros de shadcn (`registries` en `components.json` ya documentado como `@frekvens`).
+- `npm run registry:build` (`shadcn build`) para validar `registry.json` con el esquema oficial.
+- Alojar las fuentes en vez de cargarlas de Google Fonts.
+- Nombre: "Frekvens" es también una colección de IKEA. Cris decidió mantenerlo; `NOTICE.md` aclara que no hay relación.
 
 ## Límites conocidos
 

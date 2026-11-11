@@ -5,3 +5,5 @@ out
 .DS_Store
 test/shots
 .vercel
+next-env.d.ts
+*.tsbuildinfo
