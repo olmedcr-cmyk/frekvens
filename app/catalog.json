@@ -10,7 +10,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# KeyButton\n\nTecla grande, plana y táctil: la unidad básica de toda la casa. Úsala para cualquier acción; el tamaño dice la importancia, no el color.\n\n- **Props**: `tone` (`paper` · `ink` · `klein` · `sol` · `rams` · `tabaco` · `rec` · `well`), `size` (`s` 56 · `m` 88 · `l` 120 · `xl` 168 px), `shape` (`square` · `pill` · `round`), `label` (etiqueta mono arriba a la izquierda), `icon` (nombre de `Icon`), `active`, `toggle` (expone `aria-pressed`), `block` (ancho completo), `children` (la palabra o número grande), más cualquier atributo de `<button>`.\n- Una sola tecla `klein` por pantalla: la acción para la que existe la pantalla. `rams` = arrancar/empezar algo físico (START del temporizador). `rec` solo para grabar o destruir, con palabra.\n- La tecla de palma (`xl`) va en el tercio inferior, al alcance del pulgar. Nada pulsable por debajo de `hit-min`.\n- Texto: una o dos palabras, verbo o número. Etiqueta mono en MAYÚSCULAS para el *qué* (`SERIES`), texto grande para el *valor* (`8`).\n- Pulsada: se comprime a 0.965 en `dur-press` con `shadow-press`, como un botón físico; en `paper` activa se invierte a `ink`. Con un popover abierto (`data-open`) se queda hundida.\n"
+  "doc": "# KeyButton\n\nTecla grande, plana y táctil: la unidad básica de toda la casa. Úsala para cualquier acción; el tamaño dice la importancia, no el color.\n\n- **Props**: `tone` (`paper` · `ink` · `klein` · `sol` · `rams` · `tabaco` · `rec` · `well`), `size` (`s` 56 · `m` 88 · `l` 120 · `xl` 168 px), `shape` (`square` · `pill` · `round`), `label` (etiqueta mono arriba a la izquierda), `icon` (nombre de `Icon`), `active`, `toggle` (expone `aria-pressed`), `block` (ancho completo), `children` (la palabra o número grande), más cualquier atributo de `<button>`.\n- Una sola tecla `klein` por pantalla: la acción para la que existe la pantalla. `rams` = arrancar/empezar algo físico (START del temporizador). `rec` solo para grabar o destruir, con palabra.\n- La tecla de palma (`xl`) va en el tercio inferior, al alcance del pulgar. Nada pulsable por debajo de `hit-min`.\n- Texto: una o dos palabras, verbo o número. Etiqueta mono en MAYÚSCULAS para el *qué* (`SERIES`), texto grande para el *valor* (`8`).\n- Pulsada: se comprime a 0.965 en `dur-press` con `shadow-press`, como un botón físico; en `paper` activa se invierte a `ink`. Con un popover abierto (`data-open`) se queda hundida.\n",
+  "thumb": [
+   480,
+   416
+  ]
  },
  {
   "name": "Keypad",
@@ -23,7 +27,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Keypad\n\nFila de teclas pegadas con junta de 1 px, a lo Teenage Engineering: la barra de modos o de transporte al pie de la pantalla.\n\n- **Props**: `keys` (array de `{label, icon, tone, active, onClick, ariaLabel}`), `columns` (por defecto, una por tecla), `height`, `label` (nombre accesible del grupo).\n- 3 o 4 teclas. Etiquetas de 3 letras en mono (`LOG` `SET` `PRO`) o un icono de transporte (rec · play · stop). La tecla activa se invierte a `ink`.\n- Siempre a sangre del ancho útil, pegado al borde inferior seguro. No mezclar texto e icono en la misma fila salvo que todas las teclas lleven ambos.\n"
+  "doc": "# Keypad\n\nFila de teclas pegadas con junta de 1 px, a lo Teenage Engineering: la barra de modos o de transporte al pie de la pantalla.\n\n- **Props**: `keys` (array de `{label, icon, tone, active, onClick, ariaLabel}`), `columns` (por defecto, una por tecla), `height`, `label` (nombre accesible del grupo).\n- 3 o 4 teclas. Etiquetas de 3 letras en mono (`LOG` `SET` `PRO`) o un icono de transporte (rec · play · stop). La tecla activa se invierte a `ink`.\n- Siempre a sangre del ancho útil, pegado al borde inferior seguro. No mezclar texto e icono en la misma fila salvo que todas las teclas lleven ambos.\n",
+  "thumb": [
+   480,
+   240
+  ]
  },
  {
   "name": "HoldButton",
@@ -36,7 +44,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# HoldButton\n\nMantén pulsado para confirmar: un anillo `rams` se llena alrededor del botón en `duration` ms; si sueltas antes, se vacía. Al completarse se vuelve `verde` con ✓.\n\n- **Props**: `onComplete()`, `duration` (1200 ms), `size` (120), `tone` (`ink`), `icon` (`stop`), `children` (texto, `Mantén`), `doneLabel`, `label`, `disabled`.\n- Accesible: mantener Espacio o Enter funciona igual.\n- Para terminar un entreno, borrar algo o parar una grabación: acciones que no quieres hacer por accidente pero sí rápido.\n"
+  "doc": "# HoldButton\n\nMantén pulsado para confirmar: un anillo `rams` se llena alrededor del botón en `duration` ms; si sueltas antes, se vacía. Al completarse se vuelve `verde` con ✓.\n\n- **Props**: `onComplete()`, `duration` (1200 ms), `size` (120), `tone` (`ink`), `icon` (`stop`), `children` (texto, `Mantén`), `doneLabel`, `label`, `disabled`.\n- Accesible: mantener Espacio o Enter funciona igual.\n- Para terminar un entreno, borrar algo o parar una grabación: acciones que no quieres hacer por accidente pero sí rápido.\n",
+  "thumb": [
+   480,
+   176
+  ]
  },
  {
   "name": "SlideToStart",
@@ -49,7 +61,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# SlideToStart\n\nArranque deliberado: arrastra el disco hasta el final para empezar. Evita empezar un entreno o un pago por un toque accidental. Si sueltas antes del 82 %, el disco vuelve con `ease-throw`; al completar se vuelve `verde` con ✓.\n\n- **Props**: `onComplete()`, `children` (texto, \"Desliza para empezar\"), `doneLabel`, `icon` (`play`), `tone` (`surface`), `label`, `resetAfter` (vuelve al inicio tras 1.2 s; `false` para dejarlo hecho).\n- Accesible sin arrastrar: el disco es un botón; Enter o Espacio completan.\n- Una por pantalla, en la zona del pulgar. Para acciones reversibles, una `KeyButton` normal.\n"
+  "doc": "# SlideToStart\n\nArranque deliberado: arrastra el disco hasta el final para empezar. Evita empezar un entreno o un pago por un toque accidental. Si sueltas antes del 82 %, el disco vuelve con `ease-throw`; al completar se vuelve `verde` con ✓.\n\n- **Props**: `onComplete()`, `children` (texto, \"Desliza para empezar\"), `doneLabel`, `icon` (`play`), `tone` (`surface`), `label`, `resetAfter` (vuelve al inicio tras 1.2 s; `false` para dejarlo hecho).\n- Accesible sin arrastrar: el disco es un botón; Enter o Espacio completan.\n- Una por pantalla, en la zona del pulgar. Para acciones reversibles, una `KeyButton` normal.\n",
+  "thumb": [
+   480,
+   212
+  ]
  },
  {
   "name": "Rocker",
@@ -66,7 +82,11 @@
     "slug": "led"
    }
   ],
-  "doc": "# Rocker\n\nInterruptores basculantes de máquina sobre una placa `verde`: la tecla bascula al encenderse y el piloto `LED` de debajo se enciende. Para 2–4 funciones físicas paralelas (sonido, vibración, pantalla siempre encendida).\n\n- **Props**: `items` (`[{label, icon, on, checked, tone, onChange}]`), `label` (del grupo).\n- Cada tecla es un `role=\"switch\"`; el piloto repite el estado en texto para lectores.\n"
+  "doc": "# Rocker\n\nInterruptores basculantes de máquina sobre una placa `verde`: la tecla bascula al encenderse y el piloto `LED` de debajo se enciende. Para 2–4 funciones físicas paralelas (sonido, vibración, pantalla siempre encendida).\n\n- **Props**: `items` (`[{label, icon, on, checked, tone, onChange}]`), `label` (del grupo).\n- Cada tecla es un `role=\"switch\"`; el piloto repite el estado en texto para lectores.\n",
+  "thumb": [
+   480,
+   182
+  ]
  },
  {
   "name": "Icon",
@@ -74,7 +94,11 @@
   "group": "Base",
   "description": "Iconos geométricos propios en rejilla de 24, trazo 2 px, terminaciones rectas, rellenos sólidos para transporte. Heredan currentColor.",
   "deps": [],
-  "doc": "# Icon\n\nIconos geométricos propios en rejilla de 24, trazo 2 px, terminaciones rectas, rellenos sólidos para transporte. Heredan `currentColor`.\n\n- **Props**: `name` (ver `Frekvens.Icon.names`), `size` (24 por defecto; 28 en Keypad, 32–48 en teclas grandes), `title` (si el icono va solo y significa algo), `strokeWidth`.\n- Iconos de transporte (`play` `pause` `stop` `rec`) siempre rellenos; el resto, trazo. Nunca emoji.\n- Junto a un número o una palabra, el icono va delante y alineado al centro óptico.\n"
+  "doc": "# Icon\n\nIconos geométricos propios en rejilla de 24, trazo 2 px, terminaciones rectas, rellenos sólidos para transporte. Heredan `currentColor`.\n\n- **Props**: `name` (ver `Frekvens.Icon.names`), `size` (24 por defecto; 28 en Keypad, 32–48 en teclas grandes), `title` (si el icono va solo y significa algo), `strokeWidth`.\n- Iconos de transporte (`play` `pause` `stop` `rec`) siempre rellenos; el resto, trazo. Nunca emoji.\n- Junto a un número o una palabra, el icono va delante y alineado al centro óptico.\n",
+  "thumb": [
+   480,
+   472
+  ]
  },
  {
   "name": "Dial",
@@ -82,7 +106,11 @@
   "group": "Controles",
   "description": "Mando circular: disco ink, punto indicador en paper, aguja sol y marcas de paso alrededor. Se arrastra girando o con flechas del teclado.",
   "deps": [],
-  "doc": "# Dial\n\nMando circular: disco `ink`, punto indicador en `paper`, aguja `sol` y marcas de paso alrededor. Se arrastra girando o con flechas del teclado.\n\n- **Props**: `value`/`defaultValue`, `onChange(n)`, `min` (0), `max` (8), `size` (160 px), `tone` (`ink` · `klein` · `tabaco`), `label` (mono, se muestra como `PWR:4`).\n- Para valores discretos y pocos (≤ 12 pasos): intensidad, modo, nivel. Para rangos continuos usa `Slider`.\n- En rejilla de 2×2 con `space-6` de separación como panel de mandos. La etiqueta siempre debajo, nunca dentro del disco.\n"
+  "doc": "# Dial\n\nMando circular: disco `ink`, punto indicador en `paper`, aguja `sol` y marcas de paso alrededor. Se arrastra girando o con flechas del teclado.\n\n- **Props**: `value`/`defaultValue`, `onChange(n)`, `min` (0), `max` (8), `size` (160 px), `tone` (`ink` · `klein` · `tabaco`), `label` (mono, se muestra como `PWR:4`).\n- Para valores discretos y pocos (≤ 12 pasos): intensidad, modo, nivel. Para rangos continuos usa `Slider`.\n- En rejilla de 2×2 con `space-6` de separación como panel de mandos. La etiqueta siempre debajo, nunca dentro del disco.\n",
+  "thumb": [
+   480,
+   420
+  ]
  },
  {
   "name": "Gauge",
@@ -90,7 +118,11 @@
   "group": "Instrumentos",
   "description": "Arco de instrumento: pista tabaco, tramo recorrido en ink y un punto de lectura. Para un porcentaje de 0 a 100.",
   "deps": [],
-  "doc": "# Gauge\n\nArco de instrumento: pista `tabaco`, tramo recorrido en `ink` y un punto de lectura. Para un porcentaje de 0 a 100.\n\n- **Props**: `value` (0–100), `width` (240 px), `thickness` (14), `caption` (texto bajo el arco, p. ej. `int. 80%`), `label` (nombre accesible).\n- Solo lectura (`role=\"meter\"`). Si el usuario debe ajustarlo, usa `Slider` o `Dial`.\n- Va a la derecha de un `Strip`, con el valor en grande a la izquierda (`ON`, `78%`).\n"
+  "doc": "# Gauge\n\nArco de instrumento: pista `tabaco`, tramo recorrido en `ink` y un punto de lectura. Para un porcentaje de 0 a 100.\n\n- **Props**: `value` (0–100), `width` (240 px), `thickness` (14), `caption` (texto bajo el arco, p. ej. `int. 80%`), `label` (nombre accesible).\n- Solo lectura (`role=\"meter\"`). Si el usuario debe ajustarlo, usa `Slider` o `Dial`.\n- Va a la derecha de un `Strip`, con el valor en grande a la izquierda (`ON`, `78%`).\n",
+  "thumb": [
+   480,
+   223
+  ]
  },
  {
   "name": "Slider",
@@ -98,7 +130,11 @@
   "group": "Controles",
   "description": "Pista en píldora de 56 px de alto con dos puntos ink en los extremos y el cursor en rams. Usa un <input type=\"range\"> nativo encima: teclado y lector de pantalla funcionan solos.",
   "deps": [],
-  "doc": "# Slider\n\nPista en píldora de 56 px de alto con dos puntos `ink` en los extremos y el cursor en `rams`. Usa un `<input type=\"range\">` nativo encima: teclado y lector de pantalla funcionan solos.\n\n- **Props**: `value`/`defaultValue`, `onChange(n)`, `min`, `max`, `step`, `label` (mono arriba), `stops` (etiquetas bajo la pista: `['Soft','Normal','Hard']`), `format(v)` para `aria-valuetext`.\n- Un slider por grupo; si hay tres, conviértelos en `Dial`s.\n"
+  "doc": "# Slider\n\nPista en píldora de 56 px de alto con dos puntos `ink` en los extremos y el cursor en `rams`. Usa un `<input type=\"range\">` nativo encima: teclado y lector de pantalla funcionan solos.\n\n- **Props**: `value`/`defaultValue`, `onChange(n)`, `min`, `max`, `step`, `label` (mono arriba), `stops` (etiquetas bajo la pista: `['Soft','Normal','Hard']`), `format(v)` para `aria-valuetext`.\n- Un slider por grupo; si hay tres, conviértelos en `Dial`s.\n",
+  "thumb": [
+   480,
+   160
+  ]
  },
  {
   "name": "Switch",
@@ -106,7 +142,11 @@
   "group": "Controles",
   "description": "Interruptor en píldora de 120 × 56. El disco **viaja** de un extremo al otro y aterriza con un rebote corto (ease-spring); al pulsar se estira, como un pulgar que empuja. Encendido: pista ink, disco s",
   "deps": [],
-  "doc": "# Switch\n\nInterruptor en píldora de 120 × 56. El disco **viaja** de un extremo al otro y aterriza con un rebote corto (`ease-spring`); al pulsar se estira, como un pulgar que empuja. Encendido: pista `ink`, disco `sol` con un halo pequeño. `ON`/`OFF` se cruzan con el disco, así que nunca depende solo del color.\n\n- **Props**: `checked`/`defaultChecked`, `onChange(bool)`, `label` (nombre accesible), `showLabel` (pinta la etiqueta a la izquierda y la fila entera es pulsable), `onText`, `offText`, `disabled`.\n- Efecto inmediato (luz, sonido, modo). Si el cambio requiere confirmar, usa `KeyButton`.\n- Vibra 6 ms donde hay vibración. Con movimiento reducido el disco cambia de lado sin viajar.\n"
+  "doc": "# Switch\n\nInterruptor en píldora de 120 × 56. El disco **viaja** de un extremo al otro y aterriza con un rebote corto (`ease-spring`); al pulsar se estira, como un pulgar que empuja. Encendido: pista `ink`, disco `sol` con un halo pequeño. `ON`/`OFF` se cruzan con el disco, así que nunca depende solo del color.\n\n- **Props**: `checked`/`defaultChecked`, `onChange(bool)`, `label` (nombre accesible), `showLabel` (pinta la etiqueta a la izquierda y la fila entera es pulsable), `onText`, `offText`, `disabled`.\n- Efecto inmediato (luz, sonido, modo). Si el cambio requiere confirmar, usa `KeyButton`.\n- Vibra 6 ms donde hay vibración. Con movimiento reducido el disco cambia de lado sin viajar.\n",
+  "thumb": [
+   480,
+   328
+  ]
  },
  {
   "name": "Segmented",
@@ -119,7 +159,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Segmented\n\nSelector en píldora `ink`: la opción elegida es una **pieza `paper` que viaja** de una opción a otra con `ease-spring` (380 ms) y se encoge un 3 % mientras pulsas. El `Home | 🔒` de Nothing. 2–4 opciones.\n\n- **Props**: `options` (strings o `{value,label,icon,ariaLabel}`), `value`/`defaultValue`, `onChange(v)`, `label`.\n- Teclado: flechas para cambiar (patrón radiogroup, un solo punto de tabulación).\n- Navegación principal flotante al pie (centrada, `space-5` sobre el borde) o filtro de vista. Opciones solo-icono necesitan `ariaLabel`.\n"
+  "doc": "# Segmented\n\nSelector en píldora `ink`: la opción elegida es una **pieza `paper` que viaja** de una opción a otra con `ease-spring` (380 ms) y se encoge un 3 % mientras pulsas. El `Home | 🔒` de Nothing. 2–4 opciones.\n\n- **Props**: `options` (strings o `{value,label,icon,ariaLabel}`), `value`/`defaultValue`, `onChange(v)`, `label`.\n- Teclado: flechas para cambiar (patrón radiogroup, un solo punto de tabulación).\n- Navegación principal flotante al pie (centrada, `space-5` sobre el borde) o filtro de vista. Opciones solo-icono necesitan `ariaLabel`.\n",
+  "thumb": [
+   480,
+   184
+  ]
  },
  {
   "name": "Stepper",
@@ -132,7 +176,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Stepper\n\nMenos · número · más. Para cantidades pequeñas y enteras (series, plazas, minutos). El número entra rodando desde abajo al cambiar.\n\n- **Props**: `value`/`defaultValue`, `onChange(n)`, `min` (0), `max` (99), `step` (1), `unit`, `label` (nombre del grupo; se usa en los botones: \"Más series\").\n- En los límites el botón correspondiente se deshabilita. Para rangos grandes, `Slider` o `Dial`.\n"
+  "doc": "# Stepper\n\nMenos · número · más. Para cantidades pequeñas y enteras (series, plazas, minutos). El número entra rodando desde abajo al cambiar.\n\n- **Props**: `value`/`defaultValue`, `onChange(n)`, `min` (0), `max` (99), `step` (1), `unit`, `label` (nombre del grupo; se usa en los botones: \"Más series\").\n- En los límites el botón correspondiente se deshabilita. Para rangos grandes, `Slider` o `Dial`.\n",
+  "thumb": [
+   480,
+   224
+  ]
  },
  {
   "name": "Wheel",
@@ -140,7 +188,11 @@
   "group": "Controles",
   "description": "Rueda selectora vertical con scroll-snap: los valores se atenúan y encogen según se alejan del centro; el elegido queda en una ventana surface. Para horas, minutos, repeticiones.",
   "deps": [],
-  "doc": "# Wheel\n\nRueda selectora vertical con scroll-snap: los valores se atenúan y encogen según se alejan del centro; el elegido queda en una ventana `surface`. Para horas, minutos, repeticiones.\n\n- **Props**: `items` (strings o `{value,label}`; por defecto 00–59), `value`/`defaultValue`, `onChange(v)`, `label`, `unit`, `visible` (5 filas), `rowHeight` (48), `width`.\n- **Teclado**: ↑ ↓ de uno en uno, RePág/AvPág de cinco. `role=\"spinbutton\"`.\n- Pon dos o tres en fila con `space-2` para una hora completa.\n"
+  "doc": "# Wheel\n\nRueda selectora vertical con scroll-snap: los valores se atenúan y encogen según se alejan del centro; el elegido queda en una ventana `surface`. Para horas, minutos, repeticiones.\n\n- **Props**: `items` (strings o `{value,label}`; por defecto 00–59), `value`/`defaultValue`, `onChange(v)`, `label`, `unit`, `visible` (5 filas), `rowHeight` (48), `width`.\n- **Teclado**: ↑ ↓ de uno en uno, RePág/AvPág de cinco. `role=\"spinbutton\"`.\n- Pon dos o tres en fila con `space-2` para una hora completa.\n",
+  "thumb": [
+   480,
+   1000
+  ]
  },
  {
   "name": "VolumeWheel",
@@ -148,7 +200,11 @@
   "group": "Controles",
   "description": "Rueda lateral estriada, como la rueda de scroll de un dispositivo de bolsillo: se gira con la rueda del ratón, arrastrando arriba/abajo o con las flechas, y sus estrías se desplazan al girar. Al lado,",
   "deps": [],
-  "doc": "# VolumeWheel\n\nRueda lateral estriada, como la rueda de scroll de un dispositivo de bolsillo: se gira con la rueda del ratón, arrastrando arriba/abajo o con las flechas, y sus estrías se desplazan al girar. Al lado, una columna de segmentos y el valor en puntos.\n\n- **Props**: `value`/`defaultValue` (0–100), `onChange(n)`, `step` (5), `segments` (16), `height` (240), `tone` (`rams` · `klein` · `ink`), `label`, `unitLabel` (`VOL`).\n- Úsala para volumen, intensidad o cualquier nivel que se ajusta \"sin mirar\". `role=\"slider\"` vertical.\n"
+  "doc": "# VolumeWheel\n\nRueda lateral estriada, como la rueda de scroll de un dispositivo de bolsillo: se gira con la rueda del ratón, arrastrando arriba/abajo o con las flechas, y sus estrías se desplazan al girar. Al lado, una columna de segmentos y el valor en puntos.\n\n- **Props**: `value`/`defaultValue` (0–100), `onChange(n)`, `step` (5), `segments` (16), `height` (240), `tone` (`rams` · `klein` · `ink`), `label`, `unitLabel` (`VOL`).\n- Úsala para volumen, intensidad o cualquier nivel que se ajusta \"sin mirar\". `role=\"slider\"` vertical.\n",
+  "thumb": [
+   480,
+   320
+  ]
  },
  {
   "name": "Checkbox",
@@ -161,7 +217,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Checkbox\n\nCasilla cuadrada de 32 px con ✓ que se rellena de `ink`. Admite estado mixto (−). Toda la fila (casilla + texto) es pulsable: 44 px de alto como mínimo.\n\n- **Props**: `label` (o `children`), `hint`, `checked`/`defaultChecked`, `onChange(bool)`, `indeterminate`, `disabled`.\n- Para opciones independientes y para aceptar condiciones. Si el cambio surte efecto al instante, usa `Switch`.\n"
+  "doc": "# Checkbox\n\nCasilla cuadrada de 32 px con ✓ que se rellena de `ink`. Admite estado mixto (−). Toda la fila (casilla + texto) es pulsable: 44 px de alto como mínimo.\n\n- **Props**: `label` (o `children`), `hint`, `checked`/`defaultChecked`, `onChange(bool)`, `indeterminate`, `disabled`.\n- Para opciones independientes y para aceptar condiciones. Si el cambio surte efecto al instante, usa `Switch`.\n",
+  "thumb": [
+   480,
+   204
+  ]
  },
  {
   "name": "RadioGroup",
@@ -169,7 +229,11 @@
   "group": "Formularios",
   "description": "Elección única con el lenguaje de estados: el aro vacío se llena hasta ser disco al elegirlo. Flechas para moverse dentro del grupo (patrón ARIA radiogroup).",
   "deps": [],
-  "doc": "# RadioGroup\n\nElección única con el lenguaje de estados: el aro vacío se llena hasta ser disco al elegirlo. Flechas para moverse dentro del grupo (patrón ARIA radiogroup).\n\n- **Props**: `options` (strings o `{value, label, hint, disabled}`), `value`/`defaultValue`, `onChange(v)`, `label`, `direction` (`column` · `row`).\n- 2–5 opciones con explicación. Sin explicación y con pocas opciones, `Segmented`.\n"
+  "doc": "# RadioGroup\n\nElección única con el lenguaje de estados: el aro vacío se llena hasta ser disco al elegirlo. Flechas para moverse dentro del grupo (patrón ARIA radiogroup).\n\n- **Props**: `options` (strings o `{value, label, hint, disabled}`), `value`/`defaultValue`, `onChange(v)`, `label`, `direction` (`column` · `row`).\n- 2–5 opciones con explicación. Sin explicación y con pocas opciones, `Segmented`.\n",
+  "thumb": [
+   480,
+   238
+  ]
  },
  {
   "name": "Select",
@@ -182,7 +246,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Select\n\nDesplegable de selección única (patrón listbox de ARIA). El disparador es una píldora de 56 px; la lista se abre en un panel `ink` anclado al borde del que sale, con las opciones entrando escalonadas.\n\n- **Props**: `options` (strings o `{value, label, meta, disabled}`), `value`/`defaultValue`, `onChange(v)`, `label` (mono encima), `placeholder`, `hint`, `disabled`, `block` (ancho completo), `defaultOpen` (solo para documentar).\n- **Teclado**: ↓ ↑ Enter o Espacio abren; ↓ ↑ Inicio Fin mueven; Enter o Espacio eligen; Esc cierra; Tab cierra y sigue; escribir salta a la opción que empieza así. El foco no sale del disparador (`aria-activedescendant`).\n- **Movimiento**: entra en `dur-base` con `ease-ui` (escala .96 → 1, sube 6 px); sale en `dur-fast` con `ease-exit`. Opciones con 25 ms de desfase. El chevron gira 180°.\n- Hasta ~8 opciones. Con más, una `Sheet` con lista. Con 2–4 opciones visibles a la vez, mejor `Segmented`.\n"
+  "doc": "# Select\n\nDesplegable de selección única (patrón listbox de ARIA). El disparador es una píldora de 56 px; la lista se abre en un panel `ink` anclado al borde del que sale, con las opciones entrando escalonadas.\n\n- **Props**: `options` (strings o `{value, label, meta, disabled}`), `value`/`defaultValue`, `onChange(v)`, `label` (mono encima), `placeholder`, `hint`, `disabled`, `block` (ancho completo), `defaultOpen` (solo para documentar).\n- **Teclado**: ↓ ↑ Enter o Espacio abren; ↓ ↑ Inicio Fin mueven; Enter o Espacio eligen; Esc cierra; Tab cierra y sigue; escribir salta a la opción que empieza así. El foco no sale del disparador (`aria-activedescendant`).\n- **Movimiento**: entra en `dur-base` con `ease-ui` (escala .96 → 1, sube 6 px); sale en `dur-fast` con `ease-exit`. Opciones con 25 ms de desfase. El chevron gira 180°.\n- Hasta ~8 opciones. Con más, una `Sheet` con lista. Con 2–4 opciones visibles a la vez, mejor `Segmented`.\n",
+  "thumb": [
+   480,
+   346
+  ]
  },
  {
   "name": "Menu",
@@ -195,7 +263,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Menu\n\nMenú de acciones en un botón redondo de `dots`: editar, duplicar, borrar. Panel `ink` anclado al disparador; la acción destructiva va en `rams` y al final, tras un separador.\n\n- **Props**: `items` (`[{label, icon, onSelect, shortcut, danger, disabled} | {separator:true}]`), `label` (nombre accesible del botón), `icon` (`dots` por defecto), `align` (`start` · `end`, de qué borde cuelga), `tone`, `defaultOpen`.\n- **Teclado**: ↓ en el disparador abre; ↓ ↑ Inicio Fin recorren; Enter elige; Esc cierra y devuelve el foco al botón.\n- Mientras está abierto, el disparador se queda hundido (`data-open`). Para elegir un valor, no uses Menu: usa `Select`.\n"
+  "doc": "# Menu\n\nMenú de acciones en un botón redondo de `dots`: editar, duplicar, borrar. Panel `ink` anclado al disparador; la acción destructiva va en `rams` y al final, tras un separador.\n\n- **Props**: `items` (`[{label, icon, onSelect, shortcut, danger, disabled} | {separator:true}]`), `label` (nombre accesible del botón), `icon` (`dots` por defecto), `align` (`start` · `end`, de qué borde cuelga), `tone`, `defaultOpen`.\n- **Teclado**: ↓ en el disparador abre; ↓ ↑ Inicio Fin recorren; Enter elige; Esc cierra y devuelve el foco al botón.\n- Mientras está abierto, el disparador se queda hundido (`data-open`). Para elegir un valor, no uses Menu: usa `Select`.\n",
+  "thumb": [
+   480,
+   337
+  ]
  },
  {
   "name": "Tabs",
@@ -208,7 +280,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Tabs\n\nPestañas con dos acabados: **`pill`**, una píldora `ink` que viaja de una pestaña a otra con `ease-travel`; y **`folder`**, pestañas de carpeta de archivo que suben al seleccionarse y se funden con su panel.\n\n- **Props**: `tabs` (`[{id, label, icon, count, tone, content}]`), `value`/`defaultValue`, `onChange(id)`, `variant` (`pill` · `folder`), `label`.\n- **Teclado**: ← → recorren y activan, Inicio/Fin; Tab entra al panel. Patrón ARIA tabs.\n- 2–5 pestañas. Con `folder`, cada pestaña puede llevar su `tone` y el panel lo hereda.\n"
+  "doc": "# Tabs\n\nPestañas con dos acabados: **`pill`**, una píldora `ink` que viaja de una pestaña a otra con `ease-travel`; y **`folder`**, pestañas de carpeta de archivo que suben al seleccionarse y se funden con su panel.\n\n- **Props**: `tabs` (`[{id, label, icon, count, tone, content}]`), `value`/`defaultValue`, `onChange(id)`, `variant` (`pill` · `folder`), `label`.\n- **Teclado**: ← → recorren y activan, Inicio/Fin; Tab entra al panel. Patrón ARIA tabs.\n- 2–5 pestañas. Con `folder`, cada pestaña puede llevar su `tone` y el panel lo hereda.\n",
+  "thumb": [
+   480,
+   254
+  ]
  },
  {
   "name": "TextField",
@@ -221,7 +297,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# TextField\n\nCampo de texto en píldora de 56 px sobre `well`; al enfocarse sube a `surface` con borde `focus`. Opcionalmente lleva al lado una tecla redonda `klein` con flecha para enviar (el campo de correo de una sola acción).\n\n- **Props**: `label`, `hint`, `error` (texto; marca `aria-invalid` y borde `rec`), `onSubmit(value)` (añade la tecla de envío y envuelve en `<form>`), `submitLabel`, `mono` (para códigos, correos), y cualquier atributo de `<input>`.\n- El error dice qué hacer, no qué falló: \"Escribe un correo con @\". La etiqueta siempre visible: el placeholder es un ejemplo, no la etiqueta.\n"
+  "doc": "# TextField\n\nCampo de texto en píldora de 56 px sobre `well`; al enfocarse sube a `surface` con borde `focus`. Opcionalmente lleva al lado una tecla redonda `klein` con flecha para enviar (el campo de correo de una sola acción).\n\n- **Props**: `label`, `hint`, `error` (texto; marca `aria-invalid` y borde `rec`), `onSubmit(value)` (añade la tecla de envío y envuelve en `<form>`), `submitLabel`, `mono` (para códigos, correos), y cualquier atributo de `<input>`.\n- El error dice qué hacer, no qué falló: \"Escribe un correo con @\". La etiqueta siempre visible: el placeholder es un ejemplo, no la etiqueta.\n",
+  "thumb": [
+   480,
+   382
+  ]
  },
  {
   "name": "Calendar",
@@ -234,7 +314,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Calendar\n\nCalendario de discos: vista **semana** (una tira de 7 días, la de las referencias) o **mes**. Hoy lleva aro; el día elegido, disco `ink`; los días con sesión, un punto `rams` debajo.\n\n- **Props**: `value`/`defaultValue` (`'AAAA-MM-DD'`), `onChange(iso)`, `view` (`week` · `month`), `switchable` (tecla para cambiar de vista), `marks` (fechas con punto), `today`.\n- **Teclado**: ← → un día, ↑ ↓ una semana; solo el día elegido entra en el orden de tabulación.\n"
+  "doc": "# Calendar\n\nCalendario de discos: vista **semana** (una tira de 7 días, la de las referencias) o **mes**. Hoy lleva aro; el día elegido, disco `ink`; los días con sesión, un punto `rams` debajo.\n\n- **Props**: `value`/`defaultValue` (`'AAAA-MM-DD'`), `onChange(iso)`, `view` (`week` · `month`), `switchable` (tecla para cambiar de vista), `marks` (fechas con punto), `today`.\n- **Teclado**: ← → un día, ↑ ↓ una semana; solo el día elegido entra en el orden de tabulación.\n",
+  "thumb": [
+   480,
+   688
+  ]
  },
  {
   "name": "Sheet",
@@ -247,7 +331,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Sheet\n\nHoja inferior modal: el sitio para formularios cortos, detalles y confirmaciones. Sube desde abajo con `dur-sheet` y `ease-ui`; se descarta arrastrando el asa más de 96 px, tocando el fondo, con Esc o con la ×.\n\n- **Props**: `open`, `onClose()`, `title`, `label` (si no hay título), `tone` (`surface`), `inline` (se posiciona dentro del contenedor en vez de en la ventana; para maquetas), `children`.\n- Atrapa el foco mientras está abierta y lo devuelve al disparador al cerrar. `role=\"dialog\"` + `aria-modal`.\n- Una acción principal al pie (`KeyButton` `pill` o `block`). Nunca una Sheet encima de otra.\n"
+  "doc": "# Sheet\n\nHoja inferior modal: el sitio para formularios cortos, detalles y confirmaciones. Sube desde abajo con `dur-sheet` y `ease-ui`; se descarta arrastrando el asa más de 96 px, tocando el fondo, con Esc o con la ×.\n\n- **Props**: `open`, `onClose()`, `title`, `label` (si no hay título), `tone` (`surface`), `inline` (se posiciona dentro del contenedor en vez de en la ventana; para maquetas), `children`.\n- Atrapa el foco mientras está abierta y lo devuelve al disparador al cerrar. `role=\"dialog\"` + `aria-modal`.\n- Una acción principal al pie (`KeyButton` `pill` o `block`). Nunca una Sheet encima de otra.\n",
+  "thumb": [
+   480,
+   576
+  ]
  },
  {
   "name": "Toast",
@@ -260,7 +348,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Toast\n\nAviso breve en píldora: confirma algo que ya pasó y, si acaso, ofrece deshacer. Sube 12 px y aparece; sale más rápido de lo que entra.\n\n- **Props**: `open`, `onClose()`, `duration` (ms, auto-cierre; 4000 típico, nunca con `action` de menos de 6000), `tone` (`ink` · `verde` · `rec` · …), `icon`, `action` (`{label, onClick}`), `fixed` (centrado abajo en la ventana), `children`.\n- `role=\"status\"`; con `tone:'rec'` pasa a `alert`. Un solo toast a la vez. Una frase, sin punto final si es corta.\n"
+  "doc": "# Toast\n\nAviso breve en píldora: confirma algo que ya pasó y, si acaso, ofrece deshacer. Sube 12 px y aparece; sale más rápido de lo que entra.\n\n- **Props**: `open`, `onClose()`, `duration` (ms, auto-cierre; 4000 típico, nunca con `action` de menos de 6000), `tone` (`ink` · `verde` · `rec` · …), `icon`, `action` (`{label, onClick}`), `fixed` (centrado abajo en la ventana), `children`.\n- `role=\"status\"`; con `tone:'rec'` pasa a `alert`. Un solo toast a la vez. Una frase, sin punto final si es corta.\n",
+  "thumb": [
+   480,
+   240
+  ]
  },
  {
   "name": "Banner",
@@ -273,7 +365,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Banner\n\nAviso dentro de la página, a todo el ancho: un bloque de color con icono, título opcional, una frase y, si hace falta, una acción. Para lo que el usuario debe saber mientras sigue en la pantalla.\n\n- **Props**: `tone` (`info` klein-soft · `ok` verde · `warn` sol · `error` rec), `title`, `children`, `icon`, `action` (`{label, onClick}`), `dismissible`, `onDismiss()`.\n- `error` se anuncia como alerta. Lo pasajero va en `Toast`; lo que bloquea, en `Sheet`.\n"
+  "doc": "# Banner\n\nAviso dentro de la página, a todo el ancho: un bloque de color con icono, título opcional, una frase y, si hace falta, una acción. Para lo que el usuario debe saber mientras sigue en la pantalla.\n\n- **Props**: `tone` (`info` klein-soft · `ok` verde · `warn` sol · `error` rec), `title`, `children`, `icon`, `action` (`{label, onClick}`), `dismissible`, `onDismiss()`.\n- `error` se anuncia como alerta. Lo pasajero va en `Toast`; lo que bloquea, en `Sheet`.\n",
+  "thumb": [
+   480,
+   380
+  ]
  },
  {
   "name": "Tooltip",
@@ -281,7 +377,11 @@
   "group": "Feedback",
   "description": "Etiqueta flotante ink que explica un control sin texto. Aparece a los 400 ms al pasar el puntero o al enfocar, se cierra con Esc y nunca contiene acciones.",
   "deps": [],
-  "doc": "# Tooltip\n\nEtiqueta flotante `ink` que explica un control sin texto. Aparece a los 400 ms al pasar el puntero o al enfocar, se cierra con Esc y nunca contiene acciones.\n\n- **Props**: `content`, `side` (`top` · `bottom`), `delay` (400), `children` (un único elemento enfocable).\n- En móvil no hay hover: lo esencial nunca vive solo en un tooltip.\n"
+  "doc": "# Tooltip\n\nEtiqueta flotante `ink` que explica un control sin texto. Aparece a los 400 ms al pasar el puntero o al enfocar, se cierra con Esc y nunca contiene acciones.\n\n- **Props**: `content`, `side` (`top` · `bottom`), `delay` (400), `children` (un único elemento enfocable).\n- En móvil no hay hover: lo esencial nunca vive solo en un tooltip.\n",
+  "thumb": [
+   480,
+   160
+  ]
  },
  {
   "name": "Timer",
@@ -294,7 +394,11 @@
     "slug": "stopwatch"
    }
   ],
-  "doc": "# Timer\n\nCuenta atrás en un anillo de 60 puntos: los encendidos (`rams`) son el tiempo que queda; cada quinto punto es más grande, como las marcas de un reloj. En los tres últimos segundos el número cambia a una cuenta 3·2·1 gigante y, al terminar, el anillo se vuelve `verde`.\n\n- **Props**: `duration` (segundos), `autoStart`, `onComplete()`, `label`, `doneText`, `size` (260), `dots` (60).\n- Anuncia a lectores de pantalla solo la cuenta final y el final (`role=\"timer\"`), no cada segundo.\n- Para series encadenadas (Tabata), encadena Timers desde fuera con `onComplete`.\n"
+  "doc": "# Timer\n\nCuenta atrás en un anillo de 60 puntos: los encendidos (`rams`) son el tiempo que queda; cada quinto punto es más grande, como las marcas de un reloj. En los tres últimos segundos el número cambia a una cuenta 3·2·1 gigante y, al terminar, el anillo se vuelve `verde`.\n\n- **Props**: `duration` (segundos), `autoStart`, `onComplete()`, `label`, `doneText`, `size` (260), `dots` (60).\n- Anuncia a lectores de pantalla solo la cuenta final y el final (`role=\"timer\"`), no cada segundo.\n- Para series encadenadas (Tabata), encadena Timers desde fuera con `onComplete`.\n",
+  "thumb": [
+   480,
+   780
+  ]
  },
  {
   "name": "Stopwatch",
@@ -311,7 +415,11 @@
     "slug": "readout"
    }
   ],
-  "doc": "# Stopwatch\n\nCronómetro con centésimas, vueltas y la mejor vuelta marcada en `klein-ink`. Dos teclas redondas que cambian de papel según el estado (Empezar/Parar en `rams`, Vuelta/Reiniciar al lado), siempre en el mismo sitio.\n\n- **Props**: `autoStart`, `onLap(ms)`, `label`, `size` (`display` · `hero`, el tamaño del `Readout`).\n- Las cifras son tabulares: no bailan. El estado de las teclas comparte hueco (Vuelta ↔ Reiniciar, Parar ↔ Empezar) para que el pulgar no tenga que buscar.\n"
+  "doc": "# Stopwatch\n\nCronómetro con centésimas, vueltas y la mejor vuelta marcada en `klein-ink`. Dos teclas redondas que cambian de papel según el estado (Empezar/Parar en `rams`, Vuelta/Reiniciar al lado), siempre en el mismo sitio.\n\n- **Props**: `autoStart`, `onLap(ms)`, `label`, `size` (`display` · `hero`, el tamaño del `Readout`).\n- Las cifras son tabulares: no bailan. El estado de las teclas comparte hueco (Vuelta ↔ Reiniciar, Parar ↔ Empezar) para que el pulgar no tenga que buscar.\n",
+  "thumb": [
+   480,
+   253
+  ]
  },
  {
   "name": "Hourglass",
@@ -319,7 +427,11 @@
   "group": "Tiempo",
   "description": "Reloj de arena de puntos tabaco: el triángulo de arriba se vacía desde arriba y el de abajo se llena desde abajo; un grano cae por el cuello mientras corre. Se gira al tocarlo (180°, dur-grow) y empie",
   "deps": [],
-  "doc": "# Hourglass\n\nReloj de arena de puntos `tabaco`: el triángulo de arriba se vacía desde arriba y el de abajo se llena desde abajo; un grano cae por el cuello mientras corre. Se gira al tocarlo (180°, `dur-grow`) y empieza de nuevo.\n\n- **Props**: `duration` (segundos), `autoStart`, `onComplete()`, `pitch` (12), `label`.\n- Para tiempos de descanso o espera donde el número exacto importa menos que la sensación. Lleva siempre la lectura en segundos debajo.\n"
+  "doc": "# Hourglass\n\nReloj de arena de puntos `tabaco`: el triángulo de arriba se vacía desde arriba y el de abajo se llena desde abajo; un grano cae por el cuello mientras corre. Se gira al tocarlo (180°, `dur-grow`) y empieza de nuevo.\n\n- **Props**: `duration` (segundos), `autoStart`, `onComplete()`, `pitch` (12), `label`.\n- Para tiempos de descanso o espera donde el número exacto importa menos que la sensación. Lleva siempre la lectura en segundos debajo.\n",
+  "thumb": [
+   480,
+   329
+  ]
  },
  {
   "name": "Pendulum",
@@ -336,7 +448,11 @@
     "slug": "stopwatch"
    }
   ],
-  "doc": "# Pendulum\n\nMetrónomo: brazo `ink` con contrapeso `rams` que oscila a los BPM indicados, y los tiempos del compás en puntos (el primero marcado con aro). Ajuste de BPM con `Stepper`.\n\n- **Props**: `bpm`/`defaultBpm` (90), `onBpmChange(n)`, `beats` (4), `step` (5), `running` (si se controla desde fuera, desaparece la tecla de parar).\n- La oscilación es seno (ease-in-out): frena en los extremos, como un péndulo real. Con movimiento reducido, el brazo se queda quieto y solo laten los puntos.\n"
+  "doc": "# Pendulum\n\nMetrónomo: brazo `ink` con contrapeso `rams` que oscila a los BPM indicados, y los tiempos del compás en puntos (el primero marcado con aro). Ajuste de BPM con `Stepper`.\n\n- **Props**: `bpm`/`defaultBpm` (90), `onBpmChange(n)`, `beats` (4), `step` (5), `running` (si se controla desde fuera, desaparece la tecla de parar).\n- La oscilación es seno (ease-in-out): frena en los extremos, como un péndulo real. Con movimiento reducido, el brazo se queda quieto y solo laten los puntos.\n",
+  "thumb": [
+   480,
+   388
+  ]
  },
  {
   "name": "MediaPlayer",
@@ -357,7 +473,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# MediaPlayer\n\nReproductor de vídeo. Tecla de play `rams` grande en el centro mientras está en pausa; barra de control flotante en píldora oscura con play, posición (con marcas de capítulo en `sol`), tiempo, sonido, subtítulos y pantalla completa. Al reproducir, la barra se esconde y vuelve al pasar el puntero o al enfocar.\n\n- **Props**: `src`, `poster`, `title`, `badge` (chip `sol` arriba a la derecha), `chapters` (segundos), `captions` (URL .vtt) + `captionsLang` + `captionsOn`, `ratio` (`'16 / 9'`), `autoPlay`, `loop`, `muted`, `duration` (solo para el modo demo), `children` (póster de demo sin `src`).\n- **Teclado** con el reproductor enfocado: Espacio/K play, ← → 5 s, M sonido, C subtítulos, F pantalla completa. La posición es un `slider` accesible.\n- Sin `src` simula el tiempo: sirve para maquetas y para UI generada antes de tener el vídeo.\n- Autoplay solo silenciado y en bucle (fondos); nunca con sonido.\n"
+  "doc": "# MediaPlayer\n\nReproductor de vídeo. Tecla de play `rams` grande en el centro mientras está en pausa; barra de control flotante en píldora oscura con play, posición (con marcas de capítulo en `sol`), tiempo, sonido, subtítulos y pantalla completa. Al reproducir, la barra se esconde y vuelve al pasar el puntero o al enfocar.\n\n- **Props**: `src`, `poster`, `title`, `badge` (chip `sol` arriba a la derecha), `chapters` (segundos), `captions` (URL .vtt) + `captionsLang` + `captionsOn`, `ratio` (`'16 / 9'`), `autoPlay`, `loop`, `muted`, `duration` (solo para el modo demo), `children` (póster de demo sin `src`).\n- **Teclado** con el reproductor enfocado: Espacio/K play, ← → 5 s, M sonido, C subtítulos, F pantalla completa. La posición es un `slider` accesible.\n- Sin `src` simula el tiempo: sirve para maquetas y para UI generada antes de tener el vídeo.\n- Autoplay solo silenciado y en bucle (fondos); nunca con sonido.\n",
+  "thumb": [
+   480,
+   290
+  ]
  },
  {
   "name": "AudioTrack",
@@ -374,7 +494,11 @@
     "slug": "chip"
    }
   ],
-  "doc": "# AudioTrack\n\nPista de audio con la onda como barra de posición: barras redondeadas, las reproducidas en el color del texto. Tecla redonda de play, título, tiempo y chip de velocidad.\n\n- **Props**: `src`, `title`, `peaks` (array 0–1; si no, se genera una onda estable con `seed`), `bars` (56), `tone` (`surface`), `rate`, `speed` (false oculta el chip), `duration` (modo demo).\n- La onda es un `slider`: ← → 5 s, Espacio play. Para notas de voz, podcasts, mensajes del entrenador.\n"
+  "doc": "# AudioTrack\n\nPista de audio con la onda como barra de posición: barras redondeadas, las reproducidas en el color del texto. Tecla redonda de play, título, tiempo y chip de velocidad.\n\n- **Props**: `src`, `title`, `peaks` (array 0–1; si no, se genera una onda estable con `seed`), `bars` (56), `tone` (`surface`), `rate`, `speed` (false oculta el chip), `duration` (modo demo).\n- La onda es un `slider`: ← → 5 s, Espacio play. Para notas de voz, podcasts, mensajes del entrenador.\n",
+  "thumb": [
+   480,
+   240
+  ]
  },
  {
   "name": "Ticker",
@@ -387,7 +511,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Ticker\n\nCinta que corre en horizontal: noticias, marcadores, horarios, valores. Se pausa sola al pasar el puntero o al enfocarla, y lleva siempre su propia tecla de pausa (todo lo que se mueve más de 5 s debe poder pararse).\n\n- **Props**: `items` (strings o `{label, value, delta}`; `delta` negativo pinta ▼, positivo ▲ en negrita: la flecha lleva el significado, no el color), `speed` (segundos por vuelta, 30), `tone` (`ink`), `label`.\n- Con movimiento reducido no corre: se convierte en una fila desplazable. Una cinta por pantalla, nunca información crítica solo ahí.\n"
+  "doc": "# Ticker\n\nCinta que corre en horizontal: noticias, marcadores, horarios, valores. Se pausa sola al pasar el puntero o al enfocarla, y lleva siempre su propia tecla de pausa (todo lo que se mueve más de 5 s debe poder pararse).\n\n- **Props**: `items` (strings o `{label, value, delta}`; `delta` negativo pinta ▼, positivo ▲ en negrita: la flecha lleva el significado, no el color), `speed` (segundos por vuelta, 30), `tone` (`ink`), `label`.\n- Con movimiento reducido no corre: se convierte en una fila desplazable. Una cinta por pantalla, nunca información crítica solo ahí.\n",
+  "thumb": [
+   480,
+   160
+  ]
  },
  {
   "name": "SplitFlap",
@@ -395,7 +523,11 @@
   "group": "Medios",
   "description": "Panel de paletas de aeropuerto: cada carácter gira por el abecedario hasta su letra, en cascada de izquierda a derecha. Para el dato que cambia y quieres que se note: próxima clase, puerta, marcador, ",
   "deps": [],
-  "doc": "# SplitFlap\n\nPanel de paletas de aeropuerto: cada carácter gira por el abecedario hasta su letra, en cascada de izquierda a derecha. Para el dato que cambia y quieres que se note: próxima clase, puerta, marcador, turno, cuenta atrás.\n\n- **Props**: `value` (texto; se pasa a mayúsculas), `length` (celdas fijas), `size` (`s` · `m` · `l`), `tone` (`sol` · `rams` · `verde` · `rec`: el estado, no la decoración), `cycle` (lista de valores que rota sola) + `interval` (4000 ms), `speed` (ms por paso, 45).\n- Con `cycle`, se para mientras el puntero o el foco están encima. Se anuncia solo el valor final. Con movimiento reducido cambia sin girar y no rota.\n- Para varias filas, `FlapBoard`. Un dato por panel: si todo gira, nada destaca.\n"
+  "doc": "# SplitFlap\n\nPanel de paletas de aeropuerto: cada carácter gira por el abecedario hasta su letra, en cascada de izquierda a derecha. Para el dato que cambia y quieres que se note: próxima clase, puerta, marcador, turno, cuenta atrás.\n\n- **Props**: `value` (texto; se pasa a mayúsculas), `length` (celdas fijas), `size` (`s` · `m` · `l`), `tone` (`sol` · `rams` · `verde` · `rec`: el estado, no la decoración), `cycle` (lista de valores que rota sola) + `interval` (4000 ms), `speed` (ms por paso, 45).\n- Con `cycle`, se para mientras el puntero o el foco están encima. Se anuncia solo el valor final. Con movimiento reducido cambia sin girar y no rota.\n- Para varias filas, `FlapBoard`. Un dato por panel: si todo gira, nada destaca.\n",
+  "thumb": [
+   480,
+   237
+  ]
  },
  {
   "name": "DotMatrix",
@@ -403,7 +535,11 @@
   "group": "Puntos",
   "description": "Dibuja números y formas con puntos sobre una retícula: la firma visual del sistema. Sol, nube, gota, aro, disco, corazón, o cualquier texto numérico en una fuente de 5×7.",
   "deps": [],
-  "doc": "# DotMatrix\n\nDibuja números y formas con puntos sobre una retícula: la firma visual del sistema. Sol, nube, gota, aro, disco, corazón, o cualquier texto numérico en una fuente de 5×7.\n\n- **Props**: `shape` (`sun` · `cloud` · `drop` · `ring` · `disc` · `heart`), `grid` (lado en puntos, 15), `text` (dígitos, `:` `.` `°` `%` `-`), `rows` (array de strings `'0101'` para un dibujo propio), `dot` (diámetro, 6), `pitch` (paso, 10), `showOff` (dibuja también los puntos apagados en `dot-off`), `tone` (`ink` · `klein` · `rams` · `tabaco` · `paper`), `label`, `reactive` (los puntos cercanos al puntero crecen hasta un 60 %: el dibujo responde al dedo; se mantiene con movimiento reducido porque es respuesta directa).\n- Es la ilustración del sistema: no uses fotos ni ilustración plana. Un pictograma de puntos por Tile o por pantalla.\n- `pitch` ≥ `dot` × 1.5 para que respire; en héroe, `dot` 8–10.\n"
+  "doc": "# DotMatrix\n\nDibuja números y formas con puntos sobre una retícula: la firma visual del sistema. Sol, nube, gota, aro, disco, corazón, o cualquier texto numérico en una fuente de 5×7.\n\n- **Props**: `shape` (`sun` · `cloud` · `drop` · `ring` · `disc` · `heart`), `grid` (lado en puntos, 15), `text` (dígitos, `:` `.` `°` `%` `-`), `rows` (array de strings `'0101'` para un dibujo propio), `dot` (diámetro, 6), `pitch` (paso, 10), `showOff` (dibuja también los puntos apagados en `dot-off`), `tone` (`ink` · `klein` · `rams` · `tabaco` · `paper`), `label`, `reactive` (los puntos cercanos al puntero crecen hasta un 60 %: el dibujo responde al dedo; se mantiene con movimiento reducido porque es respuesta directa).\n- Es la ilustración del sistema: no uses fotos ni ilustración plana. Un pictograma de puntos por Tile o por pantalla.\n- `pitch` ≥ `dot` × 1.5 para que respire; en héroe, `dot` 8–10.\n",
+  "thumb": [
+   480,
+   521
+  ]
  },
  {
   "name": "DotGrid",
@@ -411,7 +547,11 @@
   "group": "Puntos",
   "description": "Discos en rejilla. Dos usos:",
   "deps": [],
-  "doc": "# DotGrid\n\nDiscos en rejilla. Dos usos:\n\n1. **Contar** (sin `select`): n de m llenos, como un ábaco (`3 de 20`, series hechas).\n2. **Elegir** (`select: 'one' | 'many'`): cada disco es un botón de 56 px. Al pasar el puntero el disco crece y sus vecinos se asoman (efecto lente), al pulsarlo se hunde y se rellena con un pequeño salto. Los ocupados quedan hundidos y tachados. Para plazas de una clase, asientos, días de un calendario, franjas horarias.\n\n- **Props comunes**: `total`, `columns` (4), `size` (48 contar · 56 elegir), `gap`, `tone` (`klein` · `rams` · `ink` · `sol` · `verde`), `label`.\n- **Contar**: `filled`.\n- **Elegir**: `select`, `value`/`defaultValue` (índice o lista), `onChange`, `disabled` (índices ocupados), `labels` (nombre de cada disco: `'A3'`, `'18:00'`, `12`), `showLabels`, `max` (en `many`), `deselect` (true), `caption` (o `false`).\n- Teclado: flechas por la rejilla, Inicio/Fin, Espacio/Enter elige. Vibra 8 ms al elegir. Nunca solo color: ocupado = tachado, elegido = relleno + `aria-pressed`.\n"
+  "doc": "# DotGrid\n\nDiscos en rejilla. Dos usos:\n\n1. **Contar** (sin `select`): n de m llenos, como un ábaco (`3 de 20`, series hechas).\n2. **Elegir** (`select: 'one' | 'many'`): cada disco es un botón de 56 px. Al pasar el puntero el disco crece y sus vecinos se asoman (efecto lente), al pulsarlo se hunde y se rellena con un pequeño salto. Los ocupados quedan hundidos y tachados. Para plazas de una clase, asientos, días de un calendario, franjas horarias.\n\n- **Props comunes**: `total`, `columns` (4), `size` (48 contar · 56 elegir), `gap`, `tone` (`klein` · `rams` · `ink` · `sol` · `verde`), `label`.\n- **Contar**: `filled`.\n- **Elegir**: `select`, `value`/`defaultValue` (índice o lista), `onChange`, `disabled` (índices ocupados), `labels` (nombre de cada disco: `'A3'`, `'18:00'`, `12`), `showLabels`, `max` (en `many`), `deselect` (true), `caption` (o `false`).\n- Teclado: flechas por la rejilla, Inicio/Fin, Espacio/Enter elige. Vibra 8 ms al elegir. Nunca solo color: ocupado = tachado, elegido = relleno + `aria-pressed`.\n",
+  "thumb": [
+   480,
+   660
+  ]
  },
  {
   "name": "StateMark",
@@ -419,7 +559,11 @@
   "group": "Puntos",
   "description": "El lenguaje de estados de la casa: **aro** = pendiente, **puntos** = en curso, **disco** = hecho. Tres formas, un mismo diámetro, sin color.",
   "deps": [],
-  "doc": "# StateMark\n\nEl lenguaje de estados de la casa: **aro** = pendiente, **puntos** = en curso, **disco** = hecho. Tres formas, un mismo diámetro, sin color.\n\n- **Props**: `state` (`empty` · `partial` · `full`), `size` (24), `label` (por defecto: Pendiente / En curso / Hecho), `children` (texto al lado).\n- Úsalo en listas de tareas, calendario de entrenos, pasos de onboarding y reservas. El color puede acompañar, nunca sustituir a la forma.\n"
+  "doc": "# StateMark\n\nEl lenguaje de estados de la casa: **aro** = pendiente, **puntos** = en curso, **disco** = hecho. Tres formas, un mismo diámetro, sin color.\n\n- **Props**: `state` (`empty` · `partial` · `full`), `size` (24), `label` (por defecto: Pendiente / En curso / Hecho), `children` (texto al lado).\n- Úsalo en listas de tareas, calendario de entrenos, pasos de onboarding y reservas. El color puede acompañar, nunca sustituir a la forma.\n",
+  "thumb": [
+   480,
+   180
+  ]
  },
  {
   "name": "Steps",
@@ -432,7 +576,11 @@
     "slug": "state-mark"
    }
   ],
-  "doc": "# Steps\n\nProgreso por pasos con el lenguaje de estados: disco = hecho, puntos = paso actual, aro = pendiente, unidos por un filete que se rellena. Para onboarding y procesos de 3–6 pasos.\n\n- **Props**: `steps` (etiquetas), `current` (índice), `label`.\n- Etiquetas de una o dos palabras. El paso actual lleva `aria-current=\"step\"`.\n"
+  "doc": "# Steps\n\nProgreso por pasos con el lenguaje de estados: disco = hecho, puntos = paso actual, aro = pendiente, unidos por un filete que se rellena. Para onboarding y procesos de 3–6 pasos.\n\n- **Props**: `steps` (etiquetas), `current` (índice), `label`.\n- Etiquetas de una o dos palabras. El paso actual lleva `aria-current=\"step\"`.\n",
+  "thumb": [
+   480,
+   104
+  ]
  },
  {
   "name": "Grille",
@@ -440,7 +588,11 @@
   "group": "Puntos",
   "description": "Rejilla de altavoz o lámpara en un disco o una cúpula: ranuras horizontales o agujeros de puntos recortados en un círculo de color. Es el retrato de un aparato: úsalo como arte de un Tile, una carta o",
   "deps": [],
-  "doc": "# Grille\n\nRejilla de altavoz o lámpara en un disco o una cúpula: ranuras horizontales o agujeros de puntos recortados en un círculo de color. Es el retrato de un aparato: úsalo como arte de un Tile, una carta o una pantalla de audio.\n\n- **Props**: `variant` (`slots` · `dots`), `shape` (`disc` · `dome`, la media esfera de una lámpara), `size` (160), `pitch` (paso de los puntos), `tone` (`verde` · `ink` · `sol` · `rams` · `tabaco` · `surface`), `label` (si comunica algo; si no, es decorativo).\n- Una por vista. Con `dome`, apila una `Grille` o un disco debajo para la silueta completa de lámpara.\n"
+  "doc": "# Grille\n\nRejilla de altavoz o lámpara en un disco o una cúpula: ranuras horizontales o agujeros de puntos recortados en un círculo de color. Es el retrato de un aparato: úsalo como arte de un Tile, una carta o una pantalla de audio.\n\n- **Props**: `variant` (`slots` · `dots`), `shape` (`disc` · `dome`, la media esfera de una lámpara), `size` (160), `pitch` (paso de los puntos), `tone` (`verde` · `ink` · `sol` · `rams` · `tabaco` · `surface`), `label` (si comunica algo; si no, es decorativo).\n- Una por vista. Con `dome`, apila una `Grille` o un disco debajo para la silueta completa de lámpara.\n",
+  "thumb": [
+   480,
+   404
+  ]
  },
  {
   "name": "LED",
@@ -448,7 +600,11 @@
   "group": "Puntos",
   "description": "Piloto de máquina: un rectángulo de luz de 10×6 px con halo. Estado de un aparato (calentando, listo, grabando) junto a una etiqueta mono.",
   "deps": [],
-  "doc": "# LED\n\nPiloto de máquina: un rectángulo de luz de 10×6 px con halo. Estado de un aparato (calentando, listo, grabando) junto a una etiqueta mono.\n\n- **Props**: `tone` (`rec` · `verde` · `sol` · `klein`), `on` (true), `blink` (parpadeo de 1.2 s en dos pasos, sin fundido), `children` (etiqueta).\n- Siempre con etiqueta: el color solo no dice nada. Se anuncia \"(encendido)/(apagado)\" a lectores de pantalla.\n- En fila sobre teclas (como los pilotos de una cafetera) o al lado de un `Chip`.\n"
+  "doc": "# LED\n\nPiloto de máquina: un rectángulo de luz de 10×6 px con halo. Estado de un aparato (calentando, listo, grabando) junto a una etiqueta mono.\n\n- **Props**: `tone` (`rec` · `verde` · `sol` · `klein`), `on` (true), `blink` (parpadeo de 1.2 s en dos pasos, sin fundido), `children` (etiqueta).\n- Siempre con etiqueta: el color solo no dice nada. Se anuncia \"(encendido)/(apagado)\" a lectores de pantalla.\n- En fila sobre teclas (como los pilotos de una cafetera) o al lado de un `Chip`.\n",
+  "thumb": [
+   480,
+   70
+  ]
  },
  {
   "name": "LevelBars",
@@ -456,7 +612,11 @@
   "group": "Instrumentos",
   "description": "Nivel como reglas verticales redondeadas: encendidas en ink, apagadas en ink-faint. Batería, carga, volumen.",
   "deps": [],
-  "doc": "# LevelBars\n\nNivel como reglas verticales redondeadas: encendidas en `ink`, apagadas en `ink-faint`. Batería, carga, volumen.\n\n- **Props**: `value` (0–100), `count` (20), `height` (64), `label`.\n- Siempre junto a la cifra (`78%`). Solo lectura.\n"
+  "doc": "# LevelBars\n\nNivel como reglas verticales redondeadas: encendidas en `ink`, apagadas en `ink-faint`. Batería, carga, volumen.\n\n- **Props**: `value` (0–100), `count` (20), `height` (64), `label`.\n- Siempre junto a la cifra (`78%`). Solo lectura.\n",
+  "thumb": [
+   480,
+   120
+  ]
  },
  {
   "name": "BarMeter",
@@ -464,7 +624,11 @@
   "group": "Instrumentos",
   "description": "Barras en píldora por categoría o día; una activa en ink, el resto en well, previsión o pendiente rayada.",
   "deps": [],
-  "doc": "# BarMeter\n\nBarras en píldora por categoría o día; una activa en `ink`, el resto en `well`, previsión o pendiente rayada.\n\n- **Props**: `data` (`[{label, value, hatched}]`), `active` (índice resaltado), `height` (160), `barWidth` (40), `label`.\n- 3–7 barras. El día actual o la categoría elegida es la `active`; su etiqueta va en negrita. Datos futuros: `hatched`.\n"
+  "doc": "# BarMeter\n\nBarras en píldora por categoría o día; una activa en `ink`, el resto en `well`, previsión o pendiente rayada.\n\n- **Props**: `data` (`[{label, value, hatched}]`), `active` (índice resaltado), `height` (160), `barWidth` (40), `label`.\n- 3–7 barras. El día actual o la categoría elegida es la `active`; su etiqueta va en negrita. Datos futuros: `hatched`.\n",
+  "thumb": [
+   480,
+   232
+  ]
  },
  {
   "name": "LineChart",
@@ -472,7 +636,11 @@
   "group": "Instrumentos",
   "description": "Línea suave con marcador de **ahora**: lo pasado en trazo lleno, lo previsto fino y atenuado, y un aro con línea vertical en el punto actual (la curva del clima de las referencias).",
   "deps": [],
-  "doc": "# LineChart\n\nLínea suave con marcador de **ahora**: lo pasado en trazo lleno, lo previsto fino y atenuado, y un aro con línea vertical en el punto actual (la curva del clima de las referencias).\n\n- **Props**: `data` (números), `labels` (eje x), `now` (índice), `unit`, `tone` (`ink` · `rams` · `klein`), `width` (360), `height` (140), `caption`, `label`.\n- El nombre accesible resume mínimo, máximo y valor actual. Una línea por gráfico; para comparar categorías, `BarMeter`.\n"
+  "doc": "# LineChart\n\nLínea suave con marcador de **ahora**: lo pasado en trazo lleno, lo previsto fino y atenuado, y un aro con línea vertical en el punto actual (la curva del clima de las referencias).\n\n- **Props**: `data` (números), `labels` (eje x), `now` (índice), `unit`, `tone` (`ink` · `rams` · `klein`), `width` (360), `height` (140), `caption`, `label`.\n- El nombre accesible resume mínimo, máximo y valor actual. Una línea por gráfico; para comparar categorías, `BarMeter`.\n",
+  "thumb": [
+   480,
+   218
+  ]
  },
  {
   "name": "ProgressRing",
@@ -480,7 +648,11 @@
   "group": "Instrumentos",
   "description": "Anillo de progreso con el porcentaje en el centro. Avanza con dur-grow y ease-arrive.",
   "deps": [],
-  "doc": "# ProgressRing\n\nAnillo de progreso con el porcentaje en el centro. Avanza con `dur-grow` y `ease-arrive`.\n\n- **Props**: `value` (0–100), `size` (96), `thickness` (8), `tone` (`rams` · `klein` · `ink` · `verde`), `label`, `children` (sustituye al porcentaje).\n- Para progreso continuo de una sola cosa (sesión, día). Para \"n de m\" contables, `DotGrid` o `StateMark`.\n"
+  "doc": "# ProgressRing\n\nAnillo de progreso con el porcentaje en el centro. Avanza con `dur-grow` y `ease-arrive`.\n\n- **Props**: `value` (0–100), `size` (96), `thickness` (8), `tone` (`rams` · `klein` · `ink` · `verde`), `label`, `children` (sustituye al porcentaje).\n- Para progreso continuo de una sola cosa (sesión, día). Para \"n de m\" contables, `DotGrid` o `StateMark`.\n",
+  "thumb": [
+   480,
+   152
+  ]
  },
  {
   "name": "Readout",
@@ -488,7 +660,11 @@
   "group": "Instrumentos",
   "description": "El número que manda: cifra en Doto (puntos) con etiqueta mono encima y unidad pequeña. Temporizador, cuenta atrás, contador.",
   "deps": [],
-  "doc": "# Readout\n\nEl número que manda: cifra en `Doto` (puntos) con etiqueta mono encima y unidad pequeña. Temporizador, cuenta atrás, contador.\n\n- **Props**: `value`, `unit`, `label`, `meta` (línea técnica debajo), `size` (`hero` 120 · `display` 64 · `label` 24), `live` (anuncia cambios a lectores de pantalla; solo para hitos, no cada segundo).\n- Un `hero` por pantalla, arriba a la izquierda o centrado como cuenta atrás 3·2·1. Cifras tabulares: no bailan al cambiar.\n"
+  "doc": "# Readout\n\nEl número que manda: cifra en `Doto` (puntos) con etiqueta mono encima y unidad pequeña. Temporizador, cuenta atrás, contador.\n\n- **Props**: `value`, `unit`, `label`, `meta` (línea técnica debajo), `size` (`hero` 120 · `display` 64 · `label` 24), `live` (anuncia cambios a lectores de pantalla; solo para hitos, no cada segundo).\n- Un `hero` por pantalla, arriba a la izquierda o centrado como cuenta atrás 3·2·1. Cifras tabulares: no bailan al cambiar.\n",
+  "thumb": [
+   480,
+   330
+  ]
  },
  {
   "name": "Tile",
@@ -496,7 +672,11 @@
   "group": "Superficies",
   "description": "Tarjeta-widget: título arriba a la izquierda, pictograma de puntos en el centro y el valor enorme abajo a la izquierda. La pieza de los dashboards de dos columnas.",
   "deps": [],
-  "doc": "# Tile\n\nTarjeta-widget: título arriba a la izquierda, pictograma de puntos en el centro y el valor enorme abajo a la izquierda. La pieza de los dashboards de dos columnas.\n\n- **Props**: `title`, `subtitle` (segunda línea atenuada), `meta` (mono arriba a la derecha), `value`, `tone` (`surface` · `sol` · `klein` · `rams` · `tabaco` · `ink` · `klein-soft` · `salvia` · `lavanda` · `malva`), `height`, `children` (el arte: `DotMatrix`, `DotGrid`, `Icon`), `onClick` (la convierte en botón).\n- Dos por fila con `space-2` de junta. Una sola Tile de color por fila; la otra en `surface`.\n"
+  "doc": "# Tile\n\nTarjeta-widget: título arriba a la izquierda, pictograma de puntos en el centro y el valor enorme abajo a la izquierda. La pieza de los dashboards de dos columnas.\n\n- **Props**: `title`, `subtitle` (segunda línea atenuada), `meta` (mono arriba a la derecha), `value`, `tone` (`surface` · `sol` · `klein` · `rams` · `tabaco` · `ink` · `klein-soft` · `salvia` · `lavanda` · `malva`), `height`, `children` (el arte: `DotMatrix`, `DotGrid`, `Icon`), `onClick` (la convierte en botón).\n- Dos por fila con `space-2` de junta. Una sola Tile de color por fila; la otra en `surface`.\n",
+  "thumb": [
+   480,
+   290
+  ]
  },
  {
   "name": "Strip",
@@ -504,7 +684,11 @@
   "group": "Superficies",
   "description": "Fila de instrumento horizontal: título y valor grande a la izquierda, instrumento a la derecha. Se apilan con space-2 como un panel de control.",
   "deps": [],
-  "doc": "# Strip\n\nFila de instrumento horizontal: título y valor grande a la izquierda, instrumento a la derecha. Se apilan con `space-2` como un panel de control.\n\n- **Props**: `title`, `value`, `tone` (`surface` por defecto), `children` (el instrumento: `Gauge`, `LevelBars`, `DotMatrix`, texto secundario).\n- Para pantallas de estado: temperatura, batería, luz, hora. El valor siempre legible sin el instrumento.\n"
+  "doc": "# Strip\n\nFila de instrumento horizontal: título y valor grande a la izquierda, instrumento a la derecha. Se apilan con `space-2` como un panel de control.\n\n- **Props**: `title`, `value`, `tone` (`surface` por defecto), `children` (el instrumento: `Gauge`, `LevelBars`, `DotMatrix`, texto secundario).\n- Para pantallas de estado: temperatura, batería, luz, hora. El valor siempre legible sin el instrumento.\n",
+  "thumb": [
+   480,
+   432
+  ]
  },
  {
   "name": "CardStack",
@@ -517,7 +701,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# CardStack\n\nCartas de color apiladas que se solapan un radio: al tocar una, crece con frenada larga (`dur-grow`, `ease-arrive`) y muestra su título y su número. Listas cortas con personalidad: rutinas, playlists, categorías.\n\n- **Props**: `items` (`[{badge, icon, title, subtitle, value, tone}]`), `value`/`defaultValue` (índice abierto), `onChange(i)`.\n- 3–5 cartas, cada una de un tono distinto (`klein-soft`, `sol`, `rams`, `verde`, `lavanda`…). La última no se solapa con nada.\n- La insignia es redonda con borde discontinuo: letra, número o icono.\n"
+  "doc": "# CardStack\n\nCartas de color apiladas que se solapan un radio: al tocar una, crece con frenada larga (`dur-grow`, `ease-arrive`) y muestra su título y su número. Listas cortas con personalidad: rutinas, playlists, categorías.\n\n- **Props**: `items` (`[{badge, icon, title, subtitle, value, tone}]`), `value`/`defaultValue` (índice abierto), `onChange(i)`.\n- 3–5 cartas, cada una de un tono distinto (`klein-soft`, `sol`, `rams`, `verde`, `lavanda`…). La última no se solapa con nada.\n- La insignia es redonda con borde discontinuo: letra, número o icono.\n",
+  "thumb": [
+   480,
+   541
+  ]
  },
  {
   "name": "Cabinet",
@@ -525,7 +713,11 @@
   "group": "Superficies",
   "description": "Archivero: cajones apilados con tirador en píldora. Al abrir uno, el cajón sale 10 px hacia fuera, el tirador se alarga y el contenido se despliega con frenada larga. Funciona como un acordeón de una ",
   "deps": [],
-  "doc": "# Cabinet\n\nArchivero: cajones apilados con tirador en píldora. Al abrir uno, el cajón sale 10 px hacia fuera, el tirador se alarga y el contenido se despliega con frenada larga. Funciona como un acordeón de una sola apertura.\n\n- **Props**: `drawers` (`[{label, index, meta, tone, content}]`), `value`/`defaultValue` (índice abierto, `-1` ninguno), `onChange(i)`.\n- Para archivo, historial o ajustes agrupados. Cada cajón de un tono si representan categorías; todos `surface` si son iguales.\n- El contenido cerrado no se lee ni se enfoca (`visibility: hidden` tras la animación).\n"
+  "doc": "# Cabinet\n\nArchivero: cajones apilados con tirador en píldora. Al abrir uno, el cajón sale 10 px hacia fuera, el tirador se alarga y el contenido se despliega con frenada larga. Funciona como un acordeón de una sola apertura.\n\n- **Props**: `drawers` (`[{label, index, meta, tone, content}]`), `value`/`defaultValue` (índice abierto, `-1` ninguno), `onChange(i)`.\n- Para archivo, historial o ajustes agrupados. Cada cajón de un tono si representan categorías; todos `surface` si son iguales.\n- El contenido cerrado no se lee ni se enfoca (`visibility: hidden` tras la animación).\n",
+  "thumb": [
+   480,
+   534
+  ]
  },
  {
   "name": "Pager",
@@ -538,7 +730,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Pager\n\nCarrusel horizontal con scroll-snap, botones redondos de anterior/siguiente y puntos de posición (el activo se alarga en píldora). Funciona con el dedo, con los botones y con ← →.\n\n- **Props**: `children` (una diapositiva cada uno), `itemWidth` (`'85%'`, deja asomar la siguiente), `gap` (8), `label`.\n- Para onboarding, tarjetas de rutina o galerías. Nunca autoavance.\n"
+  "doc": "# Pager\n\nCarrusel horizontal con scroll-snap, botones redondos de anterior/siguiente y puntos de posición (el activo se alarga en píldora). Funciona con el dedo, con los botones y con ← →.\n\n- **Props**: `children` (una diapositiva cada uno), `itemWidth` (`'85%'`, deja asomar la siguiente), `gap` (8), `label`.\n- Para onboarding, tarjetas de rutina o galerías. Nunca autoavance.\n",
+  "thumb": [
+   480,
+   324
+  ]
  },
  {
   "name": "Deck",
@@ -551,7 +747,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Deck\n\nCarrusel de cartas apiladas: la de arriba se arrastra y, si pasa de 90 px, sale lanzada (`ease-throw`) y se va al fondo del mazo. También con botones y ← →. Para elegir entre opciones de una en una (rutinas, recomendaciones, onboarding).\n\n- **Props**: `children` (una carta cada uno; normalmente `Tile`), `height` (280), `onChange(i)`, `label`.\n- Se ven tres cartas como mucho; el contador `01 / 05` dice dónde estás. No lo uses para contenido que hay que comparar: para eso, `Pager` o `Grid`.\n"
+  "doc": "# Deck\n\nCarrusel de cartas apiladas: la de arriba se arrastra y, si pasa de 90 px, sale lanzada (`ease-throw`) y se va al fondo del mazo. También con botones y ← →. Para elegir entre opciones de una en una (rutinas, recomendaciones, onboarding).\n\n- **Props**: `children` (una carta cada uno; normalmente `Tile`), `height` (280), `onChange(i)`, `label`.\n- Se ven tres cartas como mucho; el contador `01 / 05` dice dónde estás. No lo uses para contenido que hay que comparar: para eso, `Pager` o `Grid`.\n",
+  "thumb": [
+   480,
+   408
+  ]
  },
  {
   "name": "ListRow",
@@ -564,7 +764,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# ListRow\n\nFila con filete superior y número o icono grande a la izquierda: pasos, historial, ajustes. Sin tarjetas, sin sombras.\n\n- **Props**: `index` (número grande), `icon` (alternativa al número), `title`, `detail`, `value` (mono, a la derecha), `onClick` (la convierte en botón).\n- Pasos de un proceso: `index` 1…n. Ajustes: `icon` + `value`. Nunca chevron decorativo: si navega, el `value` es `→`.\n"
+  "doc": "# ListRow\n\nFila con filete superior y número o icono grande a la izquierda: pasos, historial, ajustes. Sin tarjetas, sin sombras.\n\n- **Props**: `index` (número grande), `icon` (alternativa al número), `title`, `detail`, `value` (mono, a la derecha), `onClick` (la convierte en botón).\n- Pasos de un proceso: `index` 1…n. Ajustes: `icon` + `value`. Nunca chevron decorativo: si navega, el `value` es `→`.\n",
+  "thumb": [
+   480,
+   360
+  ]
  },
  {
   "name": "Chip",
@@ -572,7 +776,11 @@
   "group": "Base",
   "description": "Etiqueta mono en píldora: estados, filtros, metadatos (REC, MONO, 70% SOLAR).",
   "deps": [],
-  "doc": "# Chip\n\nEtiqueta mono en píldora: estados, filtros, metadatos (`REC`, `MONO`, `70% SOLAR`).\n\n- **Props**: `tone` (`well` por defecto, o cualquier tono), `dot` (punto de estado delante; en `well` es `rec`), `square` (esquinas `radius-sm`, aspecto LCD), `children`.\n- 1–3 palabras en MAYÚSCULAS. No es un botón: si se pulsa, es una `KeyButton` `s` en `pill`.\n"
+  "doc": "# Chip\n\nEtiqueta mono en píldora: estados, filtros, metadatos (`REC`, `MONO`, `70% SOLAR`).\n\n- **Props**: `tone` (`well` por defecto, o cualquier tono), `dot` (punto de estado delante; en `well` es `rec`), `square` (esquinas `radius-sm`, aspecto LCD), `children`.\n- 1–3 palabras en MAYÚSCULAS. No es un botón: si se pulsa, es una `KeyButton` `s` en `pill`.\n",
+  "thumb": [
+   480,
+   84
+  ]
  },
  {
   "name": "Badge",
@@ -580,7 +788,11 @@
   "group": "Base",
   "description": "Contador o punto de aviso sobre otro elemento (un icono, una tecla, un avatar). Aparece escalando desde cero.",
   "deps": [],
-  "doc": "# Badge\n\nContador o punto de aviso sobre otro elemento (un icono, una tecla, un avatar). Aparece escalando desde cero.\n\n- **Props**: `count`, `max` (99, luego \"99+\"), `dot` (solo punto), `tone` (`rams`), `label` (qué cuenta, para lectores: \"3 nuevos\"), `children`.\n- 0 no se muestra. Para estados de texto, `Chip`.\n"
+  "doc": "# Badge\n\nContador o punto de aviso sobre otro elemento (un icono, una tecla, un avatar). Aparece escalando desde cero.\n\n- **Props**: `count`, `max` (99, luego \"99+\"), `dot` (solo punto), `tone` (`rams`), `label` (qué cuenta, para lectores: \"3 nuevos\"), `children`.\n- 0 no se muestra. Para estados de texto, `Chip`.\n",
+  "thumb": [
+   480,
+   112
+  ]
  },
  {
   "name": "Avatar",
@@ -588,7 +800,11 @@
   "group": "Base",
   "description": "Disco con foto o iniciales en Archivo 800. El estado se ve como un **aura** que respira alrededor del disco (ver Aura): disponible verde, en directo rec (más rápido), ausente sol, ocupado rams; descon",
   "deps": [],
-  "doc": "# Avatar\n\nDisco con foto o iniciales en Archivo 800. El estado se ve como un **aura** que respira alrededor del disco (ver `Aura`): disponible `verde`, en directo `rec` (más rápido), ausente `sol`, ocupado `rams`; desconectado sin halo y en gris.\n\n- **Props**: `name` (obligatorio: da las iniciales y el nombre accesible), `src`, `size` (48), `tone` (`ink`), `status` (`online` · `live` · `away` · `busy` · `offline`).\n- El estado va también en el nombre accesible (\"Marta Ruiz · disponible\").\n"
+  "doc": "# Avatar\n\nDisco con foto o iniciales en Archivo 800. El estado se ve como un **aura** que respira alrededor del disco (ver `Aura`): disponible `verde`, en directo `rec` (más rápido), ausente `sol`, ocupado `rams`; desconectado sin halo y en gris.\n\n- **Props**: `name` (obligatorio: da las iniciales y el nombre accesible), `src`, `size` (48), `tone` (`ink`), `status` (`online` · `live` · `away` · `busy` · `offline`).\n- El estado va también en el nombre accesible (\"Marta Ruiz · disponible\").\n",
+  "thumb": [
+   480,
+   112
+  ]
  },
  {
   "name": "TopBar",
@@ -605,7 +821,11 @@
     "slug": "text"
    }
   ],
-  "doc": "# TopBar\n\nCabecera de pantalla: tecla redonda de atrás, título centrado y acciones a la derecha. En variante `large`, el título va abajo en `display-xl` con la segunda línea de estado (el título de dos líneas de la casa).\n\n- **Props**: `title`, `subtitle` (solo `large`), `onBack()`, `backLabel`, `actions` (nodos; normalmente `Menu` o teclas redondas), `large`, `as` (`'header'` si es la cabecera única de la página).\n- Una por pantalla. Nada de logos ni hamburguesas: navegación en `TabBar`.\n"
+  "doc": "# TopBar\n\nCabecera de pantalla: tecla redonda de atrás, título centrado y acciones a la derecha. En variante `large`, el título va abajo en `display-xl` con la segunda línea de estado (el título de dos líneas de la casa).\n\n- **Props**: `title`, `subtitle` (solo `large`), `onBack()`, `backLabel`, `actions` (nodos; normalmente `Menu` o teclas redondas), `large`, `as` (`'header'` si es la cabecera única de la página).\n- Una por pantalla. Nada de logos ni hamburguesas: navegación en `TabBar`.\n",
+  "thumb": [
+   480,
+   368
+  ]
  },
  {
   "name": "TabBar",
@@ -622,7 +842,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# TabBar\n\nBarra de navegación inferior en píldora `ink`: iconos solos y, el activo, en píldora `paper` que se abre para mostrar su nombre. Flota centrada a `space-5` del borde inferior.\n\n- **Props**: `items` (`[{id, label, icon, badge, dot}]`), `value`/`defaultValue`, `onChange(id)`, `label`.\n- 3–5 destinos. El activo lleva `aria-current=\"page\"`; cada icono tiene su nombre accesible aunque no se vea.\n"
+  "doc": "# TabBar\n\nBarra de navegación inferior en píldora `ink`: iconos solos y, el activo, en píldora `paper` que se abre para mostrar su nombre. Flota centrada a `space-5` del borde inferior.\n\n- **Props**: `items` (`[{id, label, icon, badge, dot}]`), `value`/`defaultValue`, `onChange(id)`, `label`.\n- 3–5 destinos. El activo lleva `aria-current=\"page\"`; cada icono tiene su nombre accesible aunque no se vea.\n",
+  "thumb": [
+   480,
+   116
+  ]
  },
  {
   "name": "EmptyState",
@@ -639,7 +863,11 @@
     "slug": "key-button"
    }
   ],
-  "doc": "# EmptyState\n\nEstado vacío: un aro de puntos, un título que dice qué falta, una frase que dice qué hacer y, si se puede, la acción.\n\n- **Props**: `title`, `text`, `action` (`{label, onClick}`), `shape` (forma de `DotMatrix`, `ring`), `compact`.\n- Nunca \"No hay datos\": \"Aún no has entrenado esta semana\" + \"Reservar\".\n"
+  "doc": "# EmptyState\n\nEstado vacío: un aro de puntos, un título que dice qué falta, una frase que dice qué hacer y, si se puede, la acción.\n\n- **Props**: `title`, `text`, `action` (`{label, onClick}`), `shape` (forma de `DotMatrix`, `ring`), `compact`.\n- Nunca \"No hay datos\": \"Aún no has entrenado esta semana\" + \"Reservar\".\n",
+  "thumb": [
+   480,
+   408
+  ]
  },
  {
   "name": "Skeleton",
@@ -647,7 +875,11 @@
   "group": "Feedback",
   "description": "Carga en puntos: el hueco del contenido que viene se dibuja como una trama de puntos dot-off con un brillo que la recorre. Nada de rectángulos grises.",
   "deps": [],
-  "doc": "# Skeleton\n\nCarga en puntos: el hueco del contenido que viene se dibuja como una trama de puntos `dot-off` con un brillo que la recorre. Nada de rectángulos grises.\n\n- **Props**: `shape` (`text` · `tile` · `circle`), `lines` (3), `width`, `height`, `label`.\n- Solo si la carga pasa de ~300 ms; si pasa de 3 s, añade un `DotLoader` con texto.\n"
+  "doc": "# Skeleton\n\nCarga en puntos: el hueco del contenido que viene se dibuja como una trama de puntos `dot-off` con un brillo que la recorre. Nada de rectángulos grises.\n\n- **Props**: `shape` (`text` · `tile` · `circle`), `lines` (3), `width`, `height`, `label`.\n- Solo si la carga pasa de ~300 ms; si pasa de 3 s, añade un `DotLoader` con texto.\n",
+  "thumb": [
+   480,
+   296
+  ]
  },
  {
   "name": "Message",
@@ -672,7 +904,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Message\n\nUn turno de conversación. **Usuario**: bocadillo `ink` a la derecha. **Asistente**: sin bocadillo, texto a la izquierda con un avatar redondo que usa el lenguaje de estados (puntos mientras escribe, disco al terminar). **Sistema**: línea mono centrada.\n\n- **Props**: `role` (`user` · `assistant` · `system`), `children` (texto), `streaming` (punto `rams` parpadeando al final), `thinking` (muestra `DotLoader` en vez de texto), `ui` (spec JSON: incrusta UI generada con `Render`), `actions` (para esa UI), `name`, `meta` (hora, modelo), `onCopy`, `onRetry`.\n- El texto del asistente es `body` a 17/25: se lee, no se escanea. La UI incrustada va debajo del texto, nunca en lugar de la respuesta.\n"
+  "doc": "# Message\n\nUn turno de conversación. **Usuario**: bocadillo `ink` a la derecha. **Asistente**: sin bocadillo, texto a la izquierda con un avatar redondo que usa el lenguaje de estados (puntos mientras escribe, disco al terminar). **Sistema**: línea mono centrada.\n\n- **Props**: `role` (`user` · `assistant` · `system`), `children` (texto), `streaming` (punto `rams` parpadeando al final), `thinking` (muestra `DotLoader` en vez de texto), `ui` (spec JSON: incrusta UI generada con `Render`), `actions` (para esa UI), `name`, `meta` (hora, modelo), `onCopy`, `onRetry`.\n- El texto del asistente es `body` a 17/25: se lee, no se escanea. La UI incrustada va debajo del texto, nunca en lugar de la respuesta.\n",
+  "thumb": [
+   480,
+   420
+  ]
  },
  {
   "name": "Composer",
@@ -697,7 +933,11 @@
     "slug": "dot-loader"
    }
   ],
-  "doc": "# Composer\n\nBarra para escribir o hablar: textarea en píldora que crece hasta 160 px, tecla de micrófono y tecla de enviar `klein`. Al hablar, la barra se enmarca en `rec`, aparece un `VoiceOrb` pequeño y la tecla pasa a ■.\n\n- **Props**: `value`/`onChange`, `onSend(text)`, `placeholder`, `suggestions` (pinta `Suggestions` encima), `voice` (true), `listening` + `onListen(bool)` (para controlar el micro desde fuera), `level` (nivel de audio), `listeningText`, `busy` (deshabilita enviar y muestra `DotLoader`), `label`.\n- Enter envía; Mayús+Enter es salto de línea. Enviar está deshabilitado con el campo vacío.\n"
+  "doc": "# Composer\n\nBarra para escribir o hablar: textarea en píldora que crece hasta 160 px, tecla de micrófono y tecla de enviar `klein`. Al hablar, la barra se enmarca en `rec`, aparece un `VoiceOrb` pequeño y la tecla pasa a ■.\n\n- **Props**: `value`/`onChange`, `onSend(text)`, `placeholder`, `suggestions` (pinta `Suggestions` encima), `voice` (true), `listening` + `onListen(bool)` (para controlar el micro desde fuera), `level` (nivel de audio), `listeningText`, `busy` (deshabilita enviar y muestra `DotLoader`), `label`.\n- Enter envía; Mayús+Enter es salto de línea. Enviar está deshabilitado con el campo vacío.\n",
+  "thumb": [
+   480,
+   260
+  ]
  },
  {
   "name": "Suggestions",
@@ -710,7 +950,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Suggestions\n\nRespuestas sugeridas en chips de contorno en el color del texto (funcionan sobre claro y oscuro): entran escalonadas y se tiñen al pasar. Un toque envía.\n\n- **Props**: `items` (strings o `{label, value, icon}`), `onPick(value)`, `label`.\n- 2–4 sugerencias, frases de 1–4 palabras, en la voz del usuario (\"Mañana\", \"Solo 30 min\"), no del sistema.\n"
+  "doc": "# Suggestions\n\nRespuestas sugeridas en chips de contorno en el color del texto (funcionan sobre claro y oscuro): entran escalonadas y se tiñen al pasar. Un toque envía.\n\n- **Props**: `items` (strings o `{label, value, icon}`), `onPick(value)`, `label`.\n- 2–4 sugerencias, frases de 1–4 palabras, en la voz del usuario (\"Mañana\", \"Solo 30 min\"), no del sistema.\n",
+  "thumb": [
+   480,
+   100
+  ]
  },
  {
   "name": "VoiceOrb",
@@ -718,7 +962,11 @@
   "group": "Conversación",
   "description": "Orbe de puntos para la voz: el estado de un agente de voz se lee en cómo se mueven los puntos. **En espera**: quietos y apagados. **Escuchando**: laten desde el centro según el nivel del micrófono. **",
   "deps": [],
-  "doc": "# VoiceOrb\n\nOrbe de puntos para la voz: el estado de un agente de voz se lee en cómo se mueven los puntos. **En espera**: quietos y apagados. **Escuchando**: laten desde el centro según el nivel del micrófono. **Pensando**: un barrido gira como un radar. **Hablando**: ondas que salen hacia fuera.\n\n- **Props**: `state` (`idle` · `listening` · `thinking` · `speaking`), `level` (0–1, nivel de audio real si lo tienes), `size` (200), `grid` (15), `tone` (`ink` · `klein` · `rams` · `paper`), `caption` (texto bajo el orbe; `false` lo oculta), `label`.\n- El texto de estado se anuncia (`aria-live`). Con movimiento reducido, el orbe queda quieto y el estado se dice en texto.\n"
+  "doc": "# VoiceOrb\n\nOrbe de puntos para la voz: el estado de un agente de voz se lee en cómo se mueven los puntos. **En espera**: quietos y apagados. **Escuchando**: laten desde el centro según el nivel del micrófono. **Pensando**: un barrido gira como un radar. **Hablando**: ondas que salen hacia fuera.\n\n- **Props**: `state` (`idle` · `listening` · `thinking` · `speaking`), `level` (0–1, nivel de audio real si lo tienes), `size` (200), `grid` (15), `tone` (`ink` · `klein` · `rams` · `paper`), `caption` (texto bajo el orbe; `false` lo oculta), `label`.\n- El texto de estado se anuncia (`aria-live`). Con movimiento reducido, el orbe queda quieto y el estado se dice en texto.\n",
+  "thumb": [
+   480,
+   440
+  ]
  },
  {
   "name": "DotLoader",
@@ -726,7 +974,11 @@
   "group": "Conversación",
   "description": "Puntos que laten mientras algo piensa o carga: fila de tres (row) o rejilla 3×3 en onda diagonal (grid). Hereda el color del texto.",
   "deps": [],
-  "doc": "# DotLoader\n\nPuntos que laten mientras algo piensa o carga: fila de tres (`row`) o rejilla 3×3 en onda diagonal (`grid`). Hereda el color del texto.\n\n- **Props**: `variant` (`row` · `grid`), `label` (texto para lectores, \"Pensando\").\n- Si la espera pasa de ~3 s, añade al lado qué está pasando (\"Buscando huecos…\").\n"
+  "doc": "# DotLoader\n\nPuntos que laten mientras algo piensa o carga: fila de tres (`row`) o rejilla 3×3 en onda diagonal (`grid`). Hereda el color del texto.\n\n- **Props**: `variant` (`row` · `grid`), `label` (texto para lectores, \"Pensando\").\n- Si la espera pasa de ~3 s, añade al lado qué está pasando (\"Buscando huecos…\").\n",
+  "thumb": [
+   480,
+   85
+  ]
  },
  {
   "name": "AgentWidget",
@@ -767,7 +1019,11 @@
     "slug": "composer"
    }
   ],
-  "doc": "# AgentWidget\n\nAgente embebible: un lanzador redondo (con un orbe de puntos que respira) que abre un panel con dos modos. **Voz**: orbe grande, transcripción y una tecla grande para hablar/colgar. **Texto**: conversación con `Message` y `Composer`. El estado (disponible, escuchando, pensando, hablando) se ve en el piloto, en el orbe y en el color del lanzador.\n\n- **Props**: `name`, `state` (controlado), `defaultState`, o `demo` (recorre escuchando → pensando → hablando solo), `mode` (`voice` · `chat`), `messages` (`[{role, text, ui…}]`), `transcript`, `level`, `suggestions`, `tone` (`rams`), `onStart()`, `onEnd()`, `onSend(text)`, `defaultOpen`, `inline` (para maquetas; si no, fijo abajo a la derecha).\n- Esc cierra y devuelve el foco al lanzador. Colgar está siempre en la misma tecla que hablar.\n- Pensado para enchufar un agente de voz real: pasa su estado y su nivel de audio y el widget hace el resto.\n"
+  "doc": "# AgentWidget\n\nAgente embebible: un lanzador redondo (con un orbe de puntos que respira) que abre un panel con dos modos. **Voz**: orbe grande, transcripción y una tecla grande para hablar/colgar. **Texto**: conversación con `Message` y `Composer`. El estado (disponible, escuchando, pensando, hablando) se ve en el piloto, en el orbe y en el color del lanzador.\n\n- **Props**: `name`, `state` (controlado), `defaultState`, o `demo` (recorre escuchando → pensando → hablando solo), `mode` (`voice` · `chat`), `messages` (`[{role, text, ui…}]`), `transcript`, `level`, `suggestions`, `tone` (`rams`), `onStart()`, `onEnd()`, `onSend(text)`, `defaultOpen`, `inline` (para maquetas; si no, fijo abajo a la derecha).\n- Esc cierra y devuelve el foco al lanzador. Colgar está siempre en la misma tecla que hablar.\n- Pensado para enchufar un agente de voz real: pasa su estado y su nivel de audio y el widget hace el resto.\n",
+  "thumb": [
+   480,
+   1000
+  ]
  },
  {
   "name": "Render",
@@ -1228,7 +1484,11 @@
     "slug": "flap-board"
    }
   ],
-  "doc": "# Render\n\nEl motor de UI generativa: pinta una interfaz Frekvens a partir de un **spec JSON** que puede escribir un modelo. Cada nodo es `{type, props, children}`; `type` es el nombre de cualquier componente del sistema; los hijos son nodos o texto.\n\n- **Props**: `spec` (objeto, array o string JSON), `actions` (mapa nombre → función).\n- **Acciones**: cualquier prop con valor `\"action:nombre\"` se convierte en una llamada a `actions.nombre` (p. ej. `\"onClick\": \"action:reservar\"`). Una acción sin definir avisa en consola y no rompe.\n- Props que son nodos (`value`, `content` de `tabs`/`drawers`) también se pueden escribir como spec.\n- Un `type` desconocido se pinta como un recuadro discontinuo con su nombre: nunca rompe la pantalla.\n- El catálogo completo con props está en `frekvens.schema.json`; las reglas para modelos, en la sección *UI generativa y conversación*.\n"
+  "doc": "# Render\n\nEl motor de UI generativa: pinta una interfaz Frekvens a partir de un **spec JSON** que puede escribir un modelo. Cada nodo es `{type, props, children}`; `type` es el nombre de cualquier componente del sistema; los hijos son nodos o texto.\n\n- **Props**: `spec` (objeto, array o string JSON), `actions` (mapa nombre → función).\n- **Acciones**: cualquier prop con valor `\"action:nombre\"` se convierte en una llamada a `actions.nombre` (p. ej. `\"onClick\": \"action:reservar\"`). Una acción sin definir avisa en consola y no rompe.\n- Props que son nodos (`value`, `content` de `tabs`/`drawers`) también se pueden escribir como spec.\n- Un `type` desconocido se pinta como un recuadro discontinuo con su nombre: nunca rompe la pantalla.\n- El catálogo completo con props está en `frekvens.schema.json`; las reglas para modelos, en la sección *UI generativa y conversación*.\n",
+  "thumb": [
+   480,
+   354
+  ]
  },
  {
   "name": "Reveal",
@@ -1236,7 +1496,11 @@
   "group": "Movimiento",
   "description": "Transición de entrada al aparecer en pantalla: los hijos entran escalonados (stagger, 50 ms) con una de cuatro formas — rise (sube 16 px), scale (de .94), wipe (se descubre de izquierda a derecha con ",
   "deps": [],
-  "doc": "# Reveal\n\nTransición de entrada al aparecer en pantalla: los hijos entran escalonados (`stagger`, 50 ms) con una de cuatro formas — `rise` (sube 16 px), `scale` (de .94), `wipe` (se descubre de izquierda a derecha con el radio de la casa) o `focus` (de desenfoque a nítido).\n\n- **Props**: `variant` (`rise` · `scale` · `wipe` · `focus`), `stagger` (ms), `delay` (ms), `once` (true; `false` repite al salir y entrar), `threshold`, `as`.\n- Con movimiento reducido todo aparece ya colocado.\n- Para portadas, listas largas y la entrada de una pantalla. No lo uses en controles: un botón que tarda en aparecer molesta.\n"
+  "doc": "# Reveal\n\nTransición de entrada al aparecer en pantalla: los hijos entran escalonados (`stagger`, 50 ms) con una de cuatro formas — `rise` (sube 16 px), `scale` (de .94), `wipe` (se descubre de izquierda a derecha con el radio de la casa) o `focus` (de desenfoque a nítido).\n\n- **Props**: `variant` (`rise` · `scale` · `wipe` · `focus`), `stagger` (ms), `delay` (ms), `once` (true; `false` repite al salir y entrar), `threshold`, `as`.\n- Con movimiento reducido todo aparece ya colocado.\n- Para portadas, listas largas y la entrada de una pantalla. No lo uses en controles: un botón que tarda en aparecer molesta.\n",
+  "thumb": [
+   480,
+   256
+  ]
  },
  {
   "name": "Stack",
@@ -1244,7 +1508,11 @@
   "group": "Generativo",
   "description": "Primitiva de composición: apila hijos en columna o fila con un hueco de la escala de espacio. Existe para que una UI generada por un modelo no tenga que escribir CSS.",
   "deps": [],
-  "doc": "# Stack\n\nPrimitiva de composición: apila hijos en columna o fila con un hueco de la escala de espacio. Existe para que una UI generada por un modelo no tenga que escribir CSS.\n\n- **Props**: `direction` (`column` · `row`), `gap` (paso de espacio 1–9, por defecto 3), `align`, `justify`, `wrap`, `padding` (paso de espacio), `children`.\n"
+  "doc": "# Stack\n\nPrimitiva de composición: apila hijos en columna o fila con un hueco de la escala de espacio. Existe para que una UI generada por un modelo no tenga que escribir CSS.\n\n- **Props**: `direction` (`column` · `row`), `gap` (paso de espacio 1–9, por defecto 3), `align`, `justify`, `wrap`, `padding` (paso de espacio), `children`.\n",
+  "thumb": [
+   480,
+   84
+  ]
  },
  {
   "name": "Grid",
@@ -1252,7 +1520,11 @@
   "group": "Generativo",
   "description": "Primitiva de composición: rejilla de columnas iguales con la junta de la botonera. El bento de Tiles sale de aquí.",
   "deps": [],
-  "doc": "# Grid\n\nPrimitiva de composición: rejilla de columnas iguales con la junta de la botonera. El bento de Tiles sale de aquí.\n\n- **Props**: `columns` (2), `gap` (paso de espacio, por defecto 2), `children`.\n"
+  "doc": "# Grid\n\nPrimitiva de composición: rejilla de columnas iguales con la junta de la botonera. El bento de Tiles sale de aquí.\n\n- **Props**: `columns` (2), `gap` (paso de espacio, por defecto 2), `children`.\n",
+  "thumb": [
+   480,
+   206
+  ]
  },
  {
   "name": "Text",
@@ -1260,7 +1532,11 @@
   "group": "Generativo",
   "description": "Primitiva de texto: aplica un estilo tipográfico del sistema por nombre, con la etiqueta HTML correcta. Una UI generada elige variant, nunca tamaños.",
   "deps": [],
-  "doc": "# Text\n\nPrimitiva de texto: aplica un estilo tipográfico del sistema por nombre, con la etiqueta HTML correcta. Una UI generada elige `variant`, nunca tamaños.\n\n- **Props**: `variant` (`display-xl` · `title` · `headline` · `numeral-xl` · `dot-hero` · `dot-display` · `body` · `body-strong` · `caption` · `label` · `readout`), `sub` (segunda línea atenuada), `muted`, `as`, `children`.\n"
+  "doc": "# Text\n\nPrimitiva de texto: aplica un estilo tipográfico del sistema por nombre, con la etiqueta HTML correcta. Una UI generada elige `variant`, nunca tamaños.\n\n- **Props**: `variant` (`display-xl` · `title` · `headline` · `numeral-xl` · `dot-hero` · `dot-display` · `body` · `body-strong` · `caption` · `label` · `readout`), `sub` (segunda línea atenuada), `muted`, `as`, `children`.\n",
+  "thumb": [
+   480,
+   321
+  ]
  },
  {
   "name": "ClickWheel",
@@ -1273,7 +1549,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# ClickWheel\n\nRueda táctil circular, como la de los reproductores de bolsillo: deslizar el dedo en círculo avanza o retrocede paso a paso (con un pulso háptico donde exista), con cuatro botones en los ejes y un botón central.\n\n- **Props**: `onStep(±1)`, `onSelect()` (centro), `onMenu()`, `onPlay()`, `playing`, `detent` (grados por paso, 24), `size` (220), `tone` (`surface`), `labels` (`{top}`), `label`, `valueText`.\n- **Teclado**: flechas = paso, Enter = centro, Espacio = reproducir, M = menú. Combínala con `DiscCarousel` o una lista.\n"
+  "doc": "# ClickWheel\n\nRueda táctil circular, como la de los reproductores de bolsillo: deslizar el dedo en círculo avanza o retrocede paso a paso (con un pulso háptico donde exista), con cuatro botones en los ejes y un botón central.\n\n- **Props**: `onStep(±1)`, `onSelect()` (centro), `onMenu()`, `onPlay()`, `playing`, `detent` (grados por paso, 24), `size` (220), `tone` (`surface`), `labels` (`{top}`), `label`, `valueText`.\n- **Teclado**: flechas = paso, Enter = centro, Espacio = reproducir, M = menú. Combínala con `DiscCarousel` o una lista.\n",
+  "thumb": [
+   480,
+   276
+  ]
  },
  {
   "name": "DiscCarousel",
@@ -1281,7 +1561,11 @@
   "group": "Medios",
   "description": "Elegir entre discos: el elegido en el centro, los vecinos más pequeños a los lados; al reproducir, el disco gira. La etiqueta del centro es el color o la imagen (src) del álbum, rutina o lista.",
   "deps": [],
-  "doc": "# DiscCarousel\n\nElegir entre discos: el elegido en el centro, los vecinos más pequeños a los lados; al reproducir, el disco gira. La etiqueta del centro es el color o la imagen (`src`) del álbum, rutina o lista.\n\n- **Props**: `items` (`[{title, subtitle, tone, src, badge}]`), `value`/`defaultValue`, `onChange(i)`, `playing`, `onPlay(i)`, `size` (220), `label`.\n- **Teclado**: ← → para cambiar, Enter para reproducir. Funciona solo o con `ClickWheel`.\n"
+  "doc": "# DiscCarousel\n\nElegir entre discos: el elegido en el centro, los vecinos más pequeños a los lados; al reproducir, el disco gira. La etiqueta del centro es el color o la imagen (`src`) del álbum, rutina o lista.\n\n- **Props**: `items` (`[{title, subtitle, tone, src, badge}]`), `value`/`defaultValue`, `onChange(i)`, `playing`, `onPlay(i)`, `size` (220), `label`.\n- **Teclado**: ← → para cambiar, Enter para reproducir. Funciona solo o con `ClickWheel`.\n",
+  "thumb": [
+   480,
+   334
+  ]
  },
  {
   "name": "NumPad",
@@ -1298,7 +1582,11 @@
     "slug": "key-button"
    }
   ],
-  "doc": "# NumPad\n\nTeclado numérico para importes: cifra enorme con la moneda pequeña, teclas planas pegadas como una calculadora, coma decimal (máx. 2 decimales) y borrar. También acepta el teclado físico.\n\n- **Props**: `value`/`defaultValue` (string), `onChange(s)`, `currency` (`€`), `maxLength` (7), `hint`, `onSubmit(number)`, `submitLabel`, `keyboard` (escucha teclas), `label`.\n"
+  "doc": "# NumPad\n\nTeclado numérico para importes: cifra enorme con la moneda pequeña, teclas planas pegadas como una calculadora, coma decimal (máx. 2 decimales) y borrar. También acepta el teclado físico.\n\n- **Props**: `value`/`defaultValue` (string), `onChange(s)`, `currency` (`€`), `maxLength` (7), `hint`, `onSubmit(number)`, `submitLabel`, `keyboard` (escucha teclas), `label`.\n",
+  "thumb": [
+   480,
+   521
+  ]
  },
  {
   "name": "Viewfinder",
@@ -1327,7 +1615,11 @@
     "slug": "segmented"
    }
   ],
-  "doc": "# Viewfinder\n\nVisor de cámara y escáner: rejilla de tercios, HUD arriba, obturador grande, miniatura con el número de capturas y modos Foto / Vídeo / Escanear (con esquinas de enfoque `sol`).\n\n- **Props**: `live` (usa la cámara real con permiso), `mode`/`defaultMode`, `onModeChange`, `onShoot(mode)`, `shots`, `ratio` (`'3 / 4'`), `children` (vista simulada).\n- Siempre negro, en cualquier tema. Sin `live`, enseña una vista de puntos: sirve para maquetas y para UI generada.\n"
+  "doc": "# Viewfinder\n\nVisor de cámara y escáner: rejilla de tercios, HUD arriba, obturador grande, miniatura con el número de capturas y modos Foto / Vídeo / Escanear (con esquinas de enfoque `sol`).\n\n- **Props**: `live` (usa la cámara real con permiso), `mode`/`defaultMode`, `onModeChange`, `onShoot(mode)`, `shots`, `ratio` (`'3 / 4'`), `children` (vista simulada).\n- Siempre negro, en cualquier tema. Sin `live`, enseña una vista de puntos: sirve para maquetas y para UI generada.\n",
+  "thumb": [
+   480,
+   536
+  ]
  },
  {
   "name": "CaptureKey",
@@ -1340,7 +1632,11 @@
     "slug": "voice-orb"
    }
   ],
-  "doc": "# CaptureKey\n\nTecla de captura, como una tecla física dedicada: un toque captura (pantalla, foto, enlace), mantener graba voz mientras dura la pulsación. Todo va a un único espacio que la IA ordena después.\n\n- **Props**: `onCapture({kind, ms})`, `onVoiceStart()`, `hint`, `label`.\n- Estados visibles: reposo (punto), destello, escuchando (orbe sobre `rec`), guardado (`verde`). Funciona con Espacio/Enter igual que con el dedo.\n"
+  "doc": "# CaptureKey\n\nTecla de captura, como una tecla física dedicada: un toque captura (pantalla, foto, enlace), mantener graba voz mientras dura la pulsación. Todo va a un único espacio que la IA ordena después.\n\n- **Props**: `onCapture({kind, ms})`, `onVoiceStart()`, `hint`, `label`.\n- Estados visibles: reposo (punto), destello, escuchando (orbe sobre `rec`), guardado (`verde`). Funciona con Espacio/Enter igual que con el dedo.\n",
+  "thumb": [
+   480,
+   178
+  ]
  },
  {
   "name": "Recorder",
@@ -1365,7 +1661,11 @@
     "slug": "audio-track"
    }
   ],
-  "doc": "# Recorder\n\nGrabadora de bolsillo: carrete de puntos que gira mientras graba, piloto REC, tiempo en `dot`, nivel de entrada y una botonera de tres teclas (grabar/parar, marca, modo). Cada toma queda debajo como `AudioTrack`.\n\n- **Props**: `real` (graba de verdad con el micrófono vía MediaRecorder; si se deniega, sigue en modo demo), `takes`, `onSave(take)`, `onMark(ms)`.\n- Para notas de voz, entrevistas, ideas sueltas. La transcripción y el resumen los pone el host.\n"
+  "doc": "# Recorder\n\nGrabadora de bolsillo: carrete de puntos que gira mientras graba, piloto REC, tiempo en `dot`, nivel de entrada y una botonera de tres teclas (grabar/parar, marca, modo). Cada toma queda debajo como `AudioTrack`.\n\n- **Props**: `real` (graba de verdad con el micrófono vía MediaRecorder; si se deniega, sigue en modo demo), `takes`, `onSave(take)`, `onMark(ms)`.\n- Para notas de voz, entrevistas, ideas sueltas. La transcripción y el resumen los pone el host.\n",
+  "thumb": [
+   480,
+   484
+  ]
  },
  {
   "name": "NoteEditor",
@@ -1386,7 +1686,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# NoteEditor\n\nCuaderno por bloques: escribir es lo primero. Enter crea un bloque, borrar en uno vacío lo une al anterior y `/` abre el menú para cambiar el tipo: texto, título, tarea (con el lenguaje aro → disco), cita o nota de voz.\n\n- **Props**: `defaultBlocks` (`[{type:'p'|'h'|'todo'|'quote'|'voice', text, done, duration}]`), `onChange(blocks)`, `title` (muestra el campo de título), `meta`, `placeholder`.\n- **Teclado**: ↑ ↓ entre bloques; en el menú `/`, ↑ ↓ Enter Esc.\n"
+  "doc": "# NoteEditor\n\nCuaderno por bloques: escribir es lo primero. Enter crea un bloque, borrar en uno vacío lo une al anterior y `/` abre el menú para cambiar el tipo: texto, título, tarea (con el lenguaje aro → disco), cita o nota de voz.\n\n- **Props**: `defaultBlocks` (`[{type:'p'|'h'|'todo'|'quote'|'voice', text, done, duration}]`), `onChange(blocks)`, `title` (muestra el campo de título), `meta`, `placeholder`.\n- **Teclado**: ↑ ↓ entre bloques; en el menú `/`, ↑ ↓ Enter Esc.\n",
+  "thumb": [
+   480,
+   434
+  ]
  },
  {
   "name": "Sidebar",
@@ -1403,7 +1707,11 @@
     "slug": "badge"
    }
   ],
-  "doc": "# Sidebar\n\nBarra lateral para iPad y escritorio: secciones con etiqueta mono, elementos con icono y contador (en `rec` si es una alerta), el activo en `ink`. Se contrae a una tira de iconos de 76 px.\n\n- **Props**: `sections` (`[{label, items:[{id, label, icon, count, alert}]}]`), `value`/`defaultValue`, `onChange(id)`, `collapsed`/`defaultCollapsed`, `onCollapse(bool)`, `header`, `footer`, `tone` (`surface`), `label`.\n- Contraída, cada icono conserva su nombre accesible y su título; los contadores pasan a punto.\n"
+  "doc": "# Sidebar\n\nBarra lateral para iPad y escritorio: secciones con etiqueta mono, elementos con icono y contador (en `rec` si es una alerta), el activo en `ink`. Se contrae a una tira de iconos de 76 px.\n\n- **Props**: `sections` (`[{label, items:[{id, label, icon, count, alert}]}]`), `value`/`defaultValue`, `onChange(id)`, `collapsed`/`defaultCollapsed`, `onCollapse(bool)`, `header`, `footer`, `tone` (`surface`), `label`.\n- Contraída, cada icono conserva su nombre accesible y su título; los contadores pasan a punto.\n",
+  "thumb": [
+   480,
+   540
+  ]
  },
  {
   "name": "DataTable",
@@ -1436,7 +1744,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# DataTable\n\nTabla de datos para SaaS: cabecera fija en mono, ordenación por columna (con `aria-sort`), selección de filas con `Checkbox`, y tipos de celda: `status` (Chip con punto), `spark` (Sparkline), `bar` (barra de 0–100), `avatar`, `mono`.\n\n- **Props**: `columns` (`[{key, label, sortable, align:'end', mono, type, tones}]`), `rows` (con `id`), `selectable`, `dense`, `defaultSort` (`{key, dir}`), `onRowClick(row)`, `caption`, `label`, `emptyTitle`, `emptyText`.\n- Sin filas pinta un `EmptyState`. En móvil, se desplaza en horizontal dentro de su caja: para listas en móvil, mejor `ListRow`.\n"
+  "doc": "# DataTable\n\nTabla de datos para SaaS: cabecera fija en mono, ordenación por columna (con `aria-sort`), selección de filas con `Checkbox`, y tipos de celda: `status` (Chip con punto), `spark` (Sparkline), `bar` (barra de 0–100), `avatar`, `mono`.\n\n- **Props**: `columns` (`[{key, label, sortable, align:'end', mono, type, tones}]`), `rows` (con `id`), `selectable`, `dense`, `defaultSort` (`{key, dir}`), `onRowClick(row)`, `caption`, `label`, `emptyTitle`, `emptyText`.\n- Sin filas pinta un `EmptyState`. En móvil, se desplaza en horizontal dentro de su caja: para listas en móvil, mejor `ListRow`.\n",
+  "thumb": [
+   480,
+   372
+  ]
  },
  {
   "name": "CommandBar",
@@ -1449,7 +1761,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# CommandBar\n\nPaleta de comandos (⌘K / Ctrl+K): buscar y ejecutar cualquier acción sin tocar el ratón. Panel `ink` con buscador, resultados agrupados y atajos.\n\n- **Props**: `commands` (`[{id, label, group, icon, shortcut, keywords, onRun}]`), `open`/`defaultOpen`, `onClose()`, `onRun(id)`, `hotkey` (escucha ⌘K), `placeholder`, `label`, `inline` (maquetas).\n- **Teclado**: escribir filtra, ↑ ↓ mueven, Enter ejecuta, Esc cierra y devuelve el foco.\n"
+  "doc": "# CommandBar\n\nPaleta de comandos (⌘K / Ctrl+K): buscar y ejecutar cualquier acción sin tocar el ratón. Panel `ink` con buscador, resultados agrupados y atajos.\n\n- **Props**: `commands` (`[{id, label, group, icon, shortcut, keywords, onRun}]`), `open`/`defaultOpen`, `onClose()`, `onRun(id)`, `hotkey` (escucha ⌘K), `placeholder`, `label`, `inline` (maquetas).\n- **Teclado**: escribir filtra, ↑ ↓ mueven, Enter ejecuta, Esc cierra y devuelve el foco.\n",
+  "thumb": [
+   480,
+   525
+  ]
  },
  {
   "name": "Notch",
@@ -1466,7 +1782,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Notch\n\nIsla de IA en la parte superior (el notch del portátil o la isla del móvil): en reposo es una píldora negra con un orbe y un piloto; al pasar el puntero o al tocarla, crece con un rebote corto y muestra el estado, lo que está diciendo o haciendo, el progreso y 1–3 acciones.\n\n- **Props**: `state` (`idle` · `listening` · `thinking` · `speaking` · `done`), `name`, `peek` (texto de la píldora), `text`, `progress` (0–100), `actions` (`[{label, icon, onClick}]`, la primera es la principal), `expanded` (controlado) o `defaultExpanded`, `tone`, `inline` (maquetas; si no, fija arriba al centro).\n- Siempre negra, en cualquier tema: es hardware. El estado se dice en texto además de en el piloto.\n"
+  "doc": "# Notch\n\nIsla de IA en la parte superior (el notch del portátil o la isla del móvil): en reposo es una píldora negra con un orbe y un piloto; al pasar el puntero o al tocarla, crece con un rebote corto y muestra el estado, lo que está diciendo o haciendo, el progreso y 1–3 acciones.\n\n- **Props**: `state` (`idle` · `listening` · `thinking` · `speaking` · `done`), `name`, `peek` (texto de la píldora), `text`, `progress` (0–100), `actions` (`[{label, icon, onClick}]`, la primera es la principal), `expanded` (controlado) o `defaultExpanded`, `tone`, `inline` (maquetas; si no, fija arriba al centro).\n- Siempre negra, en cualquier tema: es hardware. El estado se dice en texto además de en el piloto.\n",
+  "thumb": [
+   480,
+   312
+  ]
  },
  {
   "name": "Viewport3D",
@@ -1479,7 +1799,11 @@
     "slug": "segmented"
    }
   ],
-  "doc": "# Viewport3D\n\nVisor 3D sin dependencias (CSS 3D): un objeto sobre un suelo de puntos que se gira arrastrando, se acerca con la rueda y tiene vistas rápidas (Iso, Frente, Arriba), un gizmo de ejes y la lectura de ángulos en mono.\n\n- **Props**: `shape` (`cube` · `stack`), `tone` (`rams`), `size` (120), `pitch`, `yaw`, `height` (320), `label`.\n- **Teclado**: flechas giran, + y − acercan. Para modelos reales, usa este marco y su barra con un render WebGL dentro.\n"
+  "doc": "# Viewport3D\n\nVisor 3D sin dependencias (CSS 3D): un objeto sobre un suelo de puntos que se gira arrastrando, se acerca con la rueda y tiene vistas rápidas (Iso, Frente, Arriba), un gizmo de ejes y la lectura de ángulos en mono.\n\n- **Props**: `shape` (`cube` · `stack`), `tone` (`rams`), `size` (120), `pitch`, `yaw`, `height` (320), `label`.\n- **Teclado**: flechas giran, + y − acercan. Para modelos reales, usa este marco y su barra con un render WebGL dentro.\n",
+  "thumb": [
+   480,
+   472
+  ]
  },
  {
   "name": "Heatmap",
@@ -1487,7 +1811,11 @@
   "group": "Instrumentos",
   "description": "Actividad en semitono: una rejilla de puntos (semanas × días) donde el tamaño del punto es la cantidad. Sin escala de colores: el dato se lee por tamaño, como un periódico impreso.",
   "deps": [],
-  "doc": "# Heatmap\n\nActividad en semitono: una rejilla de puntos (semanas × días) donde el tamaño del punto es la cantidad. Sin escala de colores: el dato se lee por tamaño, como un periódico impreso.\n\n- **Props**: `data` (valores por día, en orden), `rows` (7), `cell` (14 px), `tone` (`ink` · `rams` · `klein` · `verde`), `unit`, `caption`, `label`.\n- El nombre accesible resume días activos y total; cada punto tiene su valor como título.\n"
+  "doc": "# Heatmap\n\nActividad en semitono: una rejilla de puntos (semanas × días) donde el tamaño del punto es la cantidad. Sin escala de colores: el dato se lee por tamaño, como un periódico impreso.\n\n- **Props**: `data` (valores por día, en orden), `rows` (7), `cell` (14 px), `tone` (`ink` · `rams` · `klein` · `verde`), `unit`, `caption`, `label`.\n- El nombre accesible resume días activos y total; cada punto tiene su valor como título.\n",
+  "thumb": [
+   480,
+   176
+  ]
  },
  {
   "name": "SplitBar",
@@ -1495,7 +1823,11 @@
   "group": "Instrumentos",
   "description": "Reparto de un total: una barra de píldoras con leyenda (bar) o columnas altas con relleno redondeado (columns, el 70/30 de las referencias).",
   "deps": [],
-  "doc": "# SplitBar\n\nReparto de un total: una barra de píldoras con leyenda (`bar`) o columnas altas con relleno redondeado (`columns`, el 70/30 de las referencias).\n\n- **Props**: `segments` (`[{label, value, tone}]`), `variant` (`bar` · `columns`), `height` (220, columnas), `format(v)` (para la leyenda; por defecto %).\n- 2–5 segmentos. El primero, el que importa.\n"
+  "doc": "# SplitBar\n\nReparto de un total: una barra de píldoras con leyenda (`bar`) o columnas altas con relleno redondeado (`columns`, el 70/30 de las referencias).\n\n- **Props**: `segments` (`[{label, value, tone}]`), `variant` (`bar` · `columns`), `height` (220, columnas), `format(v)` (para la leyenda; por defecto %).\n- 2–5 segmentos. El primero, el que importa.\n",
+  "thumb": [
+   480,
+   384
+  ]
  },
  {
   "name": "Sparkline",
@@ -1503,7 +1835,11 @@
   "group": "Instrumentos",
   "description": "Tendencia mínima: una línea y un punto final, para meter dentro de una fila, una tabla o un Tile.",
   "deps": [],
-  "doc": "# Sparkline\n\nTendencia mínima: una línea y un punto final, para meter dentro de una fila, una tabla o un Tile.\n\n- **Props**: `data`, `width` (96), `height` (28), `tone` (`ink` · `rams` · `klein`), `label`.\n"
+  "doc": "# Sparkline\n\nTendencia mínima: una línea y un punto final, para meter dentro de una fila, una tabla o un Tile.\n\n- **Props**: `data`, `width` (96), `height` (28), `tone` (`ink` · `rams` · `klein`), `label`.\n",
+  "thumb": [
+   480,
+   92
+  ]
  },
  {
   "name": "HourStrip",
@@ -1511,7 +1847,11 @@
   "group": "Instrumentos",
   "description": "Precio (o consumo) por horas del día: 24 barras en píldora coloreadas por tramo (barato verde, medio sol, caro rams), la hora actual marcada con aro y las pasadas atenuadas. Para luz, agua, gas o cual",
   "deps": [],
-  "doc": "# HourStrip\n\nPrecio (o consumo) por horas del día: 24 barras en píldora coloreadas por tramo (barato `verde`, medio `sol`, caro `rams`), la hora actual marcada con aro y las pasadas atenuadas. Para luz, agua, gas o cualquier tarifa por horas.\n\n- **Props**: `prices` (24 valores), `now` (hora actual), `unit` (`€/kWh`), `label`.\n- El nombre accesible dice las tres horas más baratas y la más cara: el usuario quiere saber cuándo poner la lavadora.\n"
+  "doc": "# HourStrip\n\nPrecio (o consumo) por horas del día: 24 barras en píldora coloreadas por tramo (barato `verde`, medio `sol`, caro `rams`), la hora actual marcada con aro y las pasadas atenuadas. Para luz, agua, gas o cualquier tarifa por horas.\n\n- **Props**: `prices` (24 valores), `now` (hora actual), `unit` (`€/kWh`), `label`.\n- El nombre accesible dice las tres horas más baratas y la más cara: el usuario quiere saber cuándo poner la lavadora.\n",
+  "thumb": [
+   480,
+   270
+  ]
  },
  {
   "name": "PaymentCard",
@@ -1524,7 +1864,11 @@
     "slug": "led"
    }
   ],
-  "doc": "# PaymentCard\n\nTarjeta de pago: bloque de color en proporción de tarjeta real, chip de puntos, últimos 4 dígitos en mono. Congelada, se cubre de escarcha con un piloto.\n\n- **Props**: `tone` (`klein`), `brand`, `last4`, `name`, `expiry`, `frozen`.\n- Nunca muestra el número completo; el nombre accesible dice marca, últimos dígitos y estado.\n"
+  "doc": "# PaymentCard\n\nTarjeta de pago: bloque de color en proporción de tarjeta real, chip de puntos, últimos 4 dígitos en mono. Congelada, se cubre de escarcha con un piloto.\n\n- **Props**: `tone` (`klein`), `brand`, `last4`, `name`, `expiry`, `frozen`.\n- Nunca muestra el número completo; el nombre accesible dice marca, últimos dígitos y estado.\n",
+  "thumb": [
+   480,
+   501
+  ]
  },
  {
   "name": "Dialog",
@@ -1545,7 +1889,11 @@
     "slug": "key-button"
    }
   ],
-  "doc": "# Dialog\n\nVentana modal centrada para decidir algo ahora: confirmar, avisar de algo destructivo, pedir un dato, compartir, un asistente por pasos. Escala desde .96 al entrar; atrapa el foco (en `danger` empieza en Cancelar, la opción segura); Esc o el fondo la cierran.\n\n- **Props**: `open`, `onClose()`, `title`, `text`, `children` (campos), `tone` (`default` · `danger`: icono y acción en `rec`, `role=\"alertdialog\"`), `icon`, `primary` / `onPrimary` / `primaryDisabled`, `secondary` (texto o `false`) / `onSecondary`, `steps` + `step` (asistente), `size` (`l`), `dismissible` (false = solo con botones), `inline`.\n- En móvil, para formularios largos, `Sheet`. El título dice la acción (\"¿Borrar la sesión?\"), y el botón repite el verbo (\"Borrar\"), nunca \"Aceptar\".\n"
+  "doc": "# Dialog\n\nVentana modal centrada para decidir algo ahora: confirmar, avisar de algo destructivo, pedir un dato, compartir, un asistente por pasos. Escala desde .96 al entrar; atrapa el foco (en `danger` empieza en Cancelar, la opción segura); Esc o el fondo la cierran.\n\n- **Props**: `open`, `onClose()`, `title`, `text`, `children` (campos), `tone` (`default` · `danger`: icono y acción en `rec`, `role=\"alertdialog\"`), `icon`, `primary` / `onPrimary` / `primaryDisabled`, `secondary` (texto o `false`) / `onSecondary`, `steps` + `step` (asistente), `size` (`l`), `dismissible` (false = solo con botones), `inline`.\n- En móvil, para formularios largos, `Sheet`. El título dice la acción (\"¿Borrar la sesión?\"), y el botón repite el verbo (\"Borrar\"), nunca \"Aceptar\".\n",
+  "thumb": [
+   480,
+   476
+  ]
  },
  {
   "name": "FileDrop",
@@ -1562,7 +1910,11 @@
     "slug": "dot-matrix"
    }
   ],
-  "doc": "# FileDrop\n\nSubida de archivos: zona de arrastre con trama de puntos que se tiñe al pasar un archivo, y la lista dividida en **Subiendo** (con barra `rams` y %) y **Listos** (icono `verde`), cada uno con su botón de quitar.\n\n- **Props**: `files` (`[{name, size, progress, error}]`), `onFiles(FileList)`, `accept`, `multiple` (true), `title`, `hint`, `simulate` (true: anima el progreso en maquetas; `false` cuando lo controla el host).\n- La zona es un `label` del input: funciona con teclado y lectores de pantalla.\n"
+  "doc": "# FileDrop\n\nSubida de archivos: zona de arrastre con trama de puntos que se tiñe al pasar un archivo, y la lista dividida en **Subiendo** (con barra `rams` y %) y **Listos** (icono `verde`), cada uno con su botón de quitar.\n\n- **Props**: `files` (`[{name, size, progress, error}]`), `onFiles(FileList)`, `accept`, `multiple` (true), `title`, `hint`, `simulate` (true: anima el progreso en maquetas; `false` cuando lo controla el host).\n- La zona es un `label` del input: funciona con teclado y lectores de pantalla.\n",
+  "thumb": [
+   480,
+   502
+  ]
  },
  {
   "name": "ChoiceCards",
@@ -1579,7 +1931,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# ChoiceCards\n\nOpciones grandes en tarjeta para decidir con información: planes, paquetes, tipos de cuenta. Cada tarjeta lleva el aro que se llena (lenguaje de estados), título, precio, explicación y ventajas; la elegida se marca con un borde `ink`.\n\n- **Props**: `options` (`[{value, label, price, period, hint, features, badge, tone}]`), `value`/`defaultValue`, `onChange(v)`, `columns`, `label`.\n- Patrón ARIA radiogroup: flechas para moverse. 2–4 opciones; la recomendada lleva `badge`.\n"
+  "doc": "# ChoiceCards\n\nOpciones grandes en tarjeta para decidir con información: planes, paquetes, tipos de cuenta. Cada tarjeta lleva el aro que se llena (lenguaje de estados), título, precio, explicación y ventajas; la elegida se marca con un borde `ink`.\n\n- **Props**: `options` (`[{value, label, price, period, hint, features, badge, tone}]`), `value`/`defaultValue`, `onChange(v)`, `columns`, `label`.\n- Patrón ARIA radiogroup: flechas para moverse. 2–4 opciones; la recomendada lleva `badge`.\n",
+  "thumb": [
+   480,
+   318
+  ]
  },
  {
   "name": "Stat",
@@ -1600,7 +1956,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Stat\n\nKPI de panel: etiqueta mono, valor grande fino, tendencia (`Sparkline`), variación con ▲▼ y, si hace falta, estado (`En objetivo` · `Atención` · `En riesgo`), valor anterior y enlace.\n\n- **Props**: `label`, `value`, `unit`, `delta` (`'+12 %'`, `'-3 %'`), `inverse` (bajar es bueno: cancelaciones, gasto), `trend` (array), `previous`, `status` (`ok` · `warn` · `risk`) + `statusLabel`, `link` (`{label, onClick}`), `tone` (`surface`).\n- El sentido malo se marca con subrayado `rams`, además de la flecha: nunca solo con color.\n"
+  "doc": "# Stat\n\nKPI de panel: etiqueta mono, valor grande fino, tendencia (`Sparkline`), variación con ▲▼ y, si hace falta, estado (`En objetivo` · `Atención` · `En riesgo`), valor anterior y enlace.\n\n- **Props**: `label`, `value`, `unit`, `delta` (`'+12 %'`, `'-3 %'`), `inverse` (bajar es bueno: cancelaciones, gasto), `trend` (array), `previous`, `status` (`ok` · `warn` · `risk`) + `statusLabel`, `link` (`{label, onClick}`), `tone` (`surface`).\n- El sentido malo se marca con subrayado `rams`, además de la flecha: nunca solo con color.\n",
+  "thumb": [
+   480,
+   327
+  ]
  },
  {
   "name": "UsageMeter",
@@ -1617,7 +1977,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# UsageMeter\n\nCuota usada frente a un límite (\"996 de 10.000\"): barra `ink` que pasa a `sol` al 70 % y a `rams` al 90 %, con acción (ampliar) cuando está cerca del tope. Con `segments`, se convierte en un reparto por categorías.\n\n- **Props**: `label`, `used`, `limit`, `unit`, `format(n)`, `segments` (`SplitBar`), `action` (`{label, onClick}`, se muestra al 90 %).\n"
+  "doc": "# UsageMeter\n\nCuota usada frente a un límite (\"996 de 10.000\"): barra `ink` que pasa a `sol` al 70 % y a `rams` al 90 %, con acción (ampliar) cuando está cerca del tope. Con `segments`, se convierte en un reparto por categorías.\n\n- **Props**: `label`, `used`, `limit`, `unit`, `format(n)`, `segments` (`SplitBar`), `action` (`{label, onClick}`, se muestra al 90 %).\n",
+  "thumb": [
+   480,
+   250
+  ]
  },
  {
   "name": "Timeline",
@@ -1634,7 +1998,11 @@
     "slug": "state-mark"
    }
   ],
-  "doc": "# Timeline\n\nLínea de tiempo vertical con el lenguaje de estados: hecho (disco), en curso (puntos), pendiente (aro), error. Sirve para despliegues, pedidos, historial de actividad (con `avatar`) y pasos de un proceso.\n\n- **Props**: `items` (`[{title, text, time, state:'done'|'running'|'upcoming'|'error', avatar}]`), `label`.\n"
+  "doc": "# Timeline\n\nLínea de tiempo vertical con el lenguaje de estados: hecho (disco), en curso (puntos), pendiente (aro), error. Sirve para despliegues, pedidos, historial de actividad (con `avatar`) y pasos de un proceso.\n\n- **Props**: `items` (`[{title, text, time, state:'done'|'running'|'upcoming'|'error', avatar}]`), `label`.\n",
+  "thumb": [
+   480,
+   260
+  ]
  },
  {
   "name": "Checklist",
@@ -1659,7 +2027,11 @@
     "slug": "key-button"
    }
   ],
-  "doc": "# Checklist\n\nLista de puesta en marcha: contador `n / total` con puntos, y cada paso desplegable con su explicación y su acción. Al marcar uno, se abre el siguiente pendiente.\n\n- **Props**: `title`, `items` (`[{title, text, action, done, onAction}]`), `defaultOpen` (índice).\n- Para onboarding de producto. 3–7 pasos; el primero, el más fácil.\n"
+  "doc": "# Checklist\n\nLista de puesta en marcha: contador `n / total` con puntos, y cada paso desplegable con su explicación y su acción. Al marcar uno, se abre el siguiente pendiente.\n\n- **Props**: `title`, `items` (`[{title, text, action, done, onAction}]`), `defaultOpen` (índice).\n- Para onboarding de producto. 3–7 pasos; el primero, el más fácil.\n",
+  "thumb": [
+   480,
+   446
+  ]
  },
  {
   "name": "PromptBox",
@@ -1680,7 +2052,11 @@
     "slug": "suggestions"
    }
   ],
-  "doc": "# PromptBox\n\nCaja de prompt para empezar una conversación con IA: textarea amplio, adjuntos (también arrastrando), selector de modelo y de esfuerzo, dictado y enviar. Debajo, sugerencias y una nota (\"La IA puede equivocarse\").\n\n- **Props**: `title`, `placeholder`, `models`, `model`, `onModel(m)`, `efforts`, `effort`, `attachments`, `suggestions`, `note`, `onSend({text, model, attachments})`, `onVoice()`, `voice`, `busy`, `value`/`onChange`, `label`.\n- Para la pantalla vacía de un asistente. Dentro de una conversación ya empezada, `Composer`.\n"
+  "doc": "# PromptBox\n\nCaja de prompt para empezar una conversación con IA: textarea amplio, adjuntos (también arrastrando), selector de modelo y de esfuerzo, dictado y enviar. Debajo, sugerencias y una nota (\"La IA puede equivocarse\").\n\n- **Props**: `title`, `placeholder`, `models`, `model`, `onModel(m)`, `efforts`, `effort`, `attachments`, `suggestions`, `note`, `onSend({text, model, attachments})`, `onVoice()`, `voice`, `busy`, `value`/`onChange`, `label`.\n- Para la pantalla vacía de un asistente. Dentro de una conversación ya empezada, `Composer`.\n",
+  "thumb": [
+   480,
+   434
+  ]
  },
  {
   "name": "Clock",
@@ -1693,7 +2069,11 @@
     "slug": "dot-matrix"
    }
   ],
-  "doc": "# Clock\n\nReloj analógico de pared o de tarjeta: disco `ink` con agujas `paper` y segundero `rams` (variante `disc`), esfera de 60 puntos (`ticks`) o la hora en matriz de puntos (`dot`). Sin `time`, va en vivo.\n\n- **Props**: `time` (`'10:09'` fija la hora), `variant` (`disc` · `ticks` · `dot`), `size` (200), `seconds` (true), `caption`.\n- El lector de pantalla oye \"Son las 10:09\"; no anuncia cada segundo.\n"
+  "doc": "# Clock\n\nReloj analógico de pared o de tarjeta: disco `ink` con agujas `paper` y segundero `rams` (variante `disc`), esfera de 60 puntos (`ticks`) o la hora en matriz de puntos (`dot`). Sin `time`, va en vivo.\n\n- **Props**: `time` (`'10:09'` fija la hora), `variant` (`disc` · `ticks` · `dot`), `size` (200), `seconds` (true), `caption`.\n- El lector de pantalla oye \"Son las 10:09\"; no anuncia cada segundo.\n",
+  "thumb": [
+   480,
+   532
+  ]
  },
  {
   "name": "VUMeter",
@@ -1701,7 +2081,11 @@
   "group": "Instrumentos",
   "description": "Vúmetro de aguja de amplificador: escala de 50 a 3 con los dos últimos números en rojo, aguja negra con su pivote abajo y piloto de pico que se enciende por encima del 88 %. La esfera es siempre crema",
   "deps": [],
-  "doc": "# VUMeter\n\nVúmetro de aguja de amplificador: escala de 50 a 3 con los dos últimos números en rojo, aguja negra con su pivote abajo y piloto de pico que se enciende por encima del 88 %. La esfera es siempre crema (es un objeto físico), también en tema oscuro.\n\n- **Props**: `value` o `level` (0–100), `live` (simula señal), `size` (180), `scale`, `caption` (\"peak power level\"), `label`.\n- `role=\"meter\"` con su valor. Para medir de verdad, pásale el nivel del micrófono cada fotograma.\n"
+  "doc": "# VUMeter\n\nVúmetro de aguja de amplificador: escala de 50 a 3 con los dos últimos números en rojo, aguja negra con su pivote abajo y piloto de pico que se enciende por encima del 88 %. La esfera es siempre crema (es un objeto físico), también en tema oscuro.\n\n- **Props**: `value` o `level` (0–100), `live` (simula señal), `size` (180), `scale`, `caption` (\"peak power level\"), `label`.\n- `role=\"meter\"` con su valor. Para medir de verdad, pásale el nivel del micrófono cada fotograma.\n",
+  "thumb": [
+   480,
+   236
+  ]
  },
  {
   "name": "RotarySelector",
@@ -1709,7 +2093,11 @@
   "group": "Controles",
   "description": "Selector de fuente de amplificador: pomo ink con una barra que apunta a la posición elegida y las opciones escritas alrededor en mono, giradas siguiendo el arco. Se gira arrastrando, con las flechas o",
   "deps": [],
-  "doc": "# RotarySelector\n\nSelector de fuente de amplificador: pomo `ink` con una barra que apunta a la posición elegida y las opciones escritas alrededor en mono, giradas siguiendo el arco. Se gira arrastrando, con las flechas o pulsando una etiqueta.\n\n- **Props**: `options` (`['tuner','phono','aux','cd','tape','usb']` o `[{value,label}]`), `value`/`defaultValue`, `onChange(v)`, `size` (200), `span` (300°), `label`.\n- Patrón ARIA slider con `aria-valuetext` = la opción. Vibra 6 ms en cada paso donde hay vibración. Para 2–4 opciones, mejor `Segmented`.\n"
+  "doc": "# RotarySelector\n\nSelector de fuente de amplificador: pomo `ink` con una barra que apunta a la posición elegida y las opciones escritas alrededor en mono, giradas siguiendo el arco. Se gira arrastrando, con las flechas o pulsando una etiqueta.\n\n- **Props**: `options` (`['tuner','phono','aux','cd','tape','usb']` o `[{value,label}]`), `value`/`defaultValue`, `onChange(v)`, `size` (200), `span` (300°), `label`.\n- Patrón ARIA slider con `aria-valuetext` = la opción. Vibra 6 ms en cada paso donde hay vibración. Para 2–4 opciones, mejor `Segmented`.\n",
+  "thumb": [
+   480,
+   256
+  ]
  },
  {
   "name": "Fader",
@@ -1717,7 +2105,11 @@
   "group": "Controles",
   "description": "Fader de mesa de mezclas: ranura ink, regla con 11 marcas y un capuchón de color que se arrastra en vertical. Lectura mono debajo. Para niveles de canal, macros de un teclado, luces.",
   "deps": [],
-  "doc": "# Fader\n\nFader de mesa de mezclas: ranura `ink`, regla con 11 marcas y un capuchón de color que se arrastra en vertical. Lectura mono debajo. Para niveles de canal, macros de un teclado, luces.\n\n- **Props**: `value`/`defaultValue`, `onChange(v)`, `min`, `max`, `step`, `height` (200), `tone` del capuchón, `format(v)`, `label`.\n- Slider vertical (`aria-orientation`): ↑↓ paso a paso, RePág/AvPág de 10 en 10.\n"
+  "doc": "# Fader\n\nFader de mesa de mezclas: ranura `ink`, regla con 11 marcas y un capuchón de color que se arrastra en vertical. Lectura mono debajo. Para niveles de canal, macros de un teclado, luces.\n\n- **Props**: `value`/`defaultValue`, `onChange(v)`, `min`, `max`, `step`, `height` (200), `tone` del capuchón, `format(v)`, `label`.\n- Slider vertical (`aria-orientation`): ↑↓ paso a paso, RePág/AvPág de 10 en 10.\n",
+  "thumb": [
+   480,
+   306
+  ]
  },
  {
   "name": "Keycap",
@@ -1725,7 +2117,11 @@
   "group": "Botonera",
   "description": "Tecla mecánica esculpida, como las de un macropad: falda más oscura, superficie clara con brillo arriba y hundimiento de 2 px al pulsar. Ocupa varias celdas de rejilla con w/h (la tecla + de dos altur",
   "deps": [],
-  "doc": "# Keycap\n\nTecla mecánica esculpida, como las de un macropad: falda más oscura, superficie clara con brillo arriba y hundimiento de 2 px al pulsar. Ocupa varias celdas de rejilla con `w`/`h` (la tecla `+` de dos alturas, el `0` doble).\n\n- **Props**: todas las de `button` + `tone` (`paper` · `ink` · `rams` · `sol` · `klein`), `w`, `h`, `sub` (segunda leyenda).\n- Mínimo 56 × 56. Para acciones de interfaz, `KeyButton`: Keycap es para teclados y calculadoras.\n"
+  "doc": "# Keycap\n\nTecla mecánica esculpida, como las de un macropad: falda más oscura, superficie clara con brillo arriba y hundimiento de 2 px al pulsar. Ocupa varias celdas de rejilla con `w`/`h` (la tecla `+` de dos alturas, el `0` doble).\n\n- **Props**: todas las de `button` + `tone` (`paper` · `ink` · `rams` · `sol` · `klein`), `w`, `h`, `sub` (segunda leyenda).\n- Mínimo 56 × 56. Para acciones de interfaz, `KeyButton`: Keycap es para teclados y calculadoras.\n",
+  "thumb": [
+   480,
+   192
+  ]
  },
  {
   "name": "Calculator",
@@ -1738,7 +2134,11 @@
     "slug": "keycap"
    }
   ],
-  "doc": "# Calculator\n\nCalculadora completa con teclas esculpidas (`Keycap`) y pantalla LCD verde con la operación en curso arriba. `+` e `=` de dos alturas, `0` doble, `=` en `rams`. La variante `round` usa teclas circulares en línea, como un teclado numérico redondo.\n\n- **Props**: `variant` (`keys` · `round`), `keyboard` (escucha el teclado físico: dígitos, + − * /, Enter, Esc, Retroceso).\n- Coma decimal española; resultado redondeado a 10 decimales; dividir entre 0 muestra \"Error\". La pantalla es `aria-live`.\n"
+  "doc": "# Calculator\n\nCalculadora completa con teclas esculpidas (`Keycap`) y pantalla LCD verde con la operación en curso arriba. `+` e `=` de dos alturas, `0` doble, `=` en `rams`. La variante `round` usa teclas circulares en línea, como un teclado numérico redondo.\n\n- **Props**: `variant` (`keys` · `round`), `keyboard` (escucha el teclado físico: dígitos, + − * /, Enter, Esc, Retroceso).\n- Coma decimal española; resultado redondeado a 10 decimales; dividir entre 0 muestra \"Error\". La pantalla es `aria-live`.\n",
+  "thumb": [
+   480,
+   1000
+  ]
  },
  {
   "name": "PadGrid",
@@ -1746,7 +2146,11 @@
   "group": "Botonera",
   "description": "Rejilla de pads de percusión tipo controlador MIDI: fondo ink, pads grises que se encienden en sol (o rams, klein) al golpearlos y suenan con WebAudio. Con keyboard, Q W E / A S D / Z X C los tocan.",
   "deps": [],
-  "doc": "# PadGrid\n\nRejilla de pads de percusión tipo controlador MIDI: fondo `ink`, pads grises que se encienden en `sol` (o `rams`, `klein`) al golpearlos y suenan con WebAudio. Con `keyboard`, Q W E / A S D / Z X C los tocan.\n\n- **Props**: `columns` (3), `rows` (3), `labels`, `tone`, `sound` (true), `keyboard`, `onPad(i)`, `label`.\n- Responde en `pointerdown` (sin esperar al soltar) y a Espacio/Enter con el foco.\n"
+  "doc": "# PadGrid\n\nRejilla de pads de percusión tipo controlador MIDI: fondo `ink`, pads grises que se encienden en `sol` (o `rams`, `klein`) al golpearlos y suenan con WebAudio. Con `keyboard`, Q W E / A S D / Z X C los tocan.\n\n- **Props**: `columns` (3), `rows` (3), `labels`, `tone`, `sound` (true), `keyboard`, `onPad(i)`, `label`.\n- Responde en `pointerdown` (sin esperar al soltar) y a Espacio/Enter con el foco.\n",
+  "thumb": [
+   480,
+   376
+  ]
  },
  {
   "name": "TapeDeck",
@@ -1759,7 +2163,11 @@
     "slug": "keypad"
    }
   ],
-  "doc": "# TapeDeck\n\nGrabadora de cinta: dos carretes que giran (el de la izquierda se vacía, el de la derecha se llena), la cinta pasando por el cabezal, contador en puntos y transporte en `Keypad` (rebobinar, reproducir, parar, grabar).\n\n- **Props**: `title`, `duration` (s), `playing`.\n- Con movimiento reducido los carretes no giran: se ve el progreso en la barra y el contador. Junto a `Recorder` para notas de voz con estética de cinta.\n"
+  "doc": "# TapeDeck\n\nGrabadora de cinta: dos carretes que giran (el de la izquierda se vacía, el de la derecha se llena), la cinta pasando por el cabezal, contador en puntos y transporte en `Keypad` (rebobinar, reproducir, parar, grabar).\n\n- **Props**: `title`, `duration` (s), `playing`.\n- Con movimiento reducido los carretes no giran: se ve el progreso en la barra y el contador. Junto a `Recorder` para notas de voz con estética de cinta.\n",
+  "thumb": [
+   480,
+   409
+  ]
  },
  {
   "name": "Board",
@@ -1784,7 +2192,11 @@
     "slug": "state-mark"
    }
   ],
-  "doc": "# Board\n\nTablero kanban con arrastrar y soltar real: la tarjeta deja un hueco translúcido, una copia flota inclinada 2° bajo el dedo y una línea `klein` con dos puntos marca dónde caerá. La columna de destino se marca con un borde.\n\n- **Props**: `columns` (`[{id, title, state, items:[{id, title, meta, tag, tagTone, avatar, tone}]}]`), `onChange(columns)`, `variant` (`list` → `Sortable`).\n- **Teclado**: Espacio coge la tarjeta, las flechas la mueven (←→ entre columnas, ↑↓ dentro), Espacio la suelta, Esc cancela. Cada movimiento se anuncia. El arrastre empieza a los 5 px: un toque no mueve nada.\n"
+  "doc": "# Board\n\nTablero kanban con arrastrar y soltar real: la tarjeta deja un hueco translúcido, una copia flota inclinada 2° bajo el dedo y una línea `klein` con dos puntos marca dónde caerá. La columna de destino se marca con un borde.\n\n- **Props**: `columns` (`[{id, title, state, items:[{id, title, meta, tag, tagTone, avatar, tone}]}]`), `onChange(columns)`, `variant` (`list` → `Sortable`).\n- **Teclado**: Espacio coge la tarjeta, las flechas la mueven (←→ entre columnas, ↑↓ dentro), Espacio la suelta, Esc cancela. Cada movimiento se anuncia. El arrastre empieza a los 5 px: un toque no mueve nada.\n",
+  "thumb": [
+   480,
+   448
+  ]
  },
  {
   "name": "Sortable",
@@ -1797,7 +2209,11 @@
     "slug": "board"
    }
   ],
-  "doc": "# Sortable\n\nLista ordenable: la misma mecánica que `Board` en una sola columna. Para prioridades, el orden de un menú, una cola de reproducción.\n\n- **Props**: `items` (`[{id, title, meta, tag}]`), `onChange(items)`, `label`.\n- Teclado: Espacio coge, ↑↓ mueven, Espacio suelta, Esc cancela.\n"
+  "doc": "# Sortable\n\nLista ordenable: la misma mecánica que `Board` en una sola columna. Para prioridades, el orden de un menú, una cola de reproducción.\n\n- **Props**: `items` (`[{id, title, meta, tag}]`), `onChange(items)`, `label`.\n- Teclado: Espacio coge, ↑↓ mueven, Espacio suelta, Esc cancela.\n",
+  "thumb": [
+   480,
+   384
+  ]
  },
  {
   "name": "Blueprint",
@@ -1814,7 +2230,11 @@
     "slug": "icon"
    }
   ],
-  "doc": "# Blueprint\n\nLienzo de plano: la hoja de puntos de una pizarra, pero ingenieril. Rejilla de puntos cada 10 unidades y líneas `klein` cada 50, reglas en X e Y con la medida real, ajuste a la rejilla, cotas de la pieza elegida (ancho y alto en `rams`), conectores ortogonales con flecha y etiqueta, y una lectura de coordenadas del cursor.\n\n- **Props**: `nodes` (`[{id, x, y, w, h, title, text, tone, kind:'circle'}]`), `edges` (`[{from, to, label}]`), `grid` (10), `majorEvery` (5), `snap` (true), `unit` (`mm`), `unitPerGrid` (1), `height`, `wheelZoom` (true), `onChange(nodes)`, `label`.\n- **Moverse**: arrastra el fondo; rueda o pellizco para acercar (30–300 %), Mayús + rueda para desplazar, botones − 100 % +. **Editar**: arrastra las piezas (se ajustan a la rejilla), flechas para moverlas un paso (Mayús = 5), Supr para quitar, herramienta \"+ Nota\" para pegar una nota `sol` donde pulses.\n"
+  "doc": "# Blueprint\n\nLienzo de plano: la hoja de puntos de una pizarra, pero ingenieril. Rejilla de puntos cada 10 unidades y líneas `klein` cada 50, reglas en X e Y con la medida real, ajuste a la rejilla, cotas de la pieza elegida (ancho y alto en `rams`), conectores ortogonales con flecha y etiqueta, y una lectura de coordenadas del cursor.\n\n- **Props**: `nodes` (`[{id, x, y, w, h, title, text, tone, kind:'circle'}]`), `edges` (`[{from, to, label}]`), `grid` (10), `majorEvery` (5), `snap` (true), `unit` (`mm`), `unitPerGrid` (1), `height`, `wheelZoom` (true), `onChange(nodes)`, `label`.\n- **Moverse**: arrastra el fondo; rueda o pellizco para acercar (30–300 %), Mayús + rueda para desplazar, botones − 100 % +. **Editar**: arrastra las piezas (se ajustan a la rejilla), flechas para moverlas un paso (Mayús = 5), Supr para quitar, herramienta \"+ Nota\" para pegar una nota `sol` donde pulses.\n",
+  "thumb": [
+   480,
+   1000
+  ]
  },
  {
   "name": "AreaChart",
@@ -1822,7 +2242,11 @@
   "group": "Gráficas",
   "description": "Área en semitono: la superficie bajo la curva se rellena con una trama de puntos del color de la serie (no con un degradado) y la línea va encima, suave. Admite varias series superpuestas con leyenda.",
   "deps": [],
-  "doc": "# AreaChart\n\nÁrea en semitono: la superficie bajo la curva se rellena con una trama de puntos del color de la serie (no con un degradado) y la línea va encima, suave. Admite varias series superpuestas con leyenda.\n\n- **Props**: `series` (`[{label, data, tone}]`), `labels`, `width`, `height`, `zero` (eje desde 0), `legend`, `label`.\n- El texto alternativo dice de dónde a dónde va cada serie. Máximo 3 series: más se lee peor.\n"
+  "doc": "# AreaChart\n\nÁrea en semitono: la superficie bajo la curva se rellena con una trama de puntos del color de la serie (no con un degradado) y la línea va encima, suave. Admite varias series superpuestas con leyenda.\n\n- **Props**: `series` (`[{label, data, tone}]`), `labels`, `width`, `height`, `zero` (eje desde 0), `legend`, `label`.\n- El texto alternativo dice de dónde a dónde va cada serie. Máximo 3 series: más se lee peor.\n",
+  "thumb": [
+   480,
+   246
+  ]
  },
  {
   "name": "Scatter",
@@ -1830,7 +2254,11 @@
   "group": "Gráficas",
   "description": "Dispersión sobre una rejilla de puntos: cada observación es un disco con aro del color del fondo, y su tamaño puede ser un tercer dato. Ejes de un trazo.",
   "deps": [],
-  "doc": "# Scatter\n\nDispersión sobre una rejilla de puntos: cada observación es un disco con aro del color del fondo, y su tamaño puede ser un tercer dato. Ejes de un trazo.\n\n- **Props**: `points` (`[{x, y, size, tone, label}]`), `xLabel`, `yLabel`, `width`, `height`, `label`.\n- Al pasar el ratón cada punto dice su etiqueta y valores (`title`).\n"
+  "doc": "# Scatter\n\nDispersión sobre una rejilla de puntos: cada observación es un disco con aro del color del fondo, y su tamaño puede ser un tercer dato. Ejes de un trazo.\n\n- **Props**: `points` (`[{x, y, size, tone, label}]`), `xLabel`, `yLabel`, `width`, `height`, `label`.\n- Al pasar el ratón cada punto dice su etiqueta y valores (`title`).\n",
+  "thumb": [
+   480,
+   314
+  ]
  },
  {
   "name": "RadarChart",
@@ -1838,7 +2266,11 @@
   "group": "Gráficas",
   "description": "Radar de puntos: anillos de puntos al 25/50/75/100 %, ejes finos y la forma de cada serie con relleno al 18 %. Para comparar perfiles (equipos, productos, habilidades) en 4–8 ejes.",
   "deps": [],
-  "doc": "# RadarChart\n\nRadar de puntos: anillos de puntos al 25/50/75/100 %, ejes finos y la forma de cada serie con relleno al 18 %. Para comparar perfiles (equipos, productos, habilidades) en 4–8 ejes.\n\n- **Props**: `axes` (nombres), `series` (`[{label, data: 0–1, tone}]`), `size` (260), `label`.\n"
+  "doc": "# RadarChart\n\nRadar de puntos: anillos de puntos al 25/50/75/100 %, ejes finos y la forma de cada serie con relleno al 18 %. Para comparar perfiles (equipos, productos, habilidades) en 4–8 ejes.\n\n- **Props**: `axes` (nombres), `series` (`[{label, data: 0–1, tone}]`), `size` (260), `label`.\n",
+  "thumb": [
+   480,
+   346
+  ]
  },
  {
   "name": "DonutChart",
@@ -1846,7 +2278,11 @@
   "group": "Gráficas",
   "description": "Donut de segmentos redondeados y separados, con el total (o un dato) en puntos en el centro y la leyenda con porcentajes debajo.",
   "deps": [],
-  "doc": "# DonutChart\n\nDonut de segmentos redondeados y separados, con el total (o un dato) en puntos en el centro y la leyenda con porcentajes debajo.\n\n- **Props**: `segments` (`[{label, value, tone}]`), `value` (centro), `caption`, `size` (200), `thickness` (22), `gap` (6°), `label`.\n- 2–5 segmentos. Para una sola proporción, `ProgressRing`; para comparar, `SplitBar`.\n"
+  "doc": "# DonutChart\n\nDonut de segmentos redondeados y separados, con el total (o un dato) en puntos en el centro y la leyenda con porcentajes debajo.\n\n- **Props**: `segments` (`[{label, value, tone}]`), `value` (centro), `caption`, `size` (200), `thickness` (22), `gap` (6°), `label`.\n- 2–5 segmentos. Para una sola proporción, `ProgressRing`; para comparar, `SplitBar`.\n",
+  "thumb": [
+   480,
+   286
+  ]
  },
  {
   "name": "Scope",
@@ -1854,7 +2290,11 @@
   "group": "Gráficas",
   "description": "Osciloscopio: pantalla oscura con retícula de puntos (ejes centrales marcados) y una traza verde fósforo que corre en vivo. Para señales, audio, latidos, estado de un sensor.",
   "deps": [],
-  "doc": "# Scope\n\nOsciloscopio: pantalla oscura con retícula de puntos (ejes centrales marcados) y una traza verde fósforo que corre en vivo. Para señales, audio, latidos, estado de un sensor.\n\n- **Props**: `frequency` (ciclos en pantalla), `amplitude` (0–1), `noise`, `live` (true), `width`, `height`, `caption`, `label`.\n- Con movimiento reducido la traza queda quieta.\n"
+  "doc": "# Scope\n\nOsciloscopio: pantalla oscura con retícula de puntos (ejes centrales marcados) y una traza verde fósforo que corre en vivo. Para señales, audio, latidos, estado de un sensor.\n\n- **Props**: `frequency` (ciclos en pantalla), `amplitude` (0–1), `noise`, `live` (true), `width`, `height`, `caption`, `label`.\n- Con movimiento reducido la traza queda quieta.\n",
+  "thumb": [
+   480,
+   262
+  ]
  },
  {
   "name": "VoicePosition",
@@ -1867,7 +2307,11 @@
     "slug": "led"
    }
   ],
-  "doc": "# VoicePosition\n\nDe dónde viene la voz: un anillo de puntos que se inclina y viaja hacia el lado del que habla (izquierda, delante, derecha), se encoge si la voz está lejos y respira con el nivel. Debajo, las tres probabilidades con barras de puntos, la distancia y el estado (en espera · escuchando · hablando · pensando).\n\nInspirado en *Voice position* de libraries.dev: un modelo en el dispositivo que lee la diferencia entre los dos micrófonos del móvil. Frekvens pone la cara; el dato lo da la app.\n\n- **Props**: `pan` (−1…1), `side` (`left` · `ahead` · `right`), `distance` (`near` · `far`), `state`, `level` (0–1), `probabilities` ([izq, delante, der]), `demo` (recorre los casos), `size`, `rings` (3), `tone`, `caption`.\n- **Reglas de movimiento**: nunca salta: el cambio de lado pasa por el centro con `ease-travel` (640 ms), un sonido corto no lo mueve, y en silencio vuelve al centro. Se anuncia solo el lado ya decidido (\"Voz a la izquierda, cerca\").\n- En el navegador el micrófono es mono: el lado debe venir de la app nativa o de un micrófono estéreo.\n"
+  "doc": "# VoicePosition\n\nDe dónde viene la voz: un anillo de puntos que se inclina y viaja hacia el lado del que habla (izquierda, delante, derecha), se encoge si la voz está lejos y respira con el nivel. Debajo, las tres probabilidades con barras de puntos, la distancia y el estado (en espera · escuchando · hablando · pensando).\n\nInspirado en *Voice position* de libraries.dev: un modelo en el dispositivo que lee la diferencia entre los dos micrófonos del móvil. Frekvens pone la cara; el dato lo da la app.\n\n- **Props**: `pan` (−1…1), `side` (`left` · `ahead` · `right`), `distance` (`near` · `far`), `state`, `level` (0–1), `probabilities` ([izq, delante, der]), `demo` (recorre los casos), `size`, `rings` (3), `tone`, `caption`.\n- **Reglas de movimiento**: nunca salta: el cambio de lado pasa por el centro con `ease-travel` (640 ms), un sonido corto no lo mueve, y en silencio vuelve al centro. Se anuncia solo el lado ya decidido (\"Voz a la izquierda, cerca\").\n- En el navegador el micrófono es mono: el lado debe venir de la app nativa o de un micrófono estéreo.\n",
+  "thumb": [
+   480,
+   450
+  ]
  },
  {
   "name": "Beam",
@@ -1875,7 +2319,11 @@
   "group": "Conversación",
   "description": "Haz de puntos que recorre el borde de una caja mientras algo trabaja: un tren de siete puntos klein (y su eco a media opacidad) da la vuelta sobre una pista punteada tenue. Para el campo de prompt mie",
   "deps": [],
-  "doc": "# Beam\n\nHaz de puntos que recorre el borde de una caja mientras algo trabaja: un tren de siete puntos `klein` (y su eco a media opacidad) da la vuelta sobre una pista punteada tenue. Para el campo de prompt mientras genera, una tarjeta que se está rellenando, un agente ocupado.\n\nAprendido de *Border beam* (libraries.dev), en el idioma de Frekvens: puntos en vez de luz.\n\n- **Props**: `active` (true), `tone` (`klein` · `rams` · `sol` · `ink`), `radius` (24, igual que la caja que envuelve), `label` (se anuncia como estado: \"Generando\"), `children`.\n- Envuelve cualquier caja: `h(F.Beam, {active: busy, label: 'Generando'}, h(F.PromptBox, …))`. Pone `aria-busy`. Con movimiento reducido, el tren se queda quieto y la pista sigue indicando que trabaja.\n- Solo uno por pantalla, y solo mientras hay trabajo de verdad: si se queda encendido, deja de significar algo.\n"
+  "doc": "# Beam\n\nHaz de puntos que recorre el borde de una caja mientras algo trabaja: un tren de siete puntos `klein` (y su eco a media opacidad) da la vuelta sobre una pista punteada tenue. Para el campo de prompt mientras genera, una tarjeta que se está rellenando, un agente ocupado.\n\nAprendido de *Border beam* (libraries.dev), en el idioma de Frekvens: puntos en vez de luz.\n\n- **Props**: `active` (true), `tone` (`klein` · `rams` · `sol` · `ink`), `radius` (24, igual que la caja que envuelve), `label` (se anuncia como estado: \"Generando\"), `children`.\n- Envuelve cualquier caja: `h(F.Beam, {active: busy, label: 'Generando'}, h(F.PromptBox, …))`. Pone `aria-busy`. Con movimiento reducido, el tren se queda quieto y la pista sigue indicando que trabaja.\n- Solo uno por pantalla, y solo mientras hay trabajo de verdad: si se queda encendido, deja de significar algo.\n",
+  "thumb": [
+   480,
+   196
+  ]
  },
  {
   "name": "Aura",
@@ -1883,7 +2331,11 @@
   "group": "Puntos",
   "description": "Disponible no es un puntito en la esquina: es un halo que respira alrededor de quien está. verde disponible, rec en directo (respira más rápido), sol ausente, klein la IA trabajando, rams ocupado. Des",
   "deps": [],
-  "doc": "# Aura\n\nDisponible no es un puntito en la esquina: es un halo que respira alrededor de quien está. `verde` disponible, `rec` en directo (respira más rápido), `sol` ausente, `klein` la IA trabajando, `rams` ocupado. Desconectado: sin halo y en gris.\n\n- **Props**: `status` (`online` · `available` · `live` · `away` · `busy` · `ai` · `offline`) o `tone`, `active`, `shape` (`round` · `rect`), `label` (texto para lectores), `children`.\n- `Avatar` lo usa solo con `status`. Úsalo también en una tecla o una tarjeta que está lista para usarse (una sala libre, un agente conectado).\n- Un halo por zona. Con movimiento reducido el halo queda fijo: el estado se sigue viendo.\n"
+  "doc": "# Aura\n\nDisponible no es un puntito en la esquina: es un halo que respira alrededor de quien está. `verde` disponible, `rec` en directo (respira más rápido), `sol` ausente, `klein` la IA trabajando, `rams` ocupado. Desconectado: sin halo y en gris.\n\n- **Props**: `status` (`online` · `available` · `live` · `away` · `busy` · `ai` · `offline`) o `tone`, `active`, `shape` (`round` · `rect`), `label` (texto para lectores), `children`.\n- `Avatar` lo usa solo con `status`. Úsalo también en una tecla o una tarjeta que está lista para usarse (una sala libre, un agente conectado).\n- Un halo por zona. Con movimiento reducido el halo queda fijo: el estado se sigue viendo.\n",
+  "thumb": [
+   480,
+   248
+  ]
  },
  {
   "name": "FlapBoard",
@@ -1896,6 +2348,10 @@
     "slug": "split-flap"
    }
   ],
-  "doc": "# FlapBoard\n\nPanel de salidas: varias filas de `SplitFlap` alineadas en columnas (hora, qué, estado), con el estado teñido. Para horarios de clases, turnos, pedidos listos, llegadas.\n\n- **Props**: `rows` (`[{id, time, text, status, tone}]`), `columns` (`[{key, label, length}]`, por defecto hora 5 · destino 12 · estado 9), `title`, `meta`, `size` (`s`), `label`.\n- Es una tabla de verdad (`role=\"table\"`): se lee fila a fila. 3–8 filas; más, usa `DataTable`.\n"
+  "doc": "# FlapBoard\n\nPanel de salidas: varias filas de `SplitFlap` alineadas en columnas (hora, qué, estado), con el estado teñido. Para horarios de clases, turnos, pedidos listos, llegadas.\n\n- **Props**: `rows` (`[{id, time, text, status, tone}]`), `columns` (`[{key, label, length}]`, por defecto hora 5 · destino 12 · estado 9), `title`, `meta`, `size` (`s`), `label`.\n- Es una tabla de verdad (`role=\"table\"`): se lee fila a fila. 3–8 filas; más, usa `DataTable`.\n",
+  "thumb": [
+   480,
+   296
+  ]
  }
 ]

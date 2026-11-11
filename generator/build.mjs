@@ -124,7 +124,7 @@ write(R('public/r/registry.json'), JSON.stringify(registry, null, 1));
 write(R('package.json'), JSON.stringify({
   name: 'frekvens', version: VERSION, private: true, type: 'module', license: 'MIT',
   description: 'Frekvens: componentes React para copiar y pegar, al estilo shadcn/ui. Botoneras grandes, puntos, instrumentos, conversación e IA.',
-  scripts: { dev: 'next dev', build: 'next build', start: 'next start', 'registry:build': 'shadcn build', test: 'tsc -p tsconfig.registry.json && node test/smoke.mjs && node test/registry.mjs', 'test:a11y': 'node test/a11y.mjs' },
+  scripts: { dev: 'next dev', build: 'next build', start: 'next start', 'registry:build': 'shadcn build', test: 'tsc -p tsconfig.registry.json && node test/smoke.mjs && node test/registry.mjs', 'test:a11y': 'node test/a11y.mjs', thumbs: 'node generator/thumbs.mjs' },
   dependencies: { next: '15.5.29', react: '18.3.1', 'react-dom': '18.3.1' },
   devDependencies: { '@tailwindcss/postcss': '4.0.17', '@types/node': '22.10.2', '@types/react': '18.3.18', '@types/react-dom': '18.3.5', 'axe-core': '4.10.2', esbuild: '0.24.0', playwright: '1.49.1', shadcn: '2.3.0', tailwindcss: '4.0.17', typescript: '5.7.2' },
 }, null, 2) + "\n");
@@ -167,5 +167,9 @@ const TPL = path.join(HERE, 'tpl');
 const copyDir = (a, b) => { for (const f of fs.readdirSync(a)) { const s = path.join(a, f), d = path.join(b, f); if (fs.statSync(s).isDirectory()) { fs.mkdirSync(d, { recursive: true }); copyDir(s, d); } else fs.copyFileSync(s, d); } };
 if (fs.existsSync(TPL)) copyDir(TPL, REPO);
 // catálogo para la web
-write(R('app/catalog.json'), JSON.stringify(names.map((n) => ({ name: n, slug: kebab(n), group: groupOf(n), description: firstLine(docOf(n)), deps: manifest[n].deps.map((d) => ({ name: d, slug: kebab(d) })), doc: docOf(n) })), null, 1));
+// Miniaturas (generator/thumbs, hechas con `npm run thumbs`): se copian a public/thumbs y su tamaño va al catálogo.
+const THUMBS = path.join(path.dirname(new URL(import.meta.url).pathname), 'thumbs');
+const thumbs = fs.existsSync(path.join(THUMBS, 'manifest.json')) ? JSON.parse(read(path.join(THUMBS, 'manifest.json'))) : {};
+for (const slug of Object.keys(thumbs)) { const src = path.join(THUMBS, `${slug}.jpg`); if (fs.existsSync(src)) { fs.mkdirSync(R('public/thumbs'), { recursive: true }); fs.copyFileSync(src, R(`public/thumbs/${slug}.jpg`)); } }
+write(R('app/catalog.json'), JSON.stringify(names.map((n) => ({ name: n, slug: kebab(n), group: groupOf(n), description: firstLine(docOf(n)), deps: manifest[n].deps.map((d) => ({ name: d, slug: kebab(d) })), doc: docOf(n), thumb: thumbs[kebab(n)] || null })), null, 1));
 console.log('repo en', REPO, '·', names.length, 'componentes ·', items.length, 'items en el registry');

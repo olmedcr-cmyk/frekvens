@@ -11,7 +11,8 @@
     "start": "next start",
     "registry:build": "shadcn build",
     "test": "tsc -p tsconfig.registry.json && node test/smoke.mjs && node test/registry.mjs",
-    "test:a11y": "node test/a11y.mjs"
+    "test:a11y": "node test/a11y.mjs",
+    "thumbs": "node generator/thumbs.mjs"
   },
   "dependencies": {
     "next": "15.5.29",

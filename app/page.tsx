@@ -1,6 +1,6 @@
 import catalog from "./catalog.json"
 import { Hero } from "./hero"
-import { CatalogIndex } from "./catalog-index"
+import { CatalogBoard } from "./catalog-board"
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
         <div className="cmd">npx shadcn@latest add https://frekvens-ui.vercel.app/r/switch.json</div>
       </section>
       <Hero />
-      <CatalogIndex heading="Catálogo" />
+      <CatalogBoard heading="Catálogo" />
     </>
   )
 }

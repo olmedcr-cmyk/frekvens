@@ -1,6 +1,6 @@
 import catalog from "../catalog.json"
-import { CatalogIndex } from "../catalog-index"
+import { CatalogBoard } from "../catalog-board"
 export const metadata = { title: "Componentes — Frekvens" }
 export default function Page() {
-  return <CatalogIndex heading={`${catalog.length} componentes`} level={1} />
+  return <CatalogBoard heading={`${catalog.length} componentes`} level={1} />
 }
