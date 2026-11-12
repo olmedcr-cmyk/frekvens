@@ -1,0 +1,39 @@
+<!-- @dsCard group="Apps" height=1000 page subtitle="Nutrición: calorías y proteína del día, registro por voz y un mensaje del entrenador" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>AppNutricion</title>
+<style>
+  .app { width:min(390px,100%); margin:0 auto; box-sizing:border-box; border-radius:44px; padding:var(--space-6) var(--space-4) var(--space-4); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); outline-offset:calc(var(--hairline) * -1); overflow:hidden; }
+  .bento { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-2); }
+  .bento > * { min-width:0; }
+  .wide { grid-column:1 / -1; }
+  .bento .frk-tile { height:100%; }
+  .bento .frk-tile__value { font-size:40px; }
+  .bento .wide .frk-tile__value { font-size:64px; }
+  .card { display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-4); border-radius:var(--radius-lg); background:var(--surface); box-sizing:border-box; min-width:0; }
+  .cap { margin:0; font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+  .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .list { display:flex; flex-direction:column; gap:var(--space-2); }
+  .app .frk-tabbar { align-self:center; }
+
+</style></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement, no = function(){};
+function App(){
+ return h('div',{className:'app'},
+  h('div',{className:'row'},h(F.Text,{variant:'title',as:'h1',sub:'Jueves 12'},'Hoy'),h(F.Avatar,{name:'Ana Mora',size:44})),
+  h('div',{className:'bento'},
+   h('div',{className:'wide'},h(F.Tile,{tone:'rams',title:'Calorías hoy',value:'1.213',caption:'de 1.880 kcal',height:200,onClick:no})),
+   h(F.Tile,{tone:'surface',title:'Proteína',value:'115 g',caption:'de 150 g',height:160}),
+   h(F.Tile,{tone:'sol',icon:'plus',anchor:'bottom',title:'Registrar comida',subtitle:'Voz o texto',height:160,onClick:no}),
+   h('div',{className:'wide'},h(F.Tile,{tone:'klein-soft',icon:'chevron-right',meta:h(F.Chip,{tone:'paper'},'Preguntar'),anchor:'bottom',title:'Te faltan 35 g.',subtitle:'No empiezas de cero: estás terminando.',height:168,onClick:no})),
+   h(F.Tile,{tone:'verde',icon:'play',anchor:'bottom',title:'Registrar entreno',subtitle:'Voz o texto',height:160,onClick:no}),
+   h(F.Tile,{tone:'ink',icon:'heart',meta:'Pronto',anchor:'bottom',title:'Salud',subtitle:'Sincronización en camino',height:160})),
+  h(F.TabBar,{label:'Secciones',items:[{id:'h',label:'Hoy',icon:'home'},{id:'d',label:'Diario',icon:'calendar'},{id:'p',label:'Progreso',icon:'chart'},{id:'y',label:'Yo',icon:'user'}]}));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

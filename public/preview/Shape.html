@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{if(parent!==window){var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}}catch(e){}</script><meta charset="utf-8"><title>Shape — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+var names=['disc','ring','half','quarter','arch','pill','arrow','cross','steps','slash','cloud'];
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'flex',flexDirection:'column',gap:'16px',maxWidth:'420px'}},
+ h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(64px,1fr))',gap:'16px 8px'}},names.map(function(n){return h('div',{key:n,style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'6px'}},h(C.Shape,{name:n,size:48}),h('span',{className:'frk-cap',style:{margin:0,fontSize:'9px'}},n));})),
+ h('div',{style:{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'8px'}},
+  h(C.Tile,{tone:'sol',title:'Breve',subtitle:'Charlas de idea',height:176},h(C.Shape,{name:'ring',soft:true,size:88})),
+  h(C.Tile,{tone:'lavanda',title:'Corto',subtitle:'Sabiduría al paso',height:176},h(C.Shape,{name:'slash',soft:true,size:88})))));
+</script>
+</body>
+</html>

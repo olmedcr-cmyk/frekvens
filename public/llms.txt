@@ -1,6 +1,6 @@
 # Frekvens
 
-> Componentes React para copiar y pegar, al estilo shadcn/ui: 114 piezas grandes, de puntos y accesibles (WCAG 2.2 AA en los temas Papel, Carbón y Blanco). El código se copia al proyecto con `npx shadcn@latest add` y pasa a ser del proyecto. MIT.
+> Componentes React para copiar y pegar, al estilo shadcn/ui: 119 piezas grandes, de puntos y accesibles (WCAG 2.2 AA en los temas Papel, Carbón y Blanco). El código se copia al proyecto con `npx shadcn@latest add` y pasa a ser del proyecto. MIT.
 
 Instalar una pieza: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/<nombre>.json` (crea `components/frekvens/<nombre>.tsx` y `styles/frekvens/*.css`). Todo de una vez: `https://frekvens-ui.vercel.app/r/frekvens.json`. Después importa `styles/frekvens/tailwind.css` y `components.css` en el CSS global y pon `data-theme` (`light`, `blanco` o `dark`) en `<html>`.
 
@@ -9,7 +9,7 @@ Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tail
 ## Guías
 
 - [Todo en un archivo](https://frekvens-ui.vercel.app/llms-full.txt): cada componente con sus props y su uso
-- [Registro](https://frekvens-ui.vercel.app/r/registry.json): índice legible por máquina de los 114 componentes
+- [Registro](https://frekvens-ui.vercel.app/r/registry.json): índice legible por máquina de los 119 componentes
 - [Esquema para UI generada](https://frekvens-ui.vercel.app/frekvens.schema.json): JSON Schema de lo que pinta `Render`
 - [Cómo trabaja un agente con Frekvens](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/agentes.md)
 - [Composición](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/composicion.md), [movimiento](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/movimiento.md), [tipografía](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/tipografia.md) y [calidad](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/calidad.md)
@@ -31,6 +31,7 @@ Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tail
 - [Chip](https://frekvens-ui.vercel.app/r/chip.json): Etiqueta mono en píldora: estados, filtros, metadatos (REC, MONO, 70% SOLAR).
 - [Badge](https://frekvens-ui.vercel.app/r/badge.json): Contador o punto de aviso sobre otro elemento (un icono, una tecla, un avatar). Aparece escalando desde cero.
 - [Avatar](https://frekvens-ui.vercel.app/r/avatar.json): Disco con foto o iniciales en Archivo 800. El estado se ve como un **aura** que respira alrededor del disco (ver Aura): disponible verde, en directo rec (más rápido), ausente sol, ocupado rams; descon
+- [Shape](https://frekvens-ui.vercel.app/r/shape.json): Forma geométrica plana para el arte de un tile, una portada o un póster: once siluetas que se combinan como piezas.
 
 ## Controles
 
@@ -44,6 +45,7 @@ Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tail
 - [ClickWheel](https://frekvens-ui.vercel.app/r/click-wheel.json): Rueda táctil circular, como la de los reproductores de bolsillo: deslizar el dedo en círculo avanza o retrocede paso a paso (con un pulso háptico donde exista), con cuatro botones en los ejes y un bot
 - [RotarySelector](https://frekvens-ui.vercel.app/r/rotary-selector.json): Selector de fuente de amplificador: pomo ink con una barra que apunta a la posición elegida y las opciones escritas alrededor en mono, giradas siguiendo el arco. Se gira arrastrando, con las flechas o
 - [Fader](https://frekvens-ui.vercel.app/r/fader.json): Fader de mesa de mezclas: ranura ink, regla con 11 marcas y un capuchón de color que se arrastra en vertical. Lectura mono debajo. Para niveles de canal, macros de un teclado, luces.
+- [Ruler](https://frekvens-ui.vercel.app/r/ruler.json): Regla de sintonía: la escala se desliza bajo una aguja fija, como el dial de una radio. Para elegir un valor dentro de un rango largo sin perder de vista los vecinos (frecuencia, día, peso, minuto de 
 
 ## Instrumentos
 
@@ -119,6 +121,7 @@ Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tail
 - [TopBar](https://frekvens-ui.vercel.app/r/top-bar.json): Cabecera de pantalla: tecla redonda de atrás, título centrado y acciones a la derecha. En variante large, el título va abajo en display-xl con la segunda línea de estado (el título de dos líneas de la
 - [TabBar](https://frekvens-ui.vercel.app/r/tab-bar.json): Barra de navegación inferior en píldora ink: iconos solos y, el activo, en píldora paper que se abre para mostrar su nombre. Flota centrada a space-5 del borde inferior.
 - [Sidebar](https://frekvens-ui.vercel.app/r/sidebar.json): Barra lateral para iPad y escritorio: secciones con etiqueta mono, elementos con icono y contador (en rec si es una alerta), el activo en ink. Se contrae a una tira de iconos de 76 px.
+- [Onboarding](https://frekvens-ui.vercel.app/r/onboarding.json): Bienvenida por pasos: un bloque de arte, una tarjeta de color con el mensaje y un pie con guiones de progreso y una tecla redonda para avanzar.
 
 ## Superficies
 
@@ -133,6 +136,8 @@ Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tail
 - [PaymentCard](https://frekvens-ui.vercel.app/r/payment-card.json): Tarjeta de pago: bloque de color en proporción de tarjeta real, chip de puntos, últimos 4 dígitos en mono. Congelada, se cubre de escarcha con un piloto.
 - [Timeline](https://frekvens-ui.vercel.app/r/timeline.json): Línea de tiempo vertical con el lenguaje de estados: hecho (disco), en curso (puntos), pendiente (aro), error. Sirve para despliegues, pedidos, historial de actividad (con avatar) y pasos de un proces
 - [Checklist](https://frekvens-ui.vercel.app/r/checklist.json): Lista de puesta en marcha: contador n / total con puntos, y cada paso desplegable con su explicación y su acción. Al marcar uno, se abre el siguiente pendiente.
+- [Article](https://frekvens-ui.vercel.app/r/article.json): Tarjeta de artículo partida en dos: arriba la fecha, la categoría y el titular; abajo un bloque de color con el arte. Para listas de novedades, entradas de blog o lanzamientos.
+- [Capsule](https://frekvens-ui.vercel.app/r/capsule.json): Bloque en forma de estadio para abrir o cerrar una página: titular, una línea de texto, las acciones y, a un lado, el arte.
 
 ## Conversación
 

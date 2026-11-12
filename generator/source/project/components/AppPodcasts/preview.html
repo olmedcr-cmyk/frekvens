@@ -1,0 +1,39 @@
+<!-- @dsCard group="Apps" height=1100 page subtitle="Podcasts: titular a dos tonos, portadas de formas geométricas y una regla para moverse por los días" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>AppPodcasts</title>
+<style>
+  .app { width:min(390px,100%); margin:0 auto; box-sizing:border-box; border-radius:44px; padding:var(--space-6) var(--space-4) var(--space-4); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); outline-offset:calc(var(--hairline) * -1); overflow:hidden; }
+  .bento { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-2); }
+  .bento > * { min-width:0; }
+  .wide { grid-column:1 / -1; }
+  .bento .frk-tile { height:100%; }
+  .bento .frk-tile__value { font-size:40px; }
+  .bento .wide .frk-tile__value { font-size:64px; }
+  .card { display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-4); border-radius:var(--radius-lg); background:var(--surface); box-sizing:border-box; min-width:0; }
+  .cap { margin:0; font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+  .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .list { display:flex; flex-direction:column; gap:var(--space-2); }
+  .app .frk-tabbar { align-self:center; }
+
+</style></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement, no = function(){};
+function App(){
+ return h('div',{className:'app'},
+  h(F.Text,{variant:'display-xl',sub:'Inspirar cambios'},'Explorar mentes'),
+  h(F.Ruler,{label:'Día',min:1,max:30,major:5,pitch:14,defaultValue:12,format:function(v){return v===12?'Hoy':'Día '+v;}}),
+  h('div',{className:'bento'},
+   h('div',{className:'wide'},h(F.Tile,{tone:'verde',title:'De vuelta a los amigos',subtitle:'Episodio nuevo · 38 min',value:'4',height:232,onClick:no},h(F.Shape,{name:'arrow',size:96,soft:true}))),
+   h(F.Tile,{tone:'salvia',title:'Conectar',subtitle:'Corazones',caption:'Irene Agustí',height:208,onClick:no},h(F.Shape,{name:'quarter',size:80,soft:true})),
+   h(F.Tile,{tone:'sol',title:'Breve',subtitle:'Charlas de idea',caption:'Lola Marsal',height:208,onClick:no},h(F.Shape,{name:'ring',size:80,soft:true})),
+   h(F.Tile,{tone:'lavanda',title:'Rápido',subtitle:'Ideas al paso',caption:'Enriqueta Blanco',height:208,onClick:no},h(F.Shape,{name:'cloud',size:80,soft:true})),
+   h(F.Tile,{tone:'surface',title:'Corto',subtitle:'Sabiduría de bolsillo',caption:'Josefa Brito',height:208,onClick:no},h(F.Shape,{name:'slash',size:80,soft:true}))),
+  h(F.TabBar,{label:'Secciones',items:[{id:'t',label:'Top',icon:'chart'},{id:'b',label:'Buscar',icon:'search'},{id:'g',label:'Guardado',icon:'bookmark'}]}));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

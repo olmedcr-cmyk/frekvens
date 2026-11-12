@@ -116,7 +116,7 @@ for (const n of names) {
   const m = manifest[n];
   items.push({ name: kebab(n), type: 'registry:ui', title: n, description: firstLine(docOf(n)), categories: [groupOf(n)], dependencies: [], registryDependencies: [`${HOME}/r/frekvens-lib.json`, ...m.deps.map((d) => `${HOME}/r/${kebab(d)}.json`)], files: [{ path: `registry/frekvens/ui/${m.file}`, type: 'registry:ui', target: `~/components/frekvens/${m.file}` }, ...(n === 'Render' ? [{ path: 'registry/frekvens/ui/catalog.ts', type: 'registry:ui', target: '~/components/frekvens/catalog.ts' }] : [])], docs: docOf(n) });
 }
-items.push({ name: 'frekvens', type: 'registry:ui', title: 'Frekvens completo', description: 'Los 114 componentes, los estilos y las utilidades de una vez.', registryDependencies: names.map((n) => `${HOME}/r/${kebab(n)}.json`), files: [{ path: 'registry/frekvens/ui/index.ts', type: 'registry:ui', target: '~/components/frekvens/index.ts' }] });
+items.push({ name: 'frekvens', type: 'registry:ui', title: 'Frekvens completo', description: 'Los 119 componentes, los estilos y las utilidades de una vez.', registryDependencies: names.map((n) => `${HOME}/r/${kebab(n)}.json`), files: [{ path: 'registry/frekvens/ui/index.ts', type: 'registry:ui', target: '~/components/frekvens/index.ts' }] });
 const registry = { $schema: 'https://ui.shadcn.com/schema/registry.json', name: 'frekvens', homepage: HOME, items };
 write(R('registry.json'), JSON.stringify(registry, null, 2));
 // salida estática /r/<name>.json (lo que `npx shadcn add <url>` lee)

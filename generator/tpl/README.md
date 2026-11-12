@@ -1,6 +1,6 @@
 # Frekvens
 
-Componentes React para copiar y pegar, al estilo shadcn/ui. Grandes, de puntos, pensados para la mano entera. Código abierto (MIT), accesibles (0 infracciones de axe en las 228 vistas de los 114 componentes, en claro y oscuro) y listos para UI generada por un modelo.
+Componentes React para copiar y pegar, al estilo shadcn/ui. Grandes, de puntos, pensados para la mano entera. Código abierto (MIT), accesibles (0 infracciones de axe en las 228 vistas de los 119 componentes, en claro y oscuro) y listos para UI generada por un modelo.
 
 Frekvens es el sistema de diseño de Cris Olmedo: Nothing, Teenage Engineering, Braun e IKEA pasados por una botonera. Azul Klein para la acción, naranja Rams para el mando, amarillo sol para el dato, verde de cafetera y marrón tabaco para el material.
 
@@ -64,7 +64,7 @@ import { DotGrid } from "@/components/frekvens/dot-grid"
 - **Los estilos viven en CSS**, no en clases Tailwind dentro del archivo: `components.css` está en `@layer components`, así que cualquier utilidad de Tailwind que añadas gana. Los tokens son variables CSS y, con Tailwind v4, utilidades (`bg-klein`, `text-on-sol`, `rounded-lg`, `duration-base`, `ease-settle`).
 - **`lib.tsx`** trae lo compartido: `cx`, `useValue` (controlado o no), `useFollow` (el muelle con impulso que mueve las piezas de `Segmented` y `Tabs`), los iconos, `parseLang` para Frekvens Lang.
 - **Sin dependencias** aparte de React 18+.
-- **Servidor**: todo empieza con `"use client"` y los 114 componentes renderizan en Node (`npm test`).
+- **Servidor**: todo empieza con `"use client"` y los 119 componentes renderizan en Node (`npm test`).
 
 ## UI generativa
 
@@ -100,7 +100,7 @@ No añadas clases Tailwind a las piezas; el tema se cambia con `data-theme` en `
 
 ```sh
 npm install
-npm run dev          # la web (Next.js) con los 114 componentes vivos
+npm run dev          # la web (Next.js) con los 119 componentes vivos
 npm test             # SSR de todo el registry + integridad de /public/r
 npm run test:a11y    # axe en claro y oscuro (npx playwright install chromium)
 ```

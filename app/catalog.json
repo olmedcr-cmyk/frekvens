@@ -287,7 +287,7 @@
   "doc": "# Icon\n\nIconos geométricos propios en rejilla de 24, trazo 2 px, terminaciones rectas, rellenos sólidos para transporte. Heredan `currentColor`.\n\n- **Props**: `name` (ver `Frekvens.Icon.names`), `size` (24 por defecto; 28 en Keypad, 32–48 en teclas grandes), `title` (si el icono va solo y significa algo), `strokeWidth`.\n- Iconos de transporte (`play` `pause` `stop` `rec`) siempre rellenos; el resto, trazo. Nunca emoji.\n- Junto a un número o una palabra, el icono va delante y alineado al centro óptico.\n",
   "thumb": [
    480,
-   472
+   690
   ],
   "props": [
    {
@@ -2533,8 +2533,13 @@
   "slug": "tile",
   "group": "Superficies",
   "description": "Tarjeta-widget: título arriba a la izquierda, pictograma de puntos en el centro y el valor enorme abajo a la izquierda. La pieza de los dashboards de dos columnas.",
-  "deps": [],
-  "doc": "# Tile\n\nTarjeta-widget: título arriba a la izquierda, pictograma de puntos en el centro y el valor enorme abajo a la izquierda. La pieza de los dashboards de dos columnas.\n\n- **Props**: `title`, `subtitle` (segunda línea atenuada), `meta` (mono arriba a la derecha), `value`, `tone` (`surface` · `sol` · `klein` · `rams` · `tabaco` · `ink` · `klein-soft` · `salvia` · `lavanda` · `malva`), `height`, `children` (el arte: `DotMatrix`, `DotGrid`, `Icon`), `onClick` (la convierte en botón).\n- Dos por fila con `space-2` de junta. Una sola Tile de color por fila; la otra en `surface`.\n",
+  "deps": [
+   {
+    "name": "Icon",
+    "slug": "icon"
+   }
+  ],
+  "doc": "# Tile\n\nTarjeta-widget: título arriba a la izquierda, pictograma de puntos en el centro y el valor enorme abajo a la izquierda. La pieza de los dashboards de dos columnas.\n\n- **Props**: `title`, `subtitle` (segunda línea atenuada), `meta` (mono arriba a la derecha), `value`, `caption` (línea pequeña bajo el valor: «de 1.880»), `icon` (glifo en un disco, arriba a la izquierda), `anchor` (`bottom` baja el título al pie: el formato de tile de acción), `tone` (`surface` · `sol` · `klein` · `rams` · `tabaco` · `ink` · `klein-soft` · `salvia` · `lavanda` · `malva`), `height`, `children` (el arte: `DotMatrix`, `DotGrid`, `Icon`), `onClick` (la convierte en botón).\n- Dos por fila con `space-2` de junta. Una sola Tile de color por fila; la otra en `surface`.\n",
   "thumb": [
    480,
    290
@@ -2558,6 +2563,21 @@
    {
     "name": "value",
     "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "icon",
+    "type": "IconName",
+    "optional": true
+   },
+   {
+    "name": "anchor",
+    "type": "'top' | 'bottom'",
     "optional": true
    },
    {
@@ -2593,8 +2613,13 @@
   "slug": "strip",
   "group": "Superficies",
   "description": "Fila de instrumento horizontal: título y valor grande a la izquierda, instrumento a la derecha. Se apilan con space-2 como un panel de control.",
-  "deps": [],
-  "doc": "# Strip\n\nFila de instrumento horizontal: título y valor grande a la izquierda, instrumento a la derecha. Se apilan con `space-2` como un panel de control.\n\n- **Props**: `title`, `value`, `tone` (`surface` por defecto), `children` (el instrumento: `Gauge`, `LevelBars`, `DotMatrix`, texto secundario).\n- Para pantallas de estado: temperatura, batería, luz, hora. El valor siempre legible sin el instrumento.\n",
+  "deps": [
+   {
+    "name": "Icon",
+    "slug": "icon"
+   }
+  ],
+  "doc": "# Strip\n\nFila de instrumento horizontal: título y valor grande a la izquierda, instrumento a la derecha. Se apilan con `space-2` como un panel de control.\n\n- **Props**: `title`, `value`, `unit` (unidad pequeña junto al valor), `icon` (glifo en un disco junto al título), `tone` (`surface` por defecto), `children` (el instrumento: `Gauge`, `LevelBars`, `DotMatrix`, texto secundario).\n- Para pantallas de estado: temperatura, batería, luz, hora. El valor siempre legible sin el instrumento.\n",
   "thumb": [
    480,
    415
@@ -2609,6 +2634,16 @@
     "name": "value",
     "type": "React.ReactNode",
     "optional": false
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "icon",
+    "type": "IconName",
+    "optional": true
    },
    {
     "name": "tone",
@@ -4104,6 +4139,26 @@
    {
     "name": "FlapBoard",
     "slug": "flap-board"
+   },
+   {
+    "name": "Shape",
+    "slug": "shape"
+   },
+   {
+    "name": "Ruler",
+    "slug": "ruler"
+   },
+   {
+    "name": "Onboarding",
+    "slug": "onboarding"
+   },
+   {
+    "name": "Article",
+    "slug": "article"
+   },
+   {
+    "name": "Capsule",
+    "slug": "capsule"
    }
   ],
   "doc": "# Render\n\nEl motor de UI generativa: pinta una interfaz Frekvens a partir de un **spec JSON** que puede escribir un modelo. Cada nodo es `{type, props, children}`; `type` es el nombre de cualquier componente del sistema; los hijos son nodos o texto.\n\n- **Props**: `spec` (objeto, array o string JSON), `actions` (mapa nombre → función).\n- **Acciones**: cualquier prop con valor `\"action:nombre\"` se convierte en una llamada a `actions.nombre` (p. ej. `\"onClick\": \"action:reservar\"`). Una acción sin definir avisa en consola y no rompe.\n- Props que son nodos (`value`, `content` de `tabs`/`drawers`) también se pueden escribir como spec.\n- Un `type` desconocido se pinta como un recuadro discontinuo con su nombre: nunca rompe la pantalla.\n- El catálogo completo con props está en `frekvens.schema.json`; las reglas para modelos, en la sección *UI generativa y conversación*.\n",
@@ -4301,7 +4356,7 @@
   "group": "Generativo",
   "description": "Primitiva de texto: aplica un estilo tipográfico del sistema por nombre, con la etiqueta HTML correcta. Una UI generada elige variant, nunca tamaños.",
   "deps": [],
-  "doc": "# Text\n\nPrimitiva de texto: aplica un estilo tipográfico del sistema por nombre, con la etiqueta HTML correcta. Una UI generada elige `variant`, nunca tamaños.\n\n- **Props**: `variant` (`display-xl` · `title` · `headline` · `numeral-xl` · `dot-hero` · `dot-display` · `body` · `body-strong` · `caption` · `label` · `readout`), `sub` (segunda línea atenuada), `muted`, `as`, `children`.\n",
+  "doc": "# Text\n\nPrimitiva de texto: aplica un estilo tipográfico del sistema por nombre, con la etiqueta HTML correcta. Una UI generada elige `variant`, nunca tamaños.\n\n- **Props**: `variant` (`display-xl` · `title` · `headline` · `lead` · `numeral-xl` · `dot-hero` · `dot-display` · `body` · `body-strong` · `caption` · `label` · `readout`), `sub` (segunda línea atenuada), `muted`, `as`, `children`.\n- `lead` es la entradilla a dos tonos: dentro de ella, `<em>` atenúa un tramo y `<strong>` lo marca.\n",
   "thumb": [
    480,
    321
@@ -4309,7 +4364,7 @@
   "props": [
    {
     "name": "variant",
-    "type": "'display-xl' | 'title' | 'headline' | 'numeral-xl' | 'dot-hero' | 'dot-display' | 'body' | 'body-strong' | 'caption' | 'label' | 'readout'",
+    "type": "'display-xl' | 'title' | 'headline' | 'lead' | 'numeral-xl' | 'dot-hero' | 'dot-display' | 'body' | 'body-strong' | 'caption' | 'label' | 'readout'",
     "optional": true
    },
    {
@@ -7111,6 +7166,336 @@
    {
     "name": "label",
     "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "Shape",
+  "slug": "shape",
+  "group": "Base",
+  "description": "Forma geométrica plana para el arte de un tile, una portada o un póster: once siluetas que se combinan como piezas.",
+  "deps": [],
+  "doc": "# Shape\n\nForma geométrica plana para el arte de un tile, una portada o un póster: once siluetas que se combinan como piezas.\n\n- **Props**: `name` (`disc` · `ring` · `half` · `quarter` · `arch` · `pill` · `arrow` · `cross` · `steps` · `slash` · `cloud`), `size` (px, 96 por defecto), `tone` (`ink` · `paper` · `klein` · `rams` · `sol` · `verde` · `tabaco` · `rec`; sin tono hereda el color del texto), `soft` (tono sobre tono: 16 % del color heredado), `rotate` (grados), `label`.\n- Es decorativa: sin `label` queda oculta a los lectores de pantalla. Si la forma significa algo (una flecha de dirección), dale `label`.\n- Dentro de un `Tile` de color, úsala con `soft` y sin `tone`: toma el color del texto del tile y nunca rompe el contraste.\n- Una forma grande por superficie. Para pictogramas de puntos usa `DotMatrix`; para glifos de interfaz, `Icon`.\n",
+  "thumb": [
+   480,
+   484
+  ],
+  "props": [
+   {
+    "name": "name",
+    "type": "ShapeName",
+    "optional": false
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'ink' | 'paper' | 'klein' | 'rams' | 'sol' | 'verde' | 'tabaco' | 'rec'",
+    "optional": true
+   },
+   {
+    "name": "soft",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "rotate",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "Ruler",
+  "slug": "ruler",
+  "group": "Controles",
+  "description": "Regla de sintonía: la escala se desliza bajo una aguja fija, como el dial de una radio. Para elegir un valor dentro de un rango largo sin perder de vista los vecinos (frecuencia, día, peso, minuto de ",
+  "deps": [],
+  "doc": "# Ruler\n\nRegla de sintonía: la escala se desliza bajo una aguja fija, como el dial de una radio. Para elegir un valor dentro de un rango largo sin perder de vista los vecinos (frecuencia, día, peso, minuto de una pista).\n\n- **Props**: `value` / `defaultValue` / `onChange`, `min`, `max`, `step` (1), `major` (cada cuántos pasos va una marca alta con número; 10), `pitch` (px entre marcas; 10), `format` (cómo se escribe el valor), `unit`, `tone` de la aguja (`rams` · `klein` · `ink`), `label`.\n- Se arrastra con el dedo o el ratón. Con teclado: flechas (un paso), Re Pág / Av Pág (una marca alta), Inicio / Fin.\n- Es un `slider` para los lectores de pantalla: dale siempre `label` y, si el número solo no se entiende, `format` y `unit`.\n- Ocupa el ancho que le des y mide 56 px de alto. Para rangos cortos (0–10) usa `Slider`; para valores con vuelta, `Dial`.\n",
+  "thumb": [
+   480,
+   245
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: number) => void",
+    "optional": true
+   },
+   {
+    "name": "min",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "max",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "step",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "major",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "pitch",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "format",
+    "type": "(v: number) => string",
+    "optional": true
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'rams' | 'klein' | 'ink'",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "Onboarding",
+  "slug": "onboarding",
+  "group": "Navegación",
+  "description": "Bienvenida por pasos: un bloque de arte, una tarjeta de color con el mensaje y un pie con guiones de progreso y una tecla redonda para avanzar.",
+  "deps": [
+   {
+    "name": "KeyButton",
+    "slug": "key-button"
+   }
+  ],
+  "doc": "# Onboarding\n\nBienvenida por pasos: un bloque de arte, una tarjeta de color con el mensaje y un pie con guiones de progreso y una tecla redonda para avanzar.\n\n- **Props**: `slides` (`{ title, text?, eyebrow?, tone?, artTone?, art? }`), `value` / `defaultValue` / `onChange` (índice), `onDone` (al pulsar la tecla en el último paso), `onSkip` (muestra «Saltar» en el primero), `nextLabel`, `backLabel`, `skipLabel`, `doneLabel`, `label`.\n- Tres o cuatro pasos como mucho, una idea por paso. El `art` es libre: una `Shape`, un `DotMatrix`, una imagen.\n- La tecla es `ink` mientras quedan pasos y `klein` con una marca en el último: es la única acción principal de la pantalla.\n- Con teclado, flecha derecha e izquierda cambian de paso; el paso nuevo se anuncia y los guiones dicen «Paso 2 de 3».\n",
+  "thumb": [
+   480,
+   600
+  ],
+  "props": [
+   {
+    "name": "slides",
+    "type": "OnboardingSlide[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(i: number) => void",
+    "optional": true
+   },
+   {
+    "name": "onDone",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "onSkip",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "nextLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "backLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "skipLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "doneLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "Article",
+  "slug": "article",
+  "group": "Superficies",
+  "description": "Tarjeta de artículo partida en dos: arriba la fecha, la categoría y el titular; abajo un bloque de color con el arte. Para listas de novedades, entradas de blog o lanzamientos.",
+  "deps": [
+   {
+    "name": "Icon",
+    "slug": "icon"
+   }
+  ],
+  "doc": "# Article\n\nTarjeta de artículo partida en dos: arriba la fecha, la categoría y el titular; abajo un bloque de color con el arte. Para listas de novedades, entradas de blog o lanzamientos.\n\n- **Props**: `title`, `date`, `category`, `href` (la convierte en enlace) u `onClick` (en botón), `tone` del bloque de arte (`ink` por defecto), `children` (el arte: `Shape`, `Keycap`, `DotMatrix`).\n- Toda la tarjeta es un solo destino: no metas otros botones dentro. La flecha solo aparece si lleva `href` u `onClick`.\n- En rejilla, dos o tres por fila con `space-2` de junta; cambia el `tone` del arte entre vecinas, no el del texto.\n",
+  "thumb": [
+   480,
+   334
+  ],
+  "props": [
+   {
+    "name": "title",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "date",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "category",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "href",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onClick",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "Capsule",
+  "slug": "capsule",
+  "group": "Superficies",
+  "description": "Bloque en forma de estadio para abrir o cerrar una página: titular, una línea de texto, las acciones y, a un lado, el arte.",
+  "deps": [],
+  "doc": "# Capsule\n\nBloque en forma de estadio para abrir o cerrar una página: titular, una línea de texto, las acciones y, a un lado, el arte.\n\n- **Props**: `title`, `text`, `eyebrow`, `actions` (teclas; una sola `klein`), `tone` (`ink` por defecto), `level` (`1` si es el titular de la página; `2` por defecto), `as`, `children` (el arte).\n- El relleno crece con el ancho para que el texto nunca toque la curva; en estrecho el arte baja debajo del texto.\n- Una por pantalla, dos como mucho (apertura y cierre). No la uses como tarjeta de contenido: para eso está `Tile`.\n",
+  "thumb": [
+   480,
+   531
+  ],
+  "props": [
+   {
+    "name": "title",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "text",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "eyebrow",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "actions",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "level",
+    "type": "1 | 2",
+    "optional": true
+   },
+   {
+    "name": "as",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
     "optional": true
    },
    {

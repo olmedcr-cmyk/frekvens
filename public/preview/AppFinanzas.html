@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{if(parent!==window){var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}}catch(e){}</script><meta charset="utf-8"><title>AppFinanzas</title>
+<style>
+  .app { width:min(390px,100%); margin:0 auto; box-sizing:border-box; border-radius:44px; padding:var(--space-6) var(--space-4) var(--space-4); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); outline-offset:calc(var(--hairline) * -1); overflow:hidden; }
+  .bento { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-2); }
+  .bento > * { min-width:0; }
+  .wide { grid-column:1 / -1; }
+  .bento .frk-tile { height:100%; }
+  .bento .frk-tile__value { font-size:40px; }
+  .bento .wide .frk-tile__value { font-size:64px; }
+  .card { display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-4); border-radius:var(--radius-lg); background:var(--surface); box-sizing:border-box; min-width:0; }
+  .cap { margin:0; font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+  .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .list { display:flex; flex-direction:column; gap:var(--space-2); }
+  .app .frk-tabbar { align-self:center; }
+
+</style></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement, no = function(){};
+function App(){
+ return h('div',{className:'app'},
+  h('div',{className:'row'},h(F.Text,{variant:'title',as:'h1',sub:'Tu saldo'},'Hola, Dani'),h(F.Avatar,{name:'Dani Ruiz',size:44})),
+  h('div',null,h('p',{className:'cap'},'Saldo disponible'),h(F.Text,{variant:'numeral-xl',as:'p',style:{fontSize:'clamp(40px,13vw,52px)',paddingTop:'var(--space-2)'}},'12.495,50 €')),
+  h('div',{className:'bento'},
+   h('div',{className:'wide'},h(F.Tile,{tone:'sol',icon:'arrow-down-left',anchor:'bottom',title:'Pedir',subtitle:'Con un enlace de pago',height:136,onClick:no})),
+   h(F.Tile,{tone:'lavanda',icon:'arrow-down',anchor:'bottom',title:'Ingresar',height:136,onClick:no}),
+   h(F.Tile,{tone:'salvia',icon:'arrow-up-right',anchor:'bottom',title:'Enviar',height:136,onClick:no})),
+  h('div',{className:'card'},h('p',{className:'cap'},'Movimientos'),h('div',{className:'list'},
+   h(F.ListRow,{icon:'card',title:'Discos Milenio',detail:'Ayer · tarjeta',value:'−23,21 €'}),
+   h(F.ListRow,{icon:'arrow-down',title:'Nómina',detail:'Lunes',value:'+1.840,00 €'}),
+   h(F.ListRow,{icon:'bolt',title:'Luz',detail:'1 nov',value:'−61,40 €'}))),
+  h(F.TabBar,{label:'Secciones',items:[{id:'i',label:'Inicio',icon:'home'},{id:'t',label:'Tarjetas',icon:'card'},{id:'a',label:'Análisis',icon:'chart'},{id:'f',label:'Favoritos',icon:'heart'}]}));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>
