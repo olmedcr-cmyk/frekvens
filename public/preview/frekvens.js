@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"Frekvens","components":[{"name":"KeyButton"},{"name":"Keypad"},{"name":"HoldButton"},{"name":"SlideToStart"},{"name":"Rocker"},{"name":"Icon"},{"name":"Dial"},{"name":"Gauge"},{"name":"Slider"},{"name":"Switch"},{"name":"Segmented"},{"name":"Stepper"},{"name":"Wheel"},{"name":"VolumeWheel"},{"name":"Checkbox"},{"name":"RadioGroup"},{"name":"Select"},{"name":"Menu"},{"name":"Tabs"},{"name":"TextField"},{"name":"Calendar"},{"name":"Sheet"},{"name":"Toast"},{"name":"Banner"},{"name":"Tooltip"},{"name":"Timer"},{"name":"Stopwatch"},{"name":"Hourglass"},{"name":"Pendulum"},{"name":"MediaPlayer"},{"name":"AudioTrack"},{"name":"Ticker"},{"name":"SplitFlap"},{"name":"DotMatrix"},{"name":"DotGrid"},{"name":"StateMark"},{"name":"Steps"},{"name":"Grille"},{"name":"LED"},{"name":"LevelBars"},{"name":"BarMeter"},{"name":"LineChart"},{"name":"ProgressRing"},{"name":"Readout"},{"name":"Tile"},{"name":"Strip"},{"name":"CardStack"},{"name":"Cabinet"},{"name":"Pager"},{"name":"Deck"},{"name":"ListRow"},{"name":"Chip"},{"name":"Badge"},{"name":"Avatar"},{"name":"TopBar"},{"name":"TabBar"},{"name":"EmptyState"},{"name":"Skeleton"},{"name":"Message"},{"name":"Composer"},{"name":"Suggestions"},{"name":"VoiceOrb"},{"name":"DotLoader"},{"name":"AgentWidget"},{"name":"Render"},{"name":"Reveal"},{"name":"Stack"},{"name":"Grid"},{"name":"Text"},{"name":"ClickWheel"},{"name":"DiscCarousel"},{"name":"NumPad"},{"name":"Viewfinder"},{"name":"CaptureKey"},{"name":"Recorder"},{"name":"NoteEditor"},{"name":"Sidebar"},{"name":"DataTable"},{"name":"CommandBar"},{"name":"Notch"},{"name":"Viewport3D"},{"name":"Heatmap"},{"name":"SplitBar"},{"name":"Sparkline"},{"name":"HourStrip"},{"name":"PaymentCard"},{"name":"Dialog"},{"name":"FileDrop"},{"name":"ChoiceCards"},{"name":"Stat"},{"name":"UsageMeter"},{"name":"Timeline"},{"name":"Checklist"},{"name":"PromptBox"},{"name":"Clock"},{"name":"VUMeter"},{"name":"RotarySelector"},{"name":"Fader"},{"name":"Keycap"},{"name":"Calculator"},{"name":"PadGrid"},{"name":"TapeDeck"},{"name":"Board"},{"name":"Sortable"},{"name":"Blueprint"},{"name":"AreaChart"},{"name":"Scatter"},{"name":"RadarChart"},{"name":"DonutChart"},{"name":"Scope"},{"name":"VoicePosition"},{"name":"Beam"},{"name":"Aura"},{"name":"FlapBoard"}]} */
+/* @ds-bundle: {"format":4,"namespace":"Frekvens","components":[{"name":"KeyButton"},{"name":"Keypad"},{"name":"HoldButton"},{"name":"SlideToStart"},{"name":"Rocker"},{"name":"Icon"},{"name":"Dial"},{"name":"Gauge"},{"name":"Slider"},{"name":"Switch"},{"name":"Segmented"},{"name":"Stepper"},{"name":"Wheel"},{"name":"VolumeWheel"},{"name":"Checkbox"},{"name":"RadioGroup"},{"name":"Select"},{"name":"Menu"},{"name":"Tabs"},{"name":"TextField"},{"name":"Calendar"},{"name":"Sheet"},{"name":"Toast"},{"name":"Banner"},{"name":"Tooltip"},{"name":"Timer"},{"name":"Stopwatch"},{"name":"Hourglass"},{"name":"Pendulum"},{"name":"MediaPlayer"},{"name":"AudioTrack"},{"name":"Ticker"},{"name":"SplitFlap"},{"name":"DotMatrix"},{"name":"DotGrid"},{"name":"StateMark"},{"name":"Steps"},{"name":"Grille"},{"name":"LED"},{"name":"LevelBars"},{"name":"BarMeter"},{"name":"LineChart"},{"name":"ProgressRing"},{"name":"Readout"},{"name":"Tile"},{"name":"Strip"},{"name":"CardStack"},{"name":"Cabinet"},{"name":"Pager"},{"name":"Deck"},{"name":"ListRow"},{"name":"Chip"},{"name":"Badge"},{"name":"Avatar"},{"name":"TopBar"},{"name":"TabBar"},{"name":"EmptyState"},{"name":"Skeleton"},{"name":"Message"},{"name":"Composer"},{"name":"Suggestions"},{"name":"VoiceOrb"},{"name":"DotLoader"},{"name":"AgentWidget"},{"name":"Render"},{"name":"Reveal"},{"name":"Stack"},{"name":"Grid"},{"name":"Text"},{"name":"ClickWheel"},{"name":"DiscCarousel"},{"name":"NumPad"},{"name":"Viewfinder"},{"name":"CaptureKey"},{"name":"Recorder"},{"name":"NoteEditor"},{"name":"Sidebar"},{"name":"DataTable"},{"name":"CommandBar"},{"name":"Notch"},{"name":"Viewport3D"},{"name":"Heatmap"},{"name":"SplitBar"},{"name":"Sparkline"},{"name":"HourStrip"},{"name":"PaymentCard"},{"name":"Dialog"},{"name":"FileDrop"},{"name":"ChoiceCards"},{"name":"Stat"},{"name":"UsageMeter"},{"name":"Timeline"},{"name":"Checklist"},{"name":"PromptBox"},{"name":"Clock"},{"name":"VUMeter"},{"name":"RotarySelector"},{"name":"Fader"},{"name":"Keycap"},{"name":"Calculator"},{"name":"PadGrid"},{"name":"TapeDeck"},{"name":"Board"},{"name":"Sortable"},{"name":"Blueprint"},{"name":"AreaChart"},{"name":"Scatter"},{"name":"RadarChart"},{"name":"DonutChart"},{"name":"Scope"},{"name":"VoicePosition"},{"name":"Beam"},{"name":"Aura"},{"name":"FlapBoard"},{"name":"Shape"},{"name":"Ruler"},{"name":"Onboarding"},{"name":"Article"},{"name":"Capsule"}]} */
 (function () {
   var R = window.React, h = R.createElement, useState = R.useState, useRef = R.useRef;
 
@@ -27,6 +27,23 @@
     'arrow-left': [['path', { d: 'M20 12H5M11 6l-6 6 6 6' }]],
     'arrow-up-right': [['path', { d: 'M7 17 17 7M9 7h8v8' }]],
     'chevron-down': [['path', { d: 'M6 9l6 6 6-6' }]],
+    'chevron-right': [['path', { d: 'M9 6l6 6-6 6' }]],
+    'chevron-left': [['path', { d: 'M15 6l-6 6 6 6' }]],
+    'arrow-down': [['path', { d: 'M12 4v15M6 13l6 6 6-6' }]],
+    'arrow-down-left': [['path', { d: 'M17 7 7 17M15 17H7V9' }]],
+    menu: [['path', { d: 'M4 8h16M4 16h16' }]],
+    search: [['circle', { cx: 11, cy: 11, r: 6.5 }], ['path', { d: 'M16 16l4.5 4.5' }]],
+    heart: [['path', { d: 'M12 20 4.5 12.5a4.6 4.6 0 0 1 6.5-6.5l1 1 1-1a4.6 4.6 0 0 1 6.5 6.5z' }]],
+    bookmark: [['path', { d: 'M6.5 4h11v16.5L12 16l-5.5 4.5z' }]],
+    calendar: [['rect', { x: 4, y: 5.5, width: 16, height: 14.5 }], ['path', { d: 'M4 10h16M8 3v4M16 3v4' }]],
+    folder: [['path', { d: 'M3.5 6h6l2 2.5h9V19h-17z' }]],
+    card: [['rect', { x: 3, y: 5.5, width: 18, height: 13 }], ['path', { d: 'M3 10h18M6.5 15h4' }]],
+    user: [['circle', { cx: 12, cy: 8, r: 4 }], ['path', { d: 'M4.5 20.5a7.5 7.5 0 0 1 15 0' }]],
+    sliders: [['path', { d: 'M4 8h9M17 8h3M4 16h3M11 16h9' }], ['circle', { cx: 15, cy: 8, r: 2 }], ['circle', { cx: 9, cy: 16, r: 2 }]],
+    share: [['circle', { cx: 6, cy: 12, r: 2.5 }], ['circle', { cx: 17.5, cy: 6, r: 2.5 }], ['circle', { cx: 17.5, cy: 18, r: 2.5 }], ['path', { d: 'M8.2 10.8 15.3 7.2M8.2 13.2l7.1 3.6' }]],
+    chart: [['path', { d: 'M5 20V11M12 20V4M19 20v-6' }]],
+    bolt: [['path', { d: 'M13 3 5.5 13.5H12L11 21l7.5-10.5H12z' }]],
+    grid: [['rect', { x: 4, y: 4, width: 6.5, height: 6.5 }], ['rect', { x: 13.5, y: 4, width: 6.5, height: 6.5 }], ['rect', { x: 4, y: 13.5, width: 6.5, height: 6.5 }], ['rect', { x: 13.5, y: 13.5, width: 6.5, height: 6.5 }]],
     close: [['path', { d: 'M6 6l12 12M18 6 6 18' }]],
     check: [['path', { d: 'M4.5 12.5 9.5 17.5 19.5 6.5' }]],
     timer: [['circle', { cx: 12, cy: 13.5, r: 7.5 }], ['path', { d: 'M12 13.5V9M9 2.5h6' }]],
@@ -337,18 +354,25 @@
 
   /* ---------- Tile: widget card ---------- */
   function Tile(p) {
-    var Tag = p.onClick ? 'button' : 'div';
-    return h(Tag, { type: p.onClick ? 'button' : undefined, onClick: p.onClick, className: cx('frk-tile', 'frk-tone--' + (p.tone || 'surface'), p.className), style: { minHeight: p.height } },
-      h('div', { className: 'frk-tile__head' }, h('div', { className: 'frk-tile__title' }, p.title, p.subtitle ? h('span', { className: 'frk-tile__sub' }, p.subtitle) : null),
+    var Tag = p.onClick ? 'button' : 'div', bottom = p.anchor === 'bottom';
+    var title = (p.title != null || p.subtitle != null) ? h('div', { className: 'frk-tile__title' }, p.title, p.subtitle ? h('span', { className: 'frk-tile__sub' }, p.subtitle) : null) : null;
+    return h(Tag, { type: p.onClick ? 'button' : undefined, onClick: p.onClick, className: cx('frk-tile', 'frk-tone--' + (p.tone || 'surface'), bottom && 'frk-tile--bottom', p.className), style: { minHeight: p.height } },
+      h('div', { className: cx('frk-tile__head', p.icon && 'frk-tile__head--icon') },
+        p.icon ? h('span', { className: 'frk-tile__icon' }, h(Icon, { name: p.icon, size: 20 })) : null,
+        bottom ? null : title,
         p.meta ? h('span', { className: 'frk-tile__meta' }, p.meta) : null),
-      p.children ? h('div', { className: 'frk-tile__art' }, p.children) : h('div', { className: 'frk-tile__art' }),
-      p.value != null ? h('div', { className: 'frk-tile__value' }, p.value) : null);
+      h('div', { className: 'frk-tile__art' }, p.children),
+      p.value != null ? h('div', { className: 'frk-tile__value' }, p.value) : null,
+      p.caption ? h('div', { className: 'frk-tile__caption' }, p.caption) : null,
+      bottom ? title : null);
   }
 
   /* ---------- Strip: horizontal instrument row ---------- */
   function Strip(p) {
     return h('div', { className: cx('frk-strip', 'frk-tone--' + (p.tone || 'surface'), p.className) },
-      h('div', { className: 'frk-strip__read' }, p.title ? h('div', { className: 'frk-strip__title' }, p.title) : null, h('div', { className: 'frk-strip__value' }, p.value)),
+      h('div', { className: 'frk-strip__read' },
+        (p.title || p.icon) ? h('div', { className: 'frk-strip__title' }, p.icon ? h('span', { className: 'frk-strip__icon' }, h(Icon, { name: p.icon, size: 16 })) : null, p.title) : null,
+        h('div', { className: 'frk-strip__value' }, p.value, p.unit ? h('span', { className: 'frk-strip__unit' }, p.unit) : null)),
       p.children ? h('div', { className: 'frk-strip__inst' }, p.children) : null);
   }
 
@@ -871,7 +895,7 @@
   function Grid(p) {
     return h('div', { className: cx('frk-grid', p.className), style: Object.assign({ display: 'grid', gridTemplateColumns: 'repeat(' + (p.columns || 2) + ', minmax(0, 1fr))', gap: 'var(--space-' + (p.gap == null ? 2 : p.gap) + ')' }, p.style) }, p.children);
   }
-  var TEXT_TAG = { 'display-xl': 'h1', title: 'h2', headline: 'h3', 'numeral-xl': 'div', 'dot-hero': 'div', 'dot-display': 'div', body: 'p', 'body-strong': 'p', caption: 'p', label: 'span', readout: 'span' };
+  var TEXT_TAG = { 'display-xl': 'h1', title: 'h2', headline: 'h3', 'numeral-xl': 'div', 'dot-hero': 'div', 'dot-display': 'div', lead: 'p', body: 'p', 'body-strong': 'p', caption: 'p', label: 'span', readout: 'span' };
   function Text(p) {
     var v = p.variant || 'body';
     return h(p.as || TEXT_TAG[v] || 'p', { className: cx('frk-text', 'frk-text--' + v, p.muted && 'is-muted', p.className), style: p.style }, p.children, p.sub ? h('span', { className: 'frk-text__sub' }, p.sub) : null);
@@ -2270,7 +2294,97 @@
         h('div', { role: 'row', className: 'frk-flapboard__head' }, cols.map(function (c) { return h('span', { key: c.key, role: 'columnheader' }, c.label); })),
         (p.rows || []).map(function (r, i) { return h('div', { key: r.id || i, role: 'row', className: 'frk-flapboard__row' }, cols.map(function (c) { return h('div', { key: c.key, role: 'cell' }, h(SplitFlap, { value: r[c.key] == null ? '' : String(r[c.key]), length: c.length, size: p.size || 's', tone: c.key === 'status' && r.tone ? r.tone : undefined })); })); })));
   }
-  var api = {KeyButton: KeyButton, Keypad: Keypad, HoldButton: HoldButton, SlideToStart: SlideToStart, Rocker: Rocker, Icon: Icon, Dial: Dial, Gauge: Gauge, Slider: Slider, Switch: Switch, Segmented: Segmented, Stepper: Stepper, Wheel: Wheel, VolumeWheel: VolumeWheel, Checkbox: Checkbox, RadioGroup: RadioGroup, Select: Select, Menu: Menu, Tabs: Tabs, TextField: TextField, Calendar: Calendar, Sheet: Sheet, Toast: Toast, Banner: Banner, Tooltip: Tooltip, Timer: Timer, Stopwatch: Stopwatch, Hourglass: Hourglass, Pendulum: Pendulum, MediaPlayer: MediaPlayer, AudioTrack: AudioTrack, Ticker: Ticker, SplitFlap: SplitFlap, DotMatrix: DotMatrix, DotGrid: DotGrid, StateMark: StateMark, Steps: Steps, Grille: Grille, LED: LED, LevelBars: LevelBars, BarMeter: BarMeter, LineChart: LineChart, ProgressRing: ProgressRing, Readout: Readout, Tile: Tile, Strip: Strip, CardStack: CardStack, Cabinet: Cabinet, Pager: Pager, Deck: Deck, ListRow: ListRow, Chip: Chip, Badge: Badge, Avatar: Avatar, TopBar: TopBar, TabBar: TabBar, EmptyState: EmptyState, Skeleton: Skeleton, Message: Message, Composer: Composer, Suggestions: Suggestions, VoiceOrb: VoiceOrb, DotLoader: DotLoader, AgentWidget: AgentWidget, Render: Render, Reveal: Reveal, Stack: Stack, Grid: Grid, Text: Text, ClickWheel: ClickWheel, DiscCarousel: DiscCarousel, NumPad: NumPad, Viewfinder: Viewfinder, CaptureKey: CaptureKey, Recorder: Recorder, NoteEditor: NoteEditor, Sidebar: Sidebar, DataTable: DataTable, CommandBar: CommandBar, Notch: Notch, Viewport3D: Viewport3D, Heatmap: Heatmap, SplitBar: SplitBar, Sparkline: Sparkline, HourStrip: HourStrip, PaymentCard: PaymentCard, Dialog: Dialog, FileDrop: FileDrop, ChoiceCards: ChoiceCards, Stat: Stat, UsageMeter: UsageMeter, Timeline: Timeline, Checklist: Checklist, PromptBox: PromptBox, Clock: Clock, VUMeter: VUMeter, RotarySelector: RotarySelector, Fader: Fader, Keycap: Keycap, Calculator: Calculator, PadGrid: PadGrid, TapeDeck: TapeDeck, Board: Board, Sortable: Sortable, Blueprint: Blueprint, AreaChart: AreaChart, Scatter: Scatter, RadarChart: RadarChart, DonutChart: DonutChart, Scope: Scope, VoicePosition: VoicePosition, Beam: Beam, Aura: Aura, FlapBoard: FlapBoard};
+  /* ---------- Shape: forma geométrica plana (arte de tile, póster, portada) ---------- */
+  var SHAPES = {
+    disc: [['circle', { cx: 50, cy: 50, r: 50 }]],
+    ring: [['path', { fillRule: 'evenodd', d: 'M50 0a50 50 0 1 0 0 100A50 50 0 0 0 50 0zm0 30a20 20 0 1 1 0 40 20 20 0 0 1 0-40z' }]],
+    half: [['path', { d: 'M0 75a50 50 0 0 1 100 0z' }]],
+    quarter: [['path', { d: 'M0 100A100 100 0 0 1 100 0v100z' }]],
+    arch: [['path', { d: 'M0 100V50a50 50 0 0 1 100 0v50H68V50a18 18 0 0 0-36 0v50z' }]],
+    pill: [['rect', { x: 0, y: 25, width: 100, height: 50, rx: 25 }]],
+    arrow: [['path', { d: 'M0 39h60L38 14h27l35 36-35 36H38l22-25H0z' }]],
+    cross: [['path', { d: 'M35 0h30v35h35v30H65v35H35V65H0V35h35z' }]],
+    steps: [['path', { d: 'M0 100V67h33V33h34V0h33v100z' }]],
+    slash: [['path', { d: 'M45 6a44 44 0 0 0 0 88z', transform: 'rotate(20 50 50)' }], ['path', { d: 'M55 6a44 44 0 0 1 0 88z', transform: 'rotate(20 50 50)' }]],
+    cloud: [['circle', { cx: 28, cy: 62, r: 22 }], ['circle', { cx: 54, cy: 46, r: 30 }], ['circle', { cx: 78, cy: 64, r: 20 }], ['rect', { x: 28, y: 60, width: 50, height: 24 }]]
+  };
+  function Shape(p) {
+    var size = p.size || 96, def = SHAPES[p.name] || SHAPES.disc;
+    return h('svg', { className: cx('frk-shape', p.soft && 'frk-shape--soft', p.tone && 'frk-shape--' + p.tone, p.className), width: size, height: size, viewBox: '0 0 100 100', role: p.label ? 'img' : undefined, 'aria-label': p.label, 'aria-hidden': p.label ? undefined : true, focusable: 'false', style: p.rotate ? { transform: 'rotate(' + p.rotate + 'deg)' } : undefined },
+      def.map(function (d, i) { return h(d[0], Object.assign({ key: i }, d[1])); }));
+  }
+
+  /* ---------- Ruler: regla de sintonía; se arrastra la escala bajo una aguja fija ---------- */
+  function Ruler(p) {
+    var min = p.min == null ? 0 : p.min, max = p.max == null ? 100 : p.max, step = p.step || 1, major = p.major || 10, pitch = p.pitch || 10;
+    var st = useValue(p, min), v = clamp(st[0], min, max), set = st[1];
+    var drag = useRef(null), ds = useState(false), dragging = ds[0], setDragging = ds[1];
+    var fmt = p.format || function (n) { return String(n); };
+    var count = Math.round((max - min) / step), idx = clamp(Math.round((v - min) / step), 0, count);
+    function at(i) { return Math.round((min + i * step) * 1e6) / 1e6; }
+    function to(i) { var nv = at(clamp(i, 0, count)); if (nv !== v) set(nv); }
+    function onKey(e) {
+      var k = e.key, d;
+      if (k === 'ArrowRight' || k === 'ArrowUp') d = 1; else if (k === 'ArrowLeft' || k === 'ArrowDown') d = -1; else if (k === 'PageUp') d = major; else if (k === 'PageDown') d = -major; else if (k === 'Home') d = -count; else if (k === 'End') d = count; else return;
+      e.preventDefault(); to(idx + d);
+    }
+    function down(e) { drag.current = { x: e.clientX, i: idx }; setDragging(true); if (e.currentTarget.setPointerCapture) { try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) {} } }
+    function move(e) { if (drag.current) to(drag.current.i - Math.round((e.clientX - drag.current.x) / pitch)); }
+    function up() { drag.current = null; setDragging(false); }
+    var ticks = [];
+    for (var i = Math.max(0, idx - 60); i <= Math.min(count, idx + 60); i++) {
+      var M = i % major === 0;
+      ticks.push(h('span', { key: i, className: cx('frk-ruler__tick', M && 'is-major'), style: { left: i * pitch + 'px' } }, M ? h('span', { className: 'frk-ruler__num' }, fmt(at(i))) : null));
+    }
+    return h('div', { className: cx('frk-ruler', 'frk-ruler--' + (p.tone || 'rams'), dragging && 'is-dragging', p.className) },
+      h('div', { className: 'frk-ruler__read' }, h('span', { className: 'frk-ruler__value' }, fmt(v)), p.unit ? h('span', { className: 'frk-ruler__unit' }, p.unit) : null),
+      h('div', { className: 'frk-ruler__window', role: 'slider', tabIndex: 0, 'aria-label': p.label || 'Regla', 'aria-orientation': 'horizontal', 'aria-valuemin': min, 'aria-valuemax': max, 'aria-valuenow': v, 'aria-valuetext': fmt(v) + (p.unit ? ' ' + p.unit : ''), onKeyDown: onKey, onPointerDown: down, onPointerMove: move, onPointerUp: up, onPointerCancel: up },
+        h('div', { className: 'frk-ruler__clip' }, h('div', { className: 'frk-ruler__scale', style: { transform: 'translateX(' + (-idx * pitch) + 'px)' } }, ticks)),
+        h('span', { className: 'frk-ruler__needle' })));
+  }
+
+  /* ---------- Onboarding: bienvenida por pasos (arte + tarjeta de texto + guiones + tecla redonda) ---------- */
+  function Onboarding(p) {
+    var slides = p.slides || [], n = slides.length, st = useValue(p, 0), i = clamp(st[0], 0, Math.max(0, n - 1)), s = slides[i] || {}, last = i === n - 1;
+    function go(k) { if (k >= n) { if (p.onDone) p.onDone(); return; } st[1](clamp(k, 0, n - 1)); }
+    return h('section', { className: cx('frk-onb', p.className), 'aria-label': p.label || 'Bienvenida', onKeyDown: function (e) { if (e.key === 'ArrowRight' && !last) go(i + 1); else if (e.key === 'ArrowLeft' && i > 0) go(i - 1); } },
+      h('div', { className: 'frk-onb__stage', 'aria-live': 'polite' },
+        h('div', { className: 'frk-onb__slide', key: i },
+          h('div', { className: cx('frk-onb__art', 'frk-tone--' + (s.artTone || 'surface')) }, s.art),
+          h('div', { className: cx('frk-onb__card', 'frk-tone--' + (s.tone || 'sol')) },
+            s.eyebrow ? h('p', { className: 'frk-onb__eyebrow' }, s.eyebrow) : null,
+            h('h2', { className: 'frk-onb__title' }, s.title),
+            s.text ? h('p', { className: 'frk-onb__text' }, s.text) : null))),
+      h('div', { className: 'frk-onb__foot' },
+        i > 0 ? h('button', { type: 'button', className: 'frk-onb__link', onClick: function () { go(i - 1); } }, p.backLabel || 'Atrás')
+          : p.onSkip ? h('button', { type: 'button', className: 'frk-onb__link', onClick: p.onSkip }, p.skipLabel || 'Saltar') : h('span', { className: 'frk-onb__link', 'aria-hidden': true }),
+        h('div', { className: 'frk-onb__dashes', role: 'img', 'aria-label': 'Paso ' + (i + 1) + ' de ' + n }, slides.map(function (_, k) { return h('span', { key: k, className: cx('frk-onb__dash', k === i && 'is-on') }); })),
+        h(KeyButton, { tone: last ? 'klein' : 'ink', shape: 'round', size: 's', icon: last ? 'check' : 'arrow-right', 'aria-label': last ? (p.doneLabel || 'Empezar') : (p.nextLabel || 'Siguiente'), onClick: function () { go(i + 1); } })));
+  }
+
+  /* ---------- Article: tarjeta partida, texto arriba y bloque de arte abajo ---------- */
+  function Article(p) {
+    var Tag = p.href ? 'a' : p.onClick ? 'button' : 'article';
+    return h(Tag, { href: p.href, type: Tag === 'button' ? 'button' : undefined, onClick: p.onClick, className: cx('frk-article', p.className) },
+      h('span', { className: 'frk-article__body' },
+        (p.date || p.category) ? h('span', { className: 'frk-article__meta' }, h('span', null, p.date), h('span', null, p.category)) : null,
+        h('span', { className: 'frk-article__title' }, p.title),
+        Tag !== 'article' ? h('span', { className: 'frk-article__go', 'aria-hidden': true }, h(Icon, { name: 'arrow-right', size: 18 })) : null),
+      h('span', { className: cx('frk-article__art', 'frk-tone--' + (p.tone || 'ink')) }, p.children));
+  }
+
+  /* ---------- Capsule: bloque en forma de estadio para abrir o cerrar una página ---------- */
+  function Capsule(p) {
+    return h(p.as || 'section', { className: cx('frk-capsule', 'frk-tone--' + (p.tone || 'ink'), p.className) },
+      h('div', { className: 'frk-capsule__body' },
+        p.eyebrow ? h('p', { className: 'frk-capsule__eyebrow' }, p.eyebrow) : null,
+        h(p.level === 1 ? 'h1' : 'h2', { className: 'frk-capsule__title' }, p.title),
+        p.text ? h('p', { className: 'frk-capsule__text' }, p.text) : null,
+        p.actions ? h('div', { className: 'frk-capsule__actions' }, p.actions) : null),
+      p.children ? h('div', { className: 'frk-capsule__art' }, p.children) : null);
+  }
+
+  var api = {KeyButton: KeyButton, Keypad: Keypad, HoldButton: HoldButton, SlideToStart: SlideToStart, Rocker: Rocker, Icon: Icon, Dial: Dial, Gauge: Gauge, Slider: Slider, Switch: Switch, Segmented: Segmented, Stepper: Stepper, Wheel: Wheel, VolumeWheel: VolumeWheel, Checkbox: Checkbox, RadioGroup: RadioGroup, Select: Select, Menu: Menu, Tabs: Tabs, TextField: TextField, Calendar: Calendar, Sheet: Sheet, Toast: Toast, Banner: Banner, Tooltip: Tooltip, Timer: Timer, Stopwatch: Stopwatch, Hourglass: Hourglass, Pendulum: Pendulum, MediaPlayer: MediaPlayer, AudioTrack: AudioTrack, Ticker: Ticker, SplitFlap: SplitFlap, DotMatrix: DotMatrix, DotGrid: DotGrid, StateMark: StateMark, Steps: Steps, Grille: Grille, LED: LED, LevelBars: LevelBars, BarMeter: BarMeter, LineChart: LineChart, ProgressRing: ProgressRing, Readout: Readout, Tile: Tile, Strip: Strip, CardStack: CardStack, Cabinet: Cabinet, Pager: Pager, Deck: Deck, ListRow: ListRow, Chip: Chip, Badge: Badge, Avatar: Avatar, TopBar: TopBar, TabBar: TabBar, EmptyState: EmptyState, Skeleton: Skeleton, Message: Message, Composer: Composer, Suggestions: Suggestions, VoiceOrb: VoiceOrb, DotLoader: DotLoader, AgentWidget: AgentWidget, Render: Render, Reveal: Reveal, Stack: Stack, Grid: Grid, Text: Text, ClickWheel: ClickWheel, DiscCarousel: DiscCarousel, NumPad: NumPad, Viewfinder: Viewfinder, CaptureKey: CaptureKey, Recorder: Recorder, NoteEditor: NoteEditor, Sidebar: Sidebar, DataTable: DataTable, CommandBar: CommandBar, Notch: Notch, Viewport3D: Viewport3D, Heatmap: Heatmap, SplitBar: SplitBar, Sparkline: Sparkline, HourStrip: HourStrip, PaymentCard: PaymentCard, Dialog: Dialog, FileDrop: FileDrop, ChoiceCards: ChoiceCards, Stat: Stat, UsageMeter: UsageMeter, Timeline: Timeline, Checklist: Checklist, PromptBox: PromptBox, Clock: Clock, VUMeter: VUMeter, RotarySelector: RotarySelector, Fader: Fader, Keycap: Keycap, Calculator: Calculator, PadGrid: PadGrid, TapeDeck: TapeDeck, Board: Board, Sortable: Sortable, Blueprint: Blueprint, AreaChart: AreaChart, Scatter: Scatter, RadarChart: RadarChart, DonutChart: DonutChart, Scope: Scope, VoicePosition: VoicePosition, Beam: Beam, Aura: Aura, FlapBoard: FlapBoard, Shape: Shape, Ruler: Ruler, Onboarding: Onboarding, Article: Article, Capsule: Capsule};
   api.parseLang = parseLang;
   window.Frekvens = Object.assign(window.Frekvens || {}, api);
 })();

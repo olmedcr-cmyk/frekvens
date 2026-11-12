@@ -9,15 +9,16 @@
  ],
  "dependencies": [],
  "registryDependencies": [
-  "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+  "https://frekvens-ui.vercel.app/r/icon.json"
  ],
  "files": [
   {
    "path": "registry/frekvens/ui/strip.tsx",
    "type": "registry:ui",
    "target": "~/components/frekvens/strip.tsx",
-   "content": "\"use client\"\n/* Frekvens · Strip — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { StripProps } from \"./types\"\nexport type { StripProps }\n\n/* ---------- Strip: horizontal instrument row ---------- */\nexport function Strip(props: StripProps): React.ReactElement\nexport function Strip(p?: any): any {\n  return (\n    <div className={cx(\"frk-strip\", \"frk-tone--\" + (p.tone || \"surface\"), p.className)}>\n      <div className=\"frk-strip__read\">\n        {p.title ? <div className=\"frk-strip__title\">{p.title}</div> : null}\n        <div className=\"frk-strip__value\">{p.value}</div>\n      </div>\n      {p.children ? <div className=\"frk-strip__inst\">{p.children}</div> : null}\n    </div>\n  )\n}\n\n/* ---------- ListRow: hairline row, big index ---------- */\n"
+   "content": "\"use client\"\n/* Frekvens · Strip — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx } from \"./lib\"\n\nimport type { StripProps } from \"./types\"\nexport type { StripProps }\n\n/* ---------- Strip: horizontal instrument row ---------- */\nexport function Strip(props: StripProps): React.ReactElement\nexport function Strip(p?: any): any {\n  return (\n    <div className={cx(\"frk-strip\", \"frk-tone--\" + (p.tone || \"surface\"), p.className)}>\n      <div className=\"frk-strip__read\">\n        {p.title || p.icon ? (\n          <div className=\"frk-strip__title\">\n            {p.icon ? (\n              <span className=\"frk-strip__icon\">\n                <Icon name={p.icon} size={16} />\n              </span>\n            ) : null}\n            {p.title}\n          </div>\n        ) : null}\n        <div className=\"frk-strip__value\">\n          {p.value}\n          {p.unit ? <span className=\"frk-strip__unit\">{p.unit}</span> : null}\n        </div>\n      </div>\n      {p.children ? <div className=\"frk-strip__inst\">{p.children}</div> : null}\n    </div>\n  )\n}\n\n/* ---------- ListRow: hairline row, big index ---------- */\n"
   }
  ],
- "docs": "# Strip\n\nFila de instrumento horizontal: título y valor grande a la izquierda, instrumento a la derecha. Se apilan con `space-2` como un panel de control.\n\n- **Props**: `title`, `value`, `tone` (`surface` por defecto), `children` (el instrumento: `Gauge`, `LevelBars`, `DotMatrix`, texto secundario).\n- Para pantallas de estado: temperatura, batería, luz, hora. El valor siempre legible sin el instrumento.\n"
+ "docs": "# Strip\n\nFila de instrumento horizontal: título y valor grande a la izquierda, instrumento a la derecha. Se apilan con `space-2` como un panel de control.\n\n- **Props**: `title`, `value`, `unit` (unidad pequeña junto al valor), `icon` (glifo en un disco junto al título), `tone` (`surface` por defecto), `children` (el instrumento: `Gauge`, `LevelBars`, `DotMatrix`, texto secundario).\n- Para pantallas de estado: temperatura, batería, luz, hora. El valor siempre legible sin el instrumento.\n"
 }

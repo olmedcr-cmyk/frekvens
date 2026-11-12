@@ -4,7 +4,7 @@ Repositorio de **Frekvens**, el sistema de diseño de Cris Olmedo publicado como
 
 ## Cómo está montado
 
-- `registry/frekvens/ui/*.tsx`: un archivo por componente (114). **Generados**: no los edites a mano, se sobrescriben.
+- `registry/frekvens/ui/*.tsx`: un archivo por componente (119). **Generados**: no los edites a mano, se sobrescriben.
 - `registry/frekvens/ui/lib.tsx`, `types.ts`, `catalog.ts`, `*.css`: utilidades compartidas, tipos, catálogo de `Render` y estilos. También generados.
 - `public/r/*.json`: lo que lee `npx shadcn add <url>`. Generado.
 - `public/preview/*.html`: vistas previas vivas (bundle clásico + React UMD) que la web muestra en iframes y que usa `test/a11y.mjs`.
@@ -20,7 +20,7 @@ Para cambiar un componente: edita `generator/source/project/components/bundle.js
 ```sh
 cd generator && npm install && FREKVENS_URL=https://<dominio-final> npm run build && cd ..
 npm install
-npm test            # tsc estricto sobre registry + SSR de los 114 + integridad de public/r
+npm test            # tsc estricto sobre registry + SSR de los 119 + integridad de public/r
 npm run test:a11y   # axe en claro y oscuro sobre public/preview (npx playwright install chromium)
 npm run build       # web estática
 ```

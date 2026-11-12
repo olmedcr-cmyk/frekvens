@@ -4,8 +4,8 @@ Estado al 11 de noviembre de 2026: publicado y con despliegue automático. Abajo
 
 ## Hecho y comprobado
 
-- 114 componentes en `registry/frekvens/ui/`, un `.tsx` por componente, JSX, props tipadas. `tsc --strict`: 0 errores.
-- `npm test`: los 114 compilan y renderizan en servidor; los 117 items de `public/r` resuelven sus dependencias.
+- 119 componentes en `registry/frekvens/ui/`, un `.tsx` por componente, JSX, props tipadas. `tsc --strict`: 0 errores.
+- `npm test`: los 119 compilan y renderizan en servidor; los 122 items de `public/r` resuelven sus dependencias.
 - Instalación real probada: en un Next.js 15 + Tailwind v4 limpio, `npx shadcn@2.3.0 add <registro>/r/board.json switch.json render.json` instala en `components/frekvens/` y `styles/frekvens/`, y `next build` (con chequeo de tipos) pasa. La página se ve bien y `bg-paper` (utilidad Tailwind con token Frekvens) funciona.
 - Web de documentación (`app/`): `next build` genera 119 páginas estáticas (inicio, catálogo, ficha de cada componente con vista previa viva, comando de instalación, docs y código), claro/oscuro sin errores en consola.
 - Accesibilidad: el sistema de diseño de origen da 0 infracciones de axe en 290 páginas (claro y oscuro) y 34/34 pruebas de interacción. `npm run test:a11y` repite axe sobre `public/preview`; hay que pasarlo una vez en CI o en local tras `npx playwright install chromium` (en la sesión no llegó a terminar por tiempo).
@@ -35,7 +35,7 @@ Estado al 11 de noviembre de 2026: publicado y con despliegue automático. Abajo
 
 ## Límites conocidos
 
-- Estilo en una capa CSS (decisión de Cris para tener los 114 ya): los `.tsx` no llevan clases Tailwind. Si algún día se quiere "Tailwind de verdad", se reescribe componente a componente.
+- Estilo en una capa CSS (decisión de Cris para tener los 119 ya): los `.tsx` no llevan clases Tailwind. Si algún día se quiere "Tailwind de verdad", se reescribe componente a componente.
 - `tailwind.css` redefine `rounded-sm/md/lg/xl` con los radios de Frekvens; quien ya use shadcn puede importar `tokens.css` en su lugar (está en el README).
 - Las fuentes se cargan de Google Fonts (`fonts.css`); en producción conviene alojarlas.
 - `Render` instala el catálogo completo (todos los componentes), porque pinta lo que el modelo pida.

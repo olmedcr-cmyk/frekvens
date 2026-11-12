@@ -7,7 +7,7 @@ import { ThemePicker } from "./theme-picker"
 
 export const metadata: Metadata = {
   title: "Frekvens — componentes React para copiar y pegar",
-  description: "114 componentes accesibles al estilo shadcn/ui: botoneras grandes, puntos, instrumentos, conversación e IA. Código abierto, MIT.",
+  description: "119 componentes accesibles al estilo shadcn/ui: botoneras grandes, puntos, instrumentos, conversación e IA. Código abierto, MIT.",
 }
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#ffffff" }

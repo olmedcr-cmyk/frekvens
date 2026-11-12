@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "onboarding",
+ "type": "registry:ui",
+ "title": "Onboarding",
+ "description": "Bienvenida por pasos: un bloque de arte, una tarjeta de color con el mensaje y un pie con guiones de progreso y una tecla redonda para avanzar.",
+ "categories": [
+  "Navegación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+  "https://frekvens-ui.vercel.app/r/key-button.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/onboarding.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/onboarding.tsx",
+   "content": "\"use client\"\n/* Frekvens · Onboarding — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { KeyButton } from \"./key-button\"\nimport { clamp, cx, useValue } from \"./lib\"\n\nimport type { OnboardingProps } from \"./types\"\nexport type { OnboardingProps }\n\n/* ---------- Onboarding: bienvenida por pasos (arte + tarjeta de texto + guiones + tecla redonda) ---------- */\nexport function Onboarding(props: OnboardingProps): React.ReactElement\nexport function Onboarding(p?: any): any {\n  var slides: any = p.slides || [],\n    n: any = slides.length,\n    st: any = useValue(p, 0),\n    i: any = clamp(st[0], 0, Math.max(0, n - 1)),\n    s: any = slides[i] || {},\n    last: any = i === n - 1\n  function go(k?: any): any {\n    if (k >= n) {\n      if (p.onDone) p.onDone()\n      return\n    }\n    st[1](clamp(k, 0, n - 1))\n  }\n  return (\n    <section\n      className={cx(\"frk-onb\", p.className)}\n      aria-label={p.label || \"Bienvenida\"}\n      onKeyDown={function (e?: any): any {\n        if (e.key === \"ArrowRight\" && !last) go(i + 1)\n        else if (e.key === \"ArrowLeft\" && i > 0) go(i - 1)\n      }}\n    >\n      <div className=\"frk-onb__stage\" aria-live=\"polite\">\n        <div className=\"frk-onb__slide\" key={i}>\n          <div className={cx(\"frk-onb__art\", \"frk-tone--\" + (s.artTone || \"surface\"))}>{s.art}</div>\n          <div className={cx(\"frk-onb__card\", \"frk-tone--\" + (s.tone || \"sol\"))}>\n            {s.eyebrow ? <p className=\"frk-onb__eyebrow\">{s.eyebrow}</p> : null}\n            <h2 className=\"frk-onb__title\">{s.title}</h2>\n            {s.text ? <p className=\"frk-onb__text\">{s.text}</p> : null}\n          </div>\n        </div>\n      </div>\n      <div className=\"frk-onb__foot\">\n        {i > 0 ? (\n          <button\n            type=\"button\"\n            className=\"frk-onb__link\"\n            onClick={function (): any {\n              go(i - 1)\n            }}\n          >\n            {p.backLabel || \"Atrás\"}\n          </button>\n        ) : p.onSkip ? (\n          <button type=\"button\" className=\"frk-onb__link\" onClick={p.onSkip}>\n            {p.skipLabel || \"Saltar\"}\n          </button>\n        ) : (\n          <span className=\"frk-onb__link\" aria-hidden={true} />\n        )}\n        <div className=\"frk-onb__dashes\" role=\"img\" aria-label={\"Paso \" + (i + 1) + \" de \" + n}>\n          {slides.map(function (_?: any, k?: any): any {\n            return <span key={k} className={cx(\"frk-onb__dash\", k === i && \"is-on\")} />\n          })}\n        </div>\n        <KeyButton\n          tone={last ? \"klein\" : \"ink\"}\n          shape=\"round\"\n          size=\"s\"\n          icon={last ? \"check\" : \"arrow-right\"}\n          aria-label={last ? p.doneLabel || \"Empezar\" : p.nextLabel || \"Siguiente\"}\n          onClick={function (): any {\n            go(i + 1)\n          }}\n        />\n      </div>\n    </section>\n  )\n}\n\n/* ---------- Article: tarjeta partida, texto arriba y bloque de arte abajo ---------- */\n"
+  }
+ ],
+ "docs": "# Onboarding\n\nBienvenida por pasos: un bloque de arte, una tarjeta de color con el mensaje y un pie con guiones de progreso y una tecla redonda para avanzar.\n\n- **Props**: `slides` (`{ title, text?, eyebrow?, tone?, artTone?, art? }`), `value` / `defaultValue` / `onChange` (índice), `onDone` (al pulsar la tecla en el último paso), `onSkip` (muestra «Saltar» en el primero), `nextLabel`, `backLabel`, `skipLabel`, `doneLabel`, `label`.\n- Tres o cuatro pasos como mucho, una idea por paso. El `art` es libre: una `Shape`, un `DotMatrix`, una imagen.\n- La tecla es `ink` mientras quedan pasos y `klein` con una marca en el último: es la única acción principal de la pantalla.\n- Con teclado, flecha derecha e izquierda cambian de paso; el paso nuevo se anuncia y los guiones dicen «Paso 2 de 3».\n"
+}

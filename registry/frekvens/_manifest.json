@@ -276,12 +276,16 @@
  },
  "Tile": {
   "file": "tile.tsx",
-  "deps": [],
+  "deps": [
+   "Icon"
+  ],
   "lib": true
  },
  "Strip": {
   "file": "strip.tsx",
-  "deps": [],
+  "deps": [
+   "Icon"
+  ],
   "lib": true
  },
  "CardStack": {
@@ -527,7 +531,12 @@
    "VoicePosition",
    "Beam",
    "Aura",
-   "FlapBoard"
+   "FlapBoard",
+   "Shape",
+   "Ruler",
+   "Onboarding",
+   "Article",
+   "Capsule"
   ],
   "lib": true
  },
@@ -862,6 +871,35 @@
   "deps": [
    "SplitFlap"
   ],
+  "lib": true
+ },
+ "Shape": {
+  "file": "shape.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Ruler": {
+  "file": "ruler.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Onboarding": {
+  "file": "onboarding.tsx",
+  "deps": [
+   "KeyButton"
+  ],
+  "lib": true
+ },
+ "Article": {
+  "file": "article.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Capsule": {
+  "file": "capsule.tsx",
+  "deps": [],
   "lib": true
  }
 }

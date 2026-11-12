@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "shape",
+ "type": "registry:ui",
+ "title": "Shape",
+ "description": "Forma geométrica plana para el arte de un tile, una portada o un póster: once siluetas que se combinan como piezas.",
+ "categories": [
+  "Base"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/shape.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/shape.tsx",
+   "content": "\"use client\"\n/* Frekvens · Shape — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { SHAPES, cx } from \"./lib\"\n\nimport type { ShapeProps } from \"./types\"\nexport type { ShapeProps }\n\nconst h: any = React.createElement\n\nexport function Shape(props: ShapeProps): React.ReactElement\nexport function Shape(p?: any): any {\n  var size: any = p.size || 96,\n    def: any = SHAPES[p.name] || SHAPES.disc\n  return (\n    <svg\n      className={cx(\"frk-shape\", p.soft && \"frk-shape--soft\", p.tone && \"frk-shape--\" + p.tone, p.className)}\n      width={size}\n      height={size}\n      viewBox=\"0 0 100 100\"\n      role={p.label ? \"img\" : undefined}\n      aria-label={p.label}\n      aria-hidden={p.label ? undefined : true}\n      focusable=\"false\"\n      style={\n        p.rotate\n          ? {\n              transform: \"rotate(\" + p.rotate + \"deg)\",\n            }\n          : undefined\n      }\n    >\n      {def.map(function (d?: any, i?: any): any {\n        return h(\n          d[0],\n          Object.assign(\n            {\n              key: i,\n            },\n            d[1],\n          ),\n        )\n      })}\n    </svg>\n  )\n}\n\n/* ---------- Ruler: regla de sintonía; se arrastra la escala bajo una aguja fija ---------- */\n"
+  }
+ ],
+ "docs": "# Shape\n\nForma geométrica plana para el arte de un tile, una portada o un póster: once siluetas que se combinan como piezas.\n\n- **Props**: `name` (`disc` · `ring` · `half` · `quarter` · `arch` · `pill` · `arrow` · `cross` · `steps` · `slash` · `cloud`), `size` (px, 96 por defecto), `tone` (`ink` · `paper` · `klein` · `rams` · `sol` · `verde` · `tabaco` · `rec`; sin tono hereda el color del texto), `soft` (tono sobre tono: 16 % del color heredado), `rotate` (grados), `label`.\n- Es decorativa: sin `label` queda oculta a los lectores de pantalla. Si la forma significa algo (una flecha de dirección), dale `label`.\n- Dentro de un `Tile` de color, úsala con `soft` y sin `tone`: toma el color del texto del tile y nunca rompe el contraste.\n- Una forma grande por superficie. Para pictogramas de puntos usa `DotMatrix`; para glifos de interfaz, `Icon`.\n"
+}

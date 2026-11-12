@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "capsule",
+ "type": "registry:ui",
+ "title": "Capsule",
+ "description": "Bloque en forma de estadio para abrir o cerrar una página: titular, una línea de texto, las acciones y, a un lado, el arte.",
+ "categories": [
+  "Superficies"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/capsule.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/capsule.tsx",
+   "content": "\"use client\"\n/* Frekvens · Capsule — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { CapsuleProps } from \"./types\"\nexport type { CapsuleProps }\n\nconst h: any = React.createElement\n\n/* ---------- Capsule: bloque en forma de estadio para abrir o cerrar una página ---------- */\nexport function Capsule(props: CapsuleProps): React.ReactElement\nexport function Capsule(p?: any): any {\n  return h(\n    p.as || \"section\",\n    {\n      className: cx(\"frk-capsule\", \"frk-tone--\" + (p.tone || \"ink\"), p.className),\n    },\n    <div className=\"frk-capsule__body\">\n      {p.eyebrow ? <p className=\"frk-capsule__eyebrow\">{p.eyebrow}</p> : null}\n      {h(\n        p.level === 1 ? \"h1\" : \"h2\",\n        {\n          className: \"frk-capsule__title\",\n        },\n        p.title,\n      )}\n      {p.text ? <p className=\"frk-capsule__text\">{p.text}</p> : null}\n      {p.actions ? <div className=\"frk-capsule__actions\">{p.actions}</div> : null}\n    </div>,\n    p.children ? <div className=\"frk-capsule__art\">{p.children}</div> : null,\n  )\n}\n"
+  }
+ ],
+ "docs": "# Capsule\n\nBloque en forma de estadio para abrir o cerrar una página: titular, una línea de texto, las acciones y, a un lado, el arte.\n\n- **Props**: `title`, `text`, `eyebrow`, `actions` (teclas; una sola `klein`), `tone` (`ink` por defecto), `level` (`1` si es el titular de la página; `2` por defecto), `as`, `children` (el arte).\n- El relleno crece con el ancho para que el texto nunca toque la curva; en estrecho el arte baja debajo del texto.\n- Una por pantalla, dos como mucho (apertura y cierre). No la uses como tarjeta de contenido: para eso está `Tile`.\n"
+}

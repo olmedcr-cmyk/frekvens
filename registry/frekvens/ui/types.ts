@@ -2,7 +2,7 @@
 import type * as React from 'react';
 
 export type Tone = 'paper' | 'surface' | 'well' | 'ink' | 'klein' | 'klein-soft' | 'sol' | 'rams' | 'tabaco' | 'verde' | 'rec' | 'salvia' | 'lavanda' | 'malva';
-export type IconName = 'play' | 'pause' | 'stop' | 'rec' | 'plus' | 'minus' | 'arrow-right' | 'arrow-left' | 'arrow-up-right' | 'chevron-down' | 'close' | 'check' | 'timer' | 'power' | 'lock' | 'dots' | 'home' | 'drop' | 'sun' | 'flag' | 'refresh' | 'mic' | 'arrow-up' | 'copy' | 'volume' | 'volume-off' | 'expand';
+export type IconName = 'play' | 'pause' | 'stop' | 'rec' | 'plus' | 'minus' | 'arrow-right' | 'arrow-left' | 'arrow-up-right' | 'chevron-down' | 'chevron-right' | 'chevron-left' | 'arrow-down' | 'arrow-down-left' | 'menu' | 'search' | 'heart' | 'bookmark' | 'calendar' | 'folder' | 'card' | 'user' | 'sliders' | 'share' | 'chart' | 'bolt' | 'grid' | 'close' | 'check' | 'timer' | 'power' | 'lock' | 'dots' | 'home' | 'drop' | 'sun' | 'flag' | 'refresh' | 'mic' | 'arrow-up' | 'copy' | 'volume' | 'volume-off' | 'expand';
 
 export interface KeyButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   tone?: Tone; size?: 's' | 'm' | 'l' | 'xl'; shape?: 'square' | 'pill' | 'round';
@@ -38,9 +38,9 @@ export interface BarMeterProps { data: BarMeterDatum[]; active?: number; height?
 
 export interface ReadoutProps { value: React.ReactNode; unit?: string; label?: string; meta?: React.ReactNode; size?: 'hero' | 'display' | 'label'; live?: boolean; className?: string }
 
-export interface TileProps { title?: React.ReactNode; subtitle?: React.ReactNode; meta?: React.ReactNode; value?: React.ReactNode; tone?: Tone; height?: number; onClick?: () => void; children?: React.ReactNode; className?: string }
+export interface TileProps { title?: React.ReactNode; subtitle?: React.ReactNode; meta?: React.ReactNode; value?: React.ReactNode; caption?: React.ReactNode; icon?: IconName; anchor?: 'top' | 'bottom'; tone?: Tone; height?: number; onClick?: () => void; children?: React.ReactNode; className?: string }
 
-export interface StripProps { title?: React.ReactNode; value: React.ReactNode; tone?: Tone; children?: React.ReactNode; className?: string }
+export interface StripProps { title?: React.ReactNode; value: React.ReactNode; unit?: string; icon?: IconName; tone?: Tone; children?: React.ReactNode; className?: string }
 
 export interface ListRowProps { index?: React.ReactNode; icon?: IconName; title: React.ReactNode; detail?: React.ReactNode; value?: React.ReactNode; onClick?: () => void; className?: string }
 
@@ -102,7 +102,7 @@ export interface StackProps { direction?: 'column' | 'row'; gap?: number; align?
 
 export interface GridProps { columns?: number; gap?: number; style?: React.CSSProperties; children?: React.ReactNode; className?: string }
 
-export interface TextProps { variant?: 'display-xl' | 'title' | 'headline' | 'numeral-xl' | 'dot-hero' | 'dot-display' | 'body' | 'body-strong' | 'caption' | 'label' | 'readout'; sub?: React.ReactNode; muted?: boolean; as?: string; style?: React.CSSProperties; children?: React.ReactNode; className?: string }
+export interface TextProps { variant?: 'display-xl' | 'title' | 'headline' | 'lead' | 'numeral-xl' | 'dot-hero' | 'dot-display' | 'body' | 'body-strong' | 'caption' | 'label' | 'readout'; sub?: React.ReactNode; muted?: boolean; as?: string; style?: React.CSSProperties; children?: React.ReactNode; className?: string }
 
 export interface DotLoaderProps { variant?: 'row' | 'grid'; label?: string; className?: string }
 
@@ -224,4 +224,12 @@ export interface BeamProps { active?: boolean; tone?: 'klein' | 'rams' | 'sol' |
 
 export interface AuraProps { status?: 'online' | 'available' | 'live' | 'away' | 'busy' | 'ai' | 'offline'; tone?: 'verde' | 'rec' | 'sol' | 'rams' | 'klein'; active?: boolean; shape?: 'round' | 'rect'; label?: string; style?: React.CSSProperties; children?: React.ReactNode; className?: string }
 export interface FlapBoardProps { rows: { id?: string | number; time?: string; text?: string; status?: string; tone?: 'sol' | 'rams' | 'verde' | 'rec'; [k: string]: unknown }[]; columns?: { key: string; label: string; length: number }[]; title?: string; meta?: string; size?: 's' | 'm' | 'l'; label?: string; className?: string }
+
+export type ShapeName = 'disc' | 'ring' | 'half' | 'quarter' | 'arch' | 'pill' | 'arrow' | 'cross' | 'steps' | 'slash' | 'cloud';
+export interface ShapeProps { name: ShapeName; size?: number; tone?: 'ink' | 'paper' | 'klein' | 'rams' | 'sol' | 'verde' | 'tabaco' | 'rec'; soft?: boolean; rotate?: number; label?: string; className?: string }
+export interface RulerProps { value?: number; defaultValue?: number; onChange?: (v: number) => void; min?: number; max?: number; step?: number; major?: number; pitch?: number; format?: (v: number) => string; unit?: string; tone?: 'rams' | 'klein' | 'ink'; label?: string; className?: string }
+export interface OnboardingSlide { title: React.ReactNode; text?: React.ReactNode; eyebrow?: React.ReactNode; tone?: Tone; artTone?: Tone; art?: React.ReactNode }
+export interface OnboardingProps { slides: OnboardingSlide[]; value?: number; defaultValue?: number; onChange?: (i: number) => void; onDone?: () => void; onSkip?: () => void; nextLabel?: string; backLabel?: string; skipLabel?: string; doneLabel?: string; label?: string; className?: string }
+export interface ArticleProps { title: React.ReactNode; date?: React.ReactNode; category?: React.ReactNode; href?: string; onClick?: () => void; tone?: Tone; children?: React.ReactNode; className?: string }
+export interface CapsuleProps { title: React.ReactNode; text?: React.ReactNode; eyebrow?: React.ReactNode; actions?: React.ReactNode; tone?: Tone; level?: 1 | 2; as?: string; children?: React.ReactNode; className?: string }
 

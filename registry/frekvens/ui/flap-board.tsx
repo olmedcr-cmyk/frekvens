@@ -73,3 +73,4 @@ export function FlapBoard(p?: any): any {
     </div>
   )
 }
+/* ---------- Shape: forma geométrica plana (arte de tile, póster, portada) ---------- */

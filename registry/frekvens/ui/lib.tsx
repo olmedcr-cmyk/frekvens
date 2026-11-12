@@ -156,6 +156,246 @@ export var ICONS: any = {
       },
     ],
   ],
+  "chevron-right": [
+    [
+      "path",
+      {
+        d: "M9 6l6 6-6 6",
+      },
+    ],
+  ],
+  "chevron-left": [
+    [
+      "path",
+      {
+        d: "M15 6l-6 6 6 6",
+      },
+    ],
+  ],
+  "arrow-down": [
+    [
+      "path",
+      {
+        d: "M12 4v15M6 13l6 6 6-6",
+      },
+    ],
+  ],
+  "arrow-down-left": [
+    [
+      "path",
+      {
+        d: "M17 7 7 17M15 17H7V9",
+      },
+    ],
+  ],
+  menu: [
+    [
+      "path",
+      {
+        d: "M4 8h16M4 16h16",
+      },
+    ],
+  ],
+  search: [
+    [
+      "circle",
+      {
+        cx: 11,
+        cy: 11,
+        r: 6.5,
+      },
+    ],
+    [
+      "path",
+      {
+        d: "M16 16l4.5 4.5",
+      },
+    ],
+  ],
+  heart: [
+    [
+      "path",
+      {
+        d: "M12 20 4.5 12.5a4.6 4.6 0 0 1 6.5-6.5l1 1 1-1a4.6 4.6 0 0 1 6.5 6.5z",
+      },
+    ],
+  ],
+  bookmark: [
+    [
+      "path",
+      {
+        d: "M6.5 4h11v16.5L12 16l-5.5 4.5z",
+      },
+    ],
+  ],
+  calendar: [
+    [
+      "rect",
+      {
+        x: 4,
+        y: 5.5,
+        width: 16,
+        height: 14.5,
+      },
+    ],
+    [
+      "path",
+      {
+        d: "M4 10h16M8 3v4M16 3v4",
+      },
+    ],
+  ],
+  folder: [
+    [
+      "path",
+      {
+        d: "M3.5 6h6l2 2.5h9V19h-17z",
+      },
+    ],
+  ],
+  card: [
+    [
+      "rect",
+      {
+        x: 3,
+        y: 5.5,
+        width: 18,
+        height: 13,
+      },
+    ],
+    [
+      "path",
+      {
+        d: "M3 10h18M6.5 15h4",
+      },
+    ],
+  ],
+  user: [
+    [
+      "circle",
+      {
+        cx: 12,
+        cy: 8,
+        r: 4,
+      },
+    ],
+    [
+      "path",
+      {
+        d: "M4.5 20.5a7.5 7.5 0 0 1 15 0",
+      },
+    ],
+  ],
+  sliders: [
+    [
+      "path",
+      {
+        d: "M4 8h9M17 8h3M4 16h3M11 16h9",
+      },
+    ],
+    [
+      "circle",
+      {
+        cx: 15,
+        cy: 8,
+        r: 2,
+      },
+    ],
+    [
+      "circle",
+      {
+        cx: 9,
+        cy: 16,
+        r: 2,
+      },
+    ],
+  ],
+  share: [
+    [
+      "circle",
+      {
+        cx: 6,
+        cy: 12,
+        r: 2.5,
+      },
+    ],
+    [
+      "circle",
+      {
+        cx: 17.5,
+        cy: 6,
+        r: 2.5,
+      },
+    ],
+    [
+      "circle",
+      {
+        cx: 17.5,
+        cy: 18,
+        r: 2.5,
+      },
+    ],
+    [
+      "path",
+      {
+        d: "M8.2 10.8 15.3 7.2M8.2 13.2l7.1 3.6",
+      },
+    ],
+  ],
+  chart: [
+    [
+      "path",
+      {
+        d: "M5 20V11M12 20V4M19 20v-6",
+      },
+    ],
+  ],
+  bolt: [
+    [
+      "path",
+      {
+        d: "M13 3 5.5 13.5H12L11 21l7.5-10.5H12z",
+      },
+    ],
+  ],
+  grid: [
+    [
+      "rect",
+      {
+        x: 4,
+        y: 4,
+        width: 6.5,
+        height: 6.5,
+      },
+    ],
+    [
+      "rect",
+      {
+        x: 13.5,
+        y: 4,
+        width: 6.5,
+        height: 6.5,
+      },
+    ],
+    [
+      "rect",
+      {
+        x: 4,
+        y: 13.5,
+        width: 6.5,
+        height: 6.5,
+      },
+    ],
+    [
+      "rect",
+      {
+        x: 13.5,
+        y: 13.5,
+        width: 6.5,
+        height: 6.5,
+      },
+    ],
+  ],
   close: [
     [
       "path",
@@ -737,6 +977,7 @@ export var TEXT_TAG: any = {
   "numeral-xl": "div",
   "dot-hero": "div",
   "dot-display": "div",
+  lead: "p",
   body: "p",
   "body-strong": "p",
   caption: "p",
@@ -1182,4 +1423,136 @@ export var AURA: any = {
   away: "sol",
   busy: "rams",
   ai: "klein",
+}
+export var SHAPES: any = {
+  disc: [
+    [
+      "circle",
+      {
+        cx: 50,
+        cy: 50,
+        r: 50,
+      },
+    ],
+  ],
+  ring: [
+    [
+      "path",
+      {
+        fillRule: "evenodd",
+        d: "M50 0a50 50 0 1 0 0 100A50 50 0 0 0 50 0zm0 30a20 20 0 1 1 0 40 20 20 0 0 1 0-40z",
+      },
+    ],
+  ],
+  half: [
+    [
+      "path",
+      {
+        d: "M0 75a50 50 0 0 1 100 0z",
+      },
+    ],
+  ],
+  quarter: [
+    [
+      "path",
+      {
+        d: "M0 100A100 100 0 0 1 100 0v100z",
+      },
+    ],
+  ],
+  arch: [
+    [
+      "path",
+      {
+        d: "M0 100V50a50 50 0 0 1 100 0v50H68V50a18 18 0 0 0-36 0v50z",
+      },
+    ],
+  ],
+  pill: [
+    [
+      "rect",
+      {
+        x: 0,
+        y: 25,
+        width: 100,
+        height: 50,
+        rx: 25,
+      },
+    ],
+  ],
+  arrow: [
+    [
+      "path",
+      {
+        d: "M0 39h60L38 14h27l35 36-35 36H38l22-25H0z",
+      },
+    ],
+  ],
+  cross: [
+    [
+      "path",
+      {
+        d: "M35 0h30v35h35v30H65v35H35V65H0V35h35z",
+      },
+    ],
+  ],
+  steps: [
+    [
+      "path",
+      {
+        d: "M0 100V67h33V33h34V0h33v100z",
+      },
+    ],
+  ],
+  slash: [
+    [
+      "path",
+      {
+        d: "M45 6a44 44 0 0 0 0 88z",
+        transform: "rotate(20 50 50)",
+      },
+    ],
+    [
+      "path",
+      {
+        d: "M55 6a44 44 0 0 1 0 88z",
+        transform: "rotate(20 50 50)",
+      },
+    ],
+  ],
+  cloud: [
+    [
+      "circle",
+      {
+        cx: 28,
+        cy: 62,
+        r: 22,
+      },
+    ],
+    [
+      "circle",
+      {
+        cx: 54,
+        cy: 46,
+        r: 30,
+      },
+    ],
+    [
+      "circle",
+      {
+        cx: 78,
+        cy: 64,
+        r: 20,
+      },
+    ],
+    [
+      "rect",
+      {
+        x: 28,
+        y: 60,
+        width: 50,
+        height: 24,
+      },
+    ],
+  ],
 }

@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "article",
+ "type": "registry:ui",
+ "title": "Article",
+ "description": "Tarjeta de artículo partida en dos: arriba la fecha, la categoría y el titular; abajo un bloque de color con el arte. Para listas de novedades, entradas de blog o lanzamientos.",
+ "categories": [
+  "Superficies"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+  "https://frekvens-ui.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/article.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/article.tsx",
+   "content": "\"use client\"\n/* Frekvens · Article — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx } from \"./lib\"\n\nimport type { ArticleProps } from \"./types\"\nexport type { ArticleProps }\n\n/* ---------- Article: tarjeta partida, texto arriba y bloque de arte abajo ---------- */\nexport function Article(props: ArticleProps): React.ReactElement\nexport function Article(p?: any): any {\n  var Tag: any = p.href ? \"a\" : p.onClick ? \"button\" : \"article\"\n  return (\n    <Tag\n      href={p.href}\n      type={Tag === \"button\" ? \"button\" : undefined}\n      onClick={p.onClick}\n      className={cx(\"frk-article\", p.className)}\n    >\n      <span className=\"frk-article__body\">\n        {p.date || p.category ? (\n          <span className=\"frk-article__meta\">\n            <span>{p.date}</span>\n            <span>{p.category}</span>\n          </span>\n        ) : null}\n        <span className=\"frk-article__title\">{p.title}</span>\n        {Tag !== \"article\" ? (\n          <span className=\"frk-article__go\" aria-hidden={true}>\n            <Icon name=\"arrow-right\" size={18} />\n          </span>\n        ) : null}\n      </span>\n      <span className={cx(\"frk-article__art\", \"frk-tone--\" + (p.tone || \"ink\"))}>{p.children}</span>\n    </Tag>\n  )\n}\n\n/* ---------- Capsule: bloque en forma de estadio para abrir o cerrar una página ---------- */\n"
+  }
+ ],
+ "docs": "# Article\n\nTarjeta de artículo partida en dos: arriba la fecha, la categoría y el titular; abajo un bloque de color con el arte. Para listas de novedades, entradas de blog o lanzamientos.\n\n- **Props**: `title`, `date`, `category`, `href` (la convierte en enlace) u `onClick` (en botón), `tone` del bloque de arte (`ink` por defecto), `children` (el arte: `Shape`, `Keycap`, `DotMatrix`).\n- Toda la tarjeta es un solo destino: no metas otros botones dentro. La flecha solo aparece si lleva `href` u `onClick`.\n- En rejilla, dos o tres por fila con `space-2` de junta; cambia el `tone` del arte entre vecinas, no el del texto.\n"
+}
