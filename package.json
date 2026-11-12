@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "registry:build": "shadcn build",
+    "registry:build": "npx shadcn@latest build",
     "test": "tsc -p tsconfig.registry.json && node test/smoke.mjs && node test/registry.mjs",
     "test:a11y": "node test/a11y.mjs",
     "thumbs": "node generator/thumbs.mjs"
@@ -25,10 +25,12 @@
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
     "axe-core": "4.10.2",
-    "esbuild": "0.24.0",
-    "playwright": "1.49.1",
-    "shadcn": "2.3.0",
+    "esbuild": "0.28.2",
+    "playwright": "1.65.0",
     "tailwindcss": "4.0.17",
     "typescript": "5.7.2"
+  },
+  "overrides": {
+    "postcss": "8.5.32"
   }
 }
