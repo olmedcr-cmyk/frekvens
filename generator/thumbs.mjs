@@ -34,7 +34,7 @@ for (const c of [...catalog, ...apps]) {
   try {
     await p.setViewportSize({ width: W, height: 800 })
     await p.goto(`http://localhost:${port}/preview/${c.name}.html`, { waitUntil: 'load', timeout: 20000 })
-    await p.evaluate(() => { document.documentElement.setAttribute('data-theme', 'light'); document.documentElement.style.background = '#fff'; document.body.style.background = '#fff' })
+    await p.evaluate(() => { document.documentElement.setAttribute('data-theme', 'blanco'); document.documentElement.style.background = '#fff'; document.body.style.background = '#fff' })
     await Promise.race([p.evaluate(() => document.fonts.ready), p.waitForTimeout(4000)])
     await p.waitForTimeout(1000)
     const h = Math.min(MH, Math.ceil(await p.evaluate(() => { let h = document.body.getBoundingClientRect().height; const root = document.getElementById('root'); const pad = (root && parseFloat(getComputedStyle(root).paddingBottom)) || 0; for (const el of document.querySelectorAll('#root *')) { const r = el.getBoundingClientRect(); if (r.width && r.height && r.bottom + pad > h) h = r.bottom + pad } return h })))

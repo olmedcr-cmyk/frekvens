@@ -35,6 +35,9 @@ const tw = [
   ...t.duration.tokens.filter((k) => k.name.startsWith('dur-')).map((k) => `  --duration-${k.name.replace('dur-', '')}: var(--${k.name});`),
   ...t.shadow.tokens.map((k) => `  --shadow-${k.name.replace('shadow-', '')}: var(--${k.name});`),
 ].join('\n');
+// Temas extra (además de light y dark): solo sobrescriben los tokens que definen; el resto hereda del claro.
+const extraThemes = t.color.themes.filter((th) => th.id !== 'light' && th.id !== 'dark').map((th) => `[data-theme="${th.id}"] {\n  color-scheme: ${th.scheme || 'light'};\n${t.color.tokens.filter((k) => typeof k.value !== 'string' && k.value[th.id]).map((k) => `  --${k.name}: ${cv(k.value[th.id])};`).join('\n')}\n}\n`).join('');
+const themeIds = t.color.themes.map((th) => `'${th.id}'`).join(' | ');
 const tokensCss = `/* Frekvens — tokens. Generado desde tokens.json. */
 :root, [data-theme="light"] {
   color-scheme: light;
@@ -44,7 +47,7 @@ ${themeVars('light')}
   color-scheme: dark;
 ${themeVars('dark')}
 }
-:root {
+${extraThemes}:root {
 ${staticVars}
 }
 `;
@@ -63,7 +66,9 @@ const allCss = `${fontsCss}@import "./tokens.css";\n@import "./components.css";\
 
 // 3. Estructura del repo
 const R = (p) => path.join(REPO, p);
-for (const f of fs.existsSync(REPO) ? fs.readdirSync(REPO) : []) if (!['node_modules', '.git', '.next', '.vercel', 'generator', 'CLAUDE.md', 'HANDOFF.md', 'package-lock.json'].includes(f)) fs.rmSync(path.join(REPO, f), { recursive: true, force: true });
+// De lo oculto solo se limpia lo que este script escribe: .git, .vercel, .claude, .vscode, .env… no son suyos.
+const OWN_DOTFILES = ['.gitignore', '.github'];
+for (const f of fs.existsSync(REPO) ? fs.readdirSync(REPO) : []) if (!['node_modules', 'generator', 'CLAUDE.md', 'AGENTS.md', 'HANDOFF.md', 'package-lock.json'].includes(f) && (!f.startsWith('.') || OWN_DOTFILES.includes(f))) fs.rmSync(path.join(REPO, f), { recursive: true, force: true });
 for (const f of fs.readdirSync(SRC)) if (f.endsWith('.tsx') || f.endsWith('.ts')) write(R(`registry/frekvens/ui/${f}`), read(path.join(SRC, f)));
 write(R('registry/frekvens/ui/frekvens.css'), allCss);
 write(R('registry/frekvens/ui/tokens.css'), tokensCss);
@@ -72,7 +77,8 @@ write(R('registry/frekvens/ui/tailwind.css'), twTheme);
 write(R('registry/frekvens/ui/fonts.css'), fontsCss);
 write(R('registry/frekvens/lib/theme.ts'), `/** Pone el tema en <html>. 'auto' sigue al sistema y escucha sus cambios. */
 let mq: MediaQueryList | null = null, fn: (() => void) | null = null
-export function applyTheme(mode: 'light' | 'dark' | 'auto', root: HTMLElement = document.documentElement) {
+export type FrekvensTheme = ${themeIds}
+export function applyTheme(mode: FrekvensTheme | 'auto', root: HTMLElement = document.documentElement) {
   if (typeof document === 'undefined') return
   if (mq && fn) { mq.removeEventListener('change', fn); mq = null; fn = null }
   if (mode === 'auto') {
@@ -80,7 +86,7 @@ export function applyTheme(mode: 'light' | 'dark' | 'auto', root: HTMLElement = 
     fn = () => root.setAttribute('data-theme', mq!.matches ? 'dark' : 'light')
     fn(); mq.addEventListener('change', fn); return
   }
-  root.setAttribute('data-theme', mode === 'dark' ? 'dark' : 'light')
+  root.setAttribute('data-theme', mode)
 }
 `);
 write(R('registry/frekvens/ui/index.ts'), names.map((n) => `export * from "./${kebab(n)}"`).join('\n') + '\nexport type * from "./types"\nexport { parseLang } from "./lib"\nexport { applyTheme } from "../lib/theme"\n');
@@ -103,7 +109,7 @@ const docOf = (n) => { const p = path.join(PRJ, 'components', n, 'README.md'); r
 const firstLine = (md) => (md.split('\n').find((l) => l && !l.startsWith('#')) || '').replace(/`/g, '').slice(0, 200);
 const groupOf = (n) => { const p = path.join(PRJ, 'components', n, 'preview.html'); if (!fs.existsSync(p)) return 'Otros'; const m = /group="([^"]+)"/.exec(read(p)); return m ? m[1] : 'Otros'; };
 const items = [];
-const cssItem = { name: 'frekvens-styles', type: 'registry:style', title: 'Estilos de Frekvens', description: 'Tokens (claro/oscuro), componentes en @layer y tema para Tailwind v4.', files: ['frekvens.css', 'tokens.css', 'components.css', 'tailwind.css', 'fonts.css'].map((f) => ({ path: `registry/frekvens/ui/${f}`, type: 'registry:file', target: `~/styles/frekvens/${f}` })), docs: 'Importa styles/frekvens/frekvens.css (o tailwind.css si usas Tailwind v4) en tu CSS global y pon data-theme en <html>.' };
+const cssItem = { name: 'frekvens-styles', type: 'registry:style', title: 'Estilos de Frekvens', description: 'Tokens (temas Papel, Carbón y Blanco), componentes en @layer y tema para Tailwind v4.', files: ['frekvens.css', 'tokens.css', 'components.css', 'tailwind.css', 'fonts.css'].map((f) => ({ path: `registry/frekvens/ui/${f}`, type: 'registry:file', target: `~/styles/frekvens/${f}` })), docs: 'Importa styles/frekvens/frekvens.css (o tailwind.css si usas Tailwind v4) en tu CSS global y pon data-theme en <html>.' };
 const libItem = { name: 'frekvens-lib', type: 'registry:lib', title: 'Frekvens · utilidades', description: 'cx, useValue, useFollow (muelle con impulso), iconos, parseLang y lo que comparten los componentes.', registryDependencies: [`${HOME}/r/frekvens-styles.json`], files: [{ path: 'registry/frekvens/ui/lib.tsx', type: 'registry:lib', target: '~/components/frekvens/lib.tsx' }, { path: 'registry/frekvens/ui/types.ts', type: 'registry:lib', target: '~/components/frekvens/types.ts' }, { path: 'registry/frekvens/lib/theme.ts', type: 'registry:lib', target: '~/components/frekvens/theme.ts' }] };
 items.push(cssItem, libItem);
 for (const n of names) {
@@ -174,5 +180,42 @@ const THUMBS = path.join(path.dirname(new URL(import.meta.url).pathname), 'thumb
 const thumbs = fs.existsSync(path.join(THUMBS, 'manifest.json')) ? JSON.parse(read(path.join(THUMBS, 'manifest.json'))) : {};
 for (const slug of Object.keys(thumbs)) { const src = path.join(THUMBS, `${slug}.jpg`); if (fs.existsSync(src)) { fs.mkdirSync(R('public/thumbs'), { recursive: true }); fs.copyFileSync(src, R(`public/thumbs/${slug}.jpg`)); } }
 write(R('app/thumbs.json'), JSON.stringify(thumbs) + '\n');
-write(R('app/catalog.json'), JSON.stringify(names.map((n) => ({ name: n, slug: kebab(n), group: groupOf(n), description: firstLine(docOf(n)), deps: manifest[n].deps.map((d) => ({ name: d, slug: kebab(d) })), doc: docOf(n), thumb: thumbs[kebab(n)] || null })), null, 1));
+// Props de cada componente, leídas de index.d.ts: la ficha y la guía para agentes salen de los tipos, no de prosa.
+const dts = read(path.join(PRJ, 'components/index.d.ts'));
+const propsOf = (n) => {
+  const m = new RegExp(`export interface ${n}Props[^{]*\\{`).exec(dts); if (!m) return { props: [], ext: null };
+  let i = m.index + m[0].length, depth = 1, body = '';
+  while (i < dts.length) { const ch = dts[i++]; if (ch === '{') depth++; else if (ch === '}') { depth--; if (!depth) break; } body += ch; }
+  const parts = []; let cur = '', d = 0;
+  for (const ch of body) { if ('{(['.includes(ch)) d++; else if ('})]'.includes(ch)) d--; if ((ch === ';' || ch === '\n') && d === 0) { parts.push(cur); cur = ''; } else cur += ch; }
+  parts.push(cur);
+  const ext = /extends\s+([^{]+?)\s*\{$/.exec(m[0]);
+  return { ext: ext ? ext[1] : null, props: parts.map((s) => /^\s*([A-Za-z_$][\w$]*|'[^']+')(\?)?\s*:\s*([\s\S]+?)\s*$/.exec(s)).filter(Boolean).map((r) => ({ name: r[1].replace(/'/g, ''), type: r[3].replace(/\s+/g, ' '), optional: !!r[2] })) };
+};
+// Guía para agentes: llms.txt (índice) y llms-full.txt (todo en un archivo), servidos por la web.
+const REPO_URL = 'https://github.com/olmedcr-cmyk/frekvens';
+const groupsInOrder = [...new Set(names.map(groupOf))];
+const bodyOf = (n) => docOf(n).split('\n').filter((l, i) => !(i === 0 && l.startsWith('# '))).join('\n').trim();
+const propLine = (p) => `- \`${p.name}${p.optional ? '?' : ''}\`: \`${p.type}\``;
+const llmsIntro = `# Frekvens
+
+> Componentes React para copiar y pegar, al estilo shadcn/ui: ${names.length} piezas grandes, de puntos y accesibles (WCAG 2.2 AA en los temas Papel, Carbón y Blanco). El código se copia al proyecto con \`npx shadcn@latest add\` y pasa a ser del proyecto. MIT.
+
+Instalar una pieza: \`npx shadcn@latest add ${HOME}/r/<nombre>.json\` (crea \`components/frekvens/<nombre>.tsx\` y \`styles/frekvens/*.css\`). Todo de una vez: \`${HOME}/r/frekvens.json\`. Después importa \`styles/frekvens/tailwind.css\` y \`components.css\` en el CSS global y pon \`data-theme\` (\`light\`, \`blanco\` o \`dark\`) en \`<html>\`.
+
+Reglas al usarlas: una sola acción \`klein\` por pantalla; no añadas clases Tailwind a las piezas (el estilo vive en \`components.css\`); conecta \`value\`/\`onChange\` al estado real; textos en español, verbo primero; respeta movimiento reducido.
+`;
+write(R('public/llms.txt'), llmsIntro + `
+## Guías
+
+- [Todo en un archivo](${HOME}/llms-full.txt): cada componente con sus props y su uso
+- [Registro](${HOME}/r/registry.json): índice legible por máquina de los ${names.length} componentes
+- [Esquema para UI generada](${HOME}/frekvens.schema.json): JSON Schema de lo que pinta \`Render\`
+- [Cómo trabaja un agente con Frekvens](${REPO_URL}/blob/main/docs/agentes.md)
+- [Composición](${REPO_URL}/blob/main/docs/composicion.md), [movimiento](${REPO_URL}/blob/main/docs/movimiento.md), [tipografía](${REPO_URL}/blob/main/docs/tipografia.md) y [calidad](${REPO_URL}/blob/main/docs/calidad.md)
+
+${groupsInOrder.map((g) => `## ${g}\n\n${names.filter((n) => groupOf(n) === g).map((n) => `- [${n}](${HOME}/r/${kebab(n)}.json): ${firstLine(docOf(n))}`).join('\n')}`).join('\n\n')}
+`);
+write(R('public/llms-full.txt'), llmsIntro + '\n' + groupsInOrder.map((g) => names.filter((n) => groupOf(n) === g).map((n) => { const pr = propsOf(n); return `## ${n}\n\nGrupo: ${g}. Instalar: \`npx shadcn@latest add ${HOME}/r/${kebab(n)}.json\`${manifest[n].deps.length ? `. Trae también: ${manifest[n].deps.join(', ')}` : ''}.\n\n${bodyOf(n)}\n\n### Props (de los tipos)\n\n${pr.ext ? `Extiende \`${pr.ext}\`.\n\n` : ''}${pr.props.map(propLine).join('\n') || 'Sin props propias.'}`; }).join('\n\n')).join('\n\n') + '\n');
+write(R('app/catalog.json'), JSON.stringify(names.map((n) => ({ name: n, slug: kebab(n), group: groupOf(n), description: firstLine(docOf(n)), deps: manifest[n].deps.map((d) => ({ name: d, slug: kebab(d) })), doc: docOf(n), thumb: thumbs[kebab(n)] || null, props: propsOf(n).props, extends: propsOf(n).ext })), null, 1));
 console.log('repo en', REPO, '·', names.length, 'componentes ·', items.length, 'items en el registry');

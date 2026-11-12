@@ -14,7 +14,55 @@
   "thumb": [
    480,
    416
-  ]
+  ],
+  "props": [
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "'s' | 'm' | 'l' | 'xl'",
+    "optional": true
+   },
+   {
+    "name": "shape",
+    "type": "'square' | 'pill' | 'round'",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "icon",
+    "type": "IconName",
+    "optional": true
+   },
+   {
+    "name": "active",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "toggle",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "block",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   }
+  ],
+  "extends": "React.ButtonHTMLAttributes<HTMLButtonElement>"
  },
  {
   "name": "Keypad",
@@ -31,7 +79,35 @@
   "thumb": [
    480,
    240
-  ]
+  ],
+  "props": [
+   {
+    "name": "keys",
+    "type": "KeypadKey[]",
+    "optional": false
+   },
+   {
+    "name": "columns",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number | string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "HoldButton",
@@ -48,7 +124,60 @@
   "thumb": [
    480,
    176
-  ]
+  ],
+  "props": [
+   {
+    "name": "onComplete",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "duration",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "icon",
+    "type": "IconName",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "doneLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "disabled",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "SlideToStart",
@@ -65,7 +194,50 @@
   "thumb": [
    480,
    212
-  ]
+  ],
+  "props": [
+   {
+    "name": "onComplete",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "doneLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "icon",
+    "type": "IconName",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "resetAfter",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Rocker",
@@ -86,7 +258,25 @@
   "thumb": [
    480,
    182
-  ]
+  ],
+  "props": [
+   {
+    "name": "items",
+    "type": "RockerItem[]",
+    "optional": false
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Icon",
@@ -98,7 +288,35 @@
   "thumb": [
    480,
    472
-  ]
+  ],
+  "props": [
+   {
+    "name": "name",
+    "type": "IconName",
+    "optional": false
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "title",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "strokeWidth",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Dial",
@@ -110,7 +328,55 @@
   "thumb": [
    480,
    420
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: number) => void",
+    "optional": true
+   },
+   {
+    "name": "min",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "max",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'ink' | 'klein' | 'tabaco'",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Gauge",
@@ -122,7 +388,50 @@
   "thumb": [
    480,
    295
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "number",
+    "optional": false
+   },
+   {
+    "name": "width",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "thickness",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "readout",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Slider",
@@ -134,7 +443,60 @@
   "thumb": [
    480,
    160
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: number) => void",
+    "optional": true
+   },
+   {
+    "name": "min",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "max",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "step",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "stops",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "format",
+    "type": "(v: number) => string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Switch",
@@ -146,7 +508,55 @@
   "thumb": [
    480,
    328
-  ]
+  ],
+  "props": [
+   {
+    "name": "showLabel",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "checked",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "defaultChecked",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(on: boolean) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onText",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "offText",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "disabled",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Segmented",
@@ -163,7 +573,40 @@
   "thumb": [
    480,
    184
-  ]
+  ],
+  "props": [
+   {
+    "name": "options",
+    "type": "(string | SegmentedOption)[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "string | null",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: string) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Stepper",
@@ -180,7 +623,55 @@
   "thumb": [
    480,
    224
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: number) => void",
+    "optional": true
+   },
+   {
+    "name": "min",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "max",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "step",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Wheel",
@@ -192,7 +683,60 @@
   "thumb": [
    480,
    1000
-  ]
+  ],
+  "props": [
+   {
+    "name": "items",
+    "type": "(string | { value: string; label: React.ReactNode })[]",
+    "optional": true
+   },
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: string) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "visible",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "rowHeight",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "width",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "VolumeWheel",
@@ -204,7 +748,60 @@
   "thumb": [
    480,
    320
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: number) => void",
+    "optional": true
+   },
+   {
+    "name": "step",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "segments",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'rams' | 'klein' | 'ink'",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "unitLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Checkbox",
@@ -221,7 +818,60 @@
   "thumb": [
    480,
    204
-  ]
+  ],
+  "props": [
+   {
+    "name": "label",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "ariaLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "hint",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "checked",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "defaultChecked",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(on: boolean) => void",
+    "optional": true
+   },
+   {
+    "name": "indeterminate",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "disabled",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "RadioGroup",
@@ -233,7 +883,45 @@
   "thumb": [
    480,
    238
-  ]
+  ],
+  "props": [
+   {
+    "name": "options",
+    "type": "(string | RadioOption)[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: string) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "direction",
+    "type": "'column' | 'row'",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Select",
@@ -250,7 +938,65 @@
   "thumb": [
    480,
    346
-  ]
+  ],
+  "props": [
+   {
+    "name": "options",
+    "type": "(string | SelectOption)[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: string) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "placeholder",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "hint",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "disabled",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "block",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "defaultOpen",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Menu",
@@ -267,7 +1013,45 @@
   "thumb": [
    480,
    337
-  ]
+  ],
+  "props": [
+   {
+    "name": "items",
+    "type": "MenuItem[]",
+    "optional": false
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "icon",
+    "type": "IconName",
+    "optional": true
+   },
+   {
+    "name": "align",
+    "type": "'start' | 'end'",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "defaultOpen",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Tabs",
@@ -284,7 +1068,45 @@
   "thumb": [
    480,
    254
-  ]
+  ],
+  "props": [
+   {
+    "name": "tabs",
+    "type": "TabItem[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(id: string) => void",
+    "optional": true
+   },
+   {
+    "name": "variant",
+    "type": "'pill' | 'folder'",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "TextField",
@@ -301,7 +1123,40 @@
   "thumb": [
    480,
    382
-  ]
+  ],
+  "props": [
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "hint",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "error",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onSubmit",
+    "type": "(value: string) => void",
+    "optional": true
+   },
+   {
+    "name": "submitLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "mono",
+    "type": "boolean",
+    "optional": true
+   }
+  ],
+  "extends": "Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onSubmit'>"
  },
  {
   "name": "Calendar",
@@ -318,7 +1173,50 @@
   "thumb": [
    480,
    688
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(iso: string) => void",
+    "optional": true
+   },
+   {
+    "name": "view",
+    "type": "'week' | 'month'",
+    "optional": true
+   },
+   {
+    "name": "switchable",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "marks",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "today",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Sheet",
@@ -335,7 +1233,45 @@
   "thumb": [
    480,
    576
-  ]
+  ],
+  "props": [
+   {
+    "name": "open",
+    "type": "boolean",
+    "optional": false
+   },
+   {
+    "name": "onClose",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "title",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "inline",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Toast",
@@ -352,7 +1288,50 @@
   "thumb": [
    480,
    240
-  ]
+  ],
+  "props": [
+   {
+    "name": "open",
+    "type": "boolean",
+    "optional": false
+   },
+   {
+    "name": "onClose",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "duration",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "icon",
+    "type": "IconName",
+    "optional": true
+   },
+   {
+    "name": "action",
+    "type": "{ label: string; onClick: () => void }",
+    "optional": true
+   },
+   {
+    "name": "fixed",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Banner",
@@ -369,7 +1348,50 @@
   "thumb": [
    480,
    380
-  ]
+  ],
+  "props": [
+   {
+    "name": "tone",
+    "type": "'info' | 'ok' | 'warn' | 'error'",
+    "optional": true
+   },
+   {
+    "name": "title",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "icon",
+    "type": "IconName",
+    "optional": true
+   },
+   {
+    "name": "action",
+    "type": "{ label: string; onClick?: () => void }",
+    "optional": true
+   },
+   {
+    "name": "dismissible",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "onDismiss",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Tooltip",
@@ -381,7 +1403,30 @@
   "thumb": [
    480,
    160
-  ]
+  ],
+  "props": [
+   {
+    "name": "content",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "side",
+    "type": "'top' | 'bottom'",
+    "optional": true
+   },
+   {
+    "name": "delay",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactElement",
+    "optional": false
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Timer",
@@ -398,7 +1443,50 @@
   "thumb": [
    480,
    780
-  ]
+  ],
+  "props": [
+   {
+    "name": "duration",
+    "type": "number",
+    "optional": false
+   },
+   {
+    "name": "autoStart",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "onComplete",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "doneText",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "dots",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Stopwatch",
@@ -419,7 +1507,35 @@
   "thumb": [
    480,
    253
-  ]
+  ],
+  "props": [
+   {
+    "name": "autoStart",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "onLap",
+    "type": "(ms: number) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "'display' | 'hero'",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Hourglass",
@@ -431,7 +1547,40 @@
   "thumb": [
    480,
    329
-  ]
+  ],
+  "props": [
+   {
+    "name": "duration",
+    "type": "number",
+    "optional": false
+   },
+   {
+    "name": "autoStart",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "onComplete",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "pitch",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Pendulum",
@@ -452,7 +1601,45 @@
   "thumb": [
    480,
    388
-  ]
+  ],
+  "props": [
+   {
+    "name": "bpm",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "defaultBpm",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onBpmChange",
+    "type": "(bpm: number) => void",
+    "optional": true
+   },
+   {
+    "name": "beats",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "step",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "running",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "MediaPlayer",
@@ -477,7 +1664,85 @@
   "thumb": [
    480,
    290
-  ]
+  ],
+  "props": [
+   {
+    "name": "src",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "poster",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "title",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "badge",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "chapters",
+    "type": "number[]",
+    "optional": true
+   },
+   {
+    "name": "captions",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "captionsLang",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "captionsOn",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "ratio",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "autoPlay",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "loop",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "muted",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "duration",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "AudioTrack",
@@ -498,7 +1763,70 @@
   "thumb": [
    480,
    240
-  ]
+  ],
+  "props": [
+   {
+    "name": "src",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "title",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "peaks",
+    "type": "number[]",
+    "optional": true
+   },
+   {
+    "name": "bars",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "seed",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "rate",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "speed",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "duration",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "autoPlay",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "loop",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Ticker",
@@ -515,7 +1843,35 @@
   "thumb": [
    480,
    160
-  ]
+  ],
+  "props": [
+   {
+    "name": "items",
+    "type": "(string | TickerItem)[]",
+    "optional": false
+   },
+   {
+    "name": "speed",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "SplitFlap",
@@ -527,7 +1883,50 @@
   "thumb": [
    480,
    237
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "length",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "'s' | 'm' | 'l'",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'sol' | 'rams' | 'verde' | 'rec'",
+    "optional": true
+   },
+   {
+    "name": "cycle",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "interval",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "speed",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "DotMatrix",
@@ -539,7 +1938,65 @@
   "thumb": [
    480,
    521
-  ]
+  ],
+  "props": [
+   {
+    "name": "shape",
+    "type": "'sun' | 'cloud' | 'drop' | 'ring' | 'disc' | 'heart'",
+    "optional": true
+   },
+   {
+    "name": "grid",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "reactive",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "text",
+    "type": "string | number",
+    "optional": true
+   },
+   {
+    "name": "rows",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "dot",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "pitch",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "showOff",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'ink' | 'klein' | 'rams' | 'tabaco' | 'paper'",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "DotGrid",
@@ -551,7 +2008,100 @@
   "thumb": [
    480,
    660
-  ]
+  ],
+  "props": [
+   {
+    "name": "total",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "filled",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "columns",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "gap",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'rams' | 'ink' | 'klein' | 'sol' | 'verde'",
+    "optional": true
+   },
+   {
+    "name": "select",
+    "type": "'one' | 'many'",
+    "optional": true
+   },
+   {
+    "name": "value",
+    "type": "number | number[] | null",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "number | number[] | null",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: number | number[] | null) => void",
+    "optional": true
+   },
+   {
+    "name": "disabled",
+    "type": "number[]",
+    "optional": true
+   },
+   {
+    "name": "labels",
+    "type": "(string | number)[]",
+    "optional": true
+   },
+   {
+    "name": "showLabels",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "max",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "deselect",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "string | false",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "StateMark",
@@ -563,7 +2113,40 @@
   "thumb": [
    480,
    180
-  ]
+  ],
+  "props": [
+   {
+    "name": "state",
+    "type": "'empty' | 'partial' | 'full'",
+    "optional": false
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "title",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Steps",
@@ -580,7 +2163,30 @@
   "thumb": [
    480,
    104
-  ]
+  ],
+  "props": [
+   {
+    "name": "steps",
+    "type": "string[]",
+    "optional": false
+   },
+   {
+    "name": "current",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Grille",
@@ -592,7 +2198,45 @@
   "thumb": [
    480,
    404
-  ]
+  ],
+  "props": [
+   {
+    "name": "variant",
+    "type": "'slots' | 'dots'",
+    "optional": true
+   },
+   {
+    "name": "shape",
+    "type": "'disc' | 'dome'",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "pitch",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'verde' | 'ink' | 'sol' | 'rams' | 'tabaco' | 'surface'",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "LED",
@@ -604,7 +2248,35 @@
   "thumb": [
    480,
    70
-  ]
+  ],
+  "props": [
+   {
+    "name": "tone",
+    "type": "'rec' | 'verde' | 'sol' | 'klein'",
+    "optional": true
+   },
+   {
+    "name": "on",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "blink",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "LevelBars",
@@ -616,7 +2288,35 @@
   "thumb": [
    480,
    120
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "number",
+    "optional": false
+   },
+   {
+    "name": "count",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "BarMeter",
@@ -628,7 +2328,40 @@
   "thumb": [
    480,
    232
-  ]
+  ],
+  "props": [
+   {
+    "name": "data",
+    "type": "BarMeterDatum[]",
+    "optional": false
+   },
+   {
+    "name": "active",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "barWidth",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "LineChart",
@@ -640,7 +2373,60 @@
   "thumb": [
    480,
    218
-  ]
+  ],
+  "props": [
+   {
+    "name": "data",
+    "type": "number[]",
+    "optional": false
+   },
+   {
+    "name": "labels",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "now",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'ink' | 'rams' | 'klein'",
+    "optional": true
+   },
+   {
+    "name": "width",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "ProgressRing",
@@ -652,7 +2438,45 @@
   "thumb": [
    480,
    152
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "number",
+    "optional": false
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "thickness",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'rams' | 'klein' | 'ink' | 'verde'",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Readout",
@@ -664,7 +2488,45 @@
   "thumb": [
    480,
    330
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "meta",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "'hero' | 'display' | 'label'",
+    "optional": true
+   },
+   {
+    "name": "live",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Tile",
@@ -676,7 +2538,55 @@
   "thumb": [
    480,
    290
-  ]
+  ],
+  "props": [
+   {
+    "name": "title",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "subtitle",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "meta",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "value",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onClick",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Strip",
@@ -688,7 +2598,35 @@
   "thumb": [
    480,
    415
-  ]
+  ],
+  "props": [
+   {
+    "name": "title",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "value",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "CardStack",
@@ -705,7 +2643,35 @@
   "thumb": [
    480,
    541
-  ]
+  ],
+  "props": [
+   {
+    "name": "items",
+    "type": "CardStackItem[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(i: number) => void",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Cabinet",
@@ -717,7 +2683,35 @@
   "thumb": [
    480,
    534
-  ]
+  ],
+  "props": [
+   {
+    "name": "drawers",
+    "type": "CabinetDrawer[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(i: number) => void",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Pager",
@@ -734,7 +2728,35 @@
   "thumb": [
    480,
    324
-  ]
+  ],
+  "props": [
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "itemWidth",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "gap",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Deck",
@@ -751,7 +2773,35 @@
   "thumb": [
    480,
    408
-  ]
+  ],
+  "props": [
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(i: number) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "ListRow",
@@ -768,7 +2818,45 @@
   "thumb": [
    480,
    360
-  ]
+  ],
+  "props": [
+   {
+    "name": "index",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "icon",
+    "type": "IconName",
+    "optional": true
+   },
+   {
+    "name": "title",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "detail",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "value",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "onClick",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Chip",
@@ -780,7 +2868,35 @@
   "thumb": [
    480,
    84
-  ]
+  ],
+  "props": [
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "dot",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "square",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Badge",
@@ -792,7 +2908,45 @@
   "thumb": [
    480,
    112
-  ]
+  ],
+  "props": [
+   {
+    "name": "count",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "max",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "dot",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Avatar",
@@ -804,7 +2958,40 @@
   "thumb": [
    480,
    112
-  ]
+  ],
+  "props": [
+   {
+    "name": "name",
+    "type": "string",
+    "optional": false
+   },
+   {
+    "name": "src",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "status",
+    "type": "'online' | 'live' | 'away' | 'busy' | 'offline'",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "TopBar",
@@ -825,7 +3012,50 @@
   "thumb": [
    480,
    368
-  ]
+  ],
+  "props": [
+   {
+    "name": "title",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "subtitle",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "onBack",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "backLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "actions",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "large",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "as",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "TabBar",
@@ -846,7 +3076,40 @@
   "thumb": [
    480,
    116
-  ]
+  ],
+  "props": [
+   {
+    "name": "items",
+    "type": "TabBarItem[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(id: string) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "EmptyState",
@@ -867,7 +3130,40 @@
   "thumb": [
    480,
    408
-  ]
+  ],
+  "props": [
+   {
+    "name": "title",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "text",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "action",
+    "type": "{ label: string; onClick?: () => void }",
+    "optional": true
+   },
+   {
+    "name": "shape",
+    "type": "'ring' | 'disc' | 'sun' | 'cloud' | 'drop' | 'heart'",
+    "optional": true
+   },
+   {
+    "name": "compact",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Skeleton",
@@ -879,7 +3175,40 @@
   "thumb": [
    480,
    296
-  ]
+  ],
+  "props": [
+   {
+    "name": "shape",
+    "type": "'text' | 'tile' | 'circle'",
+    "optional": true
+   },
+   {
+    "name": "lines",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "width",
+    "type": "number | string",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number | string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Message",
@@ -908,7 +3237,65 @@
   "thumb": [
    480,
    420
-  ]
+  ],
+  "props": [
+   {
+    "name": "role",
+    "type": "'user' | 'assistant' | 'system'",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "streaming",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "thinking",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "ui",
+    "type": "RenderSpec",
+    "optional": true
+   },
+   {
+    "name": "actions",
+    "type": "Record<string, (x?: unknown) => void>",
+    "optional": true
+   },
+   {
+    "name": "name",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "meta",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "onCopy",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "onRetry",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Composer",
@@ -937,7 +3324,75 @@
   "thumb": [
    480,
    260
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: string) => void",
+    "optional": true
+   },
+   {
+    "name": "onSend",
+    "type": "(text: string) => void",
+    "optional": true
+   },
+   {
+    "name": "placeholder",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "suggestions",
+    "type": "SuggestionsProps['items']",
+    "optional": true
+   },
+   {
+    "name": "voice",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "listening",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "onListen",
+    "type": "(on: boolean) => void",
+    "optional": true
+   },
+   {
+    "name": "level",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "listeningText",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "busy",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Suggestions",
@@ -954,7 +3409,30 @@
   "thumb": [
    480,
    100
-  ]
+  ],
+  "props": [
+   {
+    "name": "items",
+    "type": "(string | { label: string; value?: string; icon?: IconName })[]",
+    "optional": false
+   },
+   {
+    "name": "onPick",
+    "type": "(value: string) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "VoiceOrb",
@@ -966,7 +3444,50 @@
   "thumb": [
    480,
    440
-  ]
+  ],
+  "props": [
+   {
+    "name": "state",
+    "type": "'idle' | 'listening' | 'thinking' | 'speaking'",
+    "optional": true
+   },
+   {
+    "name": "level",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "grid",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'ink' | 'klein' | 'rams' | 'paper'",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "string | false",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "DotLoader",
@@ -978,7 +3499,25 @@
   "thumb": [
    480,
    85
-  ]
+  ],
+  "props": [
+   {
+    "name": "variant",
+    "type": "'row' | 'grid'",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "AgentWidget",
@@ -1023,7 +3562,90 @@
   "thumb": [
    480,
    1000
-  ]
+  ],
+  "props": [
+   {
+    "name": "name",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "state",
+    "type": "'idle' | 'listening' | 'thinking' | 'speaking'",
+    "optional": true
+   },
+   {
+    "name": "defaultState",
+    "type": "'idle' | 'listening' | 'thinking' | 'speaking'",
+    "optional": true
+   },
+   {
+    "name": "demo",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "mode",
+    "type": "'voice' | 'chat'",
+    "optional": true
+   },
+   {
+    "name": "messages",
+    "type": "(MessageProps & { text?: string })[]",
+    "optional": true
+   },
+   {
+    "name": "transcript",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "level",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "suggestions",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'ink' | 'klein' | 'rams' | 'paper'",
+    "optional": true
+   },
+   {
+    "name": "onStart",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "onEnd",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "onSend",
+    "type": "(text: string) => void",
+    "optional": true
+   },
+   {
+    "name": "defaultOpen",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "inline",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Render",
@@ -1488,7 +4110,30 @@
   "thumb": [
    480,
    354
-  ]
+  ],
+  "props": [
+   {
+    "name": "spec",
+    "type": "RenderSpec | string",
+    "optional": true
+   },
+   {
+    "name": "lang",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "actions",
+    "type": "Record<string, (x?: unknown) => void>",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Reveal",
@@ -1500,7 +4145,55 @@
   "thumb": [
    480,
    256
-  ]
+  ],
+  "props": [
+   {
+    "name": "variant",
+    "type": "'rise' | 'scale' | 'wipe' | 'focus'",
+    "optional": true
+   },
+   {
+    "name": "stagger",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "delay",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "once",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "threshold",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "as",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "style",
+    "type": "React.CSSProperties",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Stack",
@@ -1512,7 +4205,55 @@
   "thumb": [
    480,
    84
-  ]
+  ],
+  "props": [
+   {
+    "name": "direction",
+    "type": "'column' | 'row'",
+    "optional": true
+   },
+   {
+    "name": "gap",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "align",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "justify",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "wrap",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "padding",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "style",
+    "type": "React.CSSProperties",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Grid",
@@ -1524,7 +4265,35 @@
   "thumb": [
    480,
    206
-  ]
+  ],
+  "props": [
+   {
+    "name": "columns",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "gap",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "style",
+    "type": "React.CSSProperties",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Text",
@@ -1536,7 +4305,45 @@
   "thumb": [
    480,
    321
-  ]
+  ],
+  "props": [
+   {
+    "name": "variant",
+    "type": "'display-xl' | 'title' | 'headline' | 'numeral-xl' | 'dot-hero' | 'dot-display' | 'body' | 'body-strong' | 'caption' | 'label' | 'readout'",
+    "optional": true
+   },
+   {
+    "name": "sub",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "muted",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "as",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "style",
+    "type": "React.CSSProperties",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "ClickWheel",
@@ -1553,7 +4360,75 @@
   "thumb": [
    480,
    276
-  ]
+  ],
+  "props": [
+   {
+    "name": "onStep",
+    "type": "(d: 1 | -1) => void",
+    "optional": true
+   },
+   {
+    "name": "onSelect",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "onMenu",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "onPlay",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "playing",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "detent",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "labels",
+    "type": "{ top?: string }",
+    "optional": true
+   },
+   {
+    "name": "centerLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "valueText",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "DiscCarousel",
@@ -1565,7 +4440,55 @@
   "thumb": [
    480,
    334
-  ]
+  ],
+  "props": [
+   {
+    "name": "items",
+    "type": "DiscItem[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(i: number) => void",
+    "optional": true
+   },
+   {
+    "name": "playing",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "onPlay",
+    "type": "(i: number) => void",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "NumPad",
@@ -1586,7 +4509,65 @@
   "thumb": [
    480,
    521
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: string) => void",
+    "optional": true
+   },
+   {
+    "name": "currency",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "maxLength",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "hint",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onSubmit",
+    "type": "(n: number) => void",
+    "optional": true
+   },
+   {
+    "name": "submitLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "keyboard",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Viewfinder",
@@ -1619,7 +4600,55 @@
   "thumb": [
    480,
    536
-  ]
+  ],
+  "props": [
+   {
+    "name": "live",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "mode",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "defaultMode",
+    "type": "'foto' | 'vídeo' | 'escanear'",
+    "optional": true
+   },
+   {
+    "name": "onModeChange",
+    "type": "(m: string) => void",
+    "optional": true
+   },
+   {
+    "name": "onShoot",
+    "type": "(m: string) => void",
+    "optional": true
+   },
+   {
+    "name": "shots",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "ratio",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "CaptureKey",
@@ -1636,7 +4665,35 @@
   "thumb": [
    480,
    178
-  ]
+  ],
+  "props": [
+   {
+    "name": "onCapture",
+    "type": "(c: { kind: 'photo' | 'voice'; ms?: number }) => void",
+    "optional": true
+   },
+   {
+    "name": "onVoiceStart",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "hint",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Recorder",
@@ -1665,7 +4722,35 @@
   "thumb": [
    480,
    484
-  ]
+  ],
+  "props": [
+   {
+    "name": "real",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "takes",
+    "type": "RecorderTake[]",
+    "optional": true
+   },
+   {
+    "name": "onSave",
+    "type": "(t: RecorderTake) => void",
+    "optional": true
+   },
+   {
+    "name": "onMark",
+    "type": "(ms: number) => void",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "NoteEditor",
@@ -1690,7 +4775,40 @@
   "thumb": [
    480,
    434
-  ]
+  ],
+  "props": [
+   {
+    "name": "defaultBlocks",
+    "type": "NoteBlock[]",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(b: NoteBlock[]) => void",
+    "optional": true
+   },
+   {
+    "name": "title",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "meta",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "placeholder",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Sidebar",
@@ -1711,7 +4829,70 @@
   "thumb": [
    480,
    592
-  ]
+  ],
+  "props": [
+   {
+    "name": "sections",
+    "type": "{ label?: string; items: SidebarItem[] }[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(id: string) => void",
+    "optional": true
+   },
+   {
+    "name": "collapsed",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "defaultCollapsed",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "onCollapse",
+    "type": "(c: boolean) => void",
+    "optional": true
+   },
+   {
+    "name": "header",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "footer",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "DataTable",
@@ -1748,7 +4929,75 @@
   "thumb": [
    480,
    372
-  ]
+  ],
+  "props": [
+   {
+    "name": "columns",
+    "type": "DataColumn[]",
+    "optional": false
+   },
+   {
+    "name": "rows",
+    "type": "Record<string, unknown>[]",
+    "optional": false
+   },
+   {
+    "name": "selectable",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "dense",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "defaultSort",
+    "type": "{ key: string; dir: 'asc' | 'desc' }",
+    "optional": true
+   },
+   {
+    "name": "pageSize",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "groupBy",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onRowClick",
+    "type": "(row: Record<string, unknown>) => void",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "emptyTitle",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "emptyText",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "CommandBar",
@@ -1765,7 +5014,55 @@
   "thumb": [
    480,
    525
-  ]
+  ],
+  "props": [
+   {
+    "name": "commands",
+    "type": "Command[]",
+    "optional": false
+   },
+   {
+    "name": "open",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "defaultOpen",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "onClose",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "onRun",
+    "type": "(id: string) => void",
+    "optional": true
+   },
+   {
+    "name": "hotkey",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "placeholder",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "inline",
+    "type": "boolean",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Notch",
@@ -1786,7 +5083,65 @@
   "thumb": [
    480,
    312
-  ]
+  ],
+  "props": [
+   {
+    "name": "state",
+    "type": "'idle' | 'listening' | 'thinking' | 'speaking' | 'done'",
+    "optional": true
+   },
+   {
+    "name": "name",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "peek",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "text",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "progress",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "actions",
+    "type": "{ label: string; icon?: IconName; onClick?: () => void }[]",
+    "optional": true
+   },
+   {
+    "name": "expanded",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "defaultExpanded",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'rams' | 'klein' | 'paper'",
+    "optional": true
+   },
+   {
+    "name": "inline",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Viewport3D",
@@ -1803,7 +5158,50 @@
   "thumb": [
    480,
    472
-  ]
+  ],
+  "props": [
+   {
+    "name": "shape",
+    "type": "'cube' | 'stack'",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "pitch",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "yaw",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Heatmap",
@@ -1815,7 +5213,50 @@
   "thumb": [
    480,
    176
-  ]
+  ],
+  "props": [
+   {
+    "name": "data",
+    "type": "number[]",
+    "optional": false
+   },
+   {
+    "name": "rows",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "cell",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'ink' | 'rams' | 'klein' | 'verde'",
+    "optional": true
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "SplitBar",
@@ -1827,7 +5268,35 @@
   "thumb": [
    480,
    384
-  ]
+  ],
+  "props": [
+   {
+    "name": "segments",
+    "type": "SplitSegment[]",
+    "optional": false
+   },
+   {
+    "name": "variant",
+    "type": "'bar' | 'columns'",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "format",
+    "type": "(v: number) => string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Sparkline",
@@ -1839,7 +5308,40 @@
   "thumb": [
    480,
    92
-  ]
+  ],
+  "props": [
+   {
+    "name": "data",
+    "type": "number[]",
+    "optional": false
+   },
+   {
+    "name": "width",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'ink' | 'rams' | 'klein'",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "HourStrip",
@@ -1851,7 +5353,35 @@
   "thumb": [
    480,
    270
-  ]
+  ],
+  "props": [
+   {
+    "name": "prices",
+    "type": "number[]",
+    "optional": false
+   },
+   {
+    "name": "now",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "PaymentCard",
@@ -1868,7 +5398,45 @@
   "thumb": [
    480,
    501
-  ]
+  ],
+  "props": [
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "brand",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "last4",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "name",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "expiry",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "frozen",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Dialog",
@@ -1893,7 +5461,95 @@
   "thumb": [
    480,
    476
-  ]
+  ],
+  "props": [
+   {
+    "name": "open",
+    "type": "boolean",
+    "optional": false
+   },
+   {
+    "name": "onClose",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "title",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "text",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'default' | 'danger'",
+    "optional": true
+   },
+   {
+    "name": "icon",
+    "type": "IconName",
+    "optional": true
+   },
+   {
+    "name": "primary",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onPrimary",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "primaryDisabled",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "secondary",
+    "type": "string | false",
+    "optional": true
+   },
+   {
+    "name": "onSecondary",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "steps",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "step",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "'l'",
+    "optional": true
+   },
+   {
+    "name": "dismissible",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "inline",
+    "type": "boolean",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "FileDrop",
@@ -1914,7 +5570,50 @@
   "thumb": [
    480,
    502
-  ]
+  ],
+  "props": [
+   {
+    "name": "files",
+    "type": "UploadFile[]",
+    "optional": true
+   },
+   {
+    "name": "onFiles",
+    "type": "(f: FileList) => void",
+    "optional": true
+   },
+   {
+    "name": "accept",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "multiple",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "title",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "hint",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "simulate",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "ChoiceCards",
@@ -1935,7 +5634,45 @@
   "thumb": [
    480,
    476
-  ]
+  ],
+  "props": [
+   {
+    "name": "options",
+    "type": "ChoiceOption[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: string) => void",
+    "optional": true
+   },
+   {
+    "name": "columns",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Stat",
@@ -1960,7 +5697,70 @@
   "thumb": [
    480,
    327
-  ]
+  ],
+  "props": [
+   {
+    "name": "label",
+    "type": "string",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "delta",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "inverse",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "trend",
+    "type": "number[]",
+    "optional": true
+   },
+   {
+    "name": "previous",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "status",
+    "type": "'ok' | 'warn' | 'risk'",
+    "optional": true
+   },
+   {
+    "name": "statusLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "link",
+    "type": "{ label: string; onClick?: () => void }",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "UsageMeter",
@@ -1981,7 +5781,50 @@
   "thumb": [
    480,
    250
-  ]
+  ],
+  "props": [
+   {
+    "name": "label",
+    "type": "string",
+    "optional": false
+   },
+   {
+    "name": "used",
+    "type": "number",
+    "optional": false
+   },
+   {
+    "name": "limit",
+    "type": "number",
+    "optional": false
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "format",
+    "type": "(n: number) => string",
+    "optional": true
+   },
+   {
+    "name": "segments",
+    "type": "SplitSegment[]",
+    "optional": true
+   },
+   {
+    "name": "action",
+    "type": "{ label: string; onClick?: () => void }",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Timeline",
@@ -2002,7 +5845,25 @@
   "thumb": [
    480,
    260
-  ]
+  ],
+  "props": [
+   {
+    "name": "items",
+    "type": "TimelineItem[]",
+    "optional": false
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Checklist",
@@ -2031,7 +5892,30 @@
   "thumb": [
    480,
    446
-  ]
+  ],
+  "props": [
+   {
+    "name": "title",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "items",
+    "type": "ChecklistItem[]",
+    "optional": false
+   },
+   {
+    "name": "defaultOpen",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "PromptBox",
@@ -2056,7 +5940,100 @@
   "thumb": [
    480,
    434
-  ]
+  ],
+  "props": [
+   {
+    "name": "title",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "placeholder",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "models",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "model",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onModel",
+    "type": "(m: string) => void",
+    "optional": true
+   },
+   {
+    "name": "efforts",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "effort",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "attachments",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "suggestions",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "note",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onSend",
+    "type": "(x: { text: string; model?: string; attachments: string[] }) => void",
+    "optional": true
+   },
+   {
+    "name": "onVoice",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "voice",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "busy",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: string) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Clock",
@@ -2073,7 +6050,45 @@
   "thumb": [
    480,
    532
-  ]
+  ],
+  "props": [
+   {
+    "name": "time",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "variant",
+    "type": "'disc' | 'ticks' | 'dot'",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "seconds",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "VUMeter",
@@ -2085,7 +6100,50 @@
   "thumb": [
    480,
    236
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "level",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "live",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "scale",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "RotarySelector",
@@ -2097,7 +6155,50 @@
   "thumb": [
    480,
    256
-  ]
+  ],
+  "props": [
+   {
+    "name": "options",
+    "type": "(string | { value: string; label?: string })[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: string) => void",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "span",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Fader",
@@ -2109,7 +6210,65 @@
   "thumb": [
    480,
    306
-  ]
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(v: number) => void",
+    "optional": true
+   },
+   {
+    "name": "min",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "max",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "step",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "format",
+    "type": "(v: number) => string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Keycap",
@@ -2121,7 +6280,35 @@
   "thumb": [
    480,
    192
-  ]
+  ],
+  "props": [
+   {
+    "name": "tone",
+    "type": "'paper' | 'ink' | 'rams' | 'sol' | 'klein'",
+    "optional": true
+   },
+   {
+    "name": "w",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "h",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "sub",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   }
+  ],
+  "extends": "React.ButtonHTMLAttributes<HTMLButtonElement>"
  },
  {
   "name": "Calculator",
@@ -2133,7 +6320,25 @@
   "thumb": [
    480,
    1000
-  ]
+  ],
+  "props": [
+   {
+    "name": "variant",
+    "type": "'keys' | 'round'",
+    "optional": true
+   },
+   {
+    "name": "keyboard",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "PadGrid",
@@ -2145,7 +6350,55 @@
   "thumb": [
    480,
    376
-  ]
+  ],
+  "props": [
+   {
+    "name": "columns",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "rows",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "labels",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'sol' | 'rams' | 'klein'",
+    "optional": true
+   },
+   {
+    "name": "sound",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "keyboard",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "onPad",
+    "type": "(i: number) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "TapeDeck",
@@ -2162,7 +6415,30 @@
   "thumb": [
    480,
    409
-  ]
+  ],
+  "props": [
+   {
+    "name": "title",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "duration",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "playing",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Board",
@@ -2191,7 +6467,30 @@
   "thumb": [
    480,
    550
-  ]
+  ],
+  "props": [
+   {
+    "name": "columns",
+    "type": "BoardColumn[]",
+    "optional": false
+   },
+   {
+    "name": "onChange",
+    "type": "(columns: BoardColumn[]) => void",
+    "optional": true
+   },
+   {
+    "name": "variant",
+    "type": "'board' | 'list'",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Sortable",
@@ -2208,7 +6507,30 @@
   "thumb": [
    480,
    384
-  ]
+  ],
+  "props": [
+   {
+    "name": "items",
+    "type": "BoardItem[]",
+    "optional": false
+   },
+   {
+    "name": "onChange",
+    "type": "(items: BoardItem[]) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Blueprint",
@@ -2229,7 +6551,70 @@
   "thumb": [
    480,
    1000
-  ]
+  ],
+  "props": [
+   {
+    "name": "nodes",
+    "type": "BlueprintNode[]",
+    "optional": true
+   },
+   {
+    "name": "edges",
+    "type": "{ from: string; to: string; label?: string }[]",
+    "optional": true
+   },
+   {
+    "name": "grid",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "majorEvery",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "snap",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "unitPerGrid",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "wheelZoom",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(nodes: BlueprintNode[]) => void",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "AreaChart",
@@ -2241,7 +6626,50 @@
   "thumb": [
    480,
    246
-  ]
+  ],
+  "props": [
+   {
+    "name": "series",
+    "type": "{ label: string; data: number[]; tone?: ChartTone }[]",
+    "optional": false
+   },
+   {
+    "name": "labels",
+    "type": "string[]",
+    "optional": true
+   },
+   {
+    "name": "width",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "zero",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "legend",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Scatter",
@@ -2253,7 +6681,45 @@
   "thumb": [
    480,
    314
-  ]
+  ],
+  "props": [
+   {
+    "name": "points",
+    "type": "{ x: number; y: number; size?: number; tone?: ChartTone; label?: string }[]",
+    "optional": false
+   },
+   {
+    "name": "xLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "yLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "width",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "RadarChart",
@@ -2265,7 +6731,35 @@
   "thumb": [
    480,
    346
-  ]
+  ],
+  "props": [
+   {
+    "name": "axes",
+    "type": "string[]",
+    "optional": false
+   },
+   {
+    "name": "series",
+    "type": "{ label: string; data: number[]; tone?: ChartTone }[]",
+    "optional": false
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "DonutChart",
@@ -2277,7 +6771,50 @@
   "thumb": [
    480,
    286
-  ]
+  ],
+  "props": [
+   {
+    "name": "segments",
+    "type": "{ label: string; value: number; tone?: ChartTone }[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "thickness",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "gap",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Scope",
@@ -2289,7 +6826,55 @@
   "thumb": [
    480,
    262
-  ]
+  ],
+  "props": [
+   {
+    "name": "frequency",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "amplitude",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "noise",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "live",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "width",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "VoicePosition",
@@ -2306,7 +6891,75 @@
   "thumb": [
    480,
    450
-  ]
+  ],
+  "props": [
+   {
+    "name": "pan",
+    "type": "number | null",
+    "optional": true
+   },
+   {
+    "name": "side",
+    "type": "'left' | 'ahead' | 'right' | null",
+    "optional": true
+   },
+   {
+    "name": "distance",
+    "type": "'near' | 'far'",
+    "optional": true
+   },
+   {
+    "name": "state",
+    "type": "'idle' | 'listening' | 'speaking' | 'processing'",
+    "optional": true
+   },
+   {
+    "name": "level",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "probabilities",
+    "type": "[number, number, number]",
+    "optional": true
+   },
+   {
+    "name": "demo",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "animate",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "rings",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'klein' | 'rams' | 'sol' | 'verde'",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Beam",
@@ -2318,7 +6971,45 @@
   "thumb": [
    480,
    196
-  ]
+  ],
+  "props": [
+   {
+    "name": "active",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'klein' | 'rams' | 'sol' | 'ink'",
+    "optional": true
+   },
+   {
+    "name": "radius",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "style",
+    "type": "React.CSSProperties",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "Aura",
@@ -2330,7 +7021,50 @@
   "thumb": [
    480,
    248
-  ]
+  ],
+  "props": [
+   {
+    "name": "status",
+    "type": "'online' | 'available' | 'live' | 'away' | 'busy' | 'ai' | 'offline'",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "'verde' | 'rec' | 'sol' | 'rams' | 'klein'",
+    "optional": true
+   },
+   {
+    "name": "active",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "shape",
+    "type": "'round' | 'rect'",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "style",
+    "type": "React.CSSProperties",
+    "optional": true
+   },
+   {
+    "name": "children",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  },
  {
   "name": "FlapBoard",
@@ -2347,6 +7081,44 @@
   "thumb": [
    480,
    296
-  ]
+  ],
+  "props": [
+   {
+    "name": "rows",
+    "type": "{ id?: string | number; time?: string; text?: string; status?: string; tone?: 'sol' | 'rams' | 'verde' | 'rec'; [k: string]: unknown }[]",
+    "optional": false
+   },
+   {
+    "name": "columns",
+    "type": "{ key: string; label: string; length: number }[]",
+    "optional": true
+   },
+   {
+    "name": "title",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "meta",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "'s' | 'm' | 'l'",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
  }
 ]

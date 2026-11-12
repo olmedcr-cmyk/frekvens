@@ -25,7 +25,14 @@ npm run test:a11y   # axe en claro y oscuro sobre public/preview (npx playwright
 npm run build       # web estática
 ```
 
-`build.mjs` borra todo lo de la raíz salvo `node_modules`, `.git`, `.next`, `generator`, `CLAUDE.md` y `HANDOFF.md`.
+`build.mjs` borra todo lo de la raíz salvo `node_modules`, `generator`, `CLAUDE.md`, `AGENTS.md`, `HANDOFF.md`, `package-lock.json` y lo oculto que no es suyo (`.git`, `.next`, `.vercel`, `.claude`…; de lo oculto solo reescribe `.gitignore` y `.github`).
+
+Otras piezas del generador:
+
+- `thumbs.mjs` (`npm run thumbs`): fotografía cada vista previa en `generator/thumbs/` (tema Blanco); `build.mjs` las copia a `public/thumbs/` y guarda su tamaño en `app/catalog.json`.
+- Temas: `tokens.json` → `color.themes`. `light` (Papel) y `dark` (Carbón) definen todos los tokens; un tema extra como `blanco` solo los que cambia y hereda el resto del claro.
+- Props: `build.mjs` lee `index.d.ts` y las pone en `app/catalog.json` (tabla de la ficha) y en `public/llms-full.txt`. `public/llms.txt` es el índice para agentes.
+- Apps de ejemplo: carpetas `App*` en `components/` con solo `preview.html`; la web las lista en `/ejemplos` (`tpl/app/examples.ts`).
 
 ## Reglas
 
@@ -33,5 +40,5 @@ npm run build       # web estática
 - Archivos destino en el proyecto del usuario: `components/frekvens/*` y `styles/frekvens/*` (nunca `components/ui`, para no pisar los componentes de shadcn con el mismo nombre).
 - `"use client"` debe ser la primera línea de cada `.tsx` (shadcn elimina los comentarios que van antes).
 - Nada de `@ts-nocheck`: el código generado pasa `tsc --strict` (ver `tsconfig.registry.json`).
-- Accesibilidad: 0 infracciones de axe (WCAG 2.2 AA) en claro y oscuro es el listón; objetivo táctil ≥ 44 px (56 la acción principal); todo arrastre tiene alternativa de teclado; movimiento reducido respetado.
+- Accesibilidad: 0 infracciones de axe (WCAG 2.2 AA) en los tres temas (Papel, Carbón y Blanco) es el listón; objetivo táctil ≥ 44 px (56 la acción principal); todo arrastre tiene alternativa de teclado; movimiento reducido respetado.
 - Commits en español.

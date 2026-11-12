@@ -7,7 +7,7 @@
    "name": "frekvens-styles",
    "type": "registry:style",
    "title": "Estilos de Frekvens",
-   "description": "Tokens (claro/oscuro), componentes en @layer y tema para Tailwind v4.",
+   "description": "Tokens (temas Papel, Carbón y Blanco), componentes en @layer y tema para Tailwind v4.",
    "files": [
     {
      "path": "registry/frekvens/ui/frekvens.css",

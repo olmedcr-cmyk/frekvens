@@ -30,7 +30,7 @@ La base es papel cálido y tinta; el color se usa en **bloques sólidos completo
 - **`rec`** solo para grabar, borrar o error, siempre con palabra o icono.
 - Fondos ambientales **`salvia`**, **`lavanda`**, **`malva`**: una pantalla entera de una categoría (gastos, stock, tendencias). Todo el texto encima en `ink`; dentro de un contenedor `frk-tone--salvia/lavanda/malva`, `ink-muted` se oscurece solo para mantener 4.5:1.
 - Por fila de tiles, un solo bloque de color; el otro en `surface`. Por pantalla, como mucho dos colores de bloque además de papel y tinta.
-- Tema **Papel** (claro) y **Carbón** (oscuro). En Carbón `ink` y `paper` se invierten; `sol` no cambia; `klein`, `rams`, `tabaco` y `klein-ink` se aclaran para mantener contraste.
+- Tema **Papel** (claro, cálido), **Blanco** (claro, grises neutros sobre blanco puro) y **Carbón** (oscuro). Blanco solo cambia los neutros (`paper`, `surface`, `well`, `line`, `dot-off`, `ink-muted`, `ink-faint`); los colores son los de Papel. En Carbón `ink` y `paper` se invierten; `sol` no cambia; `klein`, `rams`, `tabaco` y `klein-ink` se aclaran para mantener contraste.
 
 ## Tipografía
 
