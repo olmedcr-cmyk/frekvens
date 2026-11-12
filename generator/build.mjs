@@ -124,9 +124,11 @@ write(R('public/r/registry.json'), JSON.stringify(registry, null, 1));
 write(R('package.json'), JSON.stringify({
   name: 'frekvens', version: VERSION, private: true, type: 'module', license: 'MIT',
   description: 'Frekvens: componentes React para copiar y pegar, al estilo shadcn/ui. Botoneras grandes, puntos, instrumentos, conversación e IA.',
-  scripts: { dev: 'next dev', build: 'next build', start: 'next start', 'registry:build': 'shadcn build', test: 'tsc -p tsconfig.registry.json && node test/smoke.mjs && node test/registry.mjs', 'test:a11y': 'node test/a11y.mjs', thumbs: 'node generator/thumbs.mjs' },
+  scripts: { dev: 'next dev', build: 'next build', start: 'next start', 'registry:build': 'npx shadcn@latest build', test: 'tsc -p tsconfig.registry.json && node test/smoke.mjs && node test/registry.mjs', 'test:a11y': 'node test/a11y.mjs', thumbs: 'node generator/thumbs.mjs' },
   dependencies: { next: '15.5.29', react: '18.3.1', 'react-dom': '18.3.1' },
-  devDependencies: { '@tailwindcss/postcss': '4.0.17', '@types/node': '22.10.2', '@types/react': '18.3.18', '@types/react-dom': '18.3.5', 'axe-core': '4.10.2', esbuild: '0.24.0', playwright: '1.49.1', shadcn: '2.3.0', tailwindcss: '4.0.17', typescript: '5.7.2' },
+  devDependencies: { '@tailwindcss/postcss': '4.0.17', '@types/node': '22.10.2', '@types/react': '18.3.18', '@types/react-dom': '18.3.5', 'axe-core': '4.10.2', esbuild: '0.28.2', playwright: '1.65.0', tailwindcss: '4.0.17', typescript: '5.7.2' },
+  // Next 15 fija un postcss antiguo; se fuerza el parcheado (mismo mayor, misma API).
+  overrides: { postcss: '8.5.32' },
 }, null, 2) + "\n");
 write(R('components.json'), JSON.stringify({ $schema: 'https://ui.shadcn.com/schema.json', style: 'new-york', rsc: true, tsx: true, tailwind: { config: '', css: 'app/globals.css', baseColor: 'neutral', cssVariables: true }, aliases: { components: '@/components', utils: '@/lib/utils', ui: '@/components/ui', lib: '@/lib', hooks: '@/hooks' }, registries: { '@frekvens': `${HOME}/r/{name}.json` } }, null, 2));
 write(R('tsconfig.json'), JSON.stringify({ compilerOptions: { target: 'ES2020', lib: ['dom', 'dom.iterable', 'esnext'], allowJs: true, skipLibCheck: true, strict: true, noEmit: true, esModuleInterop: true, module: 'esnext', moduleResolution: 'bundler', resolveJsonModule: true, isolatedModules: true, jsx: 'preserve', incremental: true, plugins: [{ name: 'next' }], paths: { '@/*': ['./*'] } }, include: ['next-env.d.ts', '**/*.ts', '**/*.tsx', '.next/types/**/*.ts'], exclude: ['node_modules', 'generator'] }, null, 2));

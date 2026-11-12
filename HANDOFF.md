@@ -29,7 +29,7 @@ Estado al 11 de noviembre de 2026: publicado y con despliegue automático. Abajo
 ## Pendiente (opcional)
 
 - Añadirlo al directorio de registros de shadcn (`registries` en `components.json` ya documentado como `@frekvens`).
-- `npm run registry:build` (`shadcn build`) para validar `registry.json` con el esquema oficial.
+- `npm run registry:build` (`npx shadcn@latest build`; la CLI ya no es dependencia del repo) para validar `registry.json` con el esquema oficial.
 - Alojar las fuentes en vez de cargarlas de Google Fonts.
 - Nombre: "Frekvens" es también una colección de IKEA. Cris decidió mantenerlo; `NOTICE.md` aclara que no hay relación.
 
