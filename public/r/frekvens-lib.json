@@ -24,7 +24,7 @@
    "path": "registry/frekvens/lib/theme.ts",
    "type": "registry:lib",
    "target": "~/components/frekvens/theme.ts",
-   "content": "/** Pone el tema en <html>. 'auto' sigue al sistema y escucha sus cambios. */\nlet mq: MediaQueryList | null = null, fn: (() => void) | null = null\nexport function applyTheme(mode: 'light' | 'dark' | 'auto', root: HTMLElement = document.documentElement) {\n  if (typeof document === 'undefined') return\n  if (mq && fn) { mq.removeEventListener('change', fn); mq = null; fn = null }\n  if (mode === 'auto') {\n    mq = window.matchMedia('(prefers-color-scheme: dark)')\n    fn = () => root.setAttribute('data-theme', mq!.matches ? 'dark' : 'light')\n    fn(); mq.addEventListener('change', fn); return\n  }\n  root.setAttribute('data-theme', mode === 'dark' ? 'dark' : 'light')\n}\n"
+   "content": "/** Pone el tema en <html>. 'auto' sigue al sistema y escucha sus cambios. */\nlet mq: MediaQueryList | null = null, fn: (() => void) | null = null\nexport type FrekvensTheme = 'light' | 'dark' | 'blanco'\nexport function applyTheme(mode: FrekvensTheme | 'auto', root: HTMLElement = document.documentElement) {\n  if (typeof document === 'undefined') return\n  if (mq && fn) { mq.removeEventListener('change', fn); mq = null; fn = null }\n  if (mode === 'auto') {\n    mq = window.matchMedia('(prefers-color-scheme: dark)')\n    fn = () => root.setAttribute('data-theme', mq!.matches ? 'dark' : 'light')\n    fn(); mq.addEventListener('change', fn); return\n  }\n  root.setAttribute('data-theme', mode)\n}\n"
   }
  ]
 }

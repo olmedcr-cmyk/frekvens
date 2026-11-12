@@ -1,4 +1,4 @@
-// axe-core sobre todas las vistas previas, en claro y oscuro. Necesita `npx playwright install chromium`.
+// axe-core sobre todas las vistas previas, en los tres temas (Papel, Carbón y Blanco). Necesita `npx playwright install chromium`.
 // Las vistas previas tienen fondo transparente: en la web van dentro de .preview, que pinta var(--paper). Aquí se pinta igual.
 import pw from 'playwright';
 const { chromium } = pw;
@@ -10,7 +10,7 @@ const root = path.resolve('public');
 const srv = http.createServer((req, res) => { const p = path.join(root, decodeURIComponent(req.url.split('?')[0])); if (!p.startsWith(root) || !fs.existsSync(p)) { res.statusCode = 404; return res.end(); } res.setHeader('content-type', p.endsWith('.css') ? 'text/css' : p.endsWith('.js') ? 'text/javascript' : p.endsWith('.html') ? 'text/html' : 'application/octet-stream'); fs.createReadStream(p).pipe(res); }).listen(0);
 const port = srv.address().port;
 const b = await chromium.launch(); let total = 0, pages = 0;
-for (const f of fs.readdirSync(path.join(root, 'preview')).filter((f) => f.endsWith('.html'))) for (const theme of ['light', 'dark']) {
+for (const f of fs.readdirSync(path.join(root, 'preview')).filter((f) => f.endsWith('.html'))) for (const theme of ['light', 'dark', 'blanco']) {
   const p = await b.newPage({ viewport: { width: 960, height: 900 } });
   await p.route(/fonts\.googleapis|fonts\.gstatic/, (r) => r.abort());
   await p.goto(`http://localhost:${port}/preview/${f}`); await p.evaluate((t) => { document.documentElement.setAttribute('data-theme', t); document.documentElement.style.background = 'var(--paper)'; }, theme); await p.waitForTimeout(350);

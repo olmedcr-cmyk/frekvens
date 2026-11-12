@@ -1,0 +1,180 @@
+# Frekvens
+
+> Componentes React para copiar y pegar, al estilo shadcn/ui: 114 piezas grandes, de puntos y accesibles (WCAG 2.2 AA en los temas Papel, Carbón y Blanco). El código se copia al proyecto con `npx shadcn@latest add` y pasa a ser del proyecto. MIT.
+
+Instalar una pieza: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/<nombre>.json` (crea `components/frekvens/<nombre>.tsx` y `styles/frekvens/*.css`). Todo de una vez: `https://frekvens-ui.vercel.app/r/frekvens.json`. Después importa `styles/frekvens/tailwind.css` y `components.css` en el CSS global y pon `data-theme` (`light`, `blanco` o `dark`) en `<html>`.
+
+Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tailwind a las piezas (el estilo vive en `components.css`); conecta `value`/`onChange` al estado real; textos en español, verbo primero; respeta movimiento reducido.
+
+## Guías
+
+- [Todo en un archivo](https://frekvens-ui.vercel.app/llms-full.txt): cada componente con sus props y su uso
+- [Registro](https://frekvens-ui.vercel.app/r/registry.json): índice legible por máquina de los 114 componentes
+- [Esquema para UI generada](https://frekvens-ui.vercel.app/frekvens.schema.json): JSON Schema de lo que pinta `Render`
+- [Cómo trabaja un agente con Frekvens](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/agentes.md)
+- [Composición](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/composicion.md), [movimiento](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/movimiento.md), [tipografía](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/tipografia.md) y [calidad](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/calidad.md)
+
+## Botonera
+
+- [KeyButton](https://frekvens-ui.vercel.app/r/key-button.json): Tecla grande, plana y táctil: la unidad básica de toda la casa. Úsala para cualquier acción; el tamaño dice la importancia, no el color.
+- [Keypad](https://frekvens-ui.vercel.app/r/keypad.json): Fila de teclas pegadas con junta de 1 px, a lo Teenage Engineering: la barra de modos o de transporte al pie de la pantalla.
+- [HoldButton](https://frekvens-ui.vercel.app/r/hold-button.json): Mantén pulsado para confirmar: un anillo rams se llena alrededor del botón en duration ms; si sueltas antes, se vacía. Al completarse se vuelve verde con ✓.
+- [SlideToStart](https://frekvens-ui.vercel.app/r/slide-to-start.json): Arranque deliberado: arrastra el disco hasta el final para empezar. Evita empezar un entreno o un pago por un toque accidental. Si sueltas antes del 82 %, el disco vuelve con ease-throw; al completar 
+- [Rocker](https://frekvens-ui.vercel.app/r/rocker.json): Interruptores basculantes de máquina sobre una placa verde: la tecla bascula al encenderse y el piloto LED de debajo se enciende. Para 2–4 funciones físicas paralelas (sonido, vibración, pantalla siem
+- [Keycap](https://frekvens-ui.vercel.app/r/keycap.json): Tecla mecánica esculpida, como las de un macropad: falda más oscura, superficie clara con brillo arriba y hundimiento de 2 px al pulsar. Ocupa varias celdas de rejilla con w/h (la tecla + de dos altur
+- [Calculator](https://frekvens-ui.vercel.app/r/calculator.json): Calculadora plana: la cifra grande arriba, la operación en curso encima en pequeño y una rejilla de 4 × 5 teclas iguales. Números en paper, operadores en well, = en ink, 0 doble. La variante round usa
+- [PadGrid](https://frekvens-ui.vercel.app/r/pad-grid.json): Rejilla de pads de percusión tipo controlador MIDI: fondo ink, pads grises que se encienden en sol (o rams, klein) al golpearlos y suenan con WebAudio. Con keyboard, Q W E / A S D / Z X C los tocan.
+
+## Base
+
+- [Icon](https://frekvens-ui.vercel.app/r/icon.json): Iconos geométricos propios en rejilla de 24, trazo 2 px, terminaciones rectas, rellenos sólidos para transporte. Heredan currentColor.
+- [Chip](https://frekvens-ui.vercel.app/r/chip.json): Etiqueta mono en píldora: estados, filtros, metadatos (REC, MONO, 70% SOLAR).
+- [Badge](https://frekvens-ui.vercel.app/r/badge.json): Contador o punto de aviso sobre otro elemento (un icono, una tecla, un avatar). Aparece escalando desde cero.
+- [Avatar](https://frekvens-ui.vercel.app/r/avatar.json): Disco con foto o iniciales en Archivo 800. El estado se ve como un **aura** que respira alrededor del disco (ver Aura): disponible verde, en directo rec (más rápido), ausente sol, ocupado rams; descon
+
+## Controles
+
+- [Dial](https://frekvens-ui.vercel.app/r/dial.json): Mando circular: disco ink, punto indicador en paper, aguja sol y marcas de paso alrededor. Se arrastra girando o con flechas del teclado.
+- [Slider](https://frekvens-ui.vercel.app/r/slider.json): Pista en píldora de 56 px de alto con dos puntos ink en los extremos y el cursor en rams. Usa un <input type="range"> nativo encima: teclado y lector de pantalla funcionan solos.
+- [Switch](https://frekvens-ui.vercel.app/r/switch.json): Interruptor en píldora de 120 × 56. El disco **viaja** de un extremo al otro y aterriza con un rebote corto (ease-spring); al pulsar se estira, como un pulgar que empuja. Encendido: pista ink, disco s
+- [Segmented](https://frekvens-ui.vercel.app/r/segmented.json): Selector en píldora ink: la opción elegida es una **pieza paper que viaja** de una opción a otra con ease-spring (380 ms) y se encoge un 3 % mientras pulsas. El Home | 🔒 de Nothing. 2–4 opciones.
+- [Stepper](https://frekvens-ui.vercel.app/r/stepper.json): Menos · número · más. Para cantidades pequeñas y enteras (series, plazas, minutos). El número entra rodando desde abajo al cambiar.
+- [Wheel](https://frekvens-ui.vercel.app/r/wheel.json): Rueda selectora vertical con scroll-snap: los valores se atenúan y encogen según se alejan del centro; el elegido queda en una ventana surface. Para horas, minutos, repeticiones.
+- [VolumeWheel](https://frekvens-ui.vercel.app/r/volume-wheel.json): Rueda lateral estriada, como la rueda de scroll de un dispositivo de bolsillo: se gira con la rueda del ratón, arrastrando arriba/abajo o con las flechas, y sus estrías se desplazan al girar. Al lado,
+- [ClickWheel](https://frekvens-ui.vercel.app/r/click-wheel.json): Rueda táctil circular, como la de los reproductores de bolsillo: deslizar el dedo en círculo avanza o retrocede paso a paso (con un pulso háptico donde exista), con cuatro botones en los ejes y un bot
+- [RotarySelector](https://frekvens-ui.vercel.app/r/rotary-selector.json): Selector de fuente de amplificador: pomo ink con una barra que apunta a la posición elegida y las opciones escritas alrededor en mono, giradas siguiendo el arco. Se gira arrastrando, con las flechas o
+- [Fader](https://frekvens-ui.vercel.app/r/fader.json): Fader de mesa de mezclas: ranura ink, regla con 11 marcas y un capuchón de color que se arrastra en vertical. Lectura mono debajo. Para niveles de canal, macros de un teclado, luces.
+
+## Instrumentos
+
+- [Gauge](https://frekvens-ui.vercel.app/r/gauge.json): Medio arco fino: pista tenue, tramo recorrido en el color del texto y la cifra dentro. Sin aguja ni punto: solo la lectura. Para un porcentaje de 0 a 100.
+- [LevelBars](https://frekvens-ui.vercel.app/r/level-bars.json): Nivel como reglas verticales redondeadas: encendidas en ink, apagadas en ink-faint. Batería, carga, volumen.
+- [BarMeter](https://frekvens-ui.vercel.app/r/bar-meter.json): Barras en píldora por categoría o día; una activa en ink, el resto en well, previsión o pendiente rayada.
+- [LineChart](https://frekvens-ui.vercel.app/r/line-chart.json): Línea suave con marcador de **ahora**: lo pasado en trazo lleno, lo previsto fino y atenuado, y un aro con línea vertical en el punto actual (la curva del clima de las referencias).
+- [ProgressRing](https://frekvens-ui.vercel.app/r/progress-ring.json): Anillo de progreso con el porcentaje en el centro. Avanza con dur-grow y ease-arrive.
+- [Readout](https://frekvens-ui.vercel.app/r/readout.json): El número que manda: cifra en Doto (puntos) con etiqueta mono encima y unidad pequeña. Temporizador, cuenta atrás, contador.
+- [Heatmap](https://frekvens-ui.vercel.app/r/heatmap.json): Actividad en semitono: una rejilla de puntos (semanas × días) donde el tamaño del punto es la cantidad. Sin escala de colores: el dato se lee por tamaño, como un periódico impreso.
+- [SplitBar](https://frekvens-ui.vercel.app/r/split-bar.json): Reparto de un total: una barra de píldoras con leyenda (bar) o columnas altas con relleno redondeado (columns, el 70/30 de las referencias).
+- [Sparkline](https://frekvens-ui.vercel.app/r/sparkline.json): Tendencia mínima: una línea y un punto final, para meter dentro de una fila, una tabla o un Tile.
+- [HourStrip](https://frekvens-ui.vercel.app/r/hour-strip.json): Precio (o consumo) por horas del día: 24 barras en píldora coloreadas por tramo (barato verde, medio sol, caro rams), la hora actual marcada con aro y las pasadas atenuadas. Para luz, agua, gas o cual
+- [Stat](https://frekvens-ui.vercel.app/r/stat.json): KPI de panel: etiqueta mono, valor grande fino, tendencia (Sparkline), variación con ▲▼ y, si hace falta, estado (En objetivo · Atención · En riesgo), valor anterior y enlace.
+- [UsageMeter](https://frekvens-ui.vercel.app/r/usage-meter.json): Cuota usada frente a un límite ("996 de 10.000"): barra ink que pasa a sol al 70 % y a rams al 90 %, con acción (ampliar) cuando está cerca del tope. Con segments, se convierte en un reparto por categ
+- [VUMeter](https://frekvens-ui.vercel.app/r/vu-meter.json): Vúmetro de aguja de amplificador: escala de 50 a 3 con los dos últimos números en rojo, aguja negra con su pivote abajo y piloto de pico que se enciende por encima del 88 %. La esfera es siempre crema
+
+## Formularios
+
+- [Checkbox](https://frekvens-ui.vercel.app/r/checkbox.json): Casilla cuadrada de 32 px con ✓ que se rellena de ink. Admite estado mixto (−). Toda la fila (casilla + texto) es pulsable: 44 px de alto como mínimo.
+- [RadioGroup](https://frekvens-ui.vercel.app/r/radio-group.json): Elección única con el lenguaje de estados: el aro vacío se llena hasta ser disco al elegirlo. Flechas para moverse dentro del grupo (patrón ARIA radiogroup).
+- [Select](https://frekvens-ui.vercel.app/r/select.json): Desplegable de selección única (patrón listbox de ARIA). El disparador es una píldora de 56 px; la lista se abre en un panel ink anclado al borde del que sale, con las opciones entrando escalonadas.
+- [Menu](https://frekvens-ui.vercel.app/r/menu.json): Menú de acciones en un botón redondo de dots: editar, duplicar, borrar. Panel ink anclado al disparador; la acción destructiva va en rams y al final, tras un separador.
+- [Tabs](https://frekvens-ui.vercel.app/r/tabs.json): Pestañas con dos acabados: **pill**, una píldora ink que viaja de una pestaña a otra con ease-travel; y **folder**, pestañas de carpeta de archivo que suben al seleccionarse y se funden con su panel.
+- [TextField](https://frekvens-ui.vercel.app/r/text-field.json): Campo de texto en píldora de 56 px sobre well; al enfocarse sube a surface con borde focus. Opcionalmente lleva al lado una tecla redonda klein con flecha para enviar (el campo de correo de una sola a
+- [Calendar](https://frekvens-ui.vercel.app/r/calendar.json): Calendario de discos: vista **semana** (una tira de 7 días, la de las referencias) o **mes**. Hoy lleva aro; el día elegido, disco ink; los días con sesión, un punto rams debajo.
+- [Sheet](https://frekvens-ui.vercel.app/r/sheet.json): Hoja inferior modal: el sitio para formularios cortos, detalles y confirmaciones. Sube desde abajo con dur-sheet y ease-ui; se descarta arrastrando el asa más de 96 px, tocando el fondo, con Esc o con
+- [Toast](https://frekvens-ui.vercel.app/r/toast.json): Aviso breve en píldora: confirma algo que ya pasó y, si acaso, ofrece deshacer. Sube 12 px y aparece; sale más rápido de lo que entra.
+- [NumPad](https://frekvens-ui.vercel.app/r/num-pad.json): Teclado numérico para importes: cifra enorme con la moneda pequeña, teclas planas pegadas como una calculadora, coma decimal (máx. 2 decimales) y borrar. También acepta el teclado físico.
+- [DataTable](https://frekvens-ui.vercel.app/r/data-table.json): Tabla de datos para SaaS: cabecera fija en mono, ordenación por columna (con aria-sort), selección de filas con Checkbox, y tipos de celda: status (Chip con punto), spark (Sparkline), bar (barra de 0–
+- [CommandBar](https://frekvens-ui.vercel.app/r/command-bar.json): Paleta de comandos (⌘K / Ctrl+K): buscar y ejecutar cualquier acción sin tocar el ratón. Panel ink con buscador, resultados agrupados y atajos.
+- [FileDrop](https://frekvens-ui.vercel.app/r/file-drop.json): Subida de archivos: zona de arrastre con trama de puntos que se tiñe al pasar un archivo, y la lista dividida en **Subiendo** (con barra rams y %) y **Listos** (icono verde), cada uno con su botón de 
+- [ChoiceCards](https://frekvens-ui.vercel.app/r/choice-cards.json): Opciones grandes en tarjeta para decidir con información: planes, paquetes, tipos de cuenta. Cada tarjeta lleva el aro que se llena (lenguaje de estados), título, precio, explicación y ventajas; la el
+
+## Feedback
+
+- [Banner](https://frekvens-ui.vercel.app/r/banner.json): Aviso dentro de la página, a todo el ancho: un bloque de color con icono, título opcional, una frase y, si hace falta, una acción. Para lo que el usuario debe saber mientras sigue en la pantalla.
+- [Tooltip](https://frekvens-ui.vercel.app/r/tooltip.json): Etiqueta flotante ink que explica un control sin texto. Aparece a los 400 ms al pasar el puntero o al enfocar, se cierra con Esc y nunca contiene acciones.
+- [EmptyState](https://frekvens-ui.vercel.app/r/empty-state.json): Estado vacío: un aro de puntos, un título que dice qué falta, una frase que dice qué hacer y, si se puede, la acción.
+- [Skeleton](https://frekvens-ui.vercel.app/r/skeleton.json): Carga en puntos: el hueco del contenido que viene se dibuja como una trama de puntos dot-off con un brillo que la recorre. Nada de rectángulos grises.
+- [Dialog](https://frekvens-ui.vercel.app/r/dialog.json): Ventana modal centrada para decidir algo ahora: confirmar, avisar de algo destructivo, pedir un dato, compartir, un asistente por pasos. Escala desde .96 al entrar; atrapa el foco (en danger empieza e
+
+## Tiempo
+
+- [Timer](https://frekvens-ui.vercel.app/r/timer.json): Cuenta atrás en un anillo de 60 puntos: los encendidos (rams) son el tiempo que queda; cada quinto punto es más grande, como las marcas de un reloj. En los tres últimos segundos el número cambia a una
+- [Stopwatch](https://frekvens-ui.vercel.app/r/stopwatch.json): Cronómetro con centésimas, vueltas y la mejor vuelta marcada en klein-ink. Dos teclas redondas que cambian de papel según el estado (Empezar/Parar en rams, Vuelta/Reiniciar al lado), siempre en el mis
+- [Hourglass](https://frekvens-ui.vercel.app/r/hourglass.json): Reloj de arena de puntos tabaco: el triángulo de arriba se vacía desde arriba y el de abajo se llena desde abajo; un grano cae por el cuello mientras corre. Se gira al tocarlo (180°, dur-grow) y empie
+- [Pendulum](https://frekvens-ui.vercel.app/r/pendulum.json): Metrónomo: brazo ink con contrapeso rams que oscila a los BPM indicados, y los tiempos del compás en puntos (el primero marcado con aro). Ajuste de BPM con Stepper.
+- [Clock](https://frekvens-ui.vercel.app/r/clock.json): Reloj analógico de pared o de tarjeta: disco ink con agujas paper y segundero rams (variante disc), esfera de 60 puntos (ticks) o la hora en matriz de puntos (dot). Sin time, va en vivo.
+
+## Medios
+
+- [MediaPlayer](https://frekvens-ui.vercel.app/r/media-player.json): Reproductor de vídeo. Tecla de play rams grande en el centro mientras está en pausa; barra de control flotante en píldora oscura con play, posición (con marcas de capítulo en sol), tiempo, sonido, sub
+- [AudioTrack](https://frekvens-ui.vercel.app/r/audio-track.json): Pista de audio con la onda como barra de posición: barras redondeadas, las reproducidas en el color del texto. Tecla redonda de play, título, tiempo y chip de velocidad.
+- [Ticker](https://frekvens-ui.vercel.app/r/ticker.json): Cinta que corre en horizontal: noticias, marcadores, horarios, valores. Se pausa sola al pasar el puntero o al enfocarla, y lleva siempre su propia tecla de pausa (todo lo que se mueve más de 5 s debe
+- [SplitFlap](https://frekvens-ui.vercel.app/r/split-flap.json): Panel de paletas de aeropuerto: cada carácter gira por el abecedario hasta su letra, en cascada de izquierda a derecha. Para el dato que cambia y quieres que se note: próxima clase, puerta, marcador, 
+- [DiscCarousel](https://frekvens-ui.vercel.app/r/disc-carousel.json): Elegir entre discos: el elegido en el centro, los vecinos más pequeños a los lados; al reproducir, el disco gira. La etiqueta del centro es el color o la imagen (src) del álbum, rutina o lista.
+- [TapeDeck](https://frekvens-ui.vercel.app/r/tape-deck.json): Grabadora de cinta: dos carretes que giran (el de la izquierda se vacía, el de la derecha se llena), la cinta pasando por el cabezal, contador en puntos y transporte en Keypad (rebobinar, reproducir, 
+- [FlapBoard](https://frekvens-ui.vercel.app/r/flap-board.json): Panel de salidas: varias filas de SplitFlap alineadas en columnas (hora, qué, estado), con el estado teñido. Para horarios de clases, turnos, pedidos listos, llegadas.
+
+## Puntos
+
+- [DotMatrix](https://frekvens-ui.vercel.app/r/dot-matrix.json): Dibuja números y formas con puntos sobre una retícula: la firma visual del sistema. Sol, nube, gota, aro, disco, corazón, o cualquier texto numérico en una fuente de 5×7.
+- [DotGrid](https://frekvens-ui.vercel.app/r/dot-grid.json): Discos en rejilla. Dos usos:
+- [StateMark](https://frekvens-ui.vercel.app/r/state-mark.json): El lenguaje de estados de la casa: **aro** = pendiente, **puntos** = en curso, **disco** = hecho. Tres formas, un mismo diámetro, sin color.
+- [Grille](https://frekvens-ui.vercel.app/r/grille.json): Rejilla de altavoz o lámpara en un disco o una cúpula: ranuras horizontales o agujeros de puntos recortados en un círculo de color. Es el retrato de un aparato: úsalo como arte de un Tile, una carta o
+- [LED](https://frekvens-ui.vercel.app/r/led.json): Piloto de máquina: un rectángulo de luz de 10×6 px con halo. Estado de un aparato (calentando, listo, grabando) junto a una etiqueta mono.
+- [Aura](https://frekvens-ui.vercel.app/r/aura.json): Disponible no es un puntito en la esquina: es un halo que respira alrededor de quien está. verde disponible, rec en directo (respira más rápido), sol ausente, klein la IA trabajando, rams ocupado. Des
+
+## Navegación
+
+- [Steps](https://frekvens-ui.vercel.app/r/steps.json): Progreso por pasos con el lenguaje de estados: disco = hecho, puntos = paso actual, aro = pendiente, unidos por un filete que se rellena. Para onboarding y procesos de 3–6 pasos.
+- [TopBar](https://frekvens-ui.vercel.app/r/top-bar.json): Cabecera de pantalla: tecla redonda de atrás, título centrado y acciones a la derecha. En variante large, el título va abajo en display-xl con la segunda línea de estado (el título de dos líneas de la
+- [TabBar](https://frekvens-ui.vercel.app/r/tab-bar.json): Barra de navegación inferior en píldora ink: iconos solos y, el activo, en píldora paper que se abre para mostrar su nombre. Flota centrada a space-5 del borde inferior.
+- [Sidebar](https://frekvens-ui.vercel.app/r/sidebar.json): Barra lateral para iPad y escritorio: secciones con etiqueta mono, elementos con icono y contador (en rec si es una alerta), el activo en ink. Se contrae a una tira de iconos de 76 px.
+
+## Superficies
+
+- [Tile](https://frekvens-ui.vercel.app/r/tile.json): Tarjeta-widget: título arriba a la izquierda, pictograma de puntos en el centro y el valor enorme abajo a la izquierda. La pieza de los dashboards de dos columnas.
+- [Strip](https://frekvens-ui.vercel.app/r/strip.json): Fila de instrumento horizontal: título y valor grande a la izquierda, instrumento a la derecha. Se apilan con space-2 como un panel de control.
+- [CardStack](https://frekvens-ui.vercel.app/r/card-stack.json): Cartas de color apiladas que se solapan un radio: al tocar una, crece con frenada larga (dur-grow, ease-arrive) y muestra su título y su número. Listas cortas con personalidad: rutinas, playlists, cat
+- [Cabinet](https://frekvens-ui.vercel.app/r/cabinet.json): Archivero: cajones apilados con tirador en píldora. Al abrir uno, el cajón sale 10 px hacia fuera, el tirador se alarga y el contenido se despliega con frenada larga. Funciona como un acordeón de una 
+- [Pager](https://frekvens-ui.vercel.app/r/pager.json): Carrusel horizontal con scroll-snap, botones redondos de anterior/siguiente y puntos de posición (el activo se alarga en píldora). Funciona con el dedo, con los botones y con ← →.
+- [Deck](https://frekvens-ui.vercel.app/r/deck.json): Carrusel de cartas apiladas: la de arriba se arrastra y, si pasa de 90 px, sale lanzada (ease-throw) y se va al fondo del mazo. También con botones y ← →. Para elegir entre opciones de una en una (rut
+- [ListRow](https://frekvens-ui.vercel.app/r/list-row.json): Fila con filete superior y número o icono grande a la izquierda: pasos, historial, ajustes. Sin tarjetas, sin sombras.
+- [Viewport3D](https://frekvens-ui.vercel.app/r/viewport-3d.json): Visor 3D sin dependencias (CSS 3D): un objeto sobre un suelo de puntos que se gira arrastrando, se acerca con la rueda y tiene vistas rápidas (Iso, Frente, Arriba), un gizmo de ejes y la lectura de án
+- [PaymentCard](https://frekvens-ui.vercel.app/r/payment-card.json): Tarjeta de pago: bloque de color en proporción de tarjeta real, chip de puntos, últimos 4 dígitos en mono. Congelada, se cubre de escarcha con un piloto.
+- [Timeline](https://frekvens-ui.vercel.app/r/timeline.json): Línea de tiempo vertical con el lenguaje de estados: hecho (disco), en curso (puntos), pendiente (aro), error. Sirve para despliegues, pedidos, historial de actividad (con avatar) y pasos de un proces
+- [Checklist](https://frekvens-ui.vercel.app/r/checklist.json): Lista de puesta en marcha: contador n / total con puntos, y cada paso desplegable con su explicación y su acción. Al marcar uno, se abre el siguiente pendiente.
+
+## Conversación
+
+- [Message](https://frekvens-ui.vercel.app/r/message.json): Un turno de conversación. **Usuario**: bocadillo ink a la derecha. **Asistente**: sin bocadillo, texto a la izquierda con un avatar redondo que usa el lenguaje de estados (puntos mientras escribe, dis
+- [Composer](https://frekvens-ui.vercel.app/r/composer.json): Barra para escribir o hablar: textarea en píldora que crece hasta 160 px, tecla de micrófono y tecla de enviar klein. Al hablar, la barra se enmarca en rec, aparece un VoiceOrb pequeño y la tecla pasa
+- [Suggestions](https://frekvens-ui.vercel.app/r/suggestions.json): Respuestas sugeridas en chips de contorno en el color del texto (funcionan sobre claro y oscuro): entran escalonadas y se tiñen al pasar. Un toque envía.
+- [VoiceOrb](https://frekvens-ui.vercel.app/r/voice-orb.json): Orbe de puntos para la voz: el estado de un agente de voz se lee en cómo se mueven los puntos. **En espera**: quietos y apagados. **Escuchando**: laten desde el centro según el nivel del micrófono. **
+- [DotLoader](https://frekvens-ui.vercel.app/r/dot-loader.json): Puntos que laten mientras algo piensa o carga: fila de tres (row) o rejilla 3×3 en onda diagonal (grid). Hereda el color del texto.
+- [AgentWidget](https://frekvens-ui.vercel.app/r/agent-widget.json): Agente embebible: un lanzador redondo (con un orbe de puntos que respira) que abre un panel con dos modos. **Voz**: orbe grande, transcripción y una tecla grande para hablar/colgar. **Texto**: convers
+- [Notch](https://frekvens-ui.vercel.app/r/notch.json): Isla de IA en la parte superior (el notch del portátil o la isla del móvil): en reposo es una píldora negra con un orbe y un piloto; al pasar el puntero o al tocarla, crece con un rebote corto y muest
+- [PromptBox](https://frekvens-ui.vercel.app/r/prompt-box.json): Caja de prompt para empezar una conversación con IA: textarea amplio, adjuntos (también arrastrando), selector de modelo y de esfuerzo, dictado y enviar. Debajo, sugerencias y una nota ("La IA puede e
+- [VoicePosition](https://frekvens-ui.vercel.app/r/voice-position.json): De dónde viene la voz: un anillo de puntos que se inclina y viaja hacia el lado del que habla (izquierda, delante, derecha), se encoge si la voz está lejos y respira con el nivel. Debajo, las tres pro
+- [Beam](https://frekvens-ui.vercel.app/r/beam.json): Haz de puntos que recorre el borde de una caja mientras algo trabaja: un tren de siete puntos klein (y su eco a media opacidad) da la vuelta sobre una pista punteada tenue. Para el campo de prompt mie
+
+## Generativo
+
+- [Render](https://frekvens-ui.vercel.app/r/render.json): El motor de UI generativa: pinta una interfaz Frekvens a partir de un **spec JSON** que puede escribir un modelo. Cada nodo es {type, props, children}; type es el nombre de cualquier componente del si
+- [Stack](https://frekvens-ui.vercel.app/r/stack.json): Primitiva de composición: apila hijos en columna o fila con un hueco de la escala de espacio. Existe para que una UI generada por un modelo no tenga que escribir CSS.
+- [Grid](https://frekvens-ui.vercel.app/r/grid.json): Primitiva de composición: rejilla de columnas iguales con la junta de la botonera. El bento de Tiles sale de aquí.
+- [Text](https://frekvens-ui.vercel.app/r/text.json): Primitiva de texto: aplica un estilo tipográfico del sistema por nombre, con la etiqueta HTML correcta. Una UI generada elige variant, nunca tamaños.
+
+## Movimiento
+
+- [Reveal](https://frekvens-ui.vercel.app/r/reveal.json): Transición de entrada al aparecer en pantalla: los hijos entran escalonados (stagger, 50 ms) con una de cuatro formas — rise (sube 16 px), scale (de .94), wipe (se descubre de izquierda a derecha con 
+
+## Captura
+
+- [Viewfinder](https://frekvens-ui.vercel.app/r/viewfinder.json): Visor de cámara y escáner: rejilla de tercios, HUD arriba, obturador grande, miniatura con el número de capturas y modos Foto / Vídeo / Escanear (con esquinas de enfoque sol).
+- [CaptureKey](https://frekvens-ui.vercel.app/r/capture-key.json): Tecla de captura, como una tecla física dedicada: un toque captura (pantalla, foto, enlace), mantener graba voz mientras dura la pulsación. Todo va a un único espacio que la IA ordena después.
+- [Recorder](https://frekvens-ui.vercel.app/r/recorder.json): Grabadora de bolsillo: carrete de puntos que gira mientras graba, piloto REC, tiempo en dot, nivel de entrada y una botonera de tres teclas (grabar/parar, marca, modo). Cada toma queda debajo como Aud
+- [NoteEditor](https://frekvens-ui.vercel.app/r/note-editor.json): Cuaderno por bloques: escribir es lo primero. Enter crea un bloque, borrar en uno vacío lo une al anterior y / abre el menú para cambiar el tipo: texto, título, tarea (con el lenguaje aro → disco), ci
+
+## Arrastre
+
+- [Board](https://frekvens-ui.vercel.app/r/board.json): Tablero kanban con arrastrar y soltar real: la tarjeta deja un hueco translúcido, una copia flota inclinada 2° bajo el dedo y una línea klein con dos puntos marca dónde caerá. La columna de destino se
+- [Sortable](https://frekvens-ui.vercel.app/r/sortable.json): Lista ordenable: la misma mecánica que Board en una sola columna. Para prioridades, el orden de un menú, una cola de reproducción.
+- [Blueprint](https://frekvens-ui.vercel.app/r/blueprint.json): Lienzo de plano: la hoja de puntos de una pizarra, pero ingenieril. Rejilla de puntos cada 10 unidades y líneas klein cada 50, reglas en X e Y con la medida real, ajuste a la rejilla, cotas de la piez
+
+## Gráficas
+
+- [AreaChart](https://frekvens-ui.vercel.app/r/area-chart.json): Área en semitono: la superficie bajo la curva se rellena con una trama de puntos del color de la serie (no con un degradado) y la línea va encima, suave. Admite varias series superpuestas con leyenda.
+- [Scatter](https://frekvens-ui.vercel.app/r/scatter.json): Dispersión sobre una rejilla de puntos: cada observación es un disco con aro del color del fondo, y su tamaño puede ser un tercer dato. Ejes de un trazo.
+- [RadarChart](https://frekvens-ui.vercel.app/r/radar-chart.json): Radar de puntos: anillos de puntos al 25/50/75/100 %, ejes finos y la forma de cada serie con relleno al 18 %. Para comparar perfiles (equipos, productos, habilidades) en 4–8 ejes.
+- [DonutChart](https://frekvens-ui.vercel.app/r/donut-chart.json): Donut de segmentos redondeados y separados, con el total (o un dato) en puntos en el centro y la leyenda con porcentajes debajo.
+- [Scope](https://frekvens-ui.vercel.app/r/scope.json): Osciloscopio: pantalla oscura con retícula de puntos (ejes centrales marcados) y una traza verde fósforo que corre en vivo. Para señales, audio, latidos, estado de un sensor.

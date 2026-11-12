@@ -30,12 +30,18 @@ img, svg, iframe { max-width: 100%; }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; min-height: 64px; padding: 12px 0; border-bottom: 1px solid var(--site-line); }
 .brand { display: inline-flex; align-items: center; gap: 8px; padding: 8px 0; font: 500 15px/20px var(--font-sans); text-decoration: none; letter-spacing: -.01em; }
 .brand svg { display: block; width: 18px; height: auto; color: var(--site-dot); }
+.nav__right { display: flex; align-items: center; gap: 8px 24px; flex-wrap: wrap; }
 .nav__links { display: flex; gap: 8px 24px; flex-wrap: wrap; }
+.theme-picker { display: flex; padding: 2px; border: 1px solid var(--site-line); border-radius: 999px; }
+.theme-picker button { padding: 4px 12px; border: 0; border-radius: 999px; background: none; color: var(--site-muted); font: 400 12px/16px var(--font-sans); cursor: pointer; transition: color var(--dur-fast, 150ms), background-color var(--dur-fast, 150ms); }
+.theme-picker button[aria-pressed="true"] { background: var(--site-ink); color: var(--site-bg); }
+.theme-picker button:focus-visible { outline: 2px solid var(--site-ink); outline-offset: 2px; }
 .nav__links a { padding: 8px 0; font: 400 14px/20px var(--font-sans); color: var(--site-muted); text-decoration: none; transition: color var(--dur-fast, 150ms); }
 .nav__links a[aria-current="page"] { color: var(--site-ink); } @media (hover: hover) { .nav__links a:hover { color: var(--site-ink); } }
 
 /* Pie */
 .foot { display: flex; justify-content: space-between; gap: 8px 24px; flex-wrap: wrap; padding: 24px 0 32px; border-top: 1px solid var(--site-line); font: 400 11px/16px var(--font-mono); letter-spacing: .04em; color: var(--site-muted); }
+.foot__links { display: flex; gap: 8px 24px; flex-wrap: wrap; }
 .foot a { text-decoration: none; transition: color var(--dur-fast, 150ms); }
 @media (hover: hover) { .foot a:hover { color: var(--site-ink); } }
 
@@ -56,10 +62,10 @@ img, svg, iframe { max-width: 100%; }
 
 /* Muestras: retícula con filetes de 1 px, como una hoja técnica */
 .specimens { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--site-line); border: 1px solid var(--site-line); border-radius: 16px; overflow: hidden; }
-.specimen { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-width: 0; min-height: 260px; padding: 24px; background: var(--site-bg); }
+.specimen { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-width: 0; min-height: 260px; padding: 24px; background: var(--paper); color: var(--ink); }
 .specimen__body { flex: 1; display: flex; align-items: center; justify-content: center; min-width: 0; }
 .specimen__body > * { max-width: 100%; }
-.specimen__cap { display: flex; justify-content: space-between; gap: 12px; font: 400 11px/16px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--site-muted); }
+.specimen__cap { display: flex; justify-content: space-between; gap: 12px; font: 400 11px/16px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-muted); }
 
 /* Catálogo en tablero: columnas de alto libre, como un tablón de imágenes */
 .board-wrap { display: flex; flex-direction: column; min-width: 0; }
@@ -113,7 +119,7 @@ img, svg, iframe { max-width: 100%; }
 .examples .pin { margin: 0; }
 .examples__lead { margin: 0 0 24px; }
 .example { display: grid; grid-template-columns: minmax(0, 438px) minmax(0, 1fr); gap: 48px; align-items: start; }
-.example__screen { border: 1px solid var(--site-line); border-radius: 16px; overflow: hidden; }
+.example__screen { border: 1px solid var(--site-line); border-radius: 16px; overflow: hidden;  background: var(--paper);}
 .example__screen iframe { display: block; width: 100%; min-height: 200px; border: 0; }
 .example__side { display: flex; flex-direction: column; gap: 16px; min-width: 0; position: sticky; top: 24px; }
 .example__uses { list-style: none; margin: 0; padding: 0; }
@@ -128,12 +134,25 @@ img, svg, iframe { max-width: 100%; }
 .sheet__head { display: flex; flex-direction: column; gap: 12px; }
 .back { padding: 8px 0; font: 400 13px/20px var(--font-sans); color: var(--site-muted); text-decoration: none; width: fit-content; transition: color var(--dur-fast, 150ms); }
 @media (hover: hover) { .back:hover { color: var(--site-ink); } }
-.preview { border: 1px solid var(--site-line); border-radius: 16px; background: var(--site-bg); overflow: hidden; }
+.preview { border: 1px solid var(--site-line); border-radius: 16px; background: var(--paper); overflow: hidden; }
 .preview iframe { display: block; width: 100%; min-height: 200px; border: 0; background: transparent; }
 .deps { margin: 0; font: 400 14px/22px var(--font-sans); color: var(--site-muted); }
 .code summary { cursor: pointer; width: fit-content; font: 400 13px/20px var(--font-mono); color: var(--site-muted); }
 @media (hover: hover) { .code summary:hover { color: var(--site-ink); } }
 .code pre { margin: 16px 0 0; }
+
+/* Tabla de props (sale de los tipos) */
+.props { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.props h2 { margin: 0; padding-top: 24px; border-top: 1px solid var(--site-line); font: 500 20px/28px var(--font-sans); letter-spacing: -.01em; }
+.props__scroll { max-width: 100%; overflow-x: auto; }
+.props__scroll:focus-visible { outline: 2px solid var(--site-ink); outline-offset: 2px; }
+.props table { width: 100%; border-collapse: collapse; font: 400 13px/20px var(--font-sans); }
+.props th, .props td { text-align: left; vertical-align: top; padding: 8px 16px 8px 0; border-top: 1px solid var(--site-line); font-weight: 400; }
+.props thead th { border-top: 0; font: 400 11px/16px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--site-muted); }
+.props code { font: 400 13px/20px var(--font-mono); overflow-wrap: anywhere; }
+.props tbody th { white-space: nowrap; }
+.props td:last-child { padding-right: 0; white-space: nowrap; font: 400 11px/20px var(--font-mono); letter-spacing: .04em; color: var(--site-muted); }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 
 /* Prosa (docs en Markdown) */
 .prose { max-width: 68ch; min-width: 0; font: 400 15px/26px var(--font-sans); }

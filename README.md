@@ -26,7 +26,9 @@ Eso crea `components/frekvens/switch.tsx` y trae lo que necesita: `components/fr
 
 Si ya usas shadcn/ui, ojo: `tailwind.css` redefine `rounded-sm/md/lg/xl` con los radios de Frekvens (8 · 16 · 24 · 40 px). Si no quieres eso, importa `tokens.css` en vez de `tailwind.css`: los componentes funcionan igual.
 
-Y pon el tema en `<html data-theme="light">` (o `dark`). `applyTheme('auto')`, en `components/frekvens/theme.ts`, sigue al sistema.
+Y pon el tema en `<html data-theme="light">`: `light` (Papel, cálido), `blanco` (Blanco, grises neutros sobre blanco) o `dark` (Carbón). `applyTheme('auto')`, en `components/frekvens/theme.ts`, sigue al sistema.
+
+Un tema es solo un bloque de variables CSS. Para hacer el tuyo, copia `[data-theme="blanco"]` de `tokens.css`, cámbiale el nombre y los valores: ningún componente hay que tocarlo.
 
 Todo de una vez:
 
@@ -76,6 +78,23 @@ import { DotGrid } from "@/components/frekvens/dot-grid"
 - `docs/calidad.md`: heurísticas, pruebas y casuísticas.
 - `docs/agentes.md`: cómo debe usar Frekvens un agente de código.
 - `docs/componentes/*.md`: una ficha por componente.
+
+## Para agentes
+
+La web sirve la misma documentación en texto plano, para que un asistente de código la lea sin instalar nada:
+
+- [`/llms.txt`](https://frekvens-ui.vercel.app/llms.txt): índice de los componentes por grupo, con una línea de cada uno.
+- [`/llms-full.txt`](https://frekvens-ui.vercel.app/llms-full.txt): todo en un archivo, cada componente con su uso y sus props tal como están en los tipos.
+- [`/r/registry.json`](https://frekvens-ui.vercel.app/r/registry.json): el registro, legible por máquina.
+
+Pega esto en el `AGENTS.md` o `CLAUDE.md` de tu proyecto:
+
+```md
+Este proyecto usa Frekvens (componentes en `components/frekvens`, estilos en `styles/frekvens`).
+Antes de crear UI, lee https://frekvens-ui.vercel.app/llms.txt y usa una pieza existente si encaja.
+Para añadir una: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/<nombre>.json`.
+No añadas clases Tailwind a las piezas; el tema se cambia con `data-theme` en `<html>`.
+```
 
 ## Desarrollar
 

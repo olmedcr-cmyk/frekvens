@@ -26,6 +26,22 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       <div className="cmd">npx shadcn@latest add {home}/r/{c.slug}.json</div>
       {c.deps.length ? <p className="deps">Trae también: {c.deps.map((d, i) => <span key={d.slug}>{i ? ", " : ""}<Link href={`/componentes/${d.slug}`}>{d.name}</Link></span>)}.</p> : null}
       <Markdown src={c.doc} />
+      {c.props.length ? (
+        <section className="props" aria-labelledby="props-title">
+          <h2 id="props-title">Props</h2>
+          {c.extends ? <p className="deps">Acepta además las de <code>{c.extends}</code>.</p> : null}
+          <div className="props__scroll" tabIndex={0} role="region" aria-label={`Props de ${c.name}`}>
+            <table>
+              <thead><tr><th scope="col">Prop</th><th scope="col">Tipo</th><th scope="col"><span className="sr-only">Obligatoria</span></th></tr></thead>
+              <tbody>
+                {c.props.map((pr) => (
+                  <tr key={pr.name}><th scope="row"><code>{pr.name}</code></th><td><code>{pr.type}</code></td><td>{pr.optional ? "" : "obligatoria"}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ) : null}
       <details className="code"><summary>Código · {file}</summary><pre tabIndex={0}><code>{code}</code></pre></details>
     </article>
   )
