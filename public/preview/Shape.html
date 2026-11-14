@@ -9,8 +9,8 @@ var names=['disc','ring','half','quarter','arch','pill','arrow','cross','steps',
 ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'flex',flexDirection:'column',gap:'16px',maxWidth:'420px'}},
  h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(64px,1fr))',gap:'16px 8px'}},names.map(function(n){return h('div',{key:n,style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'6px'}},h(C.Shape,{name:n,size:48}),h('span',{className:'frk-cap',style:{margin:0,fontSize:'9px'}},n));})),
  h('div',{style:{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'8px'}},
-  h(C.Tile,{tone:'sol',title:'Breve',subtitle:'Charlas de idea',height:176},h(C.Shape,{name:'ring',soft:true,size:88})),
-  h(C.Tile,{tone:'lavanda',title:'Corto',subtitle:'Sabiduría al paso',height:176},h(C.Shape,{name:'slash',soft:true,size:88})))));
+  h(C.Tile,{tone:'sol',title:'Onda corta',subtitle:'Radio y técnica',height:176},h(C.Shape,{name:'cross',soft:true,size:88})),
+  h(C.Tile,{tone:'lavanda',title:'La hora azul',subtitle:'Cuentos para dormir',height:176},h(C.Shape,{name:'half',soft:true,size:88})))));
 </script>
 </body>
 </html>

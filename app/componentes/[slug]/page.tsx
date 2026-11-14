@@ -5,6 +5,8 @@ import catalog from "../../catalog.json"
 import { Markdown } from "../../markdown"
 import { PreviewFrame } from "../../preview-frame"
 
+// Solo existen las páginas generadas: cualquier otra dirección da un 404 de verdad.
+export const dynamicParams = false
 export function generateStaticParams() { return catalog.map((c) => ({ slug: c.slug })) }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const c = catalog.find((x) => x.slug === slug); return { title: `${c?.name ?? "Componente"} — Frekvens` } }
 

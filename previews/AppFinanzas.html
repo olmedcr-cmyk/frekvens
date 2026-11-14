@@ -1,4 +1,4 @@
-<!-- @dsCard group="Apps" height=900 page subtitle="Cartera: el saldo, tres acciones en azulejos de color y los últimos movimientos" -->
+<!-- @dsCard group="Apps" height=1000 page subtitle="Cuentas del piso: quién debe a quién, quién ha pagado y los últimos gastos" -->
 <!doctype html>
 <html lang="es">
 <head><meta charset="utf-8"><title>AppFinanzas</title>
@@ -15,7 +15,6 @@
   .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
   .list { display:flex; flex-direction:column; gap:var(--space-2); }
   .app .frk-tabbar { align-self:center; }
-
 </style></head>
 <body>
 <div id="root" class="frk-pad"></div>
@@ -23,17 +22,19 @@
 var F = window.Frekvens, h = React.createElement, no = function(){};
 function App(){
  return h('div',{className:'app'},
-  h('div',{className:'row'},h(F.Text,{variant:'title',as:'h1',sub:'Tu saldo'},'Hola, Dani'),h(F.Avatar,{name:'Dani Ruiz',size:44})),
-  h('div',null,h('p',{className:'cap'},'Saldo disponible'),h(F.Text,{variant:'numeral-xl',as:'p',style:{fontSize:'clamp(40px,13vw,52px)',paddingTop:'var(--space-2)'}},'12.495,50 €')),
+  h('div',{className:'row'},h(F.Text,{variant:'title',as:'h1',sub:'Piso de la calle Real'},'Cuentas'),
+   h('div',{style:{display:'flex',gap:'var(--space-1)'}},h(F.Avatar,{name:'Lucía Varela',size:36,tone:'klein'}),h(F.Avatar,{name:'Mateo Sanz',size:36,tone:'rams'}))),
+  h(F.Stat,{label:'Te deben',value:'46,20',unit:'€',delta:'+12,80 € esta semana',trend:[12,18,15,22,30,34,46]}),
+  h('div',{className:'card'},h('p',{className:'cap'},'Quién ha pagado en noviembre'),
+   h(F.SplitBar,{segments:[{label:'Lucía',value:212,tone:'klein'},{label:'Tú',value:168,tone:'sol'},{label:'Mateo',value:95,tone:'rams'}],format:function(v){return v+' €';}})),
   h('div',{className:'bento'},
-   h('div',{className:'wide'},h(F.Tile,{tone:'sol',icon:'arrow-down-left',anchor:'bottom',title:'Pedir',subtitle:'Con un enlace de pago',height:136,onClick:no})),
-   h(F.Tile,{tone:'lavanda',icon:'arrow-down',anchor:'bottom',title:'Ingresar',height:136,onClick:no}),
-   h(F.Tile,{tone:'salvia',icon:'arrow-up-right',anchor:'bottom',title:'Enviar',height:136,onClick:no})),
-  h('div',{className:'card'},h('p',{className:'cap'},'Movimientos'),h('div',{className:'list'},
-   h(F.ListRow,{icon:'card',title:'Discos Milenio',detail:'Ayer · tarjeta',value:'−23,21 €'}),
-   h(F.ListRow,{icon:'arrow-down',title:'Nómina',detail:'Lunes',value:'+1.840,00 €'}),
-   h(F.ListRow,{icon:'bolt',title:'Luz',detail:'1 nov',value:'−61,40 €'}))),
-  h(F.TabBar,{label:'Secciones',items:[{id:'i',label:'Inicio',icon:'home'},{id:'t',label:'Tarjetas',icon:'card'},{id:'a',label:'Análisis',icon:'chart'},{id:'f',label:'Favoritos',icon:'heart'}]}));
+   h(F.Tile,{tone:'klein',icon:'plus',anchor:'bottom',title:'Añadir gasto',subtitle:'Se reparte solo',height:144,onClick:no}),
+   h(F.Tile,{tone:'surface',icon:'check',anchor:'bottom',title:'Saldar',subtitle:'Con Mateo · 18,40 €',height:144,onClick:no})),
+  h('div',{className:'card'},h('p',{className:'cap'},'Últimos gastos'),h('div',{className:'list'},
+   h(F.ListRow,{icon:'card',title:'Mercado de abastos',detail:'Lucía · sábado',value:'38,60 €'}),
+   h(F.ListRow,{icon:'bolt',title:'Factura de la luz',detail:'Tú · 2 nov',value:'71,15 €'}),
+   h(F.ListRow,{icon:'home',title:'Bombona de butano',detail:'Mateo · 30 oct',value:'24,00 €'}))),
+  h(F.TabBar,{label:'Secciones',items:[{id:'g',label:'Gastos',icon:'home'},{id:'s',label:'Saldos',icon:'chart'},{id:'p',label:'Personas',icon:'user'}]}));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(h(App));
 </script>
