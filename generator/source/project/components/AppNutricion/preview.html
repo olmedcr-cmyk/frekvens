@@ -1,4 +1,4 @@
-<!-- @dsCard group="Apps" height=1000 page subtitle="Nutrición: calorías y proteína del día, registro por voz y un mensaje del entrenador" -->
+<!-- @dsCard group="Apps" height=1060 page subtitle="Agua y comidas: el vaso del día, lo que llevas comido y la verdura de la semana" -->
 <!doctype html>
 <html lang="es">
 <head><meta charset="utf-8"><title>AppNutricion</title>
@@ -15,7 +15,6 @@
   .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
   .list { display:flex; flex-direction:column; gap:var(--space-2); }
   .app .frk-tabbar { align-self:center; }
-
 </style></head>
 <body>
 <div id="root" class="frk-pad"></div>
@@ -23,15 +22,18 @@
 var F = window.Frekvens, h = React.createElement, no = function(){};
 function App(){
  return h('div',{className:'app'},
-  h('div',{className:'row'},h(F.Text,{variant:'title',as:'h1',sub:'Jueves 12'},'Hoy'),h(F.Avatar,{name:'Ana Mora',size:44})),
-  h('div',{className:'bento'},
-   h('div',{className:'wide'},h(F.Tile,{tone:'rams',title:'Calorías hoy',value:'1.213',caption:'de 1.880 kcal',height:200,onClick:no})),
-   h(F.Tile,{tone:'surface',title:'Proteína',value:'115 g',caption:'de 150 g',height:160}),
-   h(F.Tile,{tone:'sol',icon:'plus',anchor:'bottom',title:'Registrar comida',subtitle:'Voz o texto',height:160,onClick:no}),
-   h('div',{className:'wide'},h(F.Tile,{tone:'klein-soft',icon:'chevron-right',meta:h(F.Chip,{tone:'paper'},'Preguntar'),anchor:'bottom',title:'Te faltan 35 g.',subtitle:'No empiezas de cero: estás terminando.',height:168,onClick:no})),
-   h(F.Tile,{tone:'verde',icon:'play',anchor:'bottom',title:'Registrar entreno',subtitle:'Voz o texto',height:160,onClick:no}),
-   h(F.Tile,{tone:'ink',icon:'heart',meta:'Pronto',anchor:'bottom',title:'Salud',subtitle:'Sincronización en camino',height:160})),
-  h(F.TabBar,{label:'Secciones',items:[{id:'h',label:'Hoy',icon:'home'},{id:'d',label:'Diario',icon:'calendar'},{id:'p',label:'Progreso',icon:'chart'},{id:'y',label:'Yo',icon:'user'}]}));
+  h(F.Text,{variant:'display-xl',sub:'Viernes 14'},'Hoy'),
+  h(F.Strip,{tone:'klein-soft',icon:'drop',title:'Agua',value:'1,4',unit:'de 2 L'},h(F.ProgressRing,{value:70,size:72,tone:'klein',label:'Agua bebida'},'70 %')),
+  h('div',{className:'card'},h('p',{className:'cap'},'Comidas'),
+   h(F.Timeline,{label:'Comidas de hoy',items:[
+    {title:'Desayuno',text:'Tostada con tomate y café',time:'08:10',state:'done'},
+    {title:'Comida',text:'Lentejas con verduras',time:'14:30',state:'done'},
+    {title:'Merienda',text:'Fruta y nueces',time:'18:00',state:'running'},
+    {title:'Cena',text:'Sin planear',time:'21:30',state:'upcoming'}]})),
+  h('div',{className:'card'},h('p',{className:'cap'},'Raciones de verdura · semana'),
+   h(F.BarMeter,{label:'Raciones de verdura por día',active:4,height:104,barWidth:32,data:[{label:'L',value:3},{label:'M',value:2},{label:'X',value:4},{label:'J',value:3},{label:'V',value:2},{label:'S',value:0},{label:'D',value:0}]})),
+  h(F.KeyButton,{tone:'klein',shape:'pill',block:true},'Añadir comida'),
+  h(F.TabBar,{label:'Secciones',items:[{id:'h',label:'Hoy',icon:'home'},{id:'s',label:'Semana',icon:'calendar'},{id:'r',label:'Recetas',icon:'bookmark'}]}));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(h(App));
 </script>

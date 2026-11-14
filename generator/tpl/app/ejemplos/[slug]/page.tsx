@@ -3,6 +3,8 @@ import catalog from "../../catalog.json"
 import { examples } from "../../examples"
 import { PreviewFrame } from "../../preview-frame"
 
+// Solo existen las páginas generadas: cualquier otra dirección da un 404 de verdad.
+export const dynamicParams = false
 export function generateStaticParams() { return examples.map((e) => ({ slug: e.slug })) }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const e = examples.find((x) => x.slug === slug); return { title: `${e?.name ?? "Ejemplo"} — Frekvens` } }
 

@@ -14,7 +14,6 @@
   .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
   .list { display:flex; flex-direction:column; gap:var(--space-2); }
   .app .frk-tabbar { align-self:center; }
-
 </style></head>
 <body>
 <div id="root" class="frk-pad"></div>
@@ -22,12 +21,12 @@
 var F = window.Frekvens, h = React.createElement, no = function(){};
 function App(){
  return h('div',{className:'app'},
-  h('div',{className:'row'},h(F.Text,{variant:'headline',as:'h1'},'Moneda'),h(F.Chip,null,'ES')),
+  h('div',{className:'row'},h(F.Text,{variant:'headline',as:'h1'},'Vecina'),h(F.Chip,null,'Beta')),
   h(F.Onboarding,{onSkip:no,slides:[
-   {eyebrow:'Cobros',title:'Cobra rápido y sin vueltas.',text:'Pide un pago con un enlace y recíbelo en la cuenta en segundos.',tone:'sol',art:h(F.Shape,{name:'arrow',size:132,rotate:-45})},
-   {eyebrow:'Gasto',title:'Todo tu gasto, a la vista.',text:'Cada movimiento se ordena solo por categoría.',tone:'lavanda',art:h(F.Shape,{name:'ring',size:132,tone:'klein'})},
-   {eyebrow:'Ahorro',title:'Aparta sin pensarlo.',text:'Redondea cada compra y guarda la diferencia.',tone:'salvia',art:h(F.Shape,{name:'steps',size:132,tone:'verde'})},
-   {eyebrow:'Listo',title:'Empieza hoy.',text:'Sin comisiones el primer año.',tone:'klein-soft',art:h(F.Shape,{name:'disc',size:132,tone:'rams'})}]}));
+   {eyebrow:'Pedir',title:'Pide prestado, no compres.',text:'El taladro que usarás una vez ya lo tiene alguien en tu portal.',tone:'sol',art:h(F.Shape,{name:'arch',size:132,tone:'klein'})},
+   {eyebrow:'Prestar',title:'Lo que guardas, que sirva.',text:'Ofrece lo que tienes y decide a quién y hasta cuándo.',tone:'salvia',art:h(F.Shape,{name:'steps',size:132,tone:'verde'})},
+   {eyebrow:'Confianza',title:'Todo queda apuntado.',text:'Cada préstamo tiene fecha de vuelta y un aviso el día antes.',tone:'lavanda',art:h(F.Shape,{name:'ring',size:132,tone:'rams'})},
+   {eyebrow:'Listo',title:'Tu barrio, más a mano.',text:'Empieza por lo que más falta te hace.',tone:'klein-soft',art:h(F.Shape,{name:'cross',size:132,tone:'ink'})}]}));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(h(App));
 </script>

@@ -1,4 +1,4 @@
-<!-- @dsCard group="Apps" height=1100 page subtitle="Podcasts: titular a dos tonos, portadas de formas geométricas y una regla para moverse por los días" -->
+<!-- @dsCard group="Apps" height=1100 page subtitle="Podcasts: radio de autor con portadas de formas geométricas y una regla para moverse por los días" -->
 <!doctype html>
 <html lang="es">
 <head><meta charset="utf-8"><title>AppPodcasts</title>
@@ -15,7 +15,6 @@
   .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
   .list { display:flex; flex-direction:column; gap:var(--space-2); }
   .app .frk-tabbar { align-self:center; }
-
 </style></head>
 <body>
 <div id="root" class="frk-pad"></div>
@@ -23,15 +22,15 @@
 var F = window.Frekvens, h = React.createElement, no = function(){};
 function App(){
  return h('div',{className:'app'},
-  h(F.Text,{variant:'display-xl',sub:'Inspirar cambios'},'Explorar mentes'),
-  h(F.Ruler,{label:'Día',min:1,max:30,major:5,pitch:14,defaultValue:12,format:function(v){return v===12?'Hoy':'Día '+v;}}),
+  h(F.Text,{variant:'display-xl',sub:'Radio de autor'},'Escuchar'),
+  h(F.Ruler,{label:'Día',min:1,max:30,major:5,pitch:14,defaultValue:14,format:function(v){return v===14?'Hoy':'Día '+v;}}),
   h('div',{className:'bento'},
-   h('div',{className:'wide'},h(F.Tile,{tone:'verde',title:'De vuelta a los amigos',subtitle:'Episodio nuevo · 38 min',value:'4',height:232,onClick:no},h(F.Shape,{name:'arrow',size:96,soft:true}))),
-   h(F.Tile,{tone:'salvia',title:'Conectar',subtitle:'Corazones',caption:'Irene Agustí',height:208,onClick:no},h(F.Shape,{name:'quarter',size:80,soft:true})),
-   h(F.Tile,{tone:'sol',title:'Breve',subtitle:'Charlas de idea',caption:'Lola Marsal',height:208,onClick:no},h(F.Shape,{name:'ring',size:80,soft:true})),
-   h(F.Tile,{tone:'lavanda',title:'Rápido',subtitle:'Ideas al paso',caption:'Enriqueta Blanco',height:208,onClick:no},h(F.Shape,{name:'cloud',size:80,soft:true})),
-   h(F.Tile,{tone:'surface',title:'Corto',subtitle:'Sabiduría de bolsillo',caption:'Josefa Brito',height:208,onClick:no},h(F.Shape,{name:'slash',size:80,soft:true}))),
-  h(F.TabBar,{label:'Secciones',items:[{id:'t',label:'Top',icon:'chart'},{id:'b',label:'Buscar',icon:'search'},{id:'g',label:'Guardado',icon:'bookmark'}]}));
+   h('div',{className:'wide'},h(F.Tile,{tone:'tabaco',meta:'Nuevo',title:'Sobremesa',subtitle:'Episodio 112 · 41 min',caption:'Charlas largas después de comer',height:224,onClick:no},h(F.Shape,{name:'half',size:112,soft:true}))),
+   h(F.Tile,{tone:'verde',title:'Kilómetro cero',subtitle:'Cocina de temporada',caption:'Marta Iglesias',height:208,onClick:no},h(F.Shape,{name:'steps',size:80,soft:true})),
+   h(F.Tile,{tone:'sol',title:'Onda corta',subtitle:'Radio y técnica',caption:'Pablo Rey',height:208,onClick:no},h(F.Shape,{name:'cross',size:80,soft:true})),
+   h(F.Tile,{tone:'klein-soft',title:'La hora azul',subtitle:'Cuentos para dormir',caption:'Inés Calvo',height:208,onClick:no},h(F.Shape,{name:'disc',size:80,soft:true})),
+   h(F.Tile,{tone:'surface',title:'Paso a paso',subtitle:'Caminar la ciudad',caption:'Tomás Lago',height:208,onClick:no},h(F.Shape,{name:'arch',size:80,soft:true}))),
+  h(F.TabBar,{label:'Secciones',items:[{id:'i',label:'Inicio',icon:'home'},{id:'b',label:'Buscar',icon:'search'},{id:'g',label:'Guardado',icon:'bookmark'}]}));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(h(App));
 </script>

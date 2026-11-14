@@ -1,0 +1,47 @@
+<!-- @dsCard group="Apps" height=1500 page subtitle="Cine de verano: programa, aforo y avisos de un ciclo al aire libre, con apertura y cierre en cápsula" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>AppCine</title>
+<style>
+  .app { width:min(390px,100%); margin:0 auto; box-sizing:border-box; border-radius:44px; padding:var(--space-6) var(--space-4) var(--space-4); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); outline-offset:calc(var(--hairline) * -1); overflow:hidden; }
+  .bento { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-2); }
+  .bento > * { min-width:0; }
+  .wide { grid-column:1 / -1; }
+  .bento .frk-tile { height:100%; }
+  .bento .frk-tile__value { font-size:40px; }
+  .bento .wide .frk-tile__value { font-size:64px; }
+  .card { display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-4); border-radius:var(--radius-lg); background:var(--surface); box-sizing:border-box; min-width:0; }
+  .cap { margin:0; font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+  .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .list { display:flex; flex-direction:column; gap:var(--space-2); }
+  .app .frk-tabbar { align-self:center; }
+  .page { width:min(960px,100%); margin:0 auto; display:flex; flex-direction:column; gap:var(--space-2); }
+  .cols { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr)); gap:var(--space-2); }
+  .cols > * { min-width:0; }
+  .cols .frk-tile { height:100%; }
+</style></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement, no = function(){};
+function App(){
+ return h('div',{className:'page'},
+  h(F.Capsule,{level:1,as:'header',eyebrow:'Cine de verano · Patio del museo',title:'Doce películas al aire libre',text:'Cada jueves del 2 de julio al 17 de septiembre, a las 22:00. Entrada libre hasta completar aforo.',actions:[h(F.KeyButton,{key:'a',tone:'klein',shape:'pill'},'Reservar sitio'),h(F.KeyButton,{key:'b',tone:'surface',shape:'pill'},'Programa')]},h(F.Shape,{name:'disc',size:72,tone:'sol'}),h(F.Shape,{name:'half',size:72,tone:'rams'})),
+  h(F.Text,{variant:'label',as:'h2',style:{padding:'var(--space-4) var(--space-2) 0'}},'Julio'),
+  h('div',{className:'cols'},
+   h(F.Tile,{icon:'calendar',meta:'02.07',anchor:'bottom',title:'La casa del faro',subtitle:'Drama · 1 h 52',height:176}),
+   h(F.Tile,{icon:'calendar',meta:'09.07',anchor:'bottom',title:'Verano en la azotea',subtitle:'Comedia · 1 h 38',height:176}),
+   h(F.Tile,{icon:'calendar',meta:'16.07',anchor:'bottom',title:'Mareas',subtitle:'Documental · 1 h 24',height:176}),
+   h(F.Tile,{tone:'sol',icon:'volume',meta:'23.07',anchor:'bottom',title:'El último tranvía',subtitle:'Cine mudo con piano en directo',height:176})),
+  h(F.Strip,{tone:'surface',icon:'user',title:'Aforo del próximo jueves',value:'312',unit:'de 400'},h(F.Chip,{tone:'verde',dot:true},'Quedan sitios')),
+  h(F.Text,{variant:'label',as:'h2',style:{padding:'var(--space-4) var(--space-2) 0'}},'Avisos'),
+  h('div',{className:'cols'},
+   h(F.Article,{href:'#',date:'12.06.2026',category:'Programa',title:'Doce títulos y un piano en directo'},h(F.Shape,{name:'steps',size:64,tone:'paper'})),
+   h(F.Article,{href:'#',date:'28.05.2026',category:'Consejo',title:'Trae cojín: las gradas son de piedra',tone:'rams'},h(F.Shape,{name:'pill',size:64})),
+   h(F.Article,{href:'#',date:'15.05.2026',category:'Biblioteca',title:'Las noches de viento prestamos mantas',tone:'klein'},h(F.Shape,{name:'cloud',size:64,tone:'paper'}))),
+  h(F.Capsule,{tone:'klein-soft',title:'Te guardamos sitio',text:'Reserva gratis y te avisamos si llueve.',actions:[h(F.KeyButton,{key:'a',tone:'klein',shape:'pill'},'Reservar sitio')]},h(F.Shape,{name:'ring',size:88,tone:'rams'})));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

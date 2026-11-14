@@ -1,4 +1,4 @@
-<!-- @dsCard group="Apps" height=1060 page subtitle="Hogar: cada aparato en una fila de color con su lectura, y el mando del aire" -->
+<!-- @dsCard group="Apps" height=1120 page subtitle="Casa: la temperatura de cada estancia, las luces y el modo de la casa" -->
 <!doctype html>
 <html lang="es">
 <head><meta charset="utf-8"><title>AppHogar</title>
@@ -15,7 +15,7 @@
   .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
   .list { display:flex; flex-direction:column; gap:var(--space-2); }
   .app .frk-tabbar { align-self:center; }
-  .stack { display:flex; flex-direction:column; gap:var(--space-1); }
+  .stack { display:flex; flex-direction:column; gap:var(--space-2); }
   .center { display:flex; flex-direction:column; align-items:center; gap:var(--space-4); }
 </style></head>
 <body>
@@ -24,14 +24,16 @@
 var F = window.Frekvens, h = React.createElement, no = function(){};
 function App(){
  return h('div',{className:'app'},
-  h(F.TopBar,{as:'header',title:'Dispositivos',actions:h(F.KeyButton,{tone:'well',size:'s',shape:'round',icon:'menu','aria-label':'Menú'})}),
+  h(F.TopBar,{as:'header',title:'Casa',actions:h(F.KeyButton,{tone:'well',size:'s',shape:'round',icon:'menu','aria-label':'Menú'})}),
   h('div',{className:'stack'},
-   h(F.Strip,{tone:'salvia',icon:'sun',title:'Aire',value:'24',unit:'°C'},h(F.Chip,{tone:'paper',dot:true},'Encendido')),
-   h(F.Strip,{tone:'rams',icon:'refresh',title:'Ventilador',value:'80',unit:'km/h'},h(F.Chip,{tone:'paper',dot:true},'Encendido')),
-   h(F.Strip,{tone:'malva',icon:'drop',title:'Lavadora',value:'8',unit:'kW'},h(F.Chip,{tone:'paper'},'42 min')),
-   h(F.Strip,{tone:'klein',icon:'bolt',title:'Nevera',value:'4',unit:'kW'},h(F.Chip,{tone:'paper',dot:true},'Encendido')),
-   h(F.Strip,{tone:'klein-soft',icon:'power',title:'Cargador',value:'2',unit:'kW'},h(F.Chip,{tone:'paper'},'Apagado'))),
-  h('div',{className:'card center'},h('p',{className:'cap'},'Aire · temperatura'),h(F.Dial,{label:'Temperatura',min:16,max:30,defaultValue:24,size:168}),h(F.Segmented,{label:'Estado del aire',options:['Encendido','Apagado'],defaultValue:'Encendido'})),
+   h(F.Strip,{tone:'surface',icon:'home',title:'Salón',value:'21,5',unit:'°C'},h(F.Sparkline,{data:[19,19.5,20,21,21.5,21.5,21],width:96,height:32,label:'Salón, últimas seis horas'})),
+   h(F.Strip,{tone:'surface',icon:'drop',title:'Baño',value:'22,0',unit:'°C'},h(F.Sparkline,{data:[20,20.5,23,24,22.5,22,22],width:96,height:32,label:'Baño, últimas seis horas'})),
+   h(F.Strip,{tone:'salvia',icon:'sun',title:'Terraza',value:'13,5',unit:'°C'},h(F.Chip,{tone:'paper'},'Viento 18 km/h'))),
+  h('div',{className:'card'},h('p',{className:'cap'},'Luces'),h('div',{className:'list'},
+   h(F.Switch,{label:'Salón',showLabel:true,defaultChecked:true}),
+   h(F.Switch,{label:'Cocina',showLabel:true}),
+   h(F.Switch,{label:'Pasillo',showLabel:true,defaultChecked:true}))),
+  h('div',{className:'card center'},h('p',{className:'cap'},'Calefacción del salón'),h(F.Dial,{label:'Grados',min:16,max:26,defaultValue:21,size:152}),h(F.Segmented,{label:'Modo de la casa',options:['En casa','Noche','Fuera'],defaultValue:'En casa'})),
   h(F.TabBar,{label:'Secciones',items:[{id:'c',label:'Casa',icon:'home'},{id:'e',label:'Energía',icon:'bolt'},{id:'a',label:'Ajustes',icon:'sliders'}]}));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(h(App));

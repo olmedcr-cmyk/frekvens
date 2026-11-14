@@ -12,16 +12,16 @@ Como en shadcn/ui, el código se copia a tu proyecto. No hay paquete que actuali
 npx shadcn@latest add https://frekvens-ui.vercel.app/r/switch.json
 ```
 
-Eso crea `components/frekvens/switch.tsx` y trae lo que necesita: `components/frekvens/lib.tsx` (utilidades) y `styles/frekvens/*.css` (tokens y estilos). Después, importa los estilos una vez en tu CSS global:
+Eso crea `components/frekvens/switch.tsx` y trae lo que necesita: `components/frekvens/lib.tsx` (utilidades) y `styles/frekvens/*.css` (tokens y estilos). Después, importa los estilos una vez en tu CSS global. Las rutas son relativas a ese archivo; en un proyecto Next.js estándar es `app/globals.css`, así que se sube un nivel:
 
 ```css
 /* Con Tailwind v4 */
 @import "tailwindcss";
-@import "./frekvens/tailwind.css";     /* tokens + @theme: bg-klein, text-ink, rounded-xl, ease-settle… */
-@import "./frekvens/components.css";   /* los componentes, en @layer components */
+@import "../styles/frekvens/tailwind.css";  /* tokens + @theme: bg-klein, text-ink, rounded-xl, ease-settle… */
+@import "../styles/frekvens/components.css";  /* los componentes, en @layer components */
 
 /* Sin Tailwind */
-@import "./frekvens/frekvens.css";
+@import "../styles/frekvens/frekvens.css";
 ```
 
 Si ya usas shadcn/ui, ojo: `tailwind.css` redefine `rounded-sm/md/lg/xl` con los radios de Frekvens (8 · 16 · 24 · 40 px). Si no quieres eso, importa `tokens.css` en vez de `tailwind.css`: los componentes funcionan igual.
