@@ -22,7 +22,12 @@ export function IndexList(p?: any): any {
               : it,
           Tag: any = o.href ? "a" : o.onClick ? "button" : "span"
         return (
-          <li key={i}>
+          <li
+            key={i}
+            style={{
+              animationDelay: i * 40 + "ms",
+            }}
+          >
             <Tag
               href={o.href}
               type={Tag === "button" ? "button" : undefined}

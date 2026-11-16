@@ -46,6 +46,9 @@ export function DotColumns(p?: any): any {
                   <span
                     key={r}
                     className={cx("frk-dotcols__dot", k < n && "is-on", k === n - 1 && "is-top")}
+                    style={{
+                      animationDelay: i * 40 + k * 30 + "ms",
+                    }}
                   />
                 )
               })}

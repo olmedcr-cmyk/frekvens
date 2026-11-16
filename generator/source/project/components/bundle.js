@@ -2412,7 +2412,7 @@
         var on = i === act, pc = clamp(d.value / mx, 0, 1) * 100;
         return h('div', { key: i, className: cx('frk-cols__col', on && 'is-on'), 'aria-hidden': true },
           h('div', { className: 'frk-cols__slot', style: { height: H } },
-            h('span', { className: 'frk-cols__bar', style: { height: pc + '%' } }),
+            h('span', { className: 'frk-cols__bar', style: { height: pc + '%', animationDelay: i * 50 + 'ms' } }),
             p.values === false ? null : h('span', { className: 'frk-cols__val', style: { bottom: pc + '%' } }, fmt(d.value))),
           h('span', { className: 'frk-cols__lbl' }, d.label));
       }));
@@ -2423,7 +2423,7 @@
     var total = p.total || 10, v = clamp(Math.round(p.value || 0), 0, total), shape = p.shape || 'dot', end = p.from === 'end';
     var cols = p.columns || (shape === 'bar' ? total : Math.min(total, 5)), sty = {}; sty['--cols'] = cols; sty['--size'] = (p.size || (shape === 'bar' ? 12 : 40)) + 'px';
     return h('div', { className: cx('frk-picto', 'frk-picto--' + shape, 'frk-picto--' + (p.tone || 'rams'), p.className), role: 'img', 'aria-label': (p.label ? p.label + ': ' : '') + v + ' de ' + total + (p.unit ? ' ' + p.unit : ''), style: sty },
-      range(total).map(function (i) { return h('span', { key: i, className: cx('frk-picto__u', (end ? i >= total - v : i < v) && 'is-on') }); }));
+      range(total).map(function (i) { return h('span', { key: i, className: cx('frk-picto__u', (end ? i >= total - v : i < v) && 'is-on'), style: { animationDelay: Math.min(i * 18, 500) + 'ms' } }); }));
   }
 
   /* ---------- DotColumns: columnas de puntos apilados, con el pico marcado ---------- */
@@ -2436,7 +2436,7 @@
         var n = clamp(Math.round(vals[i] / mx * rows), vals[i] > 0 ? 1 : 0, rows);
         return h('div', { key: i, className: cx('frk-dotcols__col', i === act && 'is-on') },
           i === act ? h('span', { className: 'frk-dotcols__pin' }) : null,
-          range(rows).map(function (r) { var k = rows - 1 - r; return h('span', { key: r, className: cx('frk-dotcols__dot', k < n && 'is-on', k === n - 1 && 'is-top') }); }),
+          range(rows).map(function (r) { var k = rows - 1 - r; return h('span', { key: r, className: cx('frk-dotcols__dot', k < n && 'is-on', k === n - 1 && 'is-top'), style: { animationDelay: (i * 40 + k * 30) + 'ms' } }); }),
           hasLbl ? h('span', { className: 'frk-dotcols__lbl' }, d.label) : null);
       })));
   }
@@ -2486,7 +2486,7 @@
     }
     return h('div', { className: cx('frk-trim', 'frk-trim--' + (p.tone || 'rams'), p.className), role: 'group', 'aria-label': p.label || 'Recorte' },
       h('div', { className: 'frk-trim__track', ref: track },
-        h('div', { className: 'frk-trim__wave', 'aria-hidden': true }, peaks.map(function (v, i) { var x = (i + .5) / peaks.length * 100; return h('span', { key: i, className: cx('frk-trim__bar', x >= a && x <= b && 'is-on'), style: { height: Math.max(8, v * 100) + '%' } }); })),
+        h('div', { className: 'frk-trim__wave', 'aria-hidden': true }, peaks.map(function (v, i) { var x = (i + .5) / peaks.length * 100; return h('span', { key: i, className: cx('frk-trim__bar', x >= a && x <= b && 'is-on'), style: { height: Math.max(8, v * 100) + '%', animationDelay: i * 6 + 'ms' } }); })),
         h('span', { className: 'frk-trim__range', 'aria-hidden': true, style: { left: a + '%', width: (b - a) + '%' } }),
         handle(0), handle(1)),
       p.readout === false ? null : h('div', { className: 'frk-trim__read', 'aria-hidden': true }, h('span', null, fmt(a)), h('span', null, fmt(b))));
@@ -2498,7 +2498,7 @@
     return h('ol', { className: cx('frk-bands', p.stacked && 'frk-bands--stacked', p.className), 'aria-label': p.label },
       items.map(function (it, i) {
         var Tag = it.href ? 'a' : it.onClick ? 'button' : 'div';
-        return h('li', { key: i, className: 'frk-bands__item' },
+        return h('li', { key: i, className: 'frk-bands__item', style: { animationDelay: i * 50 + 'ms' } },
           h(Tag, { href: it.href, type: Tag === 'button' ? 'button' : undefined, onClick: it.onClick, className: cx('frk-bands__band', 'frk-tone--' + (it.tone || 'surface')) },
             p.numbered === false ? null : h('span', { className: 'frk-bands__n', 'aria-hidden': true }, i + 1),
             h('span', { className: 'frk-bands__text' }, h('span', { className: 'frk-bands__title' }, it.title), it.sub ? h('span', { className: 'frk-bands__sub' }, it.sub) : null),
@@ -2560,7 +2560,7 @@
     return h('ul', { className: cx('frk-index', p.className), 'aria-label': p.label },
       items.map(function (it, i) {
         var o = typeof it === 'string' ? { label: it } : it, Tag = o.href ? 'a' : o.onClick ? 'button' : 'span';
-        return h('li', { key: i }, h(Tag, { href: o.href, type: Tag === 'button' ? 'button' : undefined, onClick: o.onClick, 'aria-current': o.current ? 'true' : undefined, className: cx('frk-index__item', o.current && 'is-on') },
+        return h('li', { key: i, style: { animationDelay: i * 40 + 'ms' } }, h(Tag, { href: o.href, type: Tag === 'button' ? 'button' : undefined, onClick: o.onClick, 'aria-current': o.current ? 'true' : undefined, className: cx('frk-index__item', o.current && 'is-on') },
           h('span', { className: 'frk-index__label' }, o.label),
           o.count != null ? h('span', { className: 'frk-index__count' }, h('span', { className: 'frk-sr' }, ', '), o.count) : null));
       }));

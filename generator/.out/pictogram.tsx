@@ -26,7 +26,15 @@ export function Pictogram(p?: any): any {
       style={sty}
     >
       {range(total).map(function (i?: any): any {
-        return <span key={i} className={cx("frk-picto__u", (end ? i >= total - v : i < v) && "is-on")} />
+        return (
+          <span
+            key={i}
+            className={cx("frk-picto__u", (end ? i >= total - v : i < v) && "is-on")}
+            style={{
+              animationDelay: Math.min(i * 18, 500) + "ms",
+            }}
+          />
+        )
       })}
     </div>
   )

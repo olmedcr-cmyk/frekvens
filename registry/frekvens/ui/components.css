@@ -1873,9 +1873,9 @@ button.frk-bands__band, a.frk-bands__band { cursor: pointer; }
 .frk-eyes { display: block; max-width: 100%; height: auto; }
 .frk-eyes__ball { fill: var(--acc); }
 .frk-eyes__pupil { fill: var(--on-acc); }
-.frk-eyes__eye > g { transform-box: fill-box; transform-origin: center; animation: frk-blink 5s infinite; }
+.frk-eyes__eye > g { transform-box: fill-box; transform-origin: center; animation: frk-eyes-blink 5s infinite; }
 .frk-eyes.is-still .frk-eyes__eye > g { animation: none; }
-@keyframes frk-blink { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(.08); } }
+@keyframes frk-eyes-blink { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(.08); } }
 
 /* Swatch */
 .frk-swatch { display: inline-flex; flex-direction: column; align-items: center; gap: var(--space-2); margin: 0; font-family: var(--font-sans); }
@@ -1907,10 +1907,40 @@ span.frk-index__item, .frk-index__item.is-on { color: var(--ink); }
 .frk-index__item:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--radius-sm); }
 @media (hover: hover) { :is(a, button).frk-index__item:hover { color: var(--ink); } }
 
+/* Frekvens 6 · respuesta: hover = un paso del propio color o un levantamiento; pulsar = hundirse */
+button.frk-fill, :is(a, button).frk-bands__band, .frk-week__day, :is(a, button).frk-index__item { transition: transform var(--dur-fast, 150ms) var(--ease-ui, ease-out), box-shadow var(--dur-base, 220ms), background-color var(--dur-fast, 150ms), color var(--dur-fast, 150ms); }
+.frk-week__mark, .frk-bands__band > .frk-icon, .frk-index__label { transition: transform var(--dur-fast, 150ms) var(--ease-ui, ease-out); }
+@media (hover: hover) {
+  button.frk-fill:hover { box-shadow: var(--shadow-lift); transform: translateY(-1px); }
+  :is(a, button).frk-bands__band:hover { background: color-mix(in srgb, var(--tone-bg), var(--hover-mix) var(--hover-step)); }
+  :is(a, button).frk-bands__band:hover > .frk-icon { transform: translateX(3px); }
+  :is(a, button).frk-index__item:hover .frk-index__label { transform: translateX(4px); }
+  .frk-week__day:hover .frk-week__mark { transform: scale(1.08); }
+}
+button.frk-fill:active { transform: translateY(0) scale(.99); box-shadow: var(--shadow-press); transition-duration: var(--dur-press, 90ms); }
+:is(a, button).frk-bands__band:active { background: color-mix(in srgb, var(--tone-bg), var(--hover-mix) calc(var(--hover-step) * 2)); box-shadow: var(--shadow-press); transition-duration: var(--dur-press, 90ms); }
+.frk-week__day:active .frk-week__mark { transform: scale(.9); transition-duration: var(--dur-press, 90ms); }
+:is(a, button).frk-index__item:active .frk-index__label { transform: scale(.98); transform-origin: left center; transition-duration: var(--dur-press, 90ms); }
+.frk-trim__grip { transition: transform var(--dur-fast, 150ms) var(--ease-ui, ease-out); }
+@media (hover: hover) { .frk-trim__handle:hover .frk-trim__grip { transform: scaleX(1.5); } }
+.frk-trim__handle:active .frk-trim__grip { transform: scaleX(2); }
+
+/* Frekvens 6 · entrada: lo que cuenta crece o aparece ficha a ficha; el texto solo sube, nunca se funde */
+@keyframes frk-grow-y { from { scale: 1 0; } }
+@keyframes frk-unit-in { from { scale: .4; opacity: 0; } }
+@keyframes frk-rise { from { translate: 0 8px; } }
+@keyframes frk-fill-in { from { clip-path: inset(0 100% 0 0 round 0 var(--radius-lg) var(--radius-lg) 0); } }
+.frk-fill__on { animation: frk-fill-in var(--dur-grow, 640ms) var(--ease-arrive, ease-out) backwards; }
+.frk-cols__bar { transform-origin: bottom; animation: frk-grow-y var(--dur-grow, 640ms) var(--ease-arrive, ease-out) backwards; }
+.frk-trim__bar { animation: frk-grow-y var(--dur-sheet, 500ms) var(--ease-arrive, ease-out) backwards; }
+.frk-picto__u, .frk-dotcols__dot.is-on, .frk-dotcols__pin { animation: frk-unit-in var(--dur-base, 220ms) var(--ease-settle, ease-out) backwards; }
+.frk-bands__item, .frk-index > li { animation: frk-rise var(--dur-base, 220ms) var(--ease-arrive, ease-out) backwards; }
+
 @media (prefers-reduced-motion: reduce) {
   .frk-fill__on, .frk-cols__bar, .frk-seq__pad { transition-duration: 1ms; }
   .frk-seq__cell:active .frk-seq__pad { transform: none; }
-  .frk-eyes__eye > g { animation: none; }
+  .frk-eyes__eye > g, .frk-fill__on, .frk-cols__bar, .frk-trim__bar, .frk-picto__u, .frk-dotcols__dot, .frk-dotcols__pin, .frk-bands__item, .frk-index > li { animation: none; }
+  button.frk-fill:hover, button.frk-fill:active, .frk-week__day .frk-week__mark, .frk-bands__band > .frk-icon, .frk-index__label, .frk-trim__grip { transform: none !important; }
 }
 
 }

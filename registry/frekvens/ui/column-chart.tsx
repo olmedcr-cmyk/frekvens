@@ -54,6 +54,7 @@ export function ColumnChart(p?: any): any {
                 className="frk-cols__bar"
                 style={{
                   height: pc + "%",
+                  animationDelay: i * 50 + "ms",
                 }}
               />
               {p.values === false ? null : (

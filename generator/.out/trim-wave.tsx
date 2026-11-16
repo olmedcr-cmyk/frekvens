@@ -106,6 +106,7 @@ export function TrimWave(p?: any): any {
                 className={cx("frk-trim__bar", x >= a && x <= b && "is-on")}
                 style={{
                   height: Math.max(8, v * 100) + "%",
+                  animationDelay: i * 6 + "ms",
                 }}
               />
             )

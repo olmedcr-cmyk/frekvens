@@ -17,7 +17,13 @@ export function Bands(p?: any): any {
       {items.map(function (it?: any, i?: any): any {
         var Tag: any = it.href ? "a" : it.onClick ? "button" : "div"
         return (
-          <li key={i} className="frk-bands__item">
+          <li
+            key={i}
+            className="frk-bands__item"
+            style={{
+              animationDelay: i * 50 + "ms",
+            }}
+          >
             <Tag
               href={it.href}
               type={Tag === "button" ? "button" : undefined}
