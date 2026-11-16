@@ -32,6 +32,7 @@ Otras piezas del generador:
 - `thumbs.mjs` (`npm run thumbs`): fotografía cada vista previa en `generator/thumbs/` (tema Blanco); `build.mjs` las copia a `public/thumbs/` y guarda su tamaño en `app/catalog.json`.
 - Temas: `tokens.json` → `color.themes`. `light` (Papel) y `dark` (Carbón) definen todos los tokens; un tema extra como `blanco` solo los que cambia y hereda el resto del claro.
 - Props: `build.mjs` lee `index.d.ts` y las pone en `app/catalog.json` (tabla de la ficha) y en `public/llms-full.txt`. `public/llms.txt` es el índice para agentes.
+- ChatGPT: `tpl/app/mcp/route.ts` es un servidor MCP (herramientas `list_components`, `get_component`, `render_ui`) y `widget.ts` el HTML que se pinta en la conversación; leen `app/catalog.json` y `frekvens.schema.json`. Una pieza nueva debe añadirse también al esquema. Ver `docs/chatgpt.md`.
 - Apps de ejemplo: carpetas `App*` en `components/` con solo `preview.html`; la web las lista en `/ejemplos` (`tpl/app/examples.ts`).
 
 ## Reglas

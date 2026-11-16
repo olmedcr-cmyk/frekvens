@@ -79,7 +79,12 @@ import { DotGrid } from "@/components/frekvens/dot-grid"
 - `docs/movimiento.md`: tokens de tiempo y curvas, el detalle fino.
 - `docs/calidad.md`: heurísticas, pruebas y casuísticas.
 - `docs/agentes.md`: cómo debe usar Frekvens un agente de código.
+- `docs/chatgpt.md`: Frekvens dentro de ChatGPT (servidor MCP en `/mcp`).
 - `docs/componentes/*.md`: una ficha por componente.
+
+## En ChatGPT
+
+La web sirve un servidor MCP en [`/mcp`](https://frekvens-ui.vercel.app/mcp). Añádelo en ChatGPT como servidor MCP propio y el modelo podrá consultar el catálogo y pintar pantallas con las piezas dentro de la conversación. Ver `docs/chatgpt.md`.
 
 ## Para agentes
 

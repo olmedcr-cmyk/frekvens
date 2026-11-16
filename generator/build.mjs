@@ -131,7 +131,7 @@ write(R('package.json'), JSON.stringify({
   name: 'frekvens', version: VERSION, private: true, type: 'module', license: 'MIT',
   description: 'Frekvens: componentes React para copiar y pegar, al estilo shadcn/ui. Botoneras grandes, puntos, instrumentos, conversación e IA.',
   scripts: { dev: 'next dev', build: 'next build', start: 'next start', 'registry:build': 'npx shadcn@latest build', test: 'tsc -p tsconfig.registry.json && node test/smoke.mjs && node test/registry.mjs', 'test:a11y': 'node test/a11y.mjs', thumbs: 'node generator/thumbs.mjs' },
-  dependencies: { next: '15.5.29', react: '18.3.1', 'react-dom': '18.3.1' },
+  dependencies: { '@modelcontextprotocol/server': '2.4.0', 'mcp-handler': '2.3.0', next: '15.5.29', react: '18.3.1', 'react-dom': '18.3.1', zod: '4.6.7' },
   devDependencies: { '@tailwindcss/postcss': '4.0.17', '@types/node': '22.10.2', '@types/react': '18.3.18', '@types/react-dom': '18.3.5', 'axe-core': '4.10.2', esbuild: '0.28.2', playwright: '1.65.0', tailwindcss: '4.0.17', typescript: '5.7.2' },
   // Next 15 fija un postcss antiguo; se fuerza el parcheado (mismo mayor, misma API).
   overrides: { postcss: '8.5.32' },

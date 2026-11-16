@@ -84,7 +84,12 @@ import { DotGrid } from "@/components/frekvens/dot-grid"
 - `docs/movimiento.md`: timing and easing tokens, the fine detail.
 - `docs/calidad.md`: heuristics, tests and edge cases.
 - `docs/agentes.md`: how a coding agent should use Frekvens.
+- `docs/chatgpt.md`: Frekvens inside ChatGPT (MCP server at `/mcp`).
 - `docs/componentes/*.md`: one page per component.
+
+## In ChatGPT
+
+The site serves an MCP server at [`/mcp`](https://frekvens-ui.vercel.app/mcp). Add it to ChatGPT as a custom MCP server and the model can read the catalogue and render screens with the components inside the conversation. See `docs/chatgpt.md` (in Spanish).
 
 ## For agents
 
