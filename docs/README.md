@@ -29,6 +29,8 @@ La base es papel cálido y tinta; el color se usa en **bloques sólidos completo
 - **`tabaco`** (marrón óxido) es material: un bloque de hora o historial. Texto en `on-tabaco`.
 - **`rec`** solo para grabar, borrar o error, siempre con palabra o icono.
 - Fondos ambientales **`salvia`**, **`lavanda`**, **`malva`**: una pantalla entera de una categoría (gastos, stock, tendencias). Todo el texto encima en `ink`; dentro de un contenedor `frk-tone--salvia/lavanda/malva`, `ink-muted` se oscurece solo para mantener 4.5:1.
+- Franjas **`rosa`** y **`cielo`**: fondos de `Bands`, `Tile` u `Onboarding` cuando hacen falta más categorías; texto encima en `ink`.
+- **Rayado** (`--hatch`, a 135°): significa «todavía no» (previsión, pendiente, lo que falta de una barra). Nunca lleva un dato por sí solo.
 - Por fila de tiles, un solo bloque de color; el otro en `surface`. Por pantalla, como mucho dos colores de bloque además de papel y tinta.
 - Tema **Papel** (claro, cálido), **Blanco** (claro, grises neutros sobre blanco puro) y **Carbón** (oscuro). Blanco solo cambia los neutros (`paper`, `surface`, `well`, `line`, `dot-off`, `ink-muted`, `ink-faint`); los colores son los de Papel. En Carbón `ink` y `paper` se invierten; `sol` no cambia; `klein`, `rams`, `tabaco` y `klein-ink` se aclaran para mantener contraste.
 
@@ -109,20 +111,20 @@ Pantallas completas por sector: entrenamiento (`PantallaTimer`, `PantallaTiempo`
 En un proyecto React, instala `@crisolmedo/frekvens` (ver *Usar en React*). En una página suelta, `window.Frekvens` (React 18): carga los tokens, `components/bundle.css` (incluye las fuentes de Google) y `components/bundle.js`.
 
 - Botonera: `KeyButton`, `Keypad`, `HoldButton`, `SlideToStart`, `Rocker`, `ClickWheel`, `NumPad`, `Keycap`, `Calculator`, `PadGrid`.
-- Controles: `Dial`, `Slider`, `Switch`, `Segmented`, `Stepper`, `Wheel`, `VolumeWheel`, `RotarySelector`, `Fader`.
+- Controles: `Dial`, `Slider`, `Switch`, `Segmented`, `Stepper`, `Wheel`, `VolumeWheel`, `RotarySelector`, `Fader`, `Ruler`.
 - Formularios y capas: `Checkbox`, `RadioGroup`, `ChoiceCards`, `Select`, `Menu`, `Tabs`, `TextField`, `Calendar`, `FileDrop`, `Sheet`, `Dialog`, `CommandBar`.
 - Feedback: `Toast`, `Banner`, `Tooltip`, `Skeleton`, `EmptyState`.
-- Navegación: `TopBar`, `TabBar`, `Sidebar`, `Steps`.
+- Navegación: `TopBar`, `TabBar`, `Sidebar`, `Steps`, `Onboarding`, `WeekStrip`, `IndexList`.
 - Tiempo: `Timer`, `Stopwatch`, `Hourglass`, `Pendulum`, `Clock`.
-- Medios: `MediaPlayer`, `AudioTrack`, `DiscCarousel`, `Ticker`, `SplitFlap`, `FlapBoard`, `TapeDeck`.
+- Medios: `MediaPlayer`, `AudioTrack`, `DiscCarousel`, `Ticker`, `SplitFlap`, `FlapBoard`, `TapeDeck`, `Sequencer`, `TrimWave`.
 - Captura: `CaptureKey`, `Recorder`, `Viewfinder`, `NoteEditor`.
 - Puntos: `DotMatrix`, `DotGrid` (contar o elegir), `StateMark`, `Grille`, `LED`, `Aura`.
-- Datos: `Stat`, `UsageMeter`, `Gauge`, `LevelBars`, `BarMeter`, `LineChart`, `Sparkline`, `Heatmap`, `SplitBar`, `HourStrip`, `ProgressRing`, `Readout`, `DataTable`, `VUMeter`.
+- Datos: `Stat`, `UsageMeter`, `Gauge`, `LevelBars`, `BarMeter`, `LineChart`, `Sparkline`, `Heatmap`, `SplitBar`, `HourStrip`, `ProgressRing`, `Readout`, `DataTable`, `VUMeter`, `FillCard`, `ColumnChart`, `Pictogram`, `DotColumns`.
 - Gráficas: `AreaChart`, `Scatter`, `RadarChart`, `DonutChart`, `Scope` (y `LineChart`, `BarMeter`, `Heatmap`, `Sparkline`).
 - Arrastre y lienzo: `Board`, `Sortable`, `Blueprint`.
-- Superficies y carruseles: `Tile`, `Strip`, `CardStack`, `Cabinet`, `Checklist`, `Timeline`, `Pager`, `Deck`, `ListRow`, `PaymentCard`, `Viewport3D`.
-- Conversación e IA: `Message`, `Composer`, `PromptBox`, `Suggestions`, `VoiceOrb`, `VoicePosition`, `Beam`, `DotLoader`, `AgentWidget`, `Notch`.
+- Superficies y carruseles: `Tile`, `Strip`, `CardStack`, `Cabinet`, `Checklist`, `Timeline`, `Pager`, `Deck`, `ListRow`, `PaymentCard`, `Viewport3D`, `Article`, `Capsule`, `Bands`.
+- Conversación e IA: `Message`, `Composer`, `PromptBox`, `Suggestions`, `VoiceOrb`, `VoicePosition`, `Beam`, `DotLoader`, `AgentWidget`, `Notch`, `Eyes`.
 - Generativo: `Render` (spec JSON o Frekvens Lang), `Stack`, `Grid`, `Text`. Movimiento: `Reveal`.
-- Base: `Icon`, `Chip`, `Badge`, `Avatar`.
+- Base: `Icon`, `Chip`, `Badge`, `Avatar`, `Shape`, `Swatch`.
 
-Para UI generada por un modelo, lee *UI generativa y conversación* y pásale `frekvens.schema.json`. Para patrones SaaS habituales, *Bloques y patrones*. Antes de componer, *Composición*; antes de dar por buena una pantalla, *Calidad*; si un agente va a usar el sistema, *Skill para agentes*; para widgets, reloj o escritorio, *Formatos*.
+Para UI generada por un modelo, lee *UI generativa y conversación* y pásale `frekvens.schema.json`. Para usarlo dentro de ChatGPT, *Frekvens en ChatGPT*. Para patrones SaaS habituales, *Bloques y patrones*. Antes de componer, *Composición*; antes de dar por buena una pantalla, *Calidad*; si un agente va a usar el sistema, *Skill para agentes*; para widgets, reloj o escritorio, *Formatos*.
