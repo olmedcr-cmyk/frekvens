@@ -4,7 +4,7 @@ Repositorio de **Frekvens**, el sistema de diseño de Cris Olmedo publicado como
 
 ## Cómo está montado
 
-- `registry/frekvens/ui/*.tsx`: un archivo por componente (119). **Generados**: no los edites a mano, se sobrescriben.
+- `registry/frekvens/ui/*.tsx`: un archivo por componente (130). **Generados**: no los edites a mano, se sobrescriben.
 - `registry/frekvens/ui/lib.tsx`, `types.ts`, `catalog.ts`, `*.css`: utilidades compartidas, tipos, catálogo de `Render` y estilos. También generados.
 - `public/r/*.json`: lo que lee `npx shadcn add <url>`. Generado.
 - `public/preview/*.html`: vistas previas vivas (bundle clásico + React UMD) que la web muestra en iframes y que usa `test/a11y.mjs`.
@@ -20,7 +20,7 @@ Para cambiar un componente: edita `generator/source/project/components/bundle.js
 ```sh
 cd generator && npm install && FREKVENS_URL=https://<dominio-final> npm run build && cd ..
 npm install
-npm test            # tsc estricto sobre registry + SSR de los 119 + integridad de public/r
+npm test            # tsc estricto sobre registry + SSR de los 130 + integridad de public/r
 npm run test:a11y   # axe en claro y oscuro sobre public/preview (npx playwright install chromium)
 npm run build       # web estática
 ```
@@ -32,6 +32,7 @@ Otras piezas del generador:
 - `thumbs.mjs` (`npm run thumbs`): fotografía cada vista previa en `generator/thumbs/` (tema Blanco); `build.mjs` las copia a `public/thumbs/` y guarda su tamaño en `app/catalog.json`.
 - Temas: `tokens.json` → `color.themes`. `light` (Papel) y `dark` (Carbón) definen todos los tokens; un tema extra como `blanco` solo los que cambia y hereda el resto del claro.
 - Props: `build.mjs` lee `index.d.ts` y las pone en `app/catalog.json` (tabla de la ficha) y en `public/llms-full.txt`. `public/llms.txt` es el índice para agentes.
+- ChatGPT: `tpl/app/mcp/route.ts` es un servidor MCP (herramientas `list_components`, `get_component`, `render_ui`) y `widget.ts` el HTML que se pinta en la conversación; leen `app/catalog.json` y `frekvens.schema.json`. Una pieza nueva debe añadirse también al esquema. Ver `docs/chatgpt.md`.
 - Apps de ejemplo: carpetas `App*` en `components/` con solo `preview.html`; la web las lista en `/ejemplos` (`tpl/app/examples.ts`).
 
 ## Reglas

@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{if(parent!==window){var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}}catch(e){}</script><meta charset="utf-8"><title>ColumnChart — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'420px',display:'flex',flexDirection:'column',gap:'12px'}},h(C.ColumnChart,{label:'Pasos por hora',data:[{label:'9',value:276},{label:'10',value:128},{label:'11',value:370},{label:'12',value:400},{label:'13',value:346},{label:'14',value:128}]}),h(C.ColumnChart,{label:'Objetivo por día',shape:'pill',track:'hatch',max:100,height:120,tone:'rams',unit:'%',data:[{label:'L',value:70},{label:'M',value:62},{label:'X',value:45},{label:'J',value:18},{label:'V',value:48}]})));
+</script>
+</body>
+</html>

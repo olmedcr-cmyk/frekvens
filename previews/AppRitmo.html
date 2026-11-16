@@ -1,0 +1,38 @@
+<!-- @dsCard group="Apps" height=1000 page subtitle="Caja de ritmos: cuatro pistas, ocho pasos y el recorte de la muestra" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>AppRitmo</title>
+<style>
+  .app { width:min(390px,100%); margin:0 auto; box-sizing:border-box; border-radius:44px; padding:var(--space-6) var(--space-4) var(--space-4); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); outline-offset:calc(var(--hairline) * -1); overflow:hidden; }
+  .bento { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-2); }
+  .bento > * { min-width:0; }
+  .wide { grid-column:1 / -1; }
+  .bento .frk-tile { height:100%; }
+  .bento .frk-tile__value { font-size:40px; }
+  .bento .wide .frk-tile__value { font-size:64px; }
+  .card { display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-4); border-radius:var(--radius-lg); background:var(--surface); box-sizing:border-box; min-width:0; }
+  .cap { margin:0; font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+  .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .list { display:flex; flex-direction:column; gap:var(--space-2); }
+  .app .frk-tabbar { align-self:center; }
+</style></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement, no = function(){};
+function App(){
+ var s = React.useState(0), step = s[0], p = React.useState(false), playing = p[0];
+ React.useEffect(function(){ if(!playing) return; var t = setInterval(function(){ s[1](function(n){ return (n+1)%8; }); }, 300); return function(){ clearInterval(t); }; }, [playing]);
+ return h('div',{className:'app'},
+  h(F.Text,{variant:'title',as:'h1',sub:'100 pulsos · 4/4'},'Patio'),
+  h('div',{className:'card'},h('p',{className:'cap'},'Patrón'),
+   h(F.Sequencer,{label:'Patrón de ocho pasos',rows:['Bombo','Caja','Palmas','Cajón'],steps:8,playhead:step,tone:'ink',defaultValue:[[true,false,false,true,false,false,true,false],[false,false,true,false,false,false,true,false],[false,true,false,true,false,true,false,true],[true,false,false,false,true,false,false,false]]})),
+  h('div',{className:'card'},h('p',{className:'cap'},'Muestra · palmas'),
+   h(F.TrimWave,{label:'Recorte de la muestra',defaultValue:[18,64],format:function(n){return (n*.012).toFixed(2).replace('.',',')+' s';}})),
+  h(F.Segmented,{label:'Compás',options:['Tangos','Bulería','Rumba'],defaultValue:'Tangos'}),
+  h(F.KeyButton,{tone:'klein',shape:'pill',block:true,icon:playing?'pause':'play',onClick:function(){p[1](!playing);}},playing?'Parar':'Tocar'));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

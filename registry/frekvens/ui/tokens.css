@@ -22,6 +22,8 @@
   --salvia: #b7c0ae;
   --lavanda: #aeadbe;
   --malva: #c4b2b9;
+  --rosa: #f3b6cf;
+  --cielo: #a9c0ea;
   --verde: #1f5a3a;
   --on-verde: #ffffff;
   --rec: #d42a20;
@@ -55,6 +57,8 @@
   --salvia: #2b3128;
   --lavanda: #2c2b38;
   --malva: #382d31;
+  --rosa: #3b2a32;
+  --cielo: #27303f;
   --verde: #2f7d52;
   --on-verde: #ffffff;
   --rec: #ff4a3d;
@@ -98,6 +102,8 @@
   --key-l: 120px;
   --key-xl: 168px;
   --hairline: 1px;
+  --hatch-line: 2px;
+  --hatch-pitch: 7px;
   --dur-press: 90ms;
   --dur-fast: 150ms;
   --dur-base: 220ms;

@@ -1,6 +1,6 @@
 # Frekvens
 
-> Componentes React para copiar y pegar, al estilo shadcn/ui: 119 piezas grandes, de puntos y accesibles (WCAG 2.2 AA en los temas Papel, Carbón y Blanco). El código se copia al proyecto con `npx shadcn@latest add` y pasa a ser del proyecto. MIT.
+> Componentes React para copiar y pegar, al estilo shadcn/ui: 130 piezas grandes, de puntos y accesibles (WCAG 2.2 AA en los temas Papel, Carbón y Blanco). El código se copia al proyecto con `npx shadcn@latest add` y pasa a ser del proyecto. MIT.
 
 Instalar una pieza: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/<nombre>.json` (crea `components/frekvens/<nombre>.tsx` y `styles/frekvens/*.css`). Todo de una vez: `https://frekvens-ui.vercel.app/r/frekvens.json`. Después importa `styles/frekvens/tailwind.css` y `components.css` en el CSS global y pon `data-theme` (`light`, `blanco` o `dark`) en `<html>`.
 
@@ -9,7 +9,7 @@ Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tail
 ## Guías
 
 - [Todo en un archivo](https://frekvens-ui.vercel.app/llms-full.txt): cada componente con sus props y su uso
-- [Registro](https://frekvens-ui.vercel.app/r/registry.json): índice legible por máquina de los 119 componentes
+- [Registro](https://frekvens-ui.vercel.app/r/registry.json): índice legible por máquina de los 130 componentes
 - [Esquema para UI generada](https://frekvens-ui.vercel.app/frekvens.schema.json): JSON Schema de lo que pinta `Render`
 - [Cómo trabaja un agente con Frekvens](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/agentes.md)
 - [Composición](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/composicion.md), [movimiento](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/movimiento.md), [tipografía](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/tipografia.md) y [calidad](https://github.com/olmedcr-cmyk/frekvens/blob/main/docs/calidad.md)
@@ -32,6 +32,7 @@ Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tail
 - [Badge](https://frekvens-ui.vercel.app/r/badge.json): Contador o punto de aviso sobre otro elemento (un icono, una tecla, un avatar). Aparece escalando desde cero.
 - [Avatar](https://frekvens-ui.vercel.app/r/avatar.json): Disco con foto o iniciales en Archivo 800. El estado se ve como un **aura** que respira alrededor del disco (ver Aura): disponible verde, en directo rec (más rápido), ausente sol, ocupado rams; descon
 - [Shape](https://frekvens-ui.vercel.app/r/shape.json): Forma geométrica plana para el arte de un tile, una portada o un póster: once siluetas que se combinan como piezas.
+- [Swatch](https://frekvens-ui.vercel.app/r/swatch.json): Un par de color en discos concéntricos: el fondo fuera y la marca dentro, con su nombre debajo.
 
 ## Controles
 
@@ -62,6 +63,10 @@ Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tail
 - [Stat](https://frekvens-ui.vercel.app/r/stat.json): KPI de panel: etiqueta mono, valor grande fino, tendencia (Sparkline), variación con ▲▼ y, si hace falta, estado (En objetivo · Atención · En riesgo), valor anterior y enlace.
 - [UsageMeter](https://frekvens-ui.vercel.app/r/usage-meter.json): Cuota usada frente a un límite ("996 de 10.000"): barra ink que pasa a sol al 70 % y a rams al 90 %, con acción (ampliar) cuando está cerca del tope. Con segments, se convierte en un reparto por categ
 - [VUMeter](https://frekvens-ui.vercel.app/r/vu-meter.json): Vúmetro de aguja de amplificador: escala de 50 a 3 con los dos últimos números en rojo, aguja negra con su pivote abajo y piloto de pico que se enciende por encima del 88 %. La esfera es siempre crema
+- [FillCard](https://frekvens-ui.vercel.app/r/fill-card.json): Tarjeta de progreso cuyo fondo se llena hasta el valor: el nombre arriba, la cifra abajo y el color avanzando de izquierda a derecha.
+- [ColumnChart](https://frekvens-ui.vercel.app/r/column-chart.json): Columnas con su cifra encima y una destacada en ink: lo de cada hora, cada día o cada mes, y cuál fue el máximo.
+- [Pictogram](https://frekvens-ui.vercel.app/r/pictogram.json): Una cantidad contada en fichas: tantas encendidas como llevas, el resto apagadas. Se entiende sin leer un eje.
+- [DotColumns](https://frekvens-ui.vercel.app/r/dot-columns.json): Columnas de puntos apilados con la cima de cada una en ink y el pico señalado con una chincheta: la forma de una semana, sin ejes.
 
 ## Formularios
 
@@ -105,6 +110,8 @@ Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tail
 - [DiscCarousel](https://frekvens-ui.vercel.app/r/disc-carousel.json): Elegir entre discos: el elegido en el centro, los vecinos más pequeños a los lados; al reproducir, el disco gira. La etiqueta del centro es el color o la imagen (src) del álbum, rutina o lista.
 - [TapeDeck](https://frekvens-ui.vercel.app/r/tape-deck.json): Grabadora de cinta: dos carretes que giran (el de la izquierda se vacía, el de la derecha se llena), la cinta pasando por el cabezal, contador en puntos y transporte en Keypad (rebobinar, reproducir, 
 - [FlapBoard](https://frekvens-ui.vercel.app/r/flap-board.json): Panel de salidas: varias filas de SplitFlap alineadas en columnas (hora, qué, estado), con el estado teñido. Para horarios de clases, turnos, pedidos listos, llegadas.
+- [Sequencer](https://frekvens-ui.vercel.app/r/sequencer.json): Rejilla de pasos por pista: cada casilla marca si esa pista suena en ese paso. Una fila por sonido, un paso por columna.
+- [TrimWave](https://frekvens-ui.vercel.app/r/trim-wave.json): Onda con dos tiradores para recortar un tramo: lo que queda dentro va en color, lo de fuera se apaga.
 
 ## Puntos
 
@@ -122,6 +129,8 @@ Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tail
 - [TabBar](https://frekvens-ui.vercel.app/r/tab-bar.json): Barra de navegación inferior en píldora ink: iconos solos y, el activo, en píldora paper que se abre para mostrar su nombre. Flota centrada a space-5 del borde inferior.
 - [Sidebar](https://frekvens-ui.vercel.app/r/sidebar.json): Barra lateral para iPad y escritorio: secciones con etiqueta mono, elementos con icono y contador (en rec si es una alerta), el activo en ink. Se contrae a una tira de iconos de 76 px.
 - [Onboarding](https://frekvens-ui.vercel.app/r/onboarding.json): Bienvenida por pasos: un bloque de arte, una tarjeta de color con el mensaje y un pie con guiones de progreso y una tecla redonda para avanzar.
+- [WeekStrip](https://frekvens-ui.vercel.app/r/week-strip.json): Los siete días de una semana con su estado (hecho, a medias, sin hacer) para elegir uno.
+- [IndexList](https://frekvens-ui.vercel.app/r/index-list.json): Índice en letra grande: una palabra por línea y, en pequeño, cuántas cosas hay dentro.
 
 ## Superficies
 
@@ -138,6 +147,7 @@ Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tail
 - [Checklist](https://frekvens-ui.vercel.app/r/checklist.json): Lista de puesta en marcha: contador n / total con puntos, y cada paso desplegable con su explicación y su acción. Al marcar uno, se abre el siguiente pendiente.
 - [Article](https://frekvens-ui.vercel.app/r/article.json): Tarjeta de artículo partida en dos: arriba la fecha, la categoría y el titular; abajo un bloque de color con el arte. Para listas de novedades, entradas de blog o lanzamientos.
 - [Capsule](https://frekvens-ui.vercel.app/r/capsule.json): Bloque en forma de estadio para abrir o cerrar una página: titular, una línea de texto, las acciones y, a un lado, el arte.
+- [Bands](https://frekvens-ui.vercel.app/r/bands.json): Lista de franjas de color a todo el ancho, con el número, un titular grande y un dato o un icono a la derecha.
 
 ## Conversación
 
@@ -151,6 +161,7 @@ Reglas al usarlas: una sola acción `klein` por pantalla; no añadas clases Tail
 - [PromptBox](https://frekvens-ui.vercel.app/r/prompt-box.json): Caja de prompt para empezar una conversación con IA: textarea amplio, adjuntos (también arrastrando), selector de modelo y de esfuerzo, dictado y enviar. Debajo, sugerencias y una nota ("La IA puede e
 - [VoicePosition](https://frekvens-ui.vercel.app/r/voice-position.json): De dónde viene la voz: un anillo de puntos que se inclina y viaja hacia el lado del que habla (izquierda, delante, derecha), se encoge si la voz está lejos y respira con el nivel. Debajo, las tres pro
 - [Beam](https://frekvens-ui.vercel.app/r/beam.json): Haz de puntos que recorre el borde de una caja mientras algo trabaja: un tren de siete puntos klein (y su eco a media opacidad) da la vuelta sobre una pista punteada tenue. Para el campo de prompt mie
+- [Eyes](https://frekvens-ui.vercel.app/r/eyes.json): Dos ojos que dicen cómo está el agente: atento, contento, enfadado, con sueño, pensando o sorprendido. Parpadean cada pocos segundos.
 
 ## Generativo
 

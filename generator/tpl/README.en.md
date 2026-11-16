@@ -70,7 +70,7 @@ import { DotGrid } from "@/components/frekvens/dot-grid"
 - **Styles live in CSS**, not in Tailwind classes inside the file: `components.css` sits in `@layer components`, so any Tailwind utility you add wins. Tokens are CSS variables and, with Tailwind v4, utilities (`bg-klein`, `text-on-sol`, `rounded-lg`, `duration-base`, `ease-settle`).
 - **`lib.tsx`** holds what is shared: `cx`, `useValue` (controlled or not), `useFollow` (the spring with momentum that moves the pieces in `Segmented` and `Tabs`), the icons, and `parseLang` for Frekvens Lang.
 - **No dependencies** beyond React 18+.
-- **Server**: every file starts with `"use client"` and all 119 components render in Node (`npm test`).
+- **Server**: every file starts with `"use client"` and all 130 components render in Node (`npm test`).
 - **Accessibility is the bar, not a feature**: touch targets of at least 44 px (56 for the main action), a keyboard alternative for every drag, reduced motion respected.
 
 ## Generative UI
@@ -84,7 +84,12 @@ import { DotGrid } from "@/components/frekvens/dot-grid"
 - `docs/movimiento.md`: timing and easing tokens, the fine detail.
 - `docs/calidad.md`: heuristics, tests and edge cases.
 - `docs/agentes.md`: how a coding agent should use Frekvens.
+- `docs/chatgpt.md`: Frekvens inside ChatGPT (MCP server at `/mcp`).
 - `docs/componentes/*.md`: one page per component.
+
+## In ChatGPT
+
+The site serves an MCP server at [`/mcp`](https://frekvens-ui.vercel.app/mcp). Add it to ChatGPT as a custom MCP server and the model can read the catalogue and render screens with the components inside the conversation. See `docs/chatgpt.md` (in Spanish).
 
 ## For agents
 
@@ -107,7 +112,7 @@ Don't add Tailwind classes to the pieces; switch the theme with `data-theme` on 
 
 ```sh
 npm install
-npm run dev          # the site (Next.js) with all 119 components live
+npm run dev          # the site (Next.js) with all 130 components live
 npm test             # strict tsc + SSR of the whole registry + /public/r integrity
 npm run test:a11y    # axe in all three themes (npx playwright install chromium)
 ```

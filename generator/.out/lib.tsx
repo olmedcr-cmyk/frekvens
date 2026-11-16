@@ -1556,3 +1556,51 @@ export var SHAPES: any = {
     ],
   ],
 }
+/* ---------- TrimWave: onda con dos tiradores para recortar un tramo ---------- */
+export function wavePeaks(n?: any): any {
+  return range(n).map(function (i?: any): any {
+    return 0.18 + 0.82 * Math.abs(Math.sin(i * 0.9) * Math.cos(i * 0.23) * Math.sin(i * 0.07 + 1))
+  })
+}
+export var EYE_MOODS: any = {
+  neutral: {
+    name: "Atento",
+    lid: null,
+    pupil: [0, 0],
+  },
+  happy: {
+    name: "Contento",
+    lid: "M-30 16 Q0 -8 30 16 V40 H-30z",
+    pupil: null,
+  },
+  angry: {
+    name: "Enfadado",
+    lid: "M-30 -40 H30 V-4 L-30 -24z",
+    pupil: [4, 6],
+  },
+  sleepy: {
+    name: "Con sueño",
+    lid: "M-30 -40 H30 V4 H-30z",
+    pupil: [0, 12],
+  },
+  thinking: {
+    name: "Pensando",
+    lid: null,
+    pupil: [8, -10],
+  },
+  surprised: {
+    name: "Sorprendido",
+    lid: null,
+    pupil: [0, 0],
+    wide: true,
+  },
+}
+/* ---------- Swatch: un par de color, fondo y marca, en discos concéntricos ---------- */
+export function swatchColor(c?: any): any {
+  return /^[a-z][a-z0-9-]*$/.test(c || "") ? "var(--" + c + ")" : c
+}
+export var WEEK_STATES: any = {
+  done: "hecho",
+  partial: "a medias",
+  none: "sin hacer",
+}

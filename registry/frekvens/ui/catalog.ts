@@ -117,6 +117,17 @@ import { Ruler } from "./ruler"
 import { Onboarding } from "./onboarding"
 import { Article } from "./article"
 import { Capsule } from "./capsule"
+import { FillCard } from "./fill-card"
+import { ColumnChart } from "./column-chart"
+import { Pictogram } from "./pictogram"
+import { DotColumns } from "./dot-columns"
+import { Sequencer } from "./sequencer"
+import { TrimWave } from "./trim-wave"
+import { Bands } from "./bands"
+import { Eyes } from "./eyes"
+import { Swatch } from "./swatch"
+import { WeekStrip } from "./week-strip"
+import { IndexList } from "./index-list"
 
 /** Todos los componentes de Frekvens por nombre: lo que `Render` acepta de un modelo. */
-export const CATALOG: Record<string, React.ComponentType<any>> = { KeyButton, Keypad, HoldButton, SlideToStart, Rocker, Icon, Dial, Gauge, Slider, Switch, Segmented, Stepper, Wheel, VolumeWheel, Checkbox, RadioGroup, Select, Menu, Tabs, TextField, Calendar, Sheet, Toast, Banner, Tooltip, Timer, Stopwatch, Hourglass, Pendulum, MediaPlayer, AudioTrack, Ticker, SplitFlap, DotMatrix, DotGrid, StateMark, Steps, Grille, LED, LevelBars, BarMeter, LineChart, ProgressRing, Readout, Tile, Strip, CardStack, Cabinet, Pager, Deck, ListRow, Chip, Badge, Avatar, TopBar, TabBar, EmptyState, Skeleton, Message, Composer, Suggestions, VoiceOrb, DotLoader, AgentWidget, Reveal, Stack, Grid, Text, ClickWheel, DiscCarousel, NumPad, Viewfinder, CaptureKey, Recorder, NoteEditor, Sidebar, DataTable, CommandBar, Notch, Viewport3D, Heatmap, SplitBar, Sparkline, HourStrip, PaymentCard, Dialog, FileDrop, ChoiceCards, Stat, UsageMeter, Timeline, Checklist, PromptBox, Clock, VUMeter, RotarySelector, Fader, Keycap, Calculator, PadGrid, TapeDeck, Board, Sortable, Blueprint, AreaChart, Scatter, RadarChart, DonutChart, Scope, VoicePosition, Beam, Aura, FlapBoard, Shape, Ruler, Onboarding, Article, Capsule }
+export const CATALOG: Record<string, React.ComponentType<any>> = { KeyButton, Keypad, HoldButton, SlideToStart, Rocker, Icon, Dial, Gauge, Slider, Switch, Segmented, Stepper, Wheel, VolumeWheel, Checkbox, RadioGroup, Select, Menu, Tabs, TextField, Calendar, Sheet, Toast, Banner, Tooltip, Timer, Stopwatch, Hourglass, Pendulum, MediaPlayer, AudioTrack, Ticker, SplitFlap, DotMatrix, DotGrid, StateMark, Steps, Grille, LED, LevelBars, BarMeter, LineChart, ProgressRing, Readout, Tile, Strip, CardStack, Cabinet, Pager, Deck, ListRow, Chip, Badge, Avatar, TopBar, TabBar, EmptyState, Skeleton, Message, Composer, Suggestions, VoiceOrb, DotLoader, AgentWidget, Reveal, Stack, Grid, Text, ClickWheel, DiscCarousel, NumPad, Viewfinder, CaptureKey, Recorder, NoteEditor, Sidebar, DataTable, CommandBar, Notch, Viewport3D, Heatmap, SplitBar, Sparkline, HourStrip, PaymentCard, Dialog, FileDrop, ChoiceCards, Stat, UsageMeter, Timeline, Checklist, PromptBox, Clock, VUMeter, RotarySelector, Fader, Keycap, Calculator, PadGrid, TapeDeck, Board, Sortable, Blueprint, AreaChart, Scatter, RadarChart, DonutChart, Scope, VoicePosition, Beam, Aura, FlapBoard, Shape, Ruler, Onboarding, Article, Capsule, FillCard, ColumnChart, Pictogram, DotColumns, Sequencer, TrimWave, Bands, Eyes, Swatch, WeekStrip, IndexList }

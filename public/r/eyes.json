@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "eyes",
+ "type": "registry:ui",
+ "title": "Eyes",
+ "description": "Dos ojos que dicen cómo está el agente: atento, contento, enfadado, con sueño, pensando o sorprendido. Parpadean cada pocos segundos.",
+ "categories": [
+  "Conversación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/eyes.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/eyes.tsx",
+   "content": "\"use client\"\n/* Frekvens · Eyes — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { EYE_MOODS, cx } from \"./lib\"\n\nimport type { EyesProps } from \"./types\"\nexport type { EyesProps }\n\nconst { useId }: any = React\n\nexport function Eyes(props: EyesProps): React.ReactElement\nexport function Eyes(p?: any): any {\n  var m: any = EYE_MOODS[p.mood] || EYE_MOODS.neutral,\n    size: any = p.size || 160,\n    id: any = useId().replace(/[^a-zA-Z0-9_-]/g, \"\")\n  function eye(cx0?: any, flip?: any, key?: any): any {\n    return (\n      <g\n        key={key}\n        transform={\"translate(\" + cx0 + \" 50)\" + (flip ? \" scale(-1 1)\" : \"\")}\n        className=\"frk-eyes__eye\"\n      >\n        <g mask={m.lid ? \"url(#\" + id + \")\" : undefined}>\n          <ellipse rx={m.wide ? 24 : 22} ry={m.wide ? 30 : 26} className=\"frk-eyes__ball\" />\n          {m.pupil ? (\n            <circle cx={m.pupil[0]} cy={m.pupil[1]} r={m.wide ? 6 : 9} className=\"frk-eyes__pupil\" />\n          ) : null}\n        </g>\n      </g>\n    )\n  }\n  return (\n    <svg\n      className={cx(\"frk-eyes\", \"frk-eyes--\" + (p.tone || \"ink\"), p.still && \"is-still\", p.className)}\n      width={size}\n      height={size * 0.625}\n      viewBox=\"0 0 160 100\"\n      role=\"img\"\n      aria-label={p.label || m.name}\n      focusable=\"false\"\n    >\n      {m.lid ? (\n        <defs>\n          <mask id={id} maskUnits=\"userSpaceOnUse\" x={-30} y={-40} width={60} height={80}>\n            <rect x={-30} y={-40} width={60} height={80} fill=\"#fff\" />\n            <path d={m.lid} fill=\"#000\" />\n          </mask>\n        </defs>\n      ) : null}\n      {eye(46, false, \"l\")}\n      {eye(114, true, \"r\")}\n    </svg>\n  )\n}\n\n/* ---------- Swatch: un par de color, fondo y marca, en discos concéntricos ---------- */\n"
+  }
+ ],
+ "docs": "# Eyes\n\nDos ojos que dicen cómo está el agente: atento, contento, enfadado, con sueño, pensando o sorprendido. Parpadean cada pocos segundos.\n\n- **Props**: `mood` (`neutral` | `happy` | `angry` | `sleepy` | `thinking` | `surprised`), `size`, `tone`, `still` (sin parpadeo), `label` (por defecto, el nombre del estado).\n- El estado se anuncia como texto alternativo, no solo con la forma. Con movimiento reducido no parpadean.\n- Uno por pantalla, junto al texto que explica qué pasa. Para el estado de voz (escucha, habla), `VoiceOrb`.\n"
+}

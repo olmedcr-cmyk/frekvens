@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "bands",
+ "type": "registry:ui",
+ "title": "Bands",
+ "description": "Lista de franjas de color a todo el ancho, con el número, un titular grande y un dato o un icono a la derecha.",
+ "categories": [
+  "Superficies"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+  "https://frekvens-ui.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/bands.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/bands.tsx",
+   "content": "\"use client\"\n/* Frekvens · Bands — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { cx } from \"./lib\"\n\nimport type { BandsProps } from \"./types\"\nexport type { BandsProps }\n\n/* ---------- Bands: lista de franjas de color a todo el ancho ---------- */\nexport function Bands(props: BandsProps): React.ReactElement\nexport function Bands(p?: any): any {\n  var items: any = p.items || []\n  return (\n    <ol className={cx(\"frk-bands\", p.stacked && \"frk-bands--stacked\", p.className)} aria-label={p.label}>\n      {items.map(function (it?: any, i?: any): any {\n        var Tag: any = it.href ? \"a\" : it.onClick ? \"button\" : \"div\"\n        return (\n          <li\n            key={i}\n            className=\"frk-bands__item\"\n            style={{\n              animationDelay: i * 50 + \"ms\",\n            }}\n          >\n            <Tag\n              href={it.href}\n              type={Tag === \"button\" ? \"button\" : undefined}\n              onClick={it.onClick}\n              className={cx(\"frk-bands__band\", \"frk-tone--\" + (it.tone || \"surface\"))}\n            >\n              {p.numbered === false ? null : (\n                <span className=\"frk-bands__n\" aria-hidden={true}>\n                  {i + 1}\n                </span>\n              )}\n              <span className=\"frk-bands__text\">\n                <span className=\"frk-bands__title\">{it.title}</span>\n                {it.sub ? <span className=\"frk-bands__sub\">{it.sub}</span> : null}\n              </span>\n              {it.meta ? <span className=\"frk-bands__meta\">{it.meta}</span> : null}\n              {it.icon ? (\n                <Icon name={it.icon} size={28} />\n              ) : Tag !== \"div\" ? (\n                <Icon name=\"arrow-right\" size={24} />\n              ) : null}\n            </Tag>\n          </li>\n        )\n      })}\n    </ol>\n  )\n}\n\n/* ---------- Eyes: dos ojos que dicen cómo está el agente ---------- */\n"
+  }
+ ],
+ "docs": "# Bands\n\nLista de franjas de color a todo el ancho, con el número, un titular grande y un dato o un icono a la derecha.\n\n- **Props**: `items` (`{title, sub, meta, icon, tone, href, onClick}[]`), `numbered` (`false` quita el número), `stacked` (franjas con la esquina redondeada que se montan una sobre otra), `label`.\n- Una franja con `href` u `onClick` es toda ella el objetivo táctil (88 px de alto).\n- De 3 a 6 franjas y un tono distinto por franja. Para una lista larga o densa, `ListRow`.\n"
+}

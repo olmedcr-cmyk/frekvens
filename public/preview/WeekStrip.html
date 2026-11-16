@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{if(parent!==window){var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}}catch(e){}</script><meta charset="utf-8"><title>WeekStrip — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'420px',display:'flex',flexDirection:'column',gap:'12px'}},h(C.WeekStrip,{label:'Semana del 12 de mayo',defaultValue:3,days:[{label:'L',name:'Lunes',day:12,state:'done'},{label:'M',name:'Martes',day:13,state:'done'},{label:'X',name:'Miércoles',day:14,state:'partial'},{label:'J',name:'Jueves',day:15,state:'done',today:true},{label:'V',name:'Viernes',day:16},{label:'S',name:'Sábado',day:17},{label:'D',name:'Domingo',day:18}]})));
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{if(parent!==window){var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}}catch(e){}</script><meta charset="utf-8"><title>AppHuerto</title>
+<style>
+  .app { width:min(390px,100%); margin:0 auto; box-sizing:border-box; border-radius:44px; padding:var(--space-6) var(--space-4) var(--space-4); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); outline-offset:calc(var(--hairline) * -1); overflow:hidden; }
+  .bento { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-2); }
+  .bento > * { min-width:0; }
+  .wide { grid-column:1 / -1; }
+  .bento .frk-tile { height:100%; }
+  .bento .frk-tile__value { font-size:40px; }
+  .bento .wide .frk-tile__value { font-size:64px; }
+  .card { display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-4); border-radius:var(--radius-lg); background:var(--surface); box-sizing:border-box; min-width:0; }
+  .cap { margin:0; font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+  .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .list { display:flex; flex-direction:column; gap:var(--space-2); }
+  .app .frk-tabbar { align-self:center; }
+</style></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement, no = function(){};
+function App(){
+ return h('div',{className:'app'},
+  h(F.Text,{variant:'title',as:'h1',sub:'Bancal de la higuera'},'Huerto'),
+  h(F.WeekStrip,{label:'Riego de esta semana',tone:'klein',defaultValue:2,days:[{label:'L',name:'Lunes',day:9,state:'done'},{label:'M',name:'Martes',day:10,state:'partial'},{label:'X',name:'Miércoles',day:11,state:'none',today:true},{label:'J',name:'Jueves',day:12},{label:'V',name:'Viernes',day:13},{label:'S',name:'Sábado',day:14},{label:'D',name:'Domingo',day:15}]}),
+  h('div',{className:'list'},
+   h(F.FillCard,{title:'Depósito de lluvia',value:72,caption:'720 de 1.000 L',icon:'drop',tone:'klein'}),
+   h(F.FillCard,{title:'Compostera',value:35,caption:'Lista en marzo',tone:'tabaco'})),
+  h('div',{className:'card'},h('p',{className:'cap'},'Lluvia · litros por metro'),
+   h(F.ColumnChart,{label:'Lluvia de la semana',height:120,tone:'klein',unit:'L',data:[{label:'J',value:2},{label:'V',value:11},{label:'S',value:19},{label:'D',value:6},{label:'L',value:0},{label:'M',value:4}]})),
+  h(F.Bands,{label:'Tareas de hoy',items:[{title:'Entutorar',sub:'Tomateras del fondo',meta:'20 min',tone:'verde',onClick:no},{title:'Acolchar',sub:'Con paja, las fresas',meta:'35 min',tone:'sol',onClick:no}]}),
+  h(F.TabBar,{label:'Secciones',items:[{id:'h',label:'Hoy',icon:'home'},{id:'b',label:'Bancales',icon:'grid'},{id:'c',label:'Cosecha',icon:'chart'}]}));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

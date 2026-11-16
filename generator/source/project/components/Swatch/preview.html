@@ -1,0 +1,12 @@
+<!-- @dsCard group="Base" height=200 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Swatch — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'420px',display:'flex',flexDirection:'column',gap:'12px'}},h('div',{style:{display:'flex',gap:'16px',flexWrap:'wrap'}},h(C.Swatch,{ground:'sol',mark:'ink',label:'Tinta sobre sol',note:'16,5:1'}),h(C.Swatch,{ground:'klein',mark:'on-klein',label:'Sobre Klein'}),h(C.Swatch,{ground:'rosa',mark:'tabaco',label:'Tabaco sobre rosa'}))));
+</script>
+</body>
+</html>

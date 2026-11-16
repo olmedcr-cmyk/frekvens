@@ -4159,6 +4159,50 @@
    {
     "name": "Capsule",
     "slug": "capsule"
+   },
+   {
+    "name": "FillCard",
+    "slug": "fill-card"
+   },
+   {
+    "name": "ColumnChart",
+    "slug": "column-chart"
+   },
+   {
+    "name": "Pictogram",
+    "slug": "pictogram"
+   },
+   {
+    "name": "DotColumns",
+    "slug": "dot-columns"
+   },
+   {
+    "name": "Sequencer",
+    "slug": "sequencer"
+   },
+   {
+    "name": "TrimWave",
+    "slug": "trim-wave"
+   },
+   {
+    "name": "Bands",
+    "slug": "bands"
+   },
+   {
+    "name": "Eyes",
+    "slug": "eyes"
+   },
+   {
+    "name": "Swatch",
+    "slug": "swatch"
+   },
+   {
+    "name": "WeekStrip",
+    "slug": "week-strip"
+   },
+   {
+    "name": "IndexList",
+    "slug": "index-list"
    }
   ],
   "doc": "# Render\n\nEl motor de UI generativa: pinta una interfaz Frekvens a partir de un **spec JSON** que puede escribir un modelo. Cada nodo es `{type, props, children}`; `type` es el nombre de cualquier componente del sistema; los hijos son nodos o texto.\n\n- **Props**: `spec` (objeto, array o string JSON), `actions` (mapa nombre → función).\n- **Acciones**: cualquier prop con valor `\"action:nombre\"` se convierte en una llamada a `actions.nombre` (p. ej. `\"onClick\": \"action:reservar\"`). Una acción sin definir avisa en consola y no rompe.\n- Props que son nodos (`value`, `content` de `tabs`/`drawers`) también se pueden escribir como spec.\n- Un `type` desconocido se pinta como un recuadro discontinuo con su nombre: nunca rompe la pantalla.\n- El catálogo completo con props está en `frekvens.schema.json`; las reglas para modelos, en la sección *UI generativa y conversación*.\n",
@@ -7496,6 +7540,621 @@
    {
     "name": "children",
     "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "FillCard",
+  "slug": "fill-card",
+  "group": "Instrumentos",
+  "description": "Tarjeta de progreso cuyo fondo se llena hasta el valor: el nombre arriba, la cifra abajo y el color avanzando de izquierda a derecha.",
+  "deps": [
+   {
+    "name": "Icon",
+    "slug": "icon"
+   }
+  ],
+  "doc": "# FillCard\n\nTarjeta de progreso cuyo fondo se llena hasta el valor: el nombre arriba, la cifra abajo y el color avanzando de izquierda a derecha.\n\n- **Props**: `title`, `value`, `max` (100), `unit` (`%`; `''` para quitarla), `caption`, `icon`, `tone` (`rams` por defecto), `format`, `onClick` (la convierte en tecla).\n- El texto cambia de color justo donde pasa el relleno, así que se lee igual con un 5 % que con un 95 %.\n- Para una lista corta de avances (ejercicios, depósitos, cargas). Un solo tono por tarjeta y como mucho tres tonos en la lista. Si solo hay un número sin tope, usa `Stat`.\n",
+  "thumb": [
+   480,
+   392
+  ],
+  "props": [
+   {
+    "name": "title",
+    "type": "React.ReactNode",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "number",
+    "optional": false
+   },
+   {
+    "name": "max",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "caption",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "icon",
+    "type": "IconName",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Tone",
+    "optional": true
+   },
+   {
+    "name": "format",
+    "type": "(value: number) => string",
+    "optional": true
+   },
+   {
+    "name": "onClick",
+    "type": "() => void",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "ColumnChart",
+  "slug": "column-chart",
+  "group": "Instrumentos",
+  "description": "Columnas con su cifra encima y una destacada en ink: lo de cada hora, cada día o cada mes, y cuál fue el máximo.",
+  "deps": [],
+  "doc": "# ColumnChart\n\nColumnas con su cifra encima y una destacada en `ink`: lo de cada hora, cada día o cada mes, y cuál fue el máximo.\n\n- **Props**: `data` (`{label, value}[]`), `active` (por defecto, la más alta), `max`, `height` (200), `shape` (`bar` | `pill`), `track` (`none` | `well` | `hatch`: lo que falta hasta `max`), `tone`, `values` (`false` oculta las cifras), `unit`, `format`, `label`.\n- Con `track=\"hatch\"` el resto de cada columna va rayado: rayado significa «todavía no».\n- De 4 a 8 columnas. Para una serie larga, `AreaChart` o `LineChart`; para comparar sin cifras, `BarMeter`.\n",
+  "thumb": [
+   480,
+   492
+  ],
+  "props": [
+   {
+    "name": "data",
+    "type": "ColumnChartDatum[]",
+    "optional": false
+   },
+   {
+    "name": "active",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "max",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "height",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "shape",
+    "type": "'bar' | 'pill'",
+    "optional": true
+   },
+   {
+    "name": "track",
+    "type": "'none' | 'well' | 'hatch'",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Accent",
+    "optional": true
+   },
+   {
+    "name": "values",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "format",
+    "type": "(value: number) => string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "Pictogram",
+  "slug": "pictogram",
+  "group": "Instrumentos",
+  "description": "Una cantidad contada en fichas: tantas encendidas como llevas, el resto apagadas. Se entiende sin leer un eje.",
+  "deps": [],
+  "doc": "# Pictogram\n\nUna cantidad contada en fichas: tantas encendidas como llevas, el resto apagadas. Se entiende sin leer un eje.\n\n- **Props**: `value`, `total` (10), `columns`, `shape` (`dot` | `square` | `drop` | `bar`), `from` (`start` | `end`: por dónde empieza a llenarse), `size`, `tone`, `unit`, `label`.\n- `drop` para agua, `bar` para días o cuotas en una sola fila, `dot` para todo lo demás.\n- Hasta unas 50 fichas. Acompáñalo de la cifra en texto (`Text` o `Stat`): el pictograma da la proporción, no el número exacto.\n",
+  "thumb": [
+   480,
+   535
+  ],
+  "props": [
+   {
+    "name": "value",
+    "type": "number",
+    "optional": false
+   },
+   {
+    "name": "total",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "columns",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "shape",
+    "type": "'dot' | 'square' | 'drop' | 'bar'",
+    "optional": true
+   },
+   {
+    "name": "from",
+    "type": "'start' | 'end'",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Accent",
+    "optional": true
+   },
+   {
+    "name": "unit",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "DotColumns",
+  "slug": "dot-columns",
+  "group": "Instrumentos",
+  "description": "Columnas de puntos apilados con la cima de cada una en ink y el pico señalado con una chincheta: la forma de una semana, sin ejes.",
+  "deps": [],
+  "doc": "# DotColumns\n\nColumnas de puntos apilados con la cima de cada una en `ink` y el pico señalado con una chincheta: la forma de una semana, sin ejes.\n\n- **Props**: `data` (números o `{label, value}`), `rows` (5: puntos de la columna más alta), `max`, `active` (por defecto, el pico), `size`, `tone`, `label`.\n- Redondea a puntos enteros: sirve para ver la forma, no para leer un valor. Si el valor importa, `ColumnChart`.\n",
+  "thumb": [
+   480,
+   208
+  ],
+  "props": [
+   {
+    "name": "data",
+    "type": "(number | { label?: string; value: number })[]",
+    "optional": false
+   },
+   {
+    "name": "rows",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "max",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "active",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Accent",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "Sequencer",
+  "slug": "sequencer",
+  "group": "Medios",
+  "description": "Rejilla de pasos por pista: cada casilla marca si esa pista suena en ese paso. Una fila por sonido, un paso por columna.",
+  "deps": [],
+  "doc": "# Sequencer\n\nRejilla de pasos por pista: cada casilla marca si esa pista suena en ese paso. Una fila por sonido, un paso por columna.\n\n- **Props**: `rows` (nombres o `{label}`), `steps` (8), `value` / `defaultValue` (`boolean[][]`), `onChange`, `playhead` (paso que suena ahora), `tone`, `label`.\n- Teclado: Tab entra en la rejilla, las flechas se mueven por ella, Inicio y Fin van a los extremos de la fila, Espacio o Intro marcan.\n- Las casillas miden 44 px como mínimo; si no caben, la rejilla se desplaza en horizontal. No reproduce sonido: mueve `playhead` desde tu reloj y dispara los sonidos tú (con `PadGrid`, por ejemplo).\n",
+  "thumb": [
+   480,
+   266
+  ],
+  "props": [
+   {
+    "name": "rows",
+    "type": "(string | { label: string })[]",
+    "optional": false
+   },
+   {
+    "name": "steps",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "value",
+    "type": "boolean[][]",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "boolean[][]",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(value: boolean[][]) => void",
+    "optional": true
+   },
+   {
+    "name": "playhead",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Accent",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "TrimWave",
+  "slug": "trim-wave",
+  "group": "Medios",
+  "description": "Onda con dos tiradores para recortar un tramo: lo que queda dentro va en color, lo de fuera se apaga.",
+  "deps": [],
+  "doc": "# TrimWave\n\nOnda con dos tiradores para recortar un tramo: lo que queda dentro va en color, lo de fuera se apaga.\n\n- **Props**: `peaks` (alturas de 0 a 1), `value` / `defaultValue` (`[inicio, final]` en tanto por ciento), `onChange`, `minGap` (2), `format`, `readout`, `tone`, `label`, `startLabel`, `endLabel`.\n- Cada tirador es un deslizador: flechas de uno en uno, Re Pág y Av Pág de diez en diez, Inicio y Fin a su tope. Nunca se cruzan.\n- Para elegir un tramo de un audio o un vídeo. Para reproducir, `AudioTrack`.\n",
+  "thumb": [
+   480,
+   176
+  ],
+  "props": [
+   {
+    "name": "peaks",
+    "type": "number[]",
+    "optional": true
+   },
+   {
+    "name": "value",
+    "type": "[number, number]",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "[number, number]",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(value: [number, number]) => void",
+    "optional": true
+   },
+   {
+    "name": "minGap",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "format",
+    "type": "(percent: number) => string",
+    "optional": true
+   },
+   {
+    "name": "readout",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Accent",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "startLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "endLabel",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "Bands",
+  "slug": "bands",
+  "group": "Superficies",
+  "description": "Lista de franjas de color a todo el ancho, con el número, un titular grande y un dato o un icono a la derecha.",
+  "deps": [
+   {
+    "name": "Icon",
+    "slug": "icon"
+   }
+  ],
+  "doc": "# Bands\n\nLista de franjas de color a todo el ancho, con el número, un titular grande y un dato o un icono a la derecha.\n\n- **Props**: `items` (`{title, sub, meta, icon, tone, href, onClick}[]`), `numbered` (`false` quita el número), `stacked` (franjas con la esquina redondeada que se montan una sobre otra), `label`.\n- Una franja con `href` u `onClick` es toda ella el objetivo táctil (88 px de alto).\n- De 3 a 6 franjas y un tono distinto por franja. Para una lista larga o densa, `ListRow`.\n",
+  "thumb": [
+   480,
+   408
+  ],
+  "props": [
+   {
+    "name": "items",
+    "type": "BandsItem[]",
+    "optional": false
+   },
+   {
+    "name": "numbered",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "stacked",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "Eyes",
+  "slug": "eyes",
+  "group": "Conversación",
+  "description": "Dos ojos que dicen cómo está el agente: atento, contento, enfadado, con sueño, pensando o sorprendido. Parpadean cada pocos segundos.",
+  "deps": [],
+  "doc": "# Eyes\n\nDos ojos que dicen cómo está el agente: atento, contento, enfadado, con sueño, pensando o sorprendido. Parpadean cada pocos segundos.\n\n- **Props**: `mood` (`neutral` | `happy` | `angry` | `sleepy` | `thinking` | `surprised`), `size`, `tone`, `still` (sin parpadeo), `label` (por defecto, el nombre del estado).\n- El estado se anuncia como texto alternativo, no solo con la forma. Con movimiento reducido no parpadean.\n- Uno por pantalla, junto al texto que explica qué pasa. Para el estado de voz (escucha, habla), `VoiceOrb`.\n",
+  "thumb": [
+   480,
+   192
+  ],
+  "props": [
+   {
+    "name": "mood",
+    "type": "'neutral' | 'happy' | 'angry' | 'sleepy' | 'thinking' | 'surprised'",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Accent",
+    "optional": true
+   },
+   {
+    "name": "still",
+    "type": "boolean",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "Swatch",
+  "slug": "swatch",
+  "group": "Base",
+  "description": "Un par de color en discos concéntricos: el fondo fuera y la marca dentro, con su nombre debajo.",
+  "deps": [],
+  "doc": "# Swatch\n\nUn par de color en discos concéntricos: el fondo fuera y la marca dentro, con su nombre debajo.\n\n- **Props**: `ground` y `mark` (nombre de un token, como `sol`, o cualquier color CSS), `label`, `note`, `size`.\n- Para enseñar combinaciones de la paleta o dejar elegir un tema. Si se puede pulsar, envuélvelo tú en un control (`ChoiceCards`, `RadioGroup`).\n",
+  "thumb": [
+   480,
+   192
+  ],
+  "props": [
+   {
+    "name": "ground",
+    "type": "string",
+    "optional": false
+   },
+   {
+    "name": "mark",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "note",
+    "type": "React.ReactNode",
+    "optional": true
+   },
+   {
+    "name": "size",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "WeekStrip",
+  "slug": "week-strip",
+  "group": "Navegación",
+  "description": "Los siete días de una semana con su estado (hecho, a medias, sin hacer) para elegir uno.",
+  "deps": [],
+  "doc": "# WeekStrip\n\nLos siete días de una semana con su estado (hecho, a medias, sin hacer) para elegir uno.\n\n- **Props**: `days` (`{label, day, name, state, today}[]`), `value` / `defaultValue` (índice), `onChange`, `tone`, `label`.\n- Es un grupo de opciones: Tab entra, las flechas cambian de día. El estado se dice con forma (disco lleno, medio disco, aro) y en el nombre accesible; hoy lleva un punto.\n- Para una semana. Para un mes, `Calendar`; para el progreso de un proceso, `Steps`.\n",
+  "thumb": [
+   480,
+   154
+  ],
+  "props": [
+   {
+    "name": "days",
+    "type": "WeekStripDay[]",
+    "optional": false
+   },
+   {
+    "name": "value",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "defaultValue",
+    "type": "number",
+    "optional": true
+   },
+   {
+    "name": "onChange",
+    "type": "(index: number) => void",
+    "optional": true
+   },
+   {
+    "name": "tone",
+    "type": "Accent",
+    "optional": true
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "optional": true
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "optional": true
+   }
+  ],
+  "extends": null
+ },
+ {
+  "name": "IndexList",
+  "slug": "index-list",
+  "group": "Navegación",
+  "description": "Índice en letra grande: una palabra por línea y, en pequeño, cuántas cosas hay dentro.",
+  "deps": [],
+  "doc": "# IndexList\n\nÍndice en letra grande: una palabra por línea y, en pequeño, cuántas cosas hay dentro.\n\n- **Props**: `items` (texto o `{label, count, href, onClick, current}`), `label`.\n- La línea actual va en `ink` y las demás en gris; cada línea mide 56 px como mínimo.\n- Para elegir entre 3 y 8 secciones cuando el índice es la pantalla. Dentro de una pantalla con más contenido, `ListRow` o `Tabs`.\n",
+  "thumb": [
+   480,
+   280
+  ],
+  "props": [
+   {
+    "name": "items",
+    "type": "(string | IndexListItem)[]",
+    "optional": false
+   },
+   {
+    "name": "label",
+    "type": "string",
     "optional": true
    },
    {

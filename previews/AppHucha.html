@@ -1,0 +1,38 @@
+<!-- @dsCard group="Apps" height=1000 page subtitle="Hucha: los meses que llevas, lo que aportas y un asistente que te lo cuenta" -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>AppHucha</title>
+<style>
+  .app { width:min(390px,100%); margin:0 auto; box-sizing:border-box; border-radius:44px; padding:var(--space-6) var(--space-4) var(--space-4); display:flex; flex-direction:column; gap:var(--space-4); background:var(--paper); outline:var(--hairline) solid var(--line); outline-offset:calc(var(--hairline) * -1); overflow:hidden; }
+  .bento { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-2); }
+  .bento > * { min-width:0; }
+  .wide { grid-column:1 / -1; }
+  .bento .frk-tile { height:100%; }
+  .bento .frk-tile__value { font-size:40px; }
+  .bento .wide .frk-tile__value { font-size:64px; }
+  .card { display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-4); border-radius:var(--radius-lg); background:var(--surface); box-sizing:border-box; min-width:0; }
+  .cap { margin:0; font:500 11px/14px var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); }
+  .row { display:flex; gap:var(--space-3); align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .list { display:flex; flex-direction:column; gap:var(--space-2); }
+  .app .frk-tabbar { align-self:center; }
+</style></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var F = window.Frekvens, h = React.createElement, no = function(){};
+function App(){
+ return h('div',{className:'app'},
+  h(F.Text,{variant:'title',as:'h1',sub:'Para la furgoneta'},'Hucha'),
+  h('div',{className:'card'},h('div',{className:'row'},h('p',{className:'cap'},'Meses ahorrando'),h('p',{className:'cap'},'14 de 24')),
+   h(F.Pictogram,{label:'Meses ahorrando',value:14,total:24,columns:6,size:44,tone:'rams'})),
+  h(F.Stat,{label:'Llevas',value:'4.900',unit:'€',delta:'+350 € este mes'}),
+  h('div',{className:'card'},h('div',{className:'row',style:{flexWrap:'nowrap',alignItems:'center'}},h(F.Eyes,{mood:'happy',size:72,tone:'rams'}),
+   h(F.Text,{variant:'body'},'Vas dos meses por delante. Si sigues así, llegas en septiembre.'))),
+  h('div',{className:'card'},h('p',{className:'cap'},'Aportes del semestre'),
+   h(F.DotColumns,{label:'Aportes del semestre',tone:'rams',data:[{label:'Jun',value:2},{label:'Jul',value:3},{label:'Ago',value:1},{label:'Sep',value:4},{label:'Oct',value:5},{label:'Nov',value:3}]})),
+  h(F.KeyButton,{tone:'klein',shape:'pill',block:true,icon:'plus',onClick:no},'Aportar'));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

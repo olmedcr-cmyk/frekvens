@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "index-list",
+ "type": "registry:ui",
+ "title": "IndexList",
+ "description": "Índice en letra grande: una palabra por línea y, en pequeño, cuántas cosas hay dentro.",
+ "categories": [
+  "Navegación"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/index-list.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/index-list.tsx",
+   "content": "\"use client\"\n/* Frekvens · IndexList — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { cx } from \"./lib\"\n\nimport type { IndexListProps } from \"./types\"\nexport type { IndexListProps }\n\n/* ---------- IndexList: índice en letra grande, con la cuenta en pequeño ---------- */\nexport function IndexList(props: IndexListProps): React.ReactElement\nexport function IndexList(p?: any): any {\n  var items: any = p.items || []\n  return (\n    <ul className={cx(\"frk-index\", p.className)} aria-label={p.label}>\n      {items.map(function (it?: any, i?: any): any {\n        var o: any =\n            typeof it === \"string\"\n              ? {\n                  label: it,\n                }\n              : it,\n          Tag: any = o.href ? \"a\" : o.onClick ? \"button\" : \"span\"\n        return (\n          <li\n            key={i}\n            style={{\n              animationDelay: i * 40 + \"ms\",\n            }}\n          >\n            <Tag\n              href={o.href}\n              type={Tag === \"button\" ? \"button\" : undefined}\n              onClick={o.onClick}\n              aria-current={o.current ? \"true\" : undefined}\n              className={cx(\"frk-index__item\", o.current && \"is-on\")}\n            >\n              <span className=\"frk-index__label\">{o.label}</span>\n              {o.count != null ? (\n                <span className=\"frk-index__count\">\n                  <span className=\"frk-sr\">{\", \"}</span>\n                  {o.count}\n                </span>\n              ) : null}\n            </Tag>\n          </li>\n        )\n      })}\n    </ul>\n  )\n}\n"
+  }
+ ],
+ "docs": "# IndexList\n\nÍndice en letra grande: una palabra por línea y, en pequeño, cuántas cosas hay dentro.\n\n- **Props**: `items` (texto o `{label, count, href, onClick, current}`), `label`.\n- La línea actual va en `ink` y las demás en gris; cada línea mide 56 px como mínimo.\n- Para elegir entre 3 y 8 secciones cuando el índice es la pantalla. Dentro de una pantalla con más contenido, `ListRow` o `Tabs`.\n"
+}

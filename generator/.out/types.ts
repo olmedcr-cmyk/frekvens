@@ -1,7 +1,7 @@
 /* Frekvens — tipos de todas las props. MIT © Cris Olmedo */
 import type * as React from 'react';
 
-export type Tone = 'paper' | 'surface' | 'well' | 'ink' | 'klein' | 'klein-soft' | 'sol' | 'rams' | 'tabaco' | 'verde' | 'rec' | 'salvia' | 'lavanda' | 'malva';
+export type Tone = 'paper' | 'surface' | 'well' | 'ink' | 'klein' | 'klein-soft' | 'sol' | 'rams' | 'tabaco' | 'verde' | 'rec' | 'salvia' | 'lavanda' | 'malva' | 'rosa' | 'cielo';
 export type IconName = 'play' | 'pause' | 'stop' | 'rec' | 'plus' | 'minus' | 'arrow-right' | 'arrow-left' | 'arrow-up-right' | 'chevron-down' | 'chevron-right' | 'chevron-left' | 'arrow-down' | 'arrow-down-left' | 'menu' | 'search' | 'heart' | 'bookmark' | 'calendar' | 'folder' | 'card' | 'user' | 'sliders' | 'share' | 'chart' | 'bolt' | 'grid' | 'close' | 'check' | 'timer' | 'power' | 'lock' | 'dots' | 'home' | 'drop' | 'sun' | 'flag' | 'refresh' | 'mic' | 'arrow-up' | 'copy' | 'volume' | 'volume-off' | 'expand';
 
 export interface KeyButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -232,4 +232,22 @@ export interface OnboardingSlide { title: React.ReactNode; text?: React.ReactNod
 export interface OnboardingProps { slides: OnboardingSlide[]; value?: number; defaultValue?: number; onChange?: (i: number) => void; onDone?: () => void; onSkip?: () => void; nextLabel?: string; backLabel?: string; skipLabel?: string; doneLabel?: string; label?: string; className?: string }
 export interface ArticleProps { title: React.ReactNode; date?: React.ReactNode; category?: React.ReactNode; href?: string; onClick?: () => void; tone?: Tone; children?: React.ReactNode; className?: string }
 export interface CapsuleProps { title: React.ReactNode; text?: React.ReactNode; eyebrow?: React.ReactNode; actions?: React.ReactNode; tone?: Tone; level?: 1 | 2; as?: string; children?: React.ReactNode; className?: string }
+
+/* Frekvens 6 */
+export type Accent = 'ink' | 'klein' | 'rams' | 'sol' | 'verde' | 'tabaco' | 'rec';
+export interface FillCardProps { title: React.ReactNode; value: number; max?: number; unit?: string; caption?: React.ReactNode; icon?: IconName; tone?: Tone; format?: (value: number) => string; onClick?: () => void; className?: string }
+export interface ColumnChartDatum { label: string; value: number }
+export interface ColumnChartProps { data: ColumnChartDatum[]; active?: number; max?: number; height?: number; shape?: 'bar' | 'pill'; track?: 'none' | 'well' | 'hatch'; tone?: Accent; values?: boolean; unit?: string; format?: (value: number) => string; label?: string; className?: string }
+export interface PictogramProps { value: number; total?: number; columns?: number; shape?: 'dot' | 'square' | 'drop' | 'bar'; from?: 'start' | 'end'; size?: number; tone?: Accent; unit?: string; label?: string; className?: string }
+export interface DotColumnsProps { data: (number | { label?: string; value: number })[]; rows?: number; max?: number; active?: number; size?: number; tone?: Accent; label?: string; className?: string }
+export interface SequencerProps { rows: (string | { label: string })[]; steps?: number; value?: boolean[][]; defaultValue?: boolean[][]; onChange?: (value: boolean[][]) => void; playhead?: number; tone?: Accent; label?: string; className?: string }
+export interface TrimWaveProps { peaks?: number[]; value?: [number, number]; defaultValue?: [number, number]; onChange?: (value: [number, number]) => void; minGap?: number; format?: (percent: number) => string; readout?: boolean; tone?: Accent; label?: string; startLabel?: string; endLabel?: string; className?: string }
+export interface BandsItem { title: React.ReactNode; sub?: React.ReactNode; meta?: React.ReactNode; icon?: IconName; tone?: Tone; href?: string; onClick?: () => void }
+export interface BandsProps { items: BandsItem[]; numbered?: boolean; stacked?: boolean; label?: string; className?: string }
+export interface EyesProps { mood?: 'neutral' | 'happy' | 'angry' | 'sleepy' | 'thinking' | 'surprised'; size?: number; tone?: Accent; still?: boolean; label?: string; className?: string }
+export interface SwatchProps { ground: string; mark?: string; label?: React.ReactNode; note?: React.ReactNode; size?: number; className?: string }
+export interface WeekStripDay { label: string; day: number | string; name?: string; state?: 'done' | 'partial' | 'none'; today?: boolean }
+export interface WeekStripProps { days: WeekStripDay[]; value?: number; defaultValue?: number; onChange?: (index: number) => void; tone?: Accent; label?: string; className?: string }
+export interface IndexListItem { label: React.ReactNode; count?: number | string; href?: string; onClick?: () => void; current?: boolean }
+export interface IndexListProps { items: (string | IndexListItem)[]; label?: string; className?: string }
 

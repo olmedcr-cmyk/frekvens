@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "dot-columns",
+ "type": "registry:ui",
+ "title": "DotColumns",
+ "description": "Columnas de puntos apilados con la cima de cada una en ink y el pico señalado con una chincheta: la forma de una semana, sin ejes.",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/dot-columns.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/dot-columns.tsx",
+   "content": "\"use client\"\n/* Frekvens · DotColumns — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { clamp, cx, range } from \"./lib\"\n\nimport type { DotColumnsProps } from \"./types\"\nexport type { DotColumnsProps }\n\n/* ---------- DotColumns: columnas de puntos apilados, con el pico marcado ---------- */\nexport function DotColumns(props: DotColumnsProps): React.ReactElement\nexport function DotColumns(p?: any): any {\n  var data: any = p.data || [],\n    rows: any = p.rows || 5,\n    vals: any = data.map(function (d?: any): any {\n      return typeof d === \"number\" ? d : d.value\n    }),\n    mx: any = p.max || Math.max.apply(null, vals.concat([1]))\n  var act: any = p.active == null ? vals.indexOf(Math.max.apply(null, vals)) : p.active,\n    hasLbl: any = data.some(function (d?: any): any {\n      return d && d.label\n    })\n  var sum: any = data\n      .map(function (d?: any, i?: any): any {\n        return (d && d.label ? d.label + \" \" : \"\") + vals[i]\n      })\n      .join(\", \"),\n    sty: any = {}\n  sty[\"--size\"] = (p.size || 16) + \"px\"\n  return (\n    <div\n      className={cx(\"frk-dotcols\", \"frk-dotcols--\" + (p.tone || \"rams\"), p.className)}\n      role=\"img\"\n      aria-label={(p.label ? p.label + \": \" : \"\") + sum}\n      style={sty}\n    >\n      <div className=\"frk-dotcols__plot\" aria-hidden={true}>\n        {data.map(function (d?: any, i?: any): any {\n          var n: any = clamp(Math.round((vals[i] / mx) * rows), vals[i] > 0 ? 1 : 0, rows)\n          return (\n            <div key={i} className={cx(\"frk-dotcols__col\", i === act && \"is-on\")}>\n              {i === act ? <span className=\"frk-dotcols__pin\" /> : null}\n              {range(rows).map(function (r?: any): any {\n                var k: any = rows - 1 - r\n                return (\n                  <span\n                    key={r}\n                    className={cx(\"frk-dotcols__dot\", k < n && \"is-on\", k === n - 1 && \"is-top\")}\n                    style={{\n                      animationDelay: i * 40 + k * 30 + \"ms\",\n                    }}\n                  />\n                )\n              })}\n              {hasLbl ? <span className=\"frk-dotcols__lbl\">{d.label}</span> : null}\n            </div>\n          )\n        })}\n      </div>\n    </div>\n  )\n}\n\n/* ---------- Sequencer: rejilla de pasos por pista; flechas para moverse, espacio para marcar ---------- */\n"
+  }
+ ],
+ "docs": "# DotColumns\n\nColumnas de puntos apilados con la cima de cada una en `ink` y el pico señalado con una chincheta: la forma de una semana, sin ejes.\n\n- **Props**: `data` (números o `{label, value}`), `rows` (5: puntos de la columna más alta), `max`, `active` (por defecto, el pico), `size`, `tone`, `label`.\n- Redondea a puntos enteros: sirve para ver la forma, no para leer un valor. Si el valor importa, `ColumnChart`.\n"
+}

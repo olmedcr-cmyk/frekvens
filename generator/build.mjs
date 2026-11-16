@@ -116,7 +116,7 @@ for (const n of names) {
   const m = manifest[n];
   items.push({ name: kebab(n), type: 'registry:ui', title: n, description: firstLine(docOf(n)), categories: [groupOf(n)], dependencies: [], registryDependencies: [`${HOME}/r/frekvens-lib.json`, ...m.deps.map((d) => `${HOME}/r/${kebab(d)}.json`)], files: [{ path: `registry/frekvens/ui/${m.file}`, type: 'registry:ui', target: `~/components/frekvens/${m.file}` }, ...(n === 'Render' ? [{ path: 'registry/frekvens/ui/catalog.ts', type: 'registry:ui', target: '~/components/frekvens/catalog.ts' }] : [])], docs: docOf(n) });
 }
-items.push({ name: 'frekvens', type: 'registry:ui', title: 'Frekvens completo', description: 'Los 119 componentes, los estilos y las utilidades de una vez.', registryDependencies: names.map((n) => `${HOME}/r/${kebab(n)}.json`), files: [{ path: 'registry/frekvens/ui/index.ts', type: 'registry:ui', target: '~/components/frekvens/index.ts' }] });
+items.push({ name: 'frekvens', type: 'registry:ui', title: 'Frekvens completo', description: 'Los 130 componentes, los estilos y las utilidades de una vez.', registryDependencies: names.map((n) => `${HOME}/r/${kebab(n)}.json`), files: [{ path: 'registry/frekvens/ui/index.ts', type: 'registry:ui', target: '~/components/frekvens/index.ts' }] });
 const registry = { $schema: 'https://ui.shadcn.com/schema/registry.json', name: 'frekvens', homepage: HOME, items };
 write(R('registry.json'), JSON.stringify(registry, null, 2));
 // salida estática /r/<name>.json (lo que `npx shadcn add <url>` lee)
@@ -131,7 +131,7 @@ write(R('package.json'), JSON.stringify({
   name: 'frekvens', version: VERSION, private: true, type: 'module', license: 'MIT',
   description: 'Frekvens: componentes React para copiar y pegar, al estilo shadcn/ui. Botoneras grandes, puntos, instrumentos, conversación e IA.',
   scripts: { dev: 'next dev', build: 'next build', start: 'next start', 'registry:build': 'npx shadcn@latest build', test: 'tsc -p tsconfig.registry.json && node test/smoke.mjs && node test/registry.mjs', 'test:a11y': 'node test/a11y.mjs', thumbs: 'node generator/thumbs.mjs' },
-  dependencies: { next: '15.5.29', react: '18.3.1', 'react-dom': '18.3.1' },
+  dependencies: { '@modelcontextprotocol/server': '2.4.0', 'mcp-handler': '2.3.0', next: '15.5.29', react: '18.3.1', 'react-dom': '18.3.1', zod: '4.6.7' },
   devDependencies: { '@tailwindcss/postcss': '4.0.17', '@types/node': '22.10.2', '@types/react': '18.3.18', '@types/react-dom': '18.3.5', 'axe-core': '4.10.2', esbuild: '0.28.2', playwright: '1.65.0', tailwindcss: '4.0.17', typescript: '5.7.2' },
   // Next 15 fija un postcss antiguo; se fuerza el parcheado (mismo mayor, misma API).
   overrides: { postcss: '8.5.32' },
