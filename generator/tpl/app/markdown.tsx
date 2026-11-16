@@ -16,4 +16,7 @@ export function render(md: string) {
   }
   return out.join("\n")
 }
+// En GitHub los README se enlazan entre sí; en la web, el enlace de idioma lleva a la página de instalar del otro idioma.
+const GH = "https://github.com/olmedcr-cmyk/frekvens/blob/main/"
+export function siteLinks(md: string) { return md.split(`(${GH}README.en.md)`).join("(/en/install)").split(`(${GH}README.md)`).join("(/instalar)") }
 export function Markdown({ src }: { src: string }) { return <div className="prose" dangerouslySetInnerHTML={{ __html: render(src) }} /> }

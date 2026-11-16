@@ -3,6 +3,11 @@ import { Hero } from "./hero"
 import { CategoryGrid } from "./category-grid"
 import { ExamplesGrid } from "./examples-grid"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://frekvens-ui.vercel.app/", languages: { es: "https://frekvens-ui.vercel.app/", en: "https://frekvens-ui.vercel.app/en" } },
+}
 
 export default function Home() {
   return (
