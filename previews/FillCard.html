@@ -1,0 +1,12 @@
+<!-- @dsCard group="Instrumentos" height=380 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>FillCard — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'360px',display:'flex',flexDirection:'column',gap:'12px'}},h(C.FillCard,{title:'Remo',value:64,icon:'timer',tone:'rams'}),h(C.FillCard,{title:'Bici',value:91,caption:'Mejor marca',tone:'klein'}),h(C.FillCard,{title:'Plancha',value:28,tone:'sol'})));
+</script>
+</body>
+</html>

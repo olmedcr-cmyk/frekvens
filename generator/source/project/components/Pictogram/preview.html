@@ -1,0 +1,12 @@
+<!-- @dsCard group="Instrumentos" height=400 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Pictogram — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'320px',display:'flex',flexDirection:'column',gap:'12px'}},h(C.Pictogram,{label:'Años de ahorro',value:10,total:20,columns:4,size:56,tone:'rams'}),h(C.Pictogram,{label:'Vasos de agua',value:5,total:8,columns:8,shape:'drop',size:24,from:'end',tone:'klein'}),h(C.Pictogram,{label:'Cuotas pagadas',value:9,total:13,shape:'bar',size:12,tone:'sol'})));
+</script>
+</body>
+</html>

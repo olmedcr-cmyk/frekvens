@@ -32,3 +32,7 @@ export function Capsule(p?: any): any {
     p.children ? <div className="frk-capsule__art">{p.children}</div> : null,
   )
 }
+
+/* ================= Frekvens 6: relleno, gráficos de unidad, secuenciador, recorte, bandas, ojos ================= */
+
+/* ---------- FillCard: tarjeta cuyo fondo se llena hasta el valor ---------- */

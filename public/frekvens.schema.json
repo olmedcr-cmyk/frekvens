@@ -125,7 +125,23 @@
       "VoicePosition",
       "Beam",
       "Aura",
-      "FlapBoard"
+      "FlapBoard",
+      "Shape",
+      "Ruler",
+      "Onboarding",
+      "Article",
+      "Capsule",
+      "FillCard",
+      "ColumnChart",
+      "Pictogram",
+      "DotColumns",
+      "Sequencer",
+      "TrimWave",
+      "Bands",
+      "Eyes",
+      "Swatch",
+      "WeekStrip",
+      "IndexList"
      ]
     },
     "props": {
@@ -159,7 +175,7 @@
  },
  "$ref": "#/$defs/children",
  "x-frekvens": {
-  "version": 4,
+  "version": 6,
   "tones": [
    "paper",
    "surface",
@@ -174,7 +190,9 @@
    "rec",
    "salvia",
    "lavanda",
-   "malva"
+   "malva",
+   "rosa",
+   "cielo"
   ],
   "icons": [
    "play",
@@ -187,6 +205,23 @@
    "arrow-left",
    "arrow-up-right",
    "chevron-down",
+   "chevron-right",
+   "chevron-left",
+   "arrow-down",
+   "arrow-down-left",
+   "menu",
+   "search",
+   "heart",
+   "bookmark",
+   "calendar",
+   "folder",
+   "card",
+   "user",
+   "sliders",
+   "share",
+   "chart",
+   "bolt",
+   "grid",
    "close",
    "check",
    "timer",
@@ -4116,6 +4151,550 @@
      "size": {
       "type": "'s' | 'm' | 'l'",
       "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Shape": {
+    "group": "Base",
+    "summary": "Forma geométrica plana para el arte de un tile, una portada o un póster: once siluetas que se combinan como piezas.",
+    "props": {
+     "name": {
+      "type": "ShapeName",
+      "required": true
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "'ink' | 'paper' | 'klein' | 'rams' | 'sol' | 'verde' | 'tabaco' | 'rec'",
+      "required": false
+     },
+     "soft": {
+      "type": "boolean",
+      "required": false
+     },
+     "rotate": {
+      "type": "number",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Ruler": {
+    "group": "Controles",
+    "summary": "Regla de sintonía: la escala se desliza bajo una aguja fija, como el dial de una radio. Para elegir un valor dentro de un rango largo sin perder de vista los vecinos (frecuencia, día, peso, minuto de una pista).",
+    "props": {
+     "value": {
+      "type": "number",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "number",
+      "required": false
+     },
+     "min": {
+      "type": "number",
+      "required": false
+     },
+     "max": {
+      "type": "number",
+      "required": false
+     },
+     "step": {
+      "type": "number",
+      "required": false
+     },
+     "major": {
+      "type": "number",
+      "required": false
+     },
+     "pitch": {
+      "type": "number",
+      "required": false
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "tone": {
+      "type": "'rams' | 'klein' | 'ink'",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Onboarding": {
+    "group": "Navegación",
+    "summary": "Bienvenida por pasos: un bloque de arte, una tarjeta de color con el mensaje y un pie con guiones de progreso y una tecla redonda para avanzar.",
+    "props": {
+     "slides": {
+      "type": "OnboardingSlide[]",
+      "required": true
+     },
+     "value": {
+      "type": "number",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "number",
+      "required": false
+     },
+     "nextLabel": {
+      "type": "string",
+      "required": false
+     },
+     "backLabel": {
+      "type": "string",
+      "required": false
+     },
+     "skipLabel": {
+      "type": "string",
+      "required": false
+     },
+     "doneLabel": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Article": {
+    "group": "Superficies",
+    "summary": "Tarjeta de artículo partida en dos: arriba la fecha, la categoría y el titular; abajo un bloque de color con el arte. Para listas de novedades, entradas de blog o lanzamientos.",
+    "props": {
+     "title": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "date": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "category": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "href": {
+      "type": "string",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "Capsule": {
+    "group": "Superficies",
+    "summary": "Bloque en forma de estadio para abrir o cerrar una página: titular, una línea de texto, las acciones y, a un lado, el arte.",
+    "props": {
+     "title": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "text": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "eyebrow": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "actions": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     },
+     "level": {
+      "type": "1 | 2",
+      "required": false
+     },
+     "as": {
+      "type": "string",
+      "required": false
+     },
+     "children": {
+      "type": "React.ReactNode",
+      "required": false
+     }
+    },
+    "children": true
+   },
+   "FillCard": {
+    "group": "Instrumentos",
+    "summary": "Tarjeta de progreso cuyo fondo se llena hasta el valor: el nombre arriba, la cifra abajo y el color avanzando de izquierda a derecha.",
+    "props": {
+     "title": {
+      "type": "React.ReactNode",
+      "required": true
+     },
+     "value": {
+      "type": "number",
+      "required": true
+     },
+     "max": {
+      "type": "number",
+      "required": false
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "caption": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "icon": {
+      "type": "IconName",
+      "required": false
+     },
+     "tone": {
+      "type": "Tone",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "ColumnChart": {
+    "group": "Instrumentos",
+    "summary": "Columnas con su cifra encima y una destacada en `ink`: lo de cada hora, cada día o cada mes, y cuál fue el máximo.",
+    "props": {
+     "data": {
+      "type": "ColumnChartDatum[]",
+      "required": true
+     },
+     "active": {
+      "type": "number",
+      "required": false
+     },
+     "max": {
+      "type": "number",
+      "required": false
+     },
+     "height": {
+      "type": "number",
+      "required": false
+     },
+     "shape": {
+      "type": "'bar' | 'pill'",
+      "required": false
+     },
+     "track": {
+      "type": "'none' | 'well' | 'hatch'",
+      "required": false
+     },
+     "tone": {
+      "type": "Accent",
+      "required": false
+     },
+     "values": {
+      "type": "boolean",
+      "required": false
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Pictogram": {
+    "group": "Instrumentos",
+    "summary": "Una cantidad contada en fichas: tantas encendidas como llevas, el resto apagadas. Se entiende sin leer un eje.",
+    "props": {
+     "value": {
+      "type": "number",
+      "required": true
+     },
+     "total": {
+      "type": "number",
+      "required": false
+     },
+     "columns": {
+      "type": "number",
+      "required": false
+     },
+     "shape": {
+      "type": "'dot' | 'square' | 'drop' | 'bar'",
+      "required": false
+     },
+     "from": {
+      "type": "'start' | 'end'",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "Accent",
+      "required": false
+     },
+     "unit": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "DotColumns": {
+    "group": "Instrumentos",
+    "summary": "Columnas de puntos apilados con la cima de cada una en `ink` y el pico señalado con una chincheta: la forma de una semana, sin ejes.",
+    "props": {
+     "data": {
+      "type": "(number | { label?: string; value: number })[]",
+      "required": true
+     },
+     "rows": {
+      "type": "number",
+      "required": false
+     },
+     "max": {
+      "type": "number",
+      "required": false
+     },
+     "active": {
+      "type": "number",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "Accent",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Sequencer": {
+    "group": "Medios",
+    "summary": "Rejilla de pasos por pista: cada casilla marca si esa pista suena en ese paso. Una fila por sonido, un paso por columna.",
+    "props": {
+     "rows": {
+      "type": "(string | { label: string })[]",
+      "required": true
+     },
+     "steps": {
+      "type": "number",
+      "required": false
+     },
+     "value": {
+      "type": "boolean[][]",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "boolean[][]",
+      "required": false
+     },
+     "playhead": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "Accent",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "TrimWave": {
+    "group": "Medios",
+    "summary": "Onda con dos tiradores para recortar un tramo: lo que queda dentro va en color, lo de fuera se apaga.",
+    "props": {
+     "peaks": {
+      "type": "number[]",
+      "required": false
+     },
+     "value": {
+      "type": "[number, number]",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "[number, number]",
+      "required": false
+     },
+     "minGap": {
+      "type": "number",
+      "required": false
+     },
+     "readout": {
+      "type": "boolean",
+      "required": false
+     },
+     "tone": {
+      "type": "Accent",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     },
+     "startLabel": {
+      "type": "string",
+      "required": false
+     },
+     "endLabel": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Bands": {
+    "group": "Superficies",
+    "summary": "Lista de franjas de color a todo el ancho, con el número, un titular grande y un dato o un icono a la derecha.",
+    "props": {
+     "items": {
+      "type": "BandsItem[]",
+      "required": true
+     },
+     "numbered": {
+      "type": "boolean",
+      "required": false
+     },
+     "stacked": {
+      "type": "boolean",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Eyes": {
+    "group": "Conversación",
+    "summary": "Dos ojos que dicen cómo está el agente: atento, contento, enfadado, con sueño, pensando o sorprendido. Parpadean cada pocos segundos.",
+    "props": {
+     "mood": {
+      "type": "'neutral' | 'happy' | 'angry' | 'sleepy' | 'thinking' | 'surprised'",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "Accent",
+      "required": false
+     },
+     "still": {
+      "type": "boolean",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "Swatch": {
+    "group": "Base",
+    "summary": "Un par de color en discos concéntricos: el fondo fuera y la marca dentro, con su nombre debajo.",
+    "props": {
+     "ground": {
+      "type": "string",
+      "required": true
+     },
+     "mark": {
+      "type": "string",
+      "required": false
+     },
+     "label": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "note": {
+      "type": "React.ReactNode",
+      "required": false
+     },
+     "size": {
+      "type": "number",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "WeekStrip": {
+    "group": "Navegación",
+    "summary": "Los siete días de una semana con su estado (hecho, a medias, sin hacer) para elegir uno.",
+    "props": {
+     "days": {
+      "type": "WeekStripDay[]",
+      "required": true
+     },
+     "value": {
+      "type": "number",
+      "required": false
+     },
+     "defaultValue": {
+      "type": "number",
+      "required": false
+     },
+     "tone": {
+      "type": "Accent",
+      "required": false
+     },
+     "label": {
+      "type": "string",
+      "required": false
+     }
+    },
+    "children": false
+   },
+   "IndexList": {
+    "group": "Navegación",
+    "summary": "Índice en letra grande: una palabra por línea y, en pequeño, cuántas cosas hay dentro.",
+    "props": {
+     "items": {
+      "type": "(string | IndexListItem)[]",
+      "required": true
      },
      "label": {
       "type": "string",

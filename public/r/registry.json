@@ -1593,7 +1593,18 @@
     "https://frekvens-ui.vercel.app/r/ruler.json",
     "https://frekvens-ui.vercel.app/r/onboarding.json",
     "https://frekvens-ui.vercel.app/r/article.json",
-    "https://frekvens-ui.vercel.app/r/capsule.json"
+    "https://frekvens-ui.vercel.app/r/capsule.json",
+    "https://frekvens-ui.vercel.app/r/fill-card.json",
+    "https://frekvens-ui.vercel.app/r/column-chart.json",
+    "https://frekvens-ui.vercel.app/r/pictogram.json",
+    "https://frekvens-ui.vercel.app/r/dot-columns.json",
+    "https://frekvens-ui.vercel.app/r/sequencer.json",
+    "https://frekvens-ui.vercel.app/r/trim-wave.json",
+    "https://frekvens-ui.vercel.app/r/bands.json",
+    "https://frekvens-ui.vercel.app/r/eyes.json",
+    "https://frekvens-ui.vercel.app/r/swatch.json",
+    "https://frekvens-ui.vercel.app/r/week-strip.json",
+    "https://frekvens-ui.vercel.app/r/index-list.json"
    ],
    "files": [
     {
@@ -2807,10 +2818,243 @@
    "docs": "# Capsule\n\nBloque en forma de estadio para abrir o cerrar una página: titular, una línea de texto, las acciones y, a un lado, el arte.\n\n- **Props**: `title`, `text`, `eyebrow`, `actions` (teclas; una sola `klein`), `tone` (`ink` por defecto), `level` (`1` si es el titular de la página; `2` por defecto), `as`, `children` (el arte).\n- El relleno crece con el ancho para que el texto nunca toque la curva; en estrecho el arte baja debajo del texto.\n- Una por pantalla, dos como mucho (apertura y cierre). No la uses como tarjeta de contenido: para eso está `Tile`.\n"
   },
   {
+   "name": "fill-card",
+   "type": "registry:ui",
+   "title": "FillCard",
+   "description": "Tarjeta de progreso cuyo fondo se llena hasta el valor: el nombre arriba, la cifra abajo y el color avanzando de izquierda a derecha.",
+   "categories": [
+    "Instrumentos"
+   ],
+   "dependencies": [],
+   "registryDependencies": [
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
+   ],
+   "files": [
+    {
+     "path": "registry/frekvens/ui/fill-card.tsx",
+     "type": "registry:ui",
+     "target": "~/components/frekvens/fill-card.tsx"
+    }
+   ],
+   "docs": "# FillCard\n\nTarjeta de progreso cuyo fondo se llena hasta el valor: el nombre arriba, la cifra abajo y el color avanzando de izquierda a derecha.\n\n- **Props**: `title`, `value`, `max` (100), `unit` (`%`; `''` para quitarla), `caption`, `icon`, `tone` (`rams` por defecto), `format`, `onClick` (la convierte en tecla).\n- El texto cambia de color justo donde pasa el relleno, así que se lee igual con un 5 % que con un 95 %.\n- Para una lista corta de avances (ejercicios, depósitos, cargas). Un solo tono por tarjeta y como mucho tres tonos en la lista. Si solo hay un número sin tope, usa `Stat`.\n"
+  },
+  {
+   "name": "column-chart",
+   "type": "registry:ui",
+   "title": "ColumnChart",
+   "description": "Columnas con su cifra encima y una destacada en ink: lo de cada hora, cada día o cada mes, y cuál fue el máximo.",
+   "categories": [
+    "Instrumentos"
+   ],
+   "dependencies": [],
+   "registryDependencies": [
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+   ],
+   "files": [
+    {
+     "path": "registry/frekvens/ui/column-chart.tsx",
+     "type": "registry:ui",
+     "target": "~/components/frekvens/column-chart.tsx"
+    }
+   ],
+   "docs": "# ColumnChart\n\nColumnas con su cifra encima y una destacada en `ink`: lo de cada hora, cada día o cada mes, y cuál fue el máximo.\n\n- **Props**: `data` (`{label, value}[]`), `active` (por defecto, la más alta), `max`, `height` (200), `shape` (`bar` | `pill`), `track` (`none` | `well` | `hatch`: lo que falta hasta `max`), `tone`, `values` (`false` oculta las cifras), `unit`, `format`, `label`.\n- Con `track=\"hatch\"` el resto de cada columna va rayado: rayado significa «todavía no».\n- De 4 a 8 columnas. Para una serie larga, `AreaChart` o `LineChart`; para comparar sin cifras, `BarMeter`.\n"
+  },
+  {
+   "name": "pictogram",
+   "type": "registry:ui",
+   "title": "Pictogram",
+   "description": "Una cantidad contada en fichas: tantas encendidas como llevas, el resto apagadas. Se entiende sin leer un eje.",
+   "categories": [
+    "Instrumentos"
+   ],
+   "dependencies": [],
+   "registryDependencies": [
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+   ],
+   "files": [
+    {
+     "path": "registry/frekvens/ui/pictogram.tsx",
+     "type": "registry:ui",
+     "target": "~/components/frekvens/pictogram.tsx"
+    }
+   ],
+   "docs": "# Pictogram\n\nUna cantidad contada en fichas: tantas encendidas como llevas, el resto apagadas. Se entiende sin leer un eje.\n\n- **Props**: `value`, `total` (10), `columns`, `shape` (`dot` | `square` | `drop` | `bar`), `from` (`start` | `end`: por dónde empieza a llenarse), `size`, `tone`, `unit`, `label`.\n- `drop` para agua, `bar` para días o cuotas en una sola fila, `dot` para todo lo demás.\n- Hasta unas 50 fichas. Acompáñalo de la cifra en texto (`Text` o `Stat`): el pictograma da la proporción, no el número exacto.\n"
+  },
+  {
+   "name": "dot-columns",
+   "type": "registry:ui",
+   "title": "DotColumns",
+   "description": "Columnas de puntos apilados con la cima de cada una en ink y el pico señalado con una chincheta: la forma de una semana, sin ejes.",
+   "categories": [
+    "Instrumentos"
+   ],
+   "dependencies": [],
+   "registryDependencies": [
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+   ],
+   "files": [
+    {
+     "path": "registry/frekvens/ui/dot-columns.tsx",
+     "type": "registry:ui",
+     "target": "~/components/frekvens/dot-columns.tsx"
+    }
+   ],
+   "docs": "# DotColumns\n\nColumnas de puntos apilados con la cima de cada una en `ink` y el pico señalado con una chincheta: la forma de una semana, sin ejes.\n\n- **Props**: `data` (números o `{label, value}`), `rows` (5: puntos de la columna más alta), `max`, `active` (por defecto, el pico), `size`, `tone`, `label`.\n- Redondea a puntos enteros: sirve para ver la forma, no para leer un valor. Si el valor importa, `ColumnChart`.\n"
+  },
+  {
+   "name": "sequencer",
+   "type": "registry:ui",
+   "title": "Sequencer",
+   "description": "Rejilla de pasos por pista: cada casilla marca si esa pista suena en ese paso. Una fila por sonido, un paso por columna.",
+   "categories": [
+    "Medios"
+   ],
+   "dependencies": [],
+   "registryDependencies": [
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+   ],
+   "files": [
+    {
+     "path": "registry/frekvens/ui/sequencer.tsx",
+     "type": "registry:ui",
+     "target": "~/components/frekvens/sequencer.tsx"
+    }
+   ],
+   "docs": "# Sequencer\n\nRejilla de pasos por pista: cada casilla marca si esa pista suena en ese paso. Una fila por sonido, un paso por columna.\n\n- **Props**: `rows` (nombres o `{label}`), `steps` (8), `value` / `defaultValue` (`boolean[][]`), `onChange`, `playhead` (paso que suena ahora), `tone`, `label`.\n- Teclado: Tab entra en la rejilla, las flechas se mueven por ella, Inicio y Fin van a los extremos de la fila, Espacio o Intro marcan.\n- Las casillas miden 44 px como mínimo; si no caben, la rejilla se desplaza en horizontal. No reproduce sonido: mueve `playhead` desde tu reloj y dispara los sonidos tú (con `PadGrid`, por ejemplo).\n"
+  },
+  {
+   "name": "trim-wave",
+   "type": "registry:ui",
+   "title": "TrimWave",
+   "description": "Onda con dos tiradores para recortar un tramo: lo que queda dentro va en color, lo de fuera se apaga.",
+   "categories": [
+    "Medios"
+   ],
+   "dependencies": [],
+   "registryDependencies": [
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+   ],
+   "files": [
+    {
+     "path": "registry/frekvens/ui/trim-wave.tsx",
+     "type": "registry:ui",
+     "target": "~/components/frekvens/trim-wave.tsx"
+    }
+   ],
+   "docs": "# TrimWave\n\nOnda con dos tiradores para recortar un tramo: lo que queda dentro va en color, lo de fuera se apaga.\n\n- **Props**: `peaks` (alturas de 0 a 1), `value` / `defaultValue` (`[inicio, final]` en tanto por ciento), `onChange`, `minGap` (2), `format`, `readout`, `tone`, `label`, `startLabel`, `endLabel`.\n- Cada tirador es un deslizador: flechas de uno en uno, Re Pág y Av Pág de diez en diez, Inicio y Fin a su tope. Nunca se cruzan.\n- Para elegir un tramo de un audio o un vídeo. Para reproducir, `AudioTrack`.\n"
+  },
+  {
+   "name": "bands",
+   "type": "registry:ui",
+   "title": "Bands",
+   "description": "Lista de franjas de color a todo el ancho, con el número, un titular grande y un dato o un icono a la derecha.",
+   "categories": [
+    "Superficies"
+   ],
+   "dependencies": [],
+   "registryDependencies": [
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+    "https://frekvens-ui.vercel.app/r/icon.json"
+   ],
+   "files": [
+    {
+     "path": "registry/frekvens/ui/bands.tsx",
+     "type": "registry:ui",
+     "target": "~/components/frekvens/bands.tsx"
+    }
+   ],
+   "docs": "# Bands\n\nLista de franjas de color a todo el ancho, con el número, un titular grande y un dato o un icono a la derecha.\n\n- **Props**: `items` (`{title, sub, meta, icon, tone, href, onClick}[]`), `numbered` (`false` quita el número), `stacked` (franjas con la esquina redondeada que se montan una sobre otra), `label`.\n- Una franja con `href` u `onClick` es toda ella el objetivo táctil (88 px de alto).\n- De 3 a 6 franjas y un tono distinto por franja. Para una lista larga o densa, `ListRow`.\n"
+  },
+  {
+   "name": "eyes",
+   "type": "registry:ui",
+   "title": "Eyes",
+   "description": "Dos ojos que dicen cómo está el agente: atento, contento, enfadado, con sueño, pensando o sorprendido. Parpadean cada pocos segundos.",
+   "categories": [
+    "Conversación"
+   ],
+   "dependencies": [],
+   "registryDependencies": [
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+   ],
+   "files": [
+    {
+     "path": "registry/frekvens/ui/eyes.tsx",
+     "type": "registry:ui",
+     "target": "~/components/frekvens/eyes.tsx"
+    }
+   ],
+   "docs": "# Eyes\n\nDos ojos que dicen cómo está el agente: atento, contento, enfadado, con sueño, pensando o sorprendido. Parpadean cada pocos segundos.\n\n- **Props**: `mood` (`neutral` | `happy` | `angry` | `sleepy` | `thinking` | `surprised`), `size`, `tone`, `still` (sin parpadeo), `label` (por defecto, el nombre del estado).\n- El estado se anuncia como texto alternativo, no solo con la forma. Con movimiento reducido no parpadean.\n- Uno por pantalla, junto al texto que explica qué pasa. Para el estado de voz (escucha, habla), `VoiceOrb`.\n"
+  },
+  {
+   "name": "swatch",
+   "type": "registry:ui",
+   "title": "Swatch",
+   "description": "Un par de color en discos concéntricos: el fondo fuera y la marca dentro, con su nombre debajo.",
+   "categories": [
+    "Base"
+   ],
+   "dependencies": [],
+   "registryDependencies": [
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+   ],
+   "files": [
+    {
+     "path": "registry/frekvens/ui/swatch.tsx",
+     "type": "registry:ui",
+     "target": "~/components/frekvens/swatch.tsx"
+    }
+   ],
+   "docs": "# Swatch\n\nUn par de color en discos concéntricos: el fondo fuera y la marca dentro, con su nombre debajo.\n\n- **Props**: `ground` y `mark` (nombre de un token, como `sol`, o cualquier color CSS), `label`, `note`, `size`.\n- Para enseñar combinaciones de la paleta o dejar elegir un tema. Si se puede pulsar, envuélvelo tú en un control (`ChoiceCards`, `RadioGroup`).\n"
+  },
+  {
+   "name": "week-strip",
+   "type": "registry:ui",
+   "title": "WeekStrip",
+   "description": "Los siete días de una semana con su estado (hecho, a medias, sin hacer) para elegir uno.",
+   "categories": [
+    "Navegación"
+   ],
+   "dependencies": [],
+   "registryDependencies": [
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+   ],
+   "files": [
+    {
+     "path": "registry/frekvens/ui/week-strip.tsx",
+     "type": "registry:ui",
+     "target": "~/components/frekvens/week-strip.tsx"
+    }
+   ],
+   "docs": "# WeekStrip\n\nLos siete días de una semana con su estado (hecho, a medias, sin hacer) para elegir uno.\n\n- **Props**: `days` (`{label, day, name, state, today}[]`), `value` / `defaultValue` (índice), `onChange`, `tone`, `label`.\n- Es un grupo de opciones: Tab entra, las flechas cambian de día. El estado se dice con forma (disco lleno, medio disco, aro) y en el nombre accesible; hoy lleva un punto.\n- Para una semana. Para un mes, `Calendar`; para el progreso de un proceso, `Steps`.\n"
+  },
+  {
+   "name": "index-list",
+   "type": "registry:ui",
+   "title": "IndexList",
+   "description": "Índice en letra grande: una palabra por línea y, en pequeño, cuántas cosas hay dentro.",
+   "categories": [
+    "Navegación"
+   ],
+   "dependencies": [],
+   "registryDependencies": [
+    "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+   ],
+   "files": [
+    {
+     "path": "registry/frekvens/ui/index-list.tsx",
+     "type": "registry:ui",
+     "target": "~/components/frekvens/index-list.tsx"
+    }
+   ],
+   "docs": "# IndexList\n\nÍndice en letra grande: una palabra por línea y, en pequeño, cuántas cosas hay dentro.\n\n- **Props**: `items` (texto o `{label, count, href, onClick, current}`), `label`.\n- La línea actual va en `ink` y las demás en gris; cada línea mide 56 px como mínimo.\n- Para elegir entre 3 y 8 secciones cuando el índice es la pantalla. Dentro de una pantalla con más contenido, `ListRow` o `Tabs`.\n"
+  },
+  {
    "name": "frekvens",
    "type": "registry:ui",
    "title": "Frekvens completo",
-   "description": "Los 119 componentes, los estilos y las utilidades de una vez.",
+   "description": "Los 130 componentes, los estilos y las utilidades de una vez.",
    "registryDependencies": [
     "https://frekvens-ui.vercel.app/r/key-button.json",
     "https://frekvens-ui.vercel.app/r/keypad.json",
@@ -2930,7 +3174,18 @@
     "https://frekvens-ui.vercel.app/r/ruler.json",
     "https://frekvens-ui.vercel.app/r/onboarding.json",
     "https://frekvens-ui.vercel.app/r/article.json",
-    "https://frekvens-ui.vercel.app/r/capsule.json"
+    "https://frekvens-ui.vercel.app/r/capsule.json",
+    "https://frekvens-ui.vercel.app/r/fill-card.json",
+    "https://frekvens-ui.vercel.app/r/column-chart.json",
+    "https://frekvens-ui.vercel.app/r/pictogram.json",
+    "https://frekvens-ui.vercel.app/r/dot-columns.json",
+    "https://frekvens-ui.vercel.app/r/sequencer.json",
+    "https://frekvens-ui.vercel.app/r/trim-wave.json",
+    "https://frekvens-ui.vercel.app/r/bands.json",
+    "https://frekvens-ui.vercel.app/r/eyes.json",
+    "https://frekvens-ui.vercel.app/r/swatch.json",
+    "https://frekvens-ui.vercel.app/r/week-strip.json",
+    "https://frekvens-ui.vercel.app/r/index-list.json"
    ],
    "files": [
     {

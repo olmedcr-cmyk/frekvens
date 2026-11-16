@@ -1,6 +1,6 @@
 # Frekvens
 
-> Componentes React para copiar y pegar, al estilo shadcn/ui: 119 piezas grandes, de puntos y accesibles (WCAG 2.2 AA en los temas Papel, Carbón y Blanco). El código se copia al proyecto con `npx shadcn@latest add` y pasa a ser del proyecto. MIT.
+> Componentes React para copiar y pegar, al estilo shadcn/ui: 130 piezas grandes, de puntos y accesibles (WCAG 2.2 AA en los temas Papel, Carbón y Blanco). El código se copia al proyecto con `npx shadcn@latest add` y pasa a ser del proyecto. MIT.
 
 Instalar una pieza: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/<nombre>.json` (crea `components/frekvens/<nombre>.tsx` y `styles/frekvens/*.css`). Todo de una vez: `https://frekvens-ui.vercel.app/r/frekvens.json`. Después importa `styles/frekvens/tailwind.css` y `components.css` en el CSS global y pon `data-theme` (`light`, `blanco` o `dark`) en `<html>`.
 
@@ -255,6 +255,24 @@ Forma geométrica plana para el arte de un tile, una portada o un póster: once 
 - `soft?`: `boolean`
 - `rotate?`: `number`
 - `label?`: `string`
+- `className?`: `string`
+
+## Swatch
+
+Grupo: Base. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/swatch.json`.
+
+Un par de color en discos concéntricos: el fondo fuera y la marca dentro, con su nombre debajo.
+
+- **Props**: `ground` y `mark` (nombre de un token, como `sol`, o cualquier color CSS), `label`, `note`, `size`.
+- Para enseñar combinaciones de la paleta o dejar elegir un tema. Si se puede pulsar, envuélvelo tú en un control (`ChoiceCards`, `RadioGroup`).
+
+### Props (de los tipos)
+
+- `ground`: `string`
+- `mark?`: `string`
+- `label?`: `React.ReactNode`
+- `note?`: `React.ReactNode`
+- `size?`: `number`
 - `className?`: `string`
 
 ## Dial
@@ -751,6 +769,97 @@ Vúmetro de aguja de amplificador: escala de 50 a 3 con los dos últimos número
 - `size?`: `number`
 - `scale?`: `string[]`
 - `caption?`: `string`
+- `label?`: `string`
+- `className?`: `string`
+
+## FillCard
+
+Grupo: Instrumentos. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/fill-card.json`. Trae también: Icon.
+
+Tarjeta de progreso cuyo fondo se llena hasta el valor: el nombre arriba, la cifra abajo y el color avanzando de izquierda a derecha.
+
+- **Props**: `title`, `value`, `max` (100), `unit` (`%`; `''` para quitarla), `caption`, `icon`, `tone` (`rams` por defecto), `format`, `onClick` (la convierte en tecla).
+- El texto cambia de color justo donde pasa el relleno, así que se lee igual con un 5 % que con un 95 %.
+- Para una lista corta de avances (ejercicios, depósitos, cargas). Un solo tono por tarjeta y como mucho tres tonos en la lista. Si solo hay un número sin tope, usa `Stat`.
+
+### Props (de los tipos)
+
+- `title`: `React.ReactNode`
+- `value`: `number`
+- `max?`: `number`
+- `unit?`: `string`
+- `caption?`: `React.ReactNode`
+- `icon?`: `IconName`
+- `tone?`: `Tone`
+- `format?`: `(value: number) => string`
+- `onClick?`: `() => void`
+- `className?`: `string`
+
+## ColumnChart
+
+Grupo: Instrumentos. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/column-chart.json`.
+
+Columnas con su cifra encima y una destacada en `ink`: lo de cada hora, cada día o cada mes, y cuál fue el máximo.
+
+- **Props**: `data` (`{label, value}[]`), `active` (por defecto, la más alta), `max`, `height` (200), `shape` (`bar` | `pill`), `track` (`none` | `well` | `hatch`: lo que falta hasta `max`), `tone`, `values` (`false` oculta las cifras), `unit`, `format`, `label`.
+- Con `track="hatch"` el resto de cada columna va rayado: rayado significa «todavía no».
+- De 4 a 8 columnas. Para una serie larga, `AreaChart` o `LineChart`; para comparar sin cifras, `BarMeter`.
+
+### Props (de los tipos)
+
+- `data`: `ColumnChartDatum[]`
+- `active?`: `number`
+- `max?`: `number`
+- `height?`: `number`
+- `shape?`: `'bar' | 'pill'`
+- `track?`: `'none' | 'well' | 'hatch'`
+- `tone?`: `Accent`
+- `values?`: `boolean`
+- `unit?`: `string`
+- `format?`: `(value: number) => string`
+- `label?`: `string`
+- `className?`: `string`
+
+## Pictogram
+
+Grupo: Instrumentos. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/pictogram.json`.
+
+Una cantidad contada en fichas: tantas encendidas como llevas, el resto apagadas. Se entiende sin leer un eje.
+
+- **Props**: `value`, `total` (10), `columns`, `shape` (`dot` | `square` | `drop` | `bar`), `from` (`start` | `end`: por dónde empieza a llenarse), `size`, `tone`, `unit`, `label`.
+- `drop` para agua, `bar` para días o cuotas en una sola fila, `dot` para todo lo demás.
+- Hasta unas 50 fichas. Acompáñalo de la cifra en texto (`Text` o `Stat`): el pictograma da la proporción, no el número exacto.
+
+### Props (de los tipos)
+
+- `value`: `number`
+- `total?`: `number`
+- `columns?`: `number`
+- `shape?`: `'dot' | 'square' | 'drop' | 'bar'`
+- `from?`: `'start' | 'end'`
+- `size?`: `number`
+- `tone?`: `Accent`
+- `unit?`: `string`
+- `label?`: `string`
+- `className?`: `string`
+
+## DotColumns
+
+Grupo: Instrumentos. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/dot-columns.json`.
+
+Columnas de puntos apilados con la cima de cada una en `ink` y el pico señalado con una chincheta: la forma de una semana, sin ejes.
+
+- **Props**: `data` (números o `{label, value}`), `rows` (5: puntos de la columna más alta), `max`, `active` (por defecto, el pico), `size`, `tone`, `label`.
+- Redondea a puntos enteros: sirve para ver la forma, no para leer un valor. Si el valor importa, `ColumnChart`.
+
+### Props (de los tipos)
+
+- `data`: `(number | { label?: string; value: number })[]`
+- `rows?`: `number`
+- `max?`: `number`
+- `active?`: `number`
+- `size?`: `number`
+- `tone?`: `Accent`
 - `label?`: `string`
 - `className?`: `string`
 
@@ -1389,6 +1498,53 @@ Panel de salidas: varias filas de `SplitFlap` alineadas en columnas (hora, qué,
 - `label?`: `string`
 - `className?`: `string`
 
+## Sequencer
+
+Grupo: Medios. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/sequencer.json`.
+
+Rejilla de pasos por pista: cada casilla marca si esa pista suena en ese paso. Una fila por sonido, un paso por columna.
+
+- **Props**: `rows` (nombres o `{label}`), `steps` (8), `value` / `defaultValue` (`boolean[][]`), `onChange`, `playhead` (paso que suena ahora), `tone`, `label`.
+- Teclado: Tab entra en la rejilla, las flechas se mueven por ella, Inicio y Fin van a los extremos de la fila, Espacio o Intro marcan.
+- Las casillas miden 44 px como mínimo; si no caben, la rejilla se desplaza en horizontal. No reproduce sonido: mueve `playhead` desde tu reloj y dispara los sonidos tú (con `PadGrid`, por ejemplo).
+
+### Props (de los tipos)
+
+- `rows`: `(string | { label: string })[]`
+- `steps?`: `number`
+- `value?`: `boolean[][]`
+- `defaultValue?`: `boolean[][]`
+- `onChange?`: `(value: boolean[][]) => void`
+- `playhead?`: `number`
+- `tone?`: `Accent`
+- `label?`: `string`
+- `className?`: `string`
+
+## TrimWave
+
+Grupo: Medios. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/trim-wave.json`.
+
+Onda con dos tiradores para recortar un tramo: lo que queda dentro va en color, lo de fuera se apaga.
+
+- **Props**: `peaks` (alturas de 0 a 1), `value` / `defaultValue` (`[inicio, final]` en tanto por ciento), `onChange`, `minGap` (2), `format`, `readout`, `tone`, `label`, `startLabel`, `endLabel`.
+- Cada tirador es un deslizador: flechas de uno en uno, Re Pág y Av Pág de diez en diez, Inicio y Fin a su tope. Nunca se cruzan.
+- Para elegir un tramo de un audio o un vídeo. Para reproducir, `AudioTrack`.
+
+### Props (de los tipos)
+
+- `peaks?`: `number[]`
+- `value?`: `[number, number]`
+- `defaultValue?`: `[number, number]`
+- `onChange?`: `(value: [number, number]) => void`
+- `minGap?`: `number`
+- `format?`: `(percent: number) => string`
+- `readout?`: `boolean`
+- `tone?`: `Accent`
+- `label?`: `string`
+- `startLabel?`: `string`
+- `endLabel?`: `string`
+- `className?`: `string`
+
 ## DotMatrix
 
 Grupo: Puntos. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/dot-matrix.json`.
@@ -1625,6 +1781,42 @@ Bienvenida por pasos: un bloque de arte, una tarjeta de color con el mensaje y u
 - `backLabel?`: `string`
 - `skipLabel?`: `string`
 - `doneLabel?`: `string`
+- `label?`: `string`
+- `className?`: `string`
+
+## WeekStrip
+
+Grupo: Navegación. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/week-strip.json`.
+
+Los siete días de una semana con su estado (hecho, a medias, sin hacer) para elegir uno.
+
+- **Props**: `days` (`{label, day, name, state, today}[]`), `value` / `defaultValue` (índice), `onChange`, `tone`, `label`.
+- Es un grupo de opciones: Tab entra, las flechas cambian de día. El estado se dice con forma (disco lleno, medio disco, aro) y en el nombre accesible; hoy lleva un punto.
+- Para una semana. Para un mes, `Calendar`; para el progreso de un proceso, `Steps`.
+
+### Props (de los tipos)
+
+- `days`: `WeekStripDay[]`
+- `value?`: `number`
+- `defaultValue?`: `number`
+- `onChange?`: `(index: number) => void`
+- `tone?`: `Accent`
+- `label?`: `string`
+- `className?`: `string`
+
+## IndexList
+
+Grupo: Navegación. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/index-list.json`.
+
+Índice en letra grande: una palabra por línea y, en pequeño, cuántas cosas hay dentro.
+
+- **Props**: `items` (texto o `{label, count, href, onClick, current}`), `label`.
+- La línea actual va en `ink` y las demás en gris; cada línea mide 56 px como mínimo.
+- Para elegir entre 3 y 8 secciones cuando el índice es la pantalla. Dentro de una pantalla con más contenido, `ListRow` o `Tabs`.
+
+### Props (de los tipos)
+
+- `items`: `(string | IndexListItem)[]`
 - `label?`: `string`
 - `className?`: `string`
 
@@ -1872,6 +2064,24 @@ Bloque en forma de estadio para abrir o cerrar una página: titular, una línea 
 - `children?`: `React.ReactNode`
 - `className?`: `string`
 
+## Bands
+
+Grupo: Superficies. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/bands.json`. Trae también: Icon.
+
+Lista de franjas de color a todo el ancho, con el número, un titular grande y un dato o un icono a la derecha.
+
+- **Props**: `items` (`{title, sub, meta, icon, tone, href, onClick}[]`), `numbered` (`false` quita el número), `stacked` (franjas con la esquina redondeada que se montan una sobre otra), `label`.
+- Una franja con `href` u `onClick` es toda ella el objetivo táctil (88 px de alto).
+- De 3 a 6 franjas y un tono distinto por franja. Para una lista larga o densa, `ListRow`.
+
+### Props (de los tipos)
+
+- `items`: `BandsItem[]`
+- `numbered?`: `boolean`
+- `stacked?`: `boolean`
+- `label?`: `string`
+- `className?`: `string`
+
 ## Message
 
 Grupo: Conversación. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/message.json`. Trae también: StateMark, DotLoader, Render, Icon.
@@ -2103,9 +2313,28 @@ Aprendido de *Border beam* (libraries.dev), en el idioma de Frekvens: puntos en 
 - `children?`: `React.ReactNode`
 - `className?`: `string`
 
+## Eyes
+
+Grupo: Conversación. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/eyes.json`.
+
+Dos ojos que dicen cómo está el agente: atento, contento, enfadado, con sueño, pensando o sorprendido. Parpadean cada pocos segundos.
+
+- **Props**: `mood` (`neutral` | `happy` | `angry` | `sleepy` | `thinking` | `surprised`), `size`, `tone`, `still` (sin parpadeo), `label` (por defecto, el nombre del estado).
+- El estado se anuncia como texto alternativo, no solo con la forma. Con movimiento reducido no parpadean.
+- Uno por pantalla, junto al texto que explica qué pasa. Para el estado de voz (escucha, habla), `VoiceOrb`.
+
+### Props (de los tipos)
+
+- `mood?`: `'neutral' | 'happy' | 'angry' | 'sleepy' | 'thinking' | 'surprised'`
+- `size?`: `number`
+- `tone?`: `Accent`
+- `still?`: `boolean`
+- `label?`: `string`
+- `className?`: `string`
+
 ## Render
 
-Grupo: Generativo. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/render.json`. Trae también: KeyButton, Keypad, HoldButton, SlideToStart, Rocker, Icon, Dial, Gauge, Slider, Switch, Segmented, Stepper, Wheel, VolumeWheel, Checkbox, RadioGroup, Select, Menu, Tabs, TextField, Calendar, Sheet, Toast, Banner, Tooltip, Timer, Stopwatch, Hourglass, Pendulum, MediaPlayer, AudioTrack, Ticker, SplitFlap, DotMatrix, DotGrid, StateMark, Steps, Grille, LED, LevelBars, BarMeter, LineChart, ProgressRing, Readout, Tile, Strip, CardStack, Cabinet, Pager, Deck, ListRow, Chip, Badge, Avatar, TopBar, TabBar, EmptyState, Skeleton, Message, Composer, Suggestions, VoiceOrb, DotLoader, AgentWidget, Reveal, Stack, Grid, Text, ClickWheel, DiscCarousel, NumPad, Viewfinder, CaptureKey, Recorder, NoteEditor, Sidebar, DataTable, CommandBar, Notch, Viewport3D, Heatmap, SplitBar, Sparkline, HourStrip, PaymentCard, Dialog, FileDrop, ChoiceCards, Stat, UsageMeter, Timeline, Checklist, PromptBox, Clock, VUMeter, RotarySelector, Fader, Keycap, Calculator, PadGrid, TapeDeck, Board, Sortable, Blueprint, AreaChart, Scatter, RadarChart, DonutChart, Scope, VoicePosition, Beam, Aura, FlapBoard, Shape, Ruler, Onboarding, Article, Capsule.
+Grupo: Generativo. Instalar: `npx shadcn@latest add https://frekvens-ui.vercel.app/r/render.json`. Trae también: KeyButton, Keypad, HoldButton, SlideToStart, Rocker, Icon, Dial, Gauge, Slider, Switch, Segmented, Stepper, Wheel, VolumeWheel, Checkbox, RadioGroup, Select, Menu, Tabs, TextField, Calendar, Sheet, Toast, Banner, Tooltip, Timer, Stopwatch, Hourglass, Pendulum, MediaPlayer, AudioTrack, Ticker, SplitFlap, DotMatrix, DotGrid, StateMark, Steps, Grille, LED, LevelBars, BarMeter, LineChart, ProgressRing, Readout, Tile, Strip, CardStack, Cabinet, Pager, Deck, ListRow, Chip, Badge, Avatar, TopBar, TabBar, EmptyState, Skeleton, Message, Composer, Suggestions, VoiceOrb, DotLoader, AgentWidget, Reveal, Stack, Grid, Text, ClickWheel, DiscCarousel, NumPad, Viewfinder, CaptureKey, Recorder, NoteEditor, Sidebar, DataTable, CommandBar, Notch, Viewport3D, Heatmap, SplitBar, Sparkline, HourStrip, PaymentCard, Dialog, FileDrop, ChoiceCards, Stat, UsageMeter, Timeline, Checklist, PromptBox, Clock, VUMeter, RotarySelector, Fader, Keycap, Calculator, PadGrid, TapeDeck, Board, Sortable, Blueprint, AreaChart, Scatter, RadarChart, DonutChart, Scope, VoicePosition, Beam, Aura, FlapBoard, Shape, Ruler, Onboarding, Article, Capsule, FillCard, ColumnChart, Pictogram, DotColumns, Sequencer, TrimWave, Bands, Eyes, Swatch, WeekStrip, IndexList.
 
 El motor de UI generativa: pinta una interfaz Frekvens a partir de un **spec JSON** que puede escribir un modelo. Cada nodo es `{type, props, children}`; `type` es el nombre de cualquier componente del sistema; los hijos son nodos o texto.
 

@@ -782,5 +782,64 @@
   "file": "capsule.tsx",
   "deps": [],
   "lib": true
+ },
+ "FillCard": {
+  "file": "fill-card.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "ColumnChart": {
+  "file": "column-chart.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Pictogram": {
+  "file": "pictogram.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "DotColumns": {
+  "file": "dot-columns.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Sequencer": {
+  "file": "sequencer.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "TrimWave": {
+  "file": "trim-wave.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Bands": {
+  "file": "bands.tsx",
+  "deps": [
+   "Icon"
+  ],
+  "lib": true
+ },
+ "Eyes": {
+  "file": "eyes.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "Swatch": {
+  "file": "swatch.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "WeekStrip": {
+  "file": "week-strip.tsx",
+  "deps": [],
+  "lib": true
+ },
+ "IndexList": {
+  "file": "index-list.tsx",
+  "deps": [],
+  "lib": true
  }
 }

@@ -13,4 +13,7 @@ export const examples: Example[] = [
   { slug: "podcasts", file: "AppPodcasts", name: "Podcasts", description: "Radio de autor con portadas de formas geométricas y una regla para moverse por los días.", uses: ["ruler", "shape", "tile", "tab-bar", "text"] },
   { slug: "bienvenida", file: "AppBienvenida", name: "Bienvenida", description: "Cuatro pasos para una app de préstamo entre vecinos.", uses: ["onboarding", "shape", "chip", "text"] },
   { slug: "cine", file: "AppCine", name: "Cine de verano", description: "Programa, aforo y avisos de un ciclo al aire libre, con apertura y cierre en cápsula.", uses: ["capsule", "article", "tile", "strip", "shape", "key-button"] },
+  { slug: "ritmo", file: "AppRitmo", name: "Ritmo", description: "Caja de ritmos: cuatro pistas, ocho pasos y el recorte de la muestra.", uses: ["sequencer", "trim-wave", "segmented", "key-button", "text"] },
+  { slug: "huerto", file: "AppHuerto", name: "Huerto", description: "El riego de la semana, el depósito de lluvia y las tareas del día en franjas.", uses: ["week-strip", "fill-card", "column-chart", "bands", "tab-bar"] },
+  { slug: "hucha", file: "AppHucha", name: "Hucha", description: "Los meses que llevas ahorrando contados en fichas, los aportes y un asistente con ojos.", uses: ["pictogram", "dot-columns", "eyes", "stat", "key-button"] },
 ]

@@ -1,0 +1,23 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "pictogram",
+ "type": "registry:ui",
+ "title": "Pictogram",
+ "description": "Una cantidad contada en fichas: tantas encendidas como llevas, el resto apagadas. Se entiende sin leer un eje.",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/pictogram.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/pictogram.tsx",
+   "content": "\"use client\"\n/* Frekvens · Pictogram — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { clamp, cx, range } from \"./lib\"\n\nimport type { PictogramProps } from \"./types\"\nexport type { PictogramProps }\n\n/* ---------- Pictogram: una cantidad contada en fichas ---------- */\nexport function Pictogram(props: PictogramProps): React.ReactElement\nexport function Pictogram(p?: any): any {\n  var total: any = p.total || 10,\n    v: any = clamp(Math.round(p.value || 0), 0, total),\n    shape: any = p.shape || \"dot\",\n    end: any = p.from === \"end\"\n  var cols: any = p.columns || (shape === \"bar\" ? total : Math.min(total, 5)),\n    sty: any = {}\n  sty[\"--cols\"] = cols\n  sty[\"--size\"] = (p.size || (shape === \"bar\" ? 12 : 40)) + \"px\"\n  return (\n    <div\n      className={cx(\"frk-picto\", \"frk-picto--\" + shape, \"frk-picto--\" + (p.tone || \"rams\"), p.className)}\n      role=\"img\"\n      aria-label={(p.label ? p.label + \": \" : \"\") + v + \" de \" + total + (p.unit ? \" \" + p.unit : \"\")}\n      style={sty}\n    >\n      {range(total).map(function (i?: any): any {\n        return <span key={i} className={cx(\"frk-picto__u\", (end ? i >= total - v : i < v) && \"is-on\")} />\n      })}\n    </div>\n  )\n}\n\n/* ---------- DotColumns: columnas de puntos apilados, con el pico marcado ---------- */\n"
+  }
+ ],
+ "docs": "# Pictogram\n\nUna cantidad contada en fichas: tantas encendidas como llevas, el resto apagadas. Se entiende sin leer un eje.\n\n- **Props**: `value`, `total` (10), `columns`, `shape` (`dot` | `square` | `drop` | `bar`), `from` (`start` | `end`: por dónde empieza a llenarse), `size`, `tone`, `unit`, `label`.\n- `drop` para agua, `bar` para días o cuotas en una sola fila, `dot` para todo lo demás.\n- Hasta unas 50 fichas. Acompáñalo de la cifra en texto (`Text` o `Stat`): el pictograma da la proporción, no el número exacto.\n"
+}

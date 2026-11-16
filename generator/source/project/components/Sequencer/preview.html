@@ -1,0 +1,12 @@
+<!-- @dsCard group="Medios" height=330 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Sequencer — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'520px',display:'flex',flexDirection:'column',gap:'12px'}},h(C.Sequencer,{label:'Ritmo',rows:['Bombo','Caja','Charles','Palmas'],steps:8,playhead:4,defaultValue:[[true,false,false,false,true,false,false,false],[false,false,true,false,false,false,true,false],[true,true,true,true,true,true,true,true],[false,false,false,true,false,false,false,false]]})));
+</script>
+</body>
+</html>

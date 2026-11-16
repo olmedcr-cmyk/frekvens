@@ -1,0 +1,12 @@
+<!-- @dsCard group="Conversación" height=260 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Eyes — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'420px',display:'flex',flexDirection:'column',gap:'12px'}},h('div',{style:{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'16px',justifyItems:'center'}},['neutral','happy','angry','sleepy','thinking','surprised'].map(function(m,i){return h(C.Eyes,{key:m,mood:m,size:96,tone:i===2?'rec':i===1?'rams':'ink'});}))));
+</script>
+</body>
+</html>

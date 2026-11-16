@@ -1,0 +1,24 @@
+{
+ "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+ "name": "fill-card",
+ "type": "registry:ui",
+ "title": "FillCard",
+ "description": "Tarjeta de progreso cuyo fondo se llena hasta el valor: el nombre arriba, la cifra abajo y el color avanzando de izquierda a derecha.",
+ "categories": [
+  "Instrumentos"
+ ],
+ "dependencies": [],
+ "registryDependencies": [
+  "https://frekvens-ui.vercel.app/r/frekvens-lib.json",
+  "https://frekvens-ui.vercel.app/r/icon.json"
+ ],
+ "files": [
+  {
+   "path": "registry/frekvens/ui/fill-card.tsx",
+   "type": "registry:ui",
+   "target": "~/components/frekvens/fill-card.tsx",
+   "content": "\"use client\"\n/* Frekvens · FillCard — MIT © Cris Olmedo */\n\nimport * as React from \"react\"\nimport { Icon } from \"./icon\"\nimport { clamp, cx } from \"./lib\"\n\nimport type { FillCardProps } from \"./types\"\nexport type { FillCardProps }\n\n/* ================= Frekvens 6: relleno, gráficos de unidad, secuenciador, recorte, bandas, ojos ================= */\n\n/* ---------- FillCard: tarjeta cuyo fondo se llena hasta el valor ---------- */\nexport function FillCard(props: FillCardProps): React.ReactElement\nexport function FillCard(p?: any): any {\n  var max: any = p.max || 100,\n    v: any = clamp(p.value || 0, 0, max),\n    pct: any = (v / max) * 100,\n    Tag: any = p.onClick ? \"button\" : \"div\"\n  var txt: any = p.format ? p.format(v) : String(Math.round(v)),\n    unit: any = p.unit == null ? \"%\" : p.unit,\n    sty: any = {}\n  sty[\"--fill\"] = pct + \"%\"\n  function body(hidden?: any): any {\n    return (\n      <span className=\"frk-fill__body\" aria-hidden={hidden || undefined}>\n        <span className=\"frk-fill__head\">\n          <span className=\"frk-fill__title\">{p.title}</span>\n          {p.icon ? <Icon name={p.icon} size={20} /> : null}\n        </span>\n        <span className=\"frk-fill__foot\">\n          {p.caption ? <span className=\"frk-fill__caption\">{p.caption}</span> : <span />}\n          <span className=\"frk-fill__value\">\n            {txt}\n            {unit ? <span className=\"frk-fill__unit\">{unit}</span> : null}\n          </span>\n        </span>\n      </span>\n    )\n  }\n  return (\n    <Tag\n      type={Tag === \"button\" ? \"button\" : undefined}\n      onClick={p.onClick}\n      className={cx(\"frk-fill\", p.className)}\n      style={sty}\n    >\n      {body(false)}\n      <span className={cx(\"frk-fill__on\", \"frk-tone--\" + (p.tone || \"rams\"))} aria-hidden={true}>\n        {body(true)}\n      </span>\n    </Tag>\n  )\n}\n\n/* ---------- ColumnChart: columnas con su cifra encima; una destacada ---------- */\n"
+  }
+ ],
+ "docs": "# FillCard\n\nTarjeta de progreso cuyo fondo se llena hasta el valor: el nombre arriba, la cifra abajo y el color avanzando de izquierda a derecha.\n\n- **Props**: `title`, `value`, `max` (100), `unit` (`%`; `''` para quitarla), `caption`, `icon`, `tone` (`rams` por defecto), `format`, `onClick` (la convierte en tecla).\n- El texto cambia de color justo donde pasa el relleno, así que se lee igual con un 5 % que con un 95 %.\n- Para una lista corta de avances (ejercicios, depósitos, cargas). Un solo tono por tarjeta y como mucho tres tonos en la lista. Si solo hay un número sin tope, usa `Stat`.\n"
+}

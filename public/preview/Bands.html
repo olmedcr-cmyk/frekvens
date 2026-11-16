@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="es">
+<head><link rel="stylesheet" href="/preview/frekvens.css"><script src="/preview/react.js"></script><script src="/preview/react-dom.js"></script><script src="/preview/frekvens.js"></script><script>try{if(parent!==window){var t=parent.document.documentElement.getAttribute('data-theme');if(t)document.documentElement.setAttribute('data-theme',t);new MutationObserver(function(){document.documentElement.setAttribute('data-theme',parent.document.documentElement.getAttribute('data-theme'))}).observe(parent.document.documentElement,{attributes:true,attributeFilter:['data-theme']})}}catch(e){}</script><meta charset="utf-8"><title>Bands — preview</title></head>
+<body>
+<div id="root" class="frk-pad"></div>
+<script>
+var C = window.Frekvens, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:'420px',display:'flex',flexDirection:'column',gap:'12px'}},h(C.Bands,{label:'Programa del sábado',items:[{title:'Desayuno',sub:'Pan de masa madre',meta:'9:00',tone:'sol'},{title:'Paseo',sub:'Por la ría',meta:'11:30',tone:'cielo'},{title:'Comida',sub:'En casa de Mar',meta:'14:30',tone:'rosa'},{title:'Siesta',meta:'16:00',tone:'verde'}]})));
+</script>
+</body>
+</html>

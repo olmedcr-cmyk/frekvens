@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"Frekvens","components":[{"name":"KeyButton"},{"name":"Keypad"},{"name":"HoldButton"},{"name":"SlideToStart"},{"name":"Rocker"},{"name":"Icon"},{"name":"Dial"},{"name":"Gauge"},{"name":"Slider"},{"name":"Switch"},{"name":"Segmented"},{"name":"Stepper"},{"name":"Wheel"},{"name":"VolumeWheel"},{"name":"Checkbox"},{"name":"RadioGroup"},{"name":"Select"},{"name":"Menu"},{"name":"Tabs"},{"name":"TextField"},{"name":"Calendar"},{"name":"Sheet"},{"name":"Toast"},{"name":"Banner"},{"name":"Tooltip"},{"name":"Timer"},{"name":"Stopwatch"},{"name":"Hourglass"},{"name":"Pendulum"},{"name":"MediaPlayer"},{"name":"AudioTrack"},{"name":"Ticker"},{"name":"SplitFlap"},{"name":"DotMatrix"},{"name":"DotGrid"},{"name":"StateMark"},{"name":"Steps"},{"name":"Grille"},{"name":"LED"},{"name":"LevelBars"},{"name":"BarMeter"},{"name":"LineChart"},{"name":"ProgressRing"},{"name":"Readout"},{"name":"Tile"},{"name":"Strip"},{"name":"CardStack"},{"name":"Cabinet"},{"name":"Pager"},{"name":"Deck"},{"name":"ListRow"},{"name":"Chip"},{"name":"Badge"},{"name":"Avatar"},{"name":"TopBar"},{"name":"TabBar"},{"name":"EmptyState"},{"name":"Skeleton"},{"name":"Message"},{"name":"Composer"},{"name":"Suggestions"},{"name":"VoiceOrb"},{"name":"DotLoader"},{"name":"AgentWidget"},{"name":"Render"},{"name":"Reveal"},{"name":"Stack"},{"name":"Grid"},{"name":"Text"},{"name":"ClickWheel"},{"name":"DiscCarousel"},{"name":"NumPad"},{"name":"Viewfinder"},{"name":"CaptureKey"},{"name":"Recorder"},{"name":"NoteEditor"},{"name":"Sidebar"},{"name":"DataTable"},{"name":"CommandBar"},{"name":"Notch"},{"name":"Viewport3D"},{"name":"Heatmap"},{"name":"SplitBar"},{"name":"Sparkline"},{"name":"HourStrip"},{"name":"PaymentCard"},{"name":"Dialog"},{"name":"FileDrop"},{"name":"ChoiceCards"},{"name":"Stat"},{"name":"UsageMeter"},{"name":"Timeline"},{"name":"Checklist"},{"name":"PromptBox"},{"name":"Clock"},{"name":"VUMeter"},{"name":"RotarySelector"},{"name":"Fader"},{"name":"Keycap"},{"name":"Calculator"},{"name":"PadGrid"},{"name":"TapeDeck"},{"name":"Board"},{"name":"Sortable"},{"name":"Blueprint"},{"name":"AreaChart"},{"name":"Scatter"},{"name":"RadarChart"},{"name":"DonutChart"},{"name":"Scope"},{"name":"VoicePosition"},{"name":"Beam"},{"name":"Aura"},{"name":"FlapBoard"},{"name":"Shape"},{"name":"Ruler"},{"name":"Onboarding"},{"name":"Article"},{"name":"Capsule"}]} */
+/* @ds-bundle: {"format":4,"namespace":"Frekvens","components":[{"name":"KeyButton"},{"name":"Keypad"},{"name":"HoldButton"},{"name":"SlideToStart"},{"name":"Rocker"},{"name":"Icon"},{"name":"Dial"},{"name":"Gauge"},{"name":"Slider"},{"name":"Switch"},{"name":"Segmented"},{"name":"Stepper"},{"name":"Wheel"},{"name":"VolumeWheel"},{"name":"Checkbox"},{"name":"RadioGroup"},{"name":"Select"},{"name":"Menu"},{"name":"Tabs"},{"name":"TextField"},{"name":"Calendar"},{"name":"Sheet"},{"name":"Toast"},{"name":"Banner"},{"name":"Tooltip"},{"name":"Timer"},{"name":"Stopwatch"},{"name":"Hourglass"},{"name":"Pendulum"},{"name":"MediaPlayer"},{"name":"AudioTrack"},{"name":"Ticker"},{"name":"SplitFlap"},{"name":"DotMatrix"},{"name":"DotGrid"},{"name":"StateMark"},{"name":"Steps"},{"name":"Grille"},{"name":"LED"},{"name":"LevelBars"},{"name":"BarMeter"},{"name":"LineChart"},{"name":"ProgressRing"},{"name":"Readout"},{"name":"Tile"},{"name":"Strip"},{"name":"CardStack"},{"name":"Cabinet"},{"name":"Pager"},{"name":"Deck"},{"name":"ListRow"},{"name":"Chip"},{"name":"Badge"},{"name":"Avatar"},{"name":"TopBar"},{"name":"TabBar"},{"name":"EmptyState"},{"name":"Skeleton"},{"name":"Message"},{"name":"Composer"},{"name":"Suggestions"},{"name":"VoiceOrb"},{"name":"DotLoader"},{"name":"AgentWidget"},{"name":"Render"},{"name":"Reveal"},{"name":"Stack"},{"name":"Grid"},{"name":"Text"},{"name":"ClickWheel"},{"name":"DiscCarousel"},{"name":"NumPad"},{"name":"Viewfinder"},{"name":"CaptureKey"},{"name":"Recorder"},{"name":"NoteEditor"},{"name":"Sidebar"},{"name":"DataTable"},{"name":"CommandBar"},{"name":"Notch"},{"name":"Viewport3D"},{"name":"Heatmap"},{"name":"SplitBar"},{"name":"Sparkline"},{"name":"HourStrip"},{"name":"PaymentCard"},{"name":"Dialog"},{"name":"FileDrop"},{"name":"ChoiceCards"},{"name":"Stat"},{"name":"UsageMeter"},{"name":"Timeline"},{"name":"Checklist"},{"name":"PromptBox"},{"name":"Clock"},{"name":"VUMeter"},{"name":"RotarySelector"},{"name":"Fader"},{"name":"Keycap"},{"name":"Calculator"},{"name":"PadGrid"},{"name":"TapeDeck"},{"name":"Board"},{"name":"Sortable"},{"name":"Blueprint"},{"name":"AreaChart"},{"name":"Scatter"},{"name":"RadarChart"},{"name":"DonutChart"},{"name":"Scope"},{"name":"VoicePosition"},{"name":"Beam"},{"name":"Aura"},{"name":"FlapBoard"},{"name":"Shape"},{"name":"Ruler"},{"name":"Onboarding"},{"name":"Article"},{"name":"Capsule"},{"name":"FillCard"},{"name":"ColumnChart"},{"name":"Pictogram"},{"name":"DotColumns"},{"name":"Sequencer"},{"name":"TrimWave"},{"name":"Bands"},{"name":"Eyes"},{"name":"Swatch"},{"name":"WeekStrip"},{"name":"IndexList"}]} */
 (function () {
   var R = window.React, h = R.createElement, useState = R.useState, useRef = R.useRef;
 
@@ -2384,7 +2384,189 @@
       p.children ? h('div', { className: 'frk-capsule__art' }, p.children) : null);
   }
 
-  var api = {KeyButton: KeyButton, Keypad: Keypad, HoldButton: HoldButton, SlideToStart: SlideToStart, Rocker: Rocker, Icon: Icon, Dial: Dial, Gauge: Gauge, Slider: Slider, Switch: Switch, Segmented: Segmented, Stepper: Stepper, Wheel: Wheel, VolumeWheel: VolumeWheel, Checkbox: Checkbox, RadioGroup: RadioGroup, Select: Select, Menu: Menu, Tabs: Tabs, TextField: TextField, Calendar: Calendar, Sheet: Sheet, Toast: Toast, Banner: Banner, Tooltip: Tooltip, Timer: Timer, Stopwatch: Stopwatch, Hourglass: Hourglass, Pendulum: Pendulum, MediaPlayer: MediaPlayer, AudioTrack: AudioTrack, Ticker: Ticker, SplitFlap: SplitFlap, DotMatrix: DotMatrix, DotGrid: DotGrid, StateMark: StateMark, Steps: Steps, Grille: Grille, LED: LED, LevelBars: LevelBars, BarMeter: BarMeter, LineChart: LineChart, ProgressRing: ProgressRing, Readout: Readout, Tile: Tile, Strip: Strip, CardStack: CardStack, Cabinet: Cabinet, Pager: Pager, Deck: Deck, ListRow: ListRow, Chip: Chip, Badge: Badge, Avatar: Avatar, TopBar: TopBar, TabBar: TabBar, EmptyState: EmptyState, Skeleton: Skeleton, Message: Message, Composer: Composer, Suggestions: Suggestions, VoiceOrb: VoiceOrb, DotLoader: DotLoader, AgentWidget: AgentWidget, Render: Render, Reveal: Reveal, Stack: Stack, Grid: Grid, Text: Text, ClickWheel: ClickWheel, DiscCarousel: DiscCarousel, NumPad: NumPad, Viewfinder: Viewfinder, CaptureKey: CaptureKey, Recorder: Recorder, NoteEditor: NoteEditor, Sidebar: Sidebar, DataTable: DataTable, CommandBar: CommandBar, Notch: Notch, Viewport3D: Viewport3D, Heatmap: Heatmap, SplitBar: SplitBar, Sparkline: Sparkline, HourStrip: HourStrip, PaymentCard: PaymentCard, Dialog: Dialog, FileDrop: FileDrop, ChoiceCards: ChoiceCards, Stat: Stat, UsageMeter: UsageMeter, Timeline: Timeline, Checklist: Checklist, PromptBox: PromptBox, Clock: Clock, VUMeter: VUMeter, RotarySelector: RotarySelector, Fader: Fader, Keycap: Keycap, Calculator: Calculator, PadGrid: PadGrid, TapeDeck: TapeDeck, Board: Board, Sortable: Sortable, Blueprint: Blueprint, AreaChart: AreaChart, Scatter: Scatter, RadarChart: RadarChart, DonutChart: DonutChart, Scope: Scope, VoicePosition: VoicePosition, Beam: Beam, Aura: Aura, FlapBoard: FlapBoard, Shape: Shape, Ruler: Ruler, Onboarding: Onboarding, Article: Article, Capsule: Capsule};
+  /* ================= Frekvens 6: relleno, gráficos de unidad, secuenciador, recorte, bandas, ojos ================= */
+
+  /* ---------- FillCard: tarjeta cuyo fondo se llena hasta el valor ---------- */
+  function FillCard(p) {
+    var max = p.max || 100, v = clamp(p.value || 0, 0, max), pct = v / max * 100, Tag = p.onClick ? 'button' : 'div';
+    var txt = p.format ? p.format(v) : String(Math.round(v)), unit = p.unit == null ? '%' : p.unit, sty = {}; sty['--fill'] = pct + '%';
+    function body(hidden) {
+      return h('span', { className: 'frk-fill__body', 'aria-hidden': hidden || undefined },
+        h('span', { className: 'frk-fill__head' }, h('span', { className: 'frk-fill__title' }, p.title), p.icon ? h(Icon, { name: p.icon, size: 20 }) : null),
+        h('span', { className: 'frk-fill__foot' },
+          p.caption ? h('span', { className: 'frk-fill__caption' }, p.caption) : h('span', null),
+          h('span', { className: 'frk-fill__value' }, txt, unit ? h('span', { className: 'frk-fill__unit' }, unit) : null)));
+    }
+    return h(Tag, { type: Tag === 'button' ? 'button' : undefined, onClick: p.onClick, className: cx('frk-fill', p.className), style: sty },
+      body(false),
+      h('span', { className: cx('frk-fill__on', 'frk-tone--' + (p.tone || 'rams')), 'aria-hidden': true }, body(true)));
+  }
+
+  /* ---------- ColumnChart: columnas con su cifra encima; una destacada ---------- */
+  function ColumnChart(p) {
+    var data = p.data || [], vals = data.map(function (d) { return d.value; }), mx = p.max || Math.max.apply(null, vals.concat([1])), H = p.height || 200;
+    var fmt = p.format || function (n) { return String(n); }, act = p.active == null ? vals.indexOf(Math.max.apply(null, vals)) : p.active;
+    var sum = data.map(function (d) { return d.label + ' ' + fmt(d.value) + (p.unit ? ' ' + p.unit : ''); }).join(', ');
+    return h('div', { className: cx('frk-cols', 'frk-cols--' + (p.shape || 'bar'), p.track && p.track !== 'none' && 'frk-cols--track-' + p.track, 'frk-cols--' + (p.tone || 'rams'), p.className), role: 'img', 'aria-label': (p.label ? p.label + ': ' : '') + sum },
+      data.map(function (d, i) {
+        var on = i === act, pc = clamp(d.value / mx, 0, 1) * 100;
+        return h('div', { key: i, className: cx('frk-cols__col', on && 'is-on'), 'aria-hidden': true },
+          h('div', { className: 'frk-cols__slot', style: { height: H } },
+            h('span', { className: 'frk-cols__bar', style: { height: pc + '%' } }),
+            p.values === false ? null : h('span', { className: 'frk-cols__val', style: { bottom: pc + '%' } }, fmt(d.value))),
+          h('span', { className: 'frk-cols__lbl' }, d.label));
+      }));
+  }
+
+  /* ---------- Pictogram: una cantidad contada en fichas ---------- */
+  function Pictogram(p) {
+    var total = p.total || 10, v = clamp(Math.round(p.value || 0), 0, total), shape = p.shape || 'dot', end = p.from === 'end';
+    var cols = p.columns || (shape === 'bar' ? total : Math.min(total, 5)), sty = {}; sty['--cols'] = cols; sty['--size'] = (p.size || (shape === 'bar' ? 12 : 40)) + 'px';
+    return h('div', { className: cx('frk-picto', 'frk-picto--' + shape, 'frk-picto--' + (p.tone || 'rams'), p.className), role: 'img', 'aria-label': (p.label ? p.label + ': ' : '') + v + ' de ' + total + (p.unit ? ' ' + p.unit : ''), style: sty },
+      range(total).map(function (i) { return h('span', { key: i, className: cx('frk-picto__u', (end ? i >= total - v : i < v) && 'is-on') }); }));
+  }
+
+  /* ---------- DotColumns: columnas de puntos apilados, con el pico marcado ---------- */
+  function DotColumns(p) {
+    var data = p.data || [], rows = p.rows || 5, vals = data.map(function (d) { return typeof d === 'number' ? d : d.value; }), mx = p.max || Math.max.apply(null, vals.concat([1]));
+    var act = p.active == null ? vals.indexOf(Math.max.apply(null, vals)) : p.active, hasLbl = data.some(function (d) { return d && d.label; });
+    var sum = data.map(function (d, i) { return (d && d.label ? d.label + ' ' : '') + vals[i]; }).join(', '), sty = {}; sty['--size'] = (p.size || 16) + 'px';
+    return h('div', { className: cx('frk-dotcols', 'frk-dotcols--' + (p.tone || 'rams'), p.className), role: 'img', 'aria-label': (p.label ? p.label + ': ' : '') + sum, style: sty },
+      h('div', { className: 'frk-dotcols__plot', 'aria-hidden': true }, data.map(function (d, i) {
+        var n = clamp(Math.round(vals[i] / mx * rows), vals[i] > 0 ? 1 : 0, rows);
+        return h('div', { key: i, className: cx('frk-dotcols__col', i === act && 'is-on') },
+          i === act ? h('span', { className: 'frk-dotcols__pin' }) : null,
+          range(rows).map(function (r) { var k = rows - 1 - r; return h('span', { key: r, className: cx('frk-dotcols__dot', k < n && 'is-on', k === n - 1 && 'is-top') }); }),
+          hasLbl ? h('span', { className: 'frk-dotcols__lbl' }, d.label) : null);
+      })));
+  }
+
+  /* ---------- Sequencer: rejilla de pasos por pista; flechas para moverse, espacio para marcar ---------- */
+  function Sequencer(p) {
+    var rows = (p.rows || []).map(function (r) { return typeof r === 'string' ? { label: r } : r; }), steps = p.steps || 8;
+    var st = useValue(p, []), val = st[0] || [], f = useState([0, 0]), foc = f[0], root = useRef(null), sty = {}; sty['--steps'] = steps;
+    function on(r, c) { return !!(val[r] && val[r][c]); }
+    function toggle(r, c) {
+      var next = rows.map(function (_, i) { return range(steps).map(function (k) { return on(i, k); }); });
+      next[r][c] = !next[r][c]; st[1](next);
+    }
+    function onKey(e) {
+      var r = foc[0], c = foc[1], k = e.key;
+      if (k === 'ArrowRight') c++; else if (k === 'ArrowLeft') c--; else if (k === 'ArrowDown') r++; else if (k === 'ArrowUp') r--; else if (k === 'Home') c = 0; else if (k === 'End') c = steps - 1; else return;
+      e.preventDefault(); r = clamp(r, 0, rows.length - 1); c = clamp(c, 0, steps - 1); f[1]([r, c]);
+      var el = root.current && root.current.querySelector('[data-cell="' + r + '-' + c + '"]'); if (el) el.focus();
+    }
+    return h('div', { ref: root, className: cx('frk-seq', 'frk-seq--' + (p.tone || 'ink'), p.className), role: 'group', 'aria-label': p.label || 'Secuenciador', onKeyDown: onKey, style: sty },
+      h('div', { className: 'frk-seq__scroll' },
+        h('div', { className: 'frk-seq__grid' },
+          h('span', { className: 'frk-seq__corner', 'aria-hidden': true }),
+          range(steps).map(function (c) { return h('span', { key: 'h' + c, className: cx('frk-seq__beat', c === p.playhead && 'is-now', c % 4 === 0 && 'is-bar'), 'aria-hidden': true }); }),
+          rows.map(function (row, r) {
+            return [h('span', { key: 'l' + r, className: 'frk-seq__lbl' }, row.label)].concat(range(steps).map(function (c) {
+              return h('button', { key: r + '-' + c, type: 'button', 'data-cell': r + '-' + c, tabIndex: foc[0] === r && foc[1] === c ? 0 : -1, className: cx('frk-seq__cell', on(r, c) && 'is-on', c === p.playhead && 'is-now'),
+                'aria-pressed': on(r, c), 'aria-label': row.label + ', paso ' + (c + 1), onFocus: function () { f[1]([r, c]); }, onClick: function () { toggle(r, c); } }, h('span', { className: 'frk-seq__pad' }));
+            }));
+          }))));
+  }
+
+  /* ---------- TrimWave: onda con dos tiradores para recortar un tramo ---------- */
+  function wavePeaks(n) { return range(n).map(function (i) { return .18 + .82 * Math.abs(Math.sin(i * .9) * Math.cos(i * .23) * Math.sin(i * .07 + 1)); }); }
+  function TrimWave(p) {
+    var peaks = p.peaks || wavePeaks(48), st = useValue(p, [20, 80]), a = clamp(st[0][0], 0, 100), b = clamp(st[0][1], 0, 100), gap = p.minGap || 2;
+    var track = useRef(null), drag = useRef(null), fmt = p.format || function (n) { return Math.round(n) + ' %'; };
+    function set(which, n) { n = Math.round(n); if (which === 0) st[1]([clamp(n, 0, b - gap), b]); else st[1]([a, clamp(n, a + gap, 100)]); }
+    function pctOf(e) { var r = track.current.getBoundingClientRect(); return clamp((e.clientX - r.left) / r.width * 100, 0, 100); }
+    function handle(which) {
+      var v = which === 0 ? a : b;
+      return h('span', { className: 'frk-trim__handle', style: { left: v + '%' }, role: 'slider', tabIndex: 0, 'aria-label': which === 0 ? (p.startLabel || 'Inicio') : (p.endLabel || 'Final'), 'aria-valuemin': which === 0 ? 0 : a + gap, 'aria-valuemax': which === 0 ? b - gap : 100, 'aria-valuenow': v, 'aria-valuetext': fmt(v), 'aria-orientation': 'horizontal',
+        onKeyDown: function (e) { var k = e.key, d = k === 'ArrowRight' || k === 'ArrowUp' ? 1 : k === 'ArrowLeft' || k === 'ArrowDown' ? -1 : k === 'PageUp' ? 10 : k === 'PageDown' ? -10 : k === 'Home' ? -100 : k === 'End' ? 100 : 0; if (!d) return; e.preventDefault(); set(which, v + d); },
+        onPointerDown: function (e) { drag.current = which; if (e.currentTarget.setPointerCapture) { try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) {} } },
+        onPointerMove: function (e) { if (drag.current === which) set(which, pctOf(e)); },
+        onPointerUp: function () { drag.current = null; }, onPointerCancel: function () { drag.current = null; } }, h('span', { className: 'frk-trim__grip' }));
+    }
+    return h('div', { className: cx('frk-trim', 'frk-trim--' + (p.tone || 'rams'), p.className), role: 'group', 'aria-label': p.label || 'Recorte' },
+      h('div', { className: 'frk-trim__track', ref: track },
+        h('div', { className: 'frk-trim__wave', 'aria-hidden': true }, peaks.map(function (v, i) { var x = (i + .5) / peaks.length * 100; return h('span', { key: i, className: cx('frk-trim__bar', x >= a && x <= b && 'is-on'), style: { height: Math.max(8, v * 100) + '%' } }); })),
+        h('span', { className: 'frk-trim__range', 'aria-hidden': true, style: { left: a + '%', width: (b - a) + '%' } }),
+        handle(0), handle(1)),
+      p.readout === false ? null : h('div', { className: 'frk-trim__read', 'aria-hidden': true }, h('span', null, fmt(a)), h('span', null, fmt(b))));
+  }
+
+  /* ---------- Bands: lista de franjas de color a todo el ancho ---------- */
+  function Bands(p) {
+    var items = p.items || [];
+    return h('ol', { className: cx('frk-bands', p.stacked && 'frk-bands--stacked', p.className), 'aria-label': p.label },
+      items.map(function (it, i) {
+        var Tag = it.href ? 'a' : it.onClick ? 'button' : 'div';
+        return h('li', { key: i, className: 'frk-bands__item' },
+          h(Tag, { href: it.href, type: Tag === 'button' ? 'button' : undefined, onClick: it.onClick, className: cx('frk-bands__band', 'frk-tone--' + (it.tone || 'surface')) },
+            p.numbered === false ? null : h('span', { className: 'frk-bands__n', 'aria-hidden': true }, i + 1),
+            h('span', { className: 'frk-bands__text' }, h('span', { className: 'frk-bands__title' }, it.title), it.sub ? h('span', { className: 'frk-bands__sub' }, it.sub) : null),
+            it.meta ? h('span', { className: 'frk-bands__meta' }, it.meta) : null,
+            it.icon ? h(Icon, { name: it.icon, size: 28 }) : Tag !== 'div' ? h(Icon, { name: 'arrow-right', size: 24 }) : null));
+      }));
+  }
+
+  /* ---------- Eyes: dos ojos que dicen cómo está el agente ---------- */
+  var EYE_MOODS = {
+    neutral: { name: 'Atento', lid: null, pupil: [0, 0] },
+    happy: { name: 'Contento', lid: 'M-30 16 Q0 -8 30 16 V40 H-30z', pupil: null },
+    angry: { name: 'Enfadado', lid: 'M-30 -40 H30 V-4 L-30 -24z', pupil: [4, 6] },
+    sleepy: { name: 'Con sueño', lid: 'M-30 -40 H30 V4 H-30z', pupil: [0, 12] },
+    thinking: { name: 'Pensando', lid: null, pupil: [8, -10] },
+    surprised: { name: 'Sorprendido', lid: null, pupil: [0, 0], wide: true }
+  };
+  function Eyes(p) {
+    var m = EYE_MOODS[p.mood] || EYE_MOODS.neutral, size = p.size || 160, id = useId().replace(/[^a-zA-Z0-9_-]/g, '');
+    function eye(cx0, flip, key) {
+      return h('g', { key: key, transform: 'translate(' + cx0 + ' 50)' + (flip ? ' scale(-1 1)' : ''), className: 'frk-eyes__eye' },
+        h('g', { mask: m.lid ? 'url(#' + id + ')' : undefined },
+          h('ellipse', { rx: m.wide ? 24 : 22, ry: m.wide ? 30 : 26, className: 'frk-eyes__ball' }),
+          m.pupil ? h('circle', { cx: m.pupil[0], cy: m.pupil[1], r: m.wide ? 6 : 9, className: 'frk-eyes__pupil' }) : null));
+    }
+    return h('svg', { className: cx('frk-eyes', 'frk-eyes--' + (p.tone || 'ink'), p.still && 'is-still', p.className), width: size, height: size * .625, viewBox: '0 0 160 100', role: 'img', 'aria-label': p.label || m.name, focusable: 'false' },
+      m.lid ? h('defs', null, h('mask', { id: id, maskUnits: 'userSpaceOnUse', x: -30, y: -40, width: 60, height: 80 }, h('rect', { x: -30, y: -40, width: 60, height: 80, fill: '#fff' }), h('path', { d: m.lid, fill: '#000' }))) : null,
+      eye(46, false, 'l'), eye(114, true, 'r'));
+  }
+
+  /* ---------- Swatch: un par de color, fondo y marca, en discos concéntricos ---------- */
+  function swatchColor(c) { return /^[a-z][a-z0-9-]*$/.test(c || '') ? 'var(--' + c + ')' : c; }
+  function Swatch(p) {
+    var size = p.size || 96;
+    return h('figure', { className: cx('frk-swatch', p.className) },
+      h('span', { className: 'frk-swatch__disc', 'aria-hidden': true, style: { width: size, height: size, background: swatchColor(p.ground) } }, p.mark ? h('span', { className: 'frk-swatch__mark', style: { background: swatchColor(p.mark) } }) : null),
+      p.label ? h('figcaption', { className: 'frk-swatch__label' }, p.label, p.note ? h('span', { className: 'frk-swatch__note' }, p.note) : null) : null);
+  }
+
+  /* ---------- WeekStrip: los días de una semana con su estado; se elige uno ---------- */
+  var WEEK_STATES = { done: 'hecho', partial: 'a medias', none: 'sin hacer' };
+  function WeekStrip(p) {
+    var days = p.days || [], st = useValue(p, 0), sel = st[0], root = useRef(null);
+    function go(i) { i = (i + days.length) % days.length; st[1](i); var el = root.current && root.current.querySelector('[data-day="' + i + '"]'); if (el) el.focus(); }
+    return h('div', { ref: root, className: cx('frk-week', 'frk-week--' + (p.tone || 'ink'), p.className), role: 'radiogroup', 'aria-label': p.label || 'Semana',
+      onKeyDown: function (e) { var k = e.key; if (k === 'ArrowRight' || k === 'ArrowDown') { e.preventDefault(); go(sel + 1); } else if (k === 'ArrowLeft' || k === 'ArrowUp') { e.preventDefault(); go(sel - 1); } else if (k === 'Home') { e.preventDefault(); go(0); } else if (k === 'End') { e.preventDefault(); go(days.length - 1); } } },
+      days.map(function (d, i) {
+        var s = d.state || 'none';
+        return h('button', { key: i, type: 'button', role: 'radio', 'data-day': i, 'aria-checked': i === sel, tabIndex: i === sel ? 0 : -1, className: cx('frk-week__day', i === sel && 'is-on', d.today && 'is-today'), 'aria-label': (d.name || d.label) + ' ' + d.day + ', ' + WEEK_STATES[s] + (d.today ? ', hoy' : ''), onClick: function () { st[1](i); } },
+          h('span', { className: cx('frk-week__mark', 'is-' + s), 'aria-hidden': true }),
+          h('span', { className: 'frk-week__num', 'aria-hidden': true }, d.day),
+          h('span', { className: 'frk-week__lbl', 'aria-hidden': true }, d.label));
+      }));
+  }
+
+  /* ---------- IndexList: índice en letra grande, con la cuenta en pequeño ---------- */
+  function IndexList(p) {
+    var items = p.items || [];
+    return h('ul', { className: cx('frk-index', p.className), 'aria-label': p.label },
+      items.map(function (it, i) {
+        var o = typeof it === 'string' ? { label: it } : it, Tag = o.href ? 'a' : o.onClick ? 'button' : 'span';
+        return h('li', { key: i }, h(Tag, { href: o.href, type: Tag === 'button' ? 'button' : undefined, onClick: o.onClick, 'aria-current': o.current ? 'true' : undefined, className: cx('frk-index__item', o.current && 'is-on') },
+          h('span', { className: 'frk-index__label' }, o.label),
+          o.count != null ? h('span', { className: 'frk-index__count' }, h('span', { className: 'frk-sr' }, ', '), o.count) : null));
+      }));
+  }
+
+  var api = {KeyButton: KeyButton, Keypad: Keypad, HoldButton: HoldButton, SlideToStart: SlideToStart, Rocker: Rocker, Icon: Icon, Dial: Dial, Gauge: Gauge, Slider: Slider, Switch: Switch, Segmented: Segmented, Stepper: Stepper, Wheel: Wheel, VolumeWheel: VolumeWheel, Checkbox: Checkbox, RadioGroup: RadioGroup, Select: Select, Menu: Menu, Tabs: Tabs, TextField: TextField, Calendar: Calendar, Sheet: Sheet, Toast: Toast, Banner: Banner, Tooltip: Tooltip, Timer: Timer, Stopwatch: Stopwatch, Hourglass: Hourglass, Pendulum: Pendulum, MediaPlayer: MediaPlayer, AudioTrack: AudioTrack, Ticker: Ticker, SplitFlap: SplitFlap, DotMatrix: DotMatrix, DotGrid: DotGrid, StateMark: StateMark, Steps: Steps, Grille: Grille, LED: LED, LevelBars: LevelBars, BarMeter: BarMeter, LineChart: LineChart, ProgressRing: ProgressRing, Readout: Readout, Tile: Tile, Strip: Strip, CardStack: CardStack, Cabinet: Cabinet, Pager: Pager, Deck: Deck, ListRow: ListRow, Chip: Chip, Badge: Badge, Avatar: Avatar, TopBar: TopBar, TabBar: TabBar, EmptyState: EmptyState, Skeleton: Skeleton, Message: Message, Composer: Composer, Suggestions: Suggestions, VoiceOrb: VoiceOrb, DotLoader: DotLoader, AgentWidget: AgentWidget, Render: Render, Reveal: Reveal, Stack: Stack, Grid: Grid, Text: Text, ClickWheel: ClickWheel, DiscCarousel: DiscCarousel, NumPad: NumPad, Viewfinder: Viewfinder, CaptureKey: CaptureKey, Recorder: Recorder, NoteEditor: NoteEditor, Sidebar: Sidebar, DataTable: DataTable, CommandBar: CommandBar, Notch: Notch, Viewport3D: Viewport3D, Heatmap: Heatmap, SplitBar: SplitBar, Sparkline: Sparkline, HourStrip: HourStrip, PaymentCard: PaymentCard, Dialog: Dialog, FileDrop: FileDrop, ChoiceCards: ChoiceCards, Stat: Stat, UsageMeter: UsageMeter, Timeline: Timeline, Checklist: Checklist, PromptBox: PromptBox, Clock: Clock, VUMeter: VUMeter, RotarySelector: RotarySelector, Fader: Fader, Keycap: Keycap, Calculator: Calculator, PadGrid: PadGrid, TapeDeck: TapeDeck, Board: Board, Sortable: Sortable, Blueprint: Blueprint, AreaChart: AreaChart, Scatter: Scatter, RadarChart: RadarChart, DonutChart: DonutChart, Scope: Scope, VoicePosition: VoicePosition, Beam: Beam, Aura: Aura, FlapBoard: FlapBoard, Shape: Shape, Ruler: Ruler, Onboarding: Onboarding, Article: Article, Capsule: Capsule, FillCard: FillCard, ColumnChart: ColumnChart, Pictogram: Pictogram, DotColumns: DotColumns, Sequencer: Sequencer, TrimWave: TrimWave, Bands: Bands, Eyes: Eyes, Swatch: Swatch, WeekStrip: WeekStrip, IndexList: IndexList};
   api.parseLang = parseLang;
   window.Frekvens = Object.assign(window.Frekvens || {}, api);
 })();
